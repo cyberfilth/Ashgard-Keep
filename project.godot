@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Roguelike"
+run/main_scene="res://scenes/Map/Map.tscn"
+config/icon="res://graphics/icon.png"
+
+[display]
+
+window/size/resizable=false
+
+[image_loader]
+
+filter=false
+gen_mipmaps=false
+
+[importer_defaults]
+
+texture={
+"flags/filter": false,
+"flags/mipmaps": false
+}
+
+[rendering]
+
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+quality/depth_prepass/enable=false
+quality/dynamic_fonts/use_oversampling=false
