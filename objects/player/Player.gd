@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://objects/components/Object.gd"
 
 const DIRECTIONS = {
     "N":    Vector2(0,-1),
@@ -11,8 +11,6 @@ const DIRECTIONS = {
     "NW":    Vector2(-1,-1),
     }
 
-onready var map = get_parent()
-
 # Step 1 tile in a direction
 func step(dir):
 	dir.x = clamp(dir.x, -1, 1)
@@ -22,14 +20,6 @@ func step(dir):
 		set_map_position(new_cell)
 	else:
 		print("You walk into the wall.")
-
-# Set our position in map cell coordinates
-func set_map_position(cell):
-	set_position(map.map_to_world(cell))
-
-# Get our position in map cell coordinates
-func get_map_position():
-	return map.world_to_map(get_position())
 
 func _ready():
 	set_process_input(true)

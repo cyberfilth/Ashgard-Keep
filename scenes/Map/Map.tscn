@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tilesets/BasicTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Map/Map.gd" type="Script" id=2]
-[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=3]
 
 [node name="Map" type="TileMap"]
 tile_set = ExtResource( 1 )
