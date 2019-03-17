@@ -1,5 +1,16 @@
 extends Node2D
 
+const DIRECTIONS = {
+    "N":    Vector2(0,-1),
+    "NE":    Vector2(1,-1),
+    "E":    Vector2(1,0),
+    "SE":    Vector2(1,1),
+    "S":    Vector2(0,1),
+    "SW":    Vector2(-1,1),
+    "W":    Vector2(-1,0),
+    "NW":    Vector2(-1,-1),
+    }
+
 onready var map = get_parent()
 
 # Step 1 tile in a direction
@@ -24,17 +35,19 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		var UP = event.scancode == KEY_UP
-		var DOWN = event.scancode == KEY_DOWN
-		var LEFT = event.scancode == KEY_LEFT
-		var RIGHT = event.scancode == KEY_RIGHT
-		
-		if UP:
-			step(Vector2(0,-1))
-		if DOWN:
-			step(Vector2(0,1))
-		if LEFT:
-			step(Vector2(-1,0))
-		if RIGHT:
-			step(Vector2(1,0))
+	if Input.is_action_pressed( "step_N" ):
+		step( DIRECTIONS.N )
+	if Input.is_action_pressed( "step_NE" ):
+		step( DIRECTIONS.NE )
+	if Input.is_action_pressed( "step_E" ):
+		step( DIRECTIONS.E )
+	if Input.is_action_pressed( "step_SE" ):
+		step( DIRECTIONS.SE )
+	if Input.is_action_pressed( "step_S" ):
+		step( DIRECTIONS.S )
+	if Input.is_action_pressed( "step_SW" ):
+		step( DIRECTIONS.SW )
+	if Input.is_action_pressed( "step_W" ):
+		step( DIRECTIONS.W )
+	if Input.is_action_pressed( "step_NW" ):
+		step( DIRECTIONS.NW )
