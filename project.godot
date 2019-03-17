@@ -19,6 +19,11 @@ config/name="Roguelike"
 run/main_scene="res://scenes/Map/Map.tscn"
 config/icon="res://graphics/icon.png"
 
+[autoload]
+
+DungeonGenerator="*res://global/DungeonGenerator.gd"
+RPG="*res://global/RPG.gd"
+
 [display]
 
 window/size/resizable=false
