@@ -15,16 +15,18 @@ const DIRECTIONS = {
 func step(dir):
 	dir.x = clamp(dir.x, -1, 1)
 	dir.y = clamp(dir.y, -1, 1)
+	
+	# Calculate new cell
 	var new_cell = get_map_position() + dir
-	if not map.is_blocked(new_cell):
-		set_map_position(new_cell)
+	if map.is_cell_blocked(new_cell):
+		print( "Ow! You hit a wall!" )
 	else:
-		print("You walk into the wall.")
+		set_map_position(new_cell)
 
 func _ready():
 	set_process_input(true)
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_pressed( "step_N" ):
 		step( DIRECTIONS.N )
 	if Input.is_action_pressed( "step_NE" ):

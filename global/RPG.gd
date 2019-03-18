@@ -4,5 +4,5 @@ const GREETING = "Hello RPG!"
 
 onready var _db = preload( "res://objects/components/Database.tscn" ).instance()
 
-func make_thing( path ):
+func make_object( path ):
 	return _db.spawn( path )
