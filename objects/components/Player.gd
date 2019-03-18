@@ -11,17 +11,21 @@ const DIRECTIONS = {
     "NW":    Vector2(-1,-1),
     }
 
-# Step 1 tile in a direction
+# Step one cell in a direction
 func step(dir):
 	dir.x = clamp(dir.x, -1, 1)
 	dir.y = clamp(dir.y, -1, 1)
 	
 	# Calculate new cell
 	var new_cell = get_map_position() + dir
-	if map.is_cell_blocked(new_cell):
-		print( "Ow! You hit a wall!" )
+	 # Check for colliders at new cell
+	var collider = map.get_collider( new_cell )
+	if collider == map:
+		print( self.objectName + " hits the wall with a thud!" )
+	elif collider != null:
+		print( "%s punches the %s in the face!" % [self.objectName, collider.name] )
 	else:
-		set_map_position(new_cell)
+		set_map_position( new_cell )
 
 func _ready():
 	set_process_input(true)
