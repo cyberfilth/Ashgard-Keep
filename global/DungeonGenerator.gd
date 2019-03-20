@@ -1,104 +1,96 @@
 extends Node
 
+var datamap = []
+var start_pos = Vector2()
 
-
-# Generate the Datamap
-func Generate( map_size=Vector2(80,70), room_count=35, room_size=Vector2(5,16), wall_id=0, floor_id=1 ):
+# Build a new datamap (fill with walls)
+func build_datamap():
+	var size = RPG.MAP_SIZE
 	
-	# Randomize
+	for y in range(size.y):
+		var row = []
+		for x in range(size.x):
+			row.append(1)
+		datamap.append(row)
+
+# Set data to a cell in the datamap
+func set_cell_data(cell, data):
+	datamap[cell.y][cell.x] = data
+
+# find the center cell of a given rectangle
+func center(rect):
+	var x = int(rect.size.x / 2)
+	var y = int(rect.size.y / 2)
+	return Vector2(rect.position.x+x, rect.position.y+y)  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
+
+# Fill a rectangle of the map with floor cells
+# leaving a 1-tile border along edges
+func carve_room(rect):
+	for x in range(rect.size.x-2):
+		for y in range(rect.size.y-2):
+			set_cell_data(Vector2(rect.position.x+x+1, rect.position.y+y+1), 0)  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
+
+# Fill a horizontal strip of cells at row Y from X1 to X2
+func carve_h_hall(x1,x2,y):
+	for x in range( min( x1, x2 ),max( x1,x2 ) + 1 ):
+		set_cell_data( Vector2(x, y), 0 )
+
+# Fill a vertical strip of cells at column X from Y1 to Y2
+func carve_v_hall( y1, y2, x):
+	for y in range( min( y1, y2 ),max( y1, y2 ) + 1 ):
+		set_cell_data( Vector2(x, y), 0 )
+
+
+func map_to_text():
+	var file = File.new()
+	file.open('res://map.txt',File.WRITE)
+	for row in datamap:
+		var t = ''
+		for col in row:
+			t += str(['_','#'][col])
+		file.store_line(t)
+
+	file.close()
+
+
+func generate():
+	build_datamap()
 	randomize()
 	
-	# initialize data
-	var map = []
 	var rooms = []
-	var start_pos = Vector2()
-	
-	# Populate map array
-	for x in range( map_size.x ):
-		var column = []
-		for y in range( map_size.y ):
-			column.append( wall_id )
-		map.append( column )
-	
-	# Generate Rooms
-	for r in range( room_count ):
-		# Roll Random Room Rect
-		# Width & Height
-		var w = int( round( rand_range( room_size.x + 2, room_size.y + 2 ) ) )
-		var h = int( round( rand_range( room_size.x + 2, room_size.y + 2 ) ) )
-		# Origin (top-left corner)
-		var x = int( round( rand_range( 0, map_size.x - w - 1 ) ) )
-		var y = int( round( rand_range( 0, map_size.y - h - 1 ) ) )
-		# Construct Rect2
-		var new_room = Rect2( x, y, w, h )
+	var num_rooms = 0
+	for r in range(RPG.MAX_ROOMS):
+		var w = RPG.roll(RPG.ROOM_MIN_SIZE, RPG.ROOM_MAX_SIZE)
+		var h = RPG.roll(RPG.ROOM_MIN_SIZE, RPG.ROOM_MAX_SIZE)
+		var x = RPG.roll(0, RPG.MAP_SIZE.x - w-1)
+		var y = RPG.roll(0, RPG.MAP_SIZE.y - h-1)
 		
-		# Check against existing rooms for intersection
-		if !rooms.empty():
-			var passed = true
-			for other_room in rooms:
-				# If we don't intersect any other rooms..
-				if new_room.intersects( other_room ):
-					# Add to rooms list
-					passed = false
-			if passed: rooms.append(new_room)
-		# Add the first room
-		else:	rooms.append(new_room)
-	
-	# Process generated rooms
-	for i in range( rooms.size() ):
-		var room = rooms[i]
-		# Carve room
-		for x in range( room.size.width - 2 ):
-			for y in range( room.size.height - 2 ):
-				map[ room.pos.x + x + 1 ][ room.pos.y + y + 1] = floor_id
-
-		if i == 0:
-			# Define the start_pos in the first room
-			start_pos = center( room )
-		else:
-			# Carve a hall between this room and the last room
-			var prev_room = rooms[i-1]
-			var A = center( room )
-			var B = center( prev_room )
+		var new_room = Rect2(x,y,w,h)
+		var fail = false
+		
+		for other_room in rooms:
+			if other_room.intersects(new_room):
+				fail = true
+				break
+		
+		if !fail:
+			carve_room(new_room)
 			
-			# Flip a coin..
-			if randi() % 2 == 0:
-				# carve vertical -> horizontal hall
-				for cell in hline( A.x, B.x, A.y ):
-					map[cell.x][cell.y] = floor_id
-				for cell in vline( A.y, B.y, B.x ):
-					map[cell.x][cell.y] = floor_id
+			var new_center = center(new_room)
+			
+			if num_rooms == 0:
+				start_pos = new_center
 			else:
-				# carve horizontal -> vertical hall
-				for cell in vline( A.y, B.y, A.x ):
-					map[cell.x][cell.y] = floor_id
-				for cell in hline( A.x, B.x, B.y ):
-					map[cell.x][cell.y] = floor_id
-	
-	# Return data as a Dictionary
-	return {
-		"map":			map,
-		"rooms":		rooms,
-		"start_pos":	start_pos,
-		}
-
-
-# Find the global center of a Rect2
-func center( rect ):
-	var x = ceil(rect.size.width / 2)
-	var y = ceil(rect.size.height / 2)
-	return rect.pos + Vector2(x,y)
-
-# Get Vector2 along x1 - x2, y
-func hline( x1, x2, y ):
-	var line = []
-	for x in range( min(x1,x2), max(x1,x2) + 1 ):
-		line.append( Vector2(x,y) )
-	return line
-
-# Get Vector2 along x, y1 - y2
-func vline( y1, y2, x ):
-	var line = []
-	for y in range( min(y1,y2), max(y1,y2) + 1 ):
-		line.append( Vector2(x,y) )
-	return line
+				var prev_center = center(rooms[num_rooms-1])
+				# flip a coin
+				if randi()%2 == 0:
+					# go horizontal then vertical
+					carve_h_hall(prev_center.x, new_center.x, prev_center.y)
+					carve_v_hall(prev_center.y, new_center.y, new_center.x)
+				else:
+					# go vertical then horizontal
+					carve_v_hall(prev_center.y, new_center.y, prev_center.x)
+					carve_h_hall(prev_center.x, new_center.x, new_center.y)
+			
+			rooms.append(new_room)
+			num_rooms += 1

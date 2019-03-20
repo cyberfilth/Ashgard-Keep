@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/components/Database.gd" type="Script" id=1]
 [ext_resource path="res://objects/components/Object.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/components/Player.gd" type="Script" id=3]
-[ext_resource path="res://objects/components/potion_red.gd" type="Script" id=4]
+[ext_resource path="res://objects/components/items/potion_red.gd" type="Script" id=4]
 [ext_resource path="res://graphics/items/potion_red.png" type="Texture" id=5]
 
 [node name="Database" type="Node"]
@@ -15,6 +15,12 @@ script = ExtResource( 1 )
 script = ExtResource( 3 )
 objectName = "Harbek"
 blocks_movement = true
+
+[node name="Camera2D" type="Camera2D" parent="player/player/Sprite" index="0"]
+offset = Vector2( 12, 12 )
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 
 [node name="props" type="Node" parent="."]
 

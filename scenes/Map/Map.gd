@@ -26,10 +26,10 @@ func spawn( what, where ):
 func get_collider( cell ):
 	for object in get_blockers():
 		if object.get_map_position() == cell:
-			# Return the blocking Thing at this map pos
+			# Return the blocking Object at this map pos
 			return object
 		# Else return me if hitting a wall, or null if hitting air
-		return self if not is_blocked( cell ) else null
+		return self if is_blocked( cell ) else null
 
 func is_blocked(cell):
 	return get_cellv(cell)==1
@@ -42,11 +42,26 @@ func is_cell_blocked(cell):
 	# if no blockers here, check for walls
 	return is_blocked(cell)
 
+# Draw map cells from map 2DArray
+func draw_map():
+	var family = TileFamily.FAMILY_BLUE_DUNGEON
+	var datamap = DungeonGenerator.datamap
+	for y in range(datamap.size()-1):
+		for x in range(datamap[y].size()-1):
+			var tile = datamap[y][x]
+			var idx = -1
+			if tile == 0: # Floor
+				idx = RPG.roll(family[0][0],family[0][1])
+			elif tile == 1:
+				idx = RPG.roll(family[1][0],family[1][1])
+			set_cell(x,y,idx)
+
 func _ready():
-	# Test objects
+	RPG.map = self
+	DungeonGenerator.generate()
+	DungeonGenerator.map_to_text()
+	draw_map()
+	
+	# Spawn player
 	var player = RPG.make_object( "player/player" )
-	var potion1 = RPG.make_object( "props/potion_red" )
-	var potion2 = RPG.make_object( "props/potion_red" )
-	spawn( potion1, Vector2( 4,4 ) )
-	spawn( potion2, Vector2( 10,4 ) )
-	spawn( player, Vector2( 8,4 ) )
+	spawn( player, DungeonGenerator.start_pos)

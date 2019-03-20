@@ -21,12 +21,17 @@ config/icon="res://graphics/icon.png"
 
 [autoload]
 
-DungeonGenerator="*res://global/DungeonGenerator.gd"
 RPG="*res://global/RPG.gd"
+TileFamily="*res://global/TileFamily.gd"
+DungeonGenerator="*res://global/DungeonGenerator.gd"
 
 [display]
 
 window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "ch.fischspiele.tilesethelper" )
 
 [image_loader]
 
@@ -90,4 +95,5 @@ quality/intended_usage/framebuffer_allocation.mobile=0
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
 quality/depth_prepass/enable=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/dynamic_fonts/use_oversampling=false
