@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/components/Database.gd" type="Script" id=1]
 [ext_resource path="res://objects/components/Object.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/components/Player.gd" type="Script" id=3]
-[ext_resource path="res://objects/components/items/potion_red.gd" type="Script" id=4]
-[ext_resource path="res://graphics/items/potion_red.png" type="Texture" id=5]
+[ext_resource path="res://graphics/player/torch.png" type="Texture" id=4]
+[ext_resource path="res://objects/components/items/potion_red.gd" type="Script" id=5]
+[ext_resource path="res://graphics/items/potion_red.png" type="Texture" id=6]
 
 [node name="Database" type="Node"]
 script = ExtResource( 1 )
@@ -22,14 +23,20 @@ current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
+[node name="Light2D" type="Light2D" parent="player/player"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 4 )
+shadow_enabled = true
+
 [node name="props" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="potion_red" type="Node2D" parent="props"]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 blocks_movement = true
 
 [node name="Sprite" type="Sprite" parent="props/potion_red"]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 
 
