@@ -27,6 +27,8 @@ drag_margin_v_enabled = false
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
 shadow_enabled = true
+shadow_filter = 5
+shadow_filter_smooth = 5.5
 
 [node name="props" type="Node" parent="."]
 editor/display_folded = true
