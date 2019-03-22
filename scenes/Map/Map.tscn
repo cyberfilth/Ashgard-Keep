@@ -10,5 +10,5 @@ format = 1
 script = ExtResource( 2 )
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.301961, 0.188235, 0.215686, 0.596078 )
 

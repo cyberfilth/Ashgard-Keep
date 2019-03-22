@@ -24,6 +24,7 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="Light2D" type="Light2D" parent="player/player"]
+position = Vector2( 12, 12 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
 shadow_enabled = true
