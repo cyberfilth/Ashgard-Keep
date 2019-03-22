@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/components/Database.gd" type="Script" id=1]
 [ext_resource path="res://objects/components/Object.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/components/Player.gd" type="Script" id=3]
-[ext_resource path="res://graphics/player/torch.png" type="Texture" id=4]
+[ext_resource path="res://graphics/player/Torchlight.png" type="Texture" id=4]
 [ext_resource path="res://objects/components/items/potion_red.gd" type="Script" id=5]
 [ext_resource path="res://graphics/items/potion_red.png" type="Texture" id=6]
 
@@ -25,11 +25,12 @@ drag_margin_v_enabled = false
 
 [node name="Light2D" type="Light2D" parent="player/player"]
 position = Vector2( 12, 12 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
+mode = 2
 shadow_enabled = true
-shadow_filter = 5
-shadow_filter_smooth = 5.5
+shadow_filter = 3
+shadow_filter_smooth = 11.1
+shadow_item_cull_mask = 131073
 
 [node name="props" type="Node" parent="."]
 editor/display_folded = true
