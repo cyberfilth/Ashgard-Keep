@@ -32,7 +32,7 @@ func get_collider( cell ):
 		return self if is_blocked( cell ) else null
 
 func is_blocked(cell):
-	return get_cellv(cell)==1
+	return get_cellv(cell) <= 9 # Walls are indexed 0 to 9
 
 # Return TRUE if cell is blocked by anything
 func is_cell_blocked(cell):
@@ -44,7 +44,7 @@ func is_cell_blocked(cell):
 
 # Draw map cells from map 2DArray
 func draw_map():
-	var family = TileFamily.FAMILY_BLUE_DUNGEON
+	var family = TileFamily.FAMILY_SANDSTONE
 	var datamap = DungeonGenerator.datamap
 	for y in range(datamap.size()-1):
 		for x in range(datamap[y].size()-1):
@@ -59,7 +59,7 @@ func draw_map():
 func _ready():
 	RPG.map = self
 	DungeonGenerator.generate()
-	DungeonGenerator.map_to_text()
+	#DungeonGenerator.map_to_text()
 	draw_map()
 	
 	# Spawn player

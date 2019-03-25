@@ -40,7 +40,7 @@ func carve_v_hall( y1, y2, x):
 	for y in range( min( y1, y2 ),max( y1, y2 ) + 1 ):
 		set_cell_data( Vector2(x, y), 0 )
 
-
+# Saves generated dungeon as a text file
 func map_to_text():
 	var file = File.new()
 	file.open('res://map.txt',File.WRITE)

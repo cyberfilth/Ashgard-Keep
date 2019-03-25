@@ -29,6 +29,10 @@ DungeonGenerator="*res://global/DungeonGenerator.gd"
 
 window/size/resizable=false
 
+[editor_plugins]
+
+enabled=PoolStringArray( "ch.fischspiele.tilesethelper" )
+
 [image_loader]
 
 filter=false
