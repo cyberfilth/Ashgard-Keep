@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://graphics/dungeon/walls/sandstone_wall0.png" type="Texture" id=1]
 [ext_resource path="res://graphics/dungeon/walls/sandstone_wall1.png" type="Texture" id=2]
@@ -11,15 +11,25 @@
 [ext_resource path="res://graphics/dungeon/walls/sandstone_wall8.png" type="Texture" id=9]
 [ext_resource path="res://graphics/dungeon/walls/sandstone_wall9.png" type="Texture" id=10]
 [ext_resource path="res://graphics/dungeon/floors/sandstone_floor0.png" type="Texture" id=11]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor1.png" type="Texture" id=12]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor2.png" type="Texture" id=13]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor3.png" type="Texture" id=14]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor4.png" type="Texture" id=15]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor5.png" type="Texture" id=16]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor6.png" type="Texture" id=17]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor7.png" type="Texture" id=18]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor8.png" type="Texture" id=19]
-[ext_resource path="res://graphics/dungeon/floors/sandstone_floor9.png" type="Texture" id=20]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor0_normal.png" type="Texture" id=12]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor1.png" type="Texture" id=13]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor1_normal.png" type="Texture" id=14]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor2.png" type="Texture" id=15]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor2_normal.png" type="Texture" id=16]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor3.png" type="Texture" id=17]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor3_normal.png" type="Texture" id=18]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor4.png" type="Texture" id=19]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor4_normal.png" type="Texture" id=20]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor5.png" type="Texture" id=21]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor5_normal.png" type="Texture" id=22]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor6.png" type="Texture" id=23]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor6_normal.png" type="Texture" id=24]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor7.png" type="Texture" id=25]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor7_normal.png" type="Texture" id=26]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor8.png" type="Texture" id=27]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor8_normal.png" type="Texture" id=28]
+[ext_resource path="res://graphics/dungeon/floors/sandstone_floor9.png" type="Texture" id=29]
+[ext_resource path="res://graphics/dungeon/floors/normals/sandstone_floor9_normal.png" type="Texture" id=30]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
@@ -125,31 +135,41 @@ occluder = SubResource( 10 )
 
 [node name="sandstone_floor0" type="Sprite" parent="."]
 texture = ExtResource( 11 )
+normal_map = ExtResource( 12 )
 
 [node name="sandstone_floor1" type="Sprite" parent="."]
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
+normal_map = ExtResource( 14 )
 
 [node name="sandstone_floor2" type="Sprite" parent="."]
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
+normal_map = ExtResource( 16 )
 
 [node name="sandstone_floor3" type="Sprite" parent="."]
-texture = ExtResource( 14 )
+texture = ExtResource( 17 )
+normal_map = ExtResource( 18 )
 
 [node name="sandstone_floor4" type="Sprite" parent="."]
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
+normal_map = ExtResource( 20 )
 
 [node name="sandstone_floor5" type="Sprite" parent="."]
-texture = ExtResource( 16 )
+texture = ExtResource( 21 )
+normal_map = ExtResource( 22 )
 
 [node name="sandstone_floor6" type="Sprite" parent="."]
-texture = ExtResource( 17 )
+texture = ExtResource( 23 )
+normal_map = ExtResource( 24 )
 
 [node name="sandstone_floor7" type="Sprite" parent="."]
-texture = ExtResource( 18 )
+texture = ExtResource( 25 )
+normal_map = ExtResource( 26 )
 
 [node name="sandstone_floor8" type="Sprite" parent="."]
-texture = ExtResource( 19 )
+texture = ExtResource( 27 )
+normal_map = ExtResource( 28 )
 
 [node name="sandstone_floor9" type="Sprite" parent="."]
-texture = ExtResource( 20 )
+texture = ExtResource( 29 )
+normal_map = ExtResource( 30 )
 

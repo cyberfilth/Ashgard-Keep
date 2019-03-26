@@ -26,7 +26,9 @@ drag_margin_v_enabled = false
 [node name="Light2D" type="Light2D" parent="player/player"]
 position = Vector2( 12, 12 )
 texture = ExtResource( 4 )
+energy = 2.0
 mode = 2
+range_height = 64.9
 shadow_enabled = true
 shadow_filter = 3
 shadow_filter_smooth = 11.1
