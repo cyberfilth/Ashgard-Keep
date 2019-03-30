@@ -30,20 +30,20 @@ func step(dir):
 func _ready():
 	set_process_input(true)
 
-func _input(_event):
-	if Input.is_action_pressed( "step_N" ):
+func _input(event):
+	if event.is_action_pressed( "step_N" ):
 		step( DIRECTIONS.N )
-	if Input.is_action_pressed( "step_NE" ):
+	if event.is_action_pressed( "step_NE" ):
 		step( DIRECTIONS.NE )
-	if Input.is_action_pressed( "step_E" ):
+	if event.is_action_pressed( "step_E" ):
 		step( DIRECTIONS.E )
-	if Input.is_action_pressed( "step_SE" ):
+	if event.is_action_pressed( "step_SE" ):
 		step( DIRECTIONS.SE )
-	if Input.is_action_pressed( "step_S" ):
+	if event.is_action_pressed( "step_S" ):
 		step( DIRECTIONS.S )
-	if Input.is_action_pressed( "step_SW" ):
+	if event.is_action_pressed( "step_SW" ):
 		step( DIRECTIONS.SW )
-	if Input.is_action_pressed( "step_W" ):
+	if event.is_action_pressed( "step_W" ):
 		step( DIRECTIONS.W )
-	if Input.is_action_pressed( "step_NW" ):
+	if event.is_action_pressed( "step_NW" ):
 		step( DIRECTIONS.NW )
