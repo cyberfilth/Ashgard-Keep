@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://graphics/dungeon/fog.png" type="Texture" id=1]
-
-[node name="FogSet" type="Node"]
-
-[node name="fog" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-

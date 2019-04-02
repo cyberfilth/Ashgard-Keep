@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/player/base/human_m.png" type="Texture" id=2]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "OBJECT"
+blocks_movement = false
+stay_visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+

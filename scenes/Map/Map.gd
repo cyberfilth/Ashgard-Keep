@@ -3,52 +3,24 @@ extends TileMap
 # Basic Map
 # -1=nocell, 0=Wall, 1=Floor
 
-# Return Array of all Objects
-func get_objects():
-    return get_tree().get_nodes_in_group("objects")
 
-# Return Array of all Movement-Blocking Objects
-func get_blockers():
-    return get_tree().get_nodes_in_group("blockers")
+func spawn_object(partial_path,cell):
+	var path = 'res://objects/' +partial_path+ '.tscn'
+# DOESN'T WORK ON EXPORT
+#	var file = File.new()
+#	var exists = file.file_exists(path)
+#	if not exists: 
+#		OS.alert("no such object: "+path)
+#		return
+	var ob = load(path)
+	if ob: ob.instance().spawn(self,cell)
 
-# Spawn WHAT path from Database, set position to WHERE
-func spawn( what, where ):
-	# Add the object to the scene and set its position
-	add_child( what )
-	what.set_map_position( where )
-	 # All objects go to objects group
-	what.add_to_group("objects")
-	# Add blocking objects to a blockers group
-	if what.blocks_movement:
-		what.add_to_group("blockers")
-
-# Return a blocking Object, this Map, or null at cell
-func get_collider( cell ):
-	for object in get_blockers():
-		if object.get_map_position() == cell:
-			# Return the blocking Object at this map pos
-			return object
-		# Else return me if hitting a wall, or null if hitting air
-		return self if is_blocked( cell ) else null
-
-func is_blocked(cell):
-	return get_cellv(cell) <= 9 # Walls are indexed 0 to 9
-
-# Return TRUE if cell is blocked by anything
-func is_cell_blocked(cell):
-	for object in get_blockers():
-		if object.get_map_position() == cell:
-			return true
-	# if no blockers here, check for walls
-	return is_blocked(cell)
-
-# Draw map cells from map 2DArray
 func draw_map():
 	var family = TileFamily.FAMILY_SANDSTONE
-	var datamap = DungeonGenerator.datamap
-	for y in range(datamap.size()-1):
-		for x in range(datamap[y].size()-1):
-			var tile = datamap[y][x]
+	var datamap = DungeonGen.datamap
+	for x in range(datamap.size()-1):
+		for y in range(datamap[x].size()-1):
+			var tile = datamap[x][y]
 			var idx = -1
 			if tile == 0: # Floor
 				idx = RPG.roll(family[0][0],family[0][1])
@@ -56,12 +28,36 @@ func draw_map():
 				idx = RPG.roll(family[1][0],family[1][1])
 			set_cell(x,y,idx)
 
+# Return True if cell is a wall
+# Return False if cell is an unblocked floor
+# Return Object if cell has a blocking Object
+func is_cell_blocked(cell):
+	var blocks = is_wall(cell)
+	var objects = get_objects_in_cell(cell)
+	for obj in objects:
+		if obj.blocks_movement:
+			blocks = obj
+	return blocks
+
+func get_objects_in_cell(cell):
+	var list = []
+	for obj in get_tree().get_nodes_in_group('objects'):
+		if obj.get_map_pos() == cell:
+			list.append(obj)
+	return list
+
+func is_wall(cell):
+	return DungeonGen.datamap[cell.x][cell.y]==1
+
+
 func _ready():
 	RPG.map = self
-	DungeonGenerator.generate()
-	#DungeonGenerator.map_to_text()
+	DungeonGen.generate()
+	DungeonGen.map_to_text()
 	draw_map()
-	
-	# Spawn player
-	var player = RPG.make_object( "player/player" )
-	spawn( player, DungeonGenerator.start_pos)
+	spawn_object('Player/Player',DungeonGen.start_pos)
+
+func _on_player_acted():
+	for node in get_tree().get_nodes_in_group('actors'):
+		if node != RPG.player:
+			print(node.name+ " gives you a dirty look!")

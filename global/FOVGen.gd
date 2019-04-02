@@ -16,12 +16,11 @@ extends Node
 #  radius= distance in cells to cast to (only cells within radius are considered)
 
 func calculate_fov(data, wall_index, origin, radius):
-	print("Calculating fov for : " + str(origin) + " r: " + str(radius) + " " + str(wall_index))
 	var rect = get_fov_rect(origin, radius)
 	var cells = []
 	# scan top edge
-	for x in range(rect.position.x, rect.end.x-1):
-		var V = Vector2(x,rect.position.y)
+	for x in range(rect.pos.x, rect.end.x-1):
+		var V = Vector2(x,rect.pos.y)
 		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:
@@ -29,14 +28,14 @@ func calculate_fov(data, wall_index, origin, radius):
 					cells.append(cell)
 	# scan bottom edge
 		V = Vector2(x,rect.end.y-1)
-		line = cast_fov_ray(data,wall_index,origin,V)
+		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:
 				if int(cell.distance_to(origin)) <= radius:
 					cells.append(cell)
 	# scan left edge
-	for y in range(rect.position.y, rect.end.y):
-		var V = Vector2(rect.position.x, y)
+	for y in range(rect.pos.y, rect.end.y):
+		var V = Vector2(rect.pos.x, y)
 		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:
@@ -44,7 +43,7 @@ func calculate_fov(data, wall_index, origin, radius):
 					cells.append(cell)
 	#scan right edge
 		V = Vector2(rect.end.x-1, y)
-		line = cast_fov_ray(data,wall_index,origin,V)
+		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:
 				if int(cell.distance_to(origin)) <= radius:
@@ -52,13 +51,13 @@ func calculate_fov(data, wall_index, origin, radius):
 	
 	
 	for cell in cells:
+
 		if not is_wall(data, wall_index, cell):
 			for x in range(-1,2):
 				for y in range(-1,2):
 					var ncell = cell+Vector2(x,y)
-					if -1 < ncell.x and ncell.x <= data.size()-1 and -1 < ncell.y and ncell.y <= data[0].size()-1:
-						if is_wall(data, wall_index, ncell) and int(ncell.distance_to(origin)) <= radius:
-							cells.append(ncell)
+					if is_wall(data, wall_index, ncell) and int(ncell.distance_to(origin)) <= radius:
+						cells.append(ncell)
 
 	return cells
 
@@ -81,14 +80,13 @@ func cast_fov_ray(data,wall_index,from,to):
 	var cells = []
 	var line = get_line(from,to)
 	for cell in line:
-		if -1 < cell.x and cell.x <= data.size()-1 and -1 < cell.y and cell.y <= data[0].size()-1:
-			# Check for blocking cell
-			if not is_wall(data, wall_index, cell):
-				cells.append(cell)
-			else:
-				# include the blocking cell in the list
-				cells.append(cell)
-				return cells
+		# Check for blocking cell
+		if not is_wall(data, wall_index, cell):
+			cells.append(cell)
+		else:
+			# include the blocking cell in the list
+			cells.append(cell)
+			return cells
 	return cells
 
 # Returns an array of datamap cells that lie

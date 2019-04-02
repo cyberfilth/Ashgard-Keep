@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/items/misc/misc_stone.png" type="Texture" id=2]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Rock"
+blocks_movement = false
+stay_visible = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+
