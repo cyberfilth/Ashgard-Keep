@@ -37,6 +37,3 @@ func _set_hp(what):
 	hp = what
 	if hp <= 0:
 		die()
-
-
-

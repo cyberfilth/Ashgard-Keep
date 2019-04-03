@@ -1,17 +1,7 @@
 extends TileMap
 
-# Basic Map
-# -1=nocell, 0=Wall, 1=Floor
-
-
 func spawn_object(partial_path,cell):
 	var path = 'res://objects/' +partial_path+ '.tscn'
-# DOESN'T WORK ON EXPORT
-#	var file = File.new()
-#	var exists = file.file_exists(path)
-#	if not exists: 
-#		OS.alert("no such object: "+path)
-#		return
 	var ob = load(path)
 	if ob: ob.instance().spawn(self,cell)
 
@@ -53,7 +43,7 @@ func is_wall(cell):
 func _ready():
 	RPG.map = self
 	DungeonGen.generate()
-	DungeonGen.map_to_text()
+	#DungeonGen.map_to_text()
 	draw_map()
 	spawn_object('Player/Player',DungeonGen.start_pos)
 
