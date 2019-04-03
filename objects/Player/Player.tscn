@@ -15,6 +15,7 @@ stay_visible = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
+z/z = 1
 texture = ExtResource( 2 )
 centered = false
 
@@ -64,7 +65,5 @@ shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
 [node name="Fighter" parent="." instance=ExtResource( 5 )]
-
-bleeds = true
 
 
