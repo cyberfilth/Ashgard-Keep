@@ -3,17 +3,26 @@ extends Node
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
-
+export(int) var power = 1
+export(int) var defense = 1
+export(int) var max_hp = 5
 var hp = 5 setget _set_hp
 
-var power = 1
+func fill_hp():
+	self.hp = self.max_hp
 
 func fight(who):
 	if who.fighter:
-		who.fighter.take_damage(self,self.power)
+		who.fighter.take_damage(owner,self.power)
 
 func take_damage(from,amount):
+	broadcast_damage_taken(from,amount)
 	self.hp -= amount
+
+func broadcast_damage_taken(from, amount):
+	var n = from.name
+	var m = str(amount)
+	RPG.broadcast(owner.name + " is hit by " +n+ " for " +m+ " points of damage")
 
 func die():
 	if self.bleeds:
@@ -36,4 +45,7 @@ func _ready():
 func _set_hp(what):
 	hp = what
 	if hp <= 0:
+		RPG.broadcast(owner.name+ " is slain!")
 		die()
+	else:
+		RPG.broadcast(owner.name+ " has " +str(hp)+ " HP left")

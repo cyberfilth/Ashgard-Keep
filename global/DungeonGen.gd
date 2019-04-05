@@ -17,6 +17,9 @@ func build_datamap():
 func set_cell_data(cell, data):
 	datamap[cell.x][cell.y] = data
 
+func get_cell_data(cell):
+	return datamap[cell.x][cell.y]
+
 # find the center cell of a given rectangle
 func center(rect):
 	var x = int(rect.size.x / 2)
@@ -52,6 +55,13 @@ func map_to_text():
 
 	file.close()
 
+func get_floor_cells():
+	var list = []
+	for x in range(RPG.MAP_SIZE.x):
+		for y in range(RPG.MAP_SIZE.y):
+			if datamap[x][y] == 0:
+				list.append(Vector2(x,y))
+	return list
 
 func generate():
 	build_datamap()
@@ -108,4 +118,3 @@ func place_items(room):
 	var y = RPG.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 	RPG.map.spawn_object('items/Thing', pos)
-

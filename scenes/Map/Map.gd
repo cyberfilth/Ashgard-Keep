@@ -38,16 +38,24 @@ func get_objects_in_cell(cell):
 
 func is_wall(cell):
 	return DungeonGen.datamap[cell.x][cell.y]==1
-
+	#return DungeonGen.get_cell_data(cell) == 1
 
 func _ready():
 	RPG.map = self
+	# Generate a dungeon
 	DungeonGen.generate()
+	# Output dungeon to text
 	#DungeonGen.map_to_text()
+	# build a Pathfinding map
+	PathGen.build_map(RPG.MAP_SIZE,DungeonGen.get_floor_cells())
+	# paint the visual map
 	draw_map()
+	# spawn the player
 	spawn_object('Player/Player',DungeonGen.start_pos)
 
 func _on_player_acted():
+	#PathGen.clean_dirty_cells()
 	for node in get_tree().get_nodes_in_group('actors'):
-		if node != RPG.player:
-			print(node.name+ " gives you a dirty look!")
+		if node != RPG.player and node.ai and node.discovered:
+			node.ai.take_turn()
+			#PathGen.clean_dirty_cells()

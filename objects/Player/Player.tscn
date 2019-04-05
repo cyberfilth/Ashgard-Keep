@@ -9,13 +9,12 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Player"
+name = "Harbek"
 blocks_movement = true
 stay_visible = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
-z/z = 1
 texture = ExtResource( 2 )
 centered = false
 
@@ -51,7 +50,7 @@ offset = Vector2( 0, 0 )
 scale = 13.5
 color = Color( 1, 1, 1, 1 )
 energy = 2.0
-mode = 2
+mode = 0
 range/height = 64.9
 range/z_min = -1024
 range/z_max = 1024
@@ -65,5 +64,9 @@ shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
 [node name="Fighter" parent="." instance=ExtResource( 5 )]
+
+bleeds = false
+defense = 1
+max_hp = 10
 
 

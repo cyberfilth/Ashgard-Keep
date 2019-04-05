@@ -13,6 +13,7 @@ var discovered = false # becomes true the first time seen becomes true
 
 # Components
 var fighter
+var ai
 
 func kill():
 	if RPG.player != self:
@@ -37,26 +38,42 @@ func step(dir):
 			fighter.fight(blocker)
 			emit_signal('object_acted')
 	elif blocker==false:
+		if blocks_movement:
+			# declare dirty path cell
+			PathGen.dirty_cells[get_map_pos()]=true
 		set_map_pos(new_cell)
 		emit_signal('object_acted')
 
+func step_to(cell):
+	var pos = get_map_pos()
+	var path = PathGen.find_path(pos, cell)
+	if path.size() > 1:
+		var dir = path[1] - pos
+		step(dir)
+
+func distance_to(cell):
+	var line = FOVGen.get_line(get_map_pos(), cell)
+	return line.size() - 1
 
 # Set our position in map cell coordinates
 func set_map_pos(cell):
 	set_pos(RPG.map.map_to_world(cell))
+	if blocks_movement:
+		# declare dirty path cell
+		PathGen.dirty_cells[cell]=false
 	emit_signal('object_moved',self)
 
 # Get our position in map cell coordinates
 func get_map_pos():
 	return RPG.map.world_to_map(get_pos())
 
-
-
-
 func _ready():
-	add_to_group('objects')
-		
-		
+	add_to_group('objects')	
+	if fighter:
+		set_z(RPG.LAYER_ACTOR)
+	else:
+		set_z(RPG.LAYER_ITEM)
+
 func _set_seen(what):
 	seen = what
 	set_hidden(not seen)

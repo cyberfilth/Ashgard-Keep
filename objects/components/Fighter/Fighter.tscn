@@ -6,5 +6,8 @@
 
 script/script = ExtResource( 1 )
 bleeds = true
+power = 1
+defense = 0
+max_hp = 2
 
 
