@@ -1,9 +1,11 @@
 extends Node2D
 
+# signals
+signal name_changed(what)
 signal object_moved(me)
 signal object_acted()
 
-export(String, MULTILINE) var name = "OBJECT"
+export(String, MULTILINE) var name = "OBJECT" setget _set_name
 export(bool) var blocks_movement = false
 
 export(bool) var stay_visible = false
@@ -22,6 +24,8 @@ func kill():
 func spawn(map,cell):
 	map.add_child(self)
 	set_map_pos(cell)
+	if fighter:
+		fighter.fill_hp()
 
 func wait():
 	emit_signal('object_acted')
@@ -55,6 +59,8 @@ func distance_to(cell):
 	var line = FOVGen.get_line(get_map_pos(), cell)
 	return line.size() - 1
 
+
+
 # Set our position in map cell coordinates
 func set_map_pos(cell):
 	set_pos(RPG.map.map_to_world(cell))
@@ -67,16 +73,31 @@ func set_map_pos(cell):
 func get_map_pos():
 	return RPG.map.world_to_map(get_pos())
 
+
+
 func _ready():
-	add_to_group('objects')	
+	add_to_group('objects')
+
+	
 	if fighter:
 		set_z(RPG.LAYER_ACTOR)
 	else:
 		set_z(RPG.LAYER_ITEM)
 
+func _set_name(what):
+	name = what
+	emit_signal('name_changed', name)
+
 func _set_seen(what):
 	seen = what
 	set_hidden(not seen)
 	# Discover if seen for the first time
-	if seen and not discovered:
+	if seen and not discovered and not self==RPG.player:
 		discovered = true
+		RPG.broadcast("A " +self.name+ " has been found", RPG.COLOR_YELLOW)
+
+func _on_hp_changed(current,full):
+	if not fighter: return
+	get_node('HPBar').set_hidden(current >= full)
+	get_node('HPBar').set_max(full)
+	get_node('HPBar').set_value(current)

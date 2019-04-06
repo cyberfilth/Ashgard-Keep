@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/player/Player.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Controller/Controller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=4]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/components/Object/HPBar.tscn" type="PackedScene" id=6]
 
 [node name="Object" type="Node2D"]
 
@@ -22,7 +23,7 @@ centered = false
 
 [node name="Camera" type="Camera2D" parent="."]
 
-offset = Vector2( 16, 16 )
+offset = Vector2( 12, 12 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -31,8 +32,8 @@ limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
 limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
 smoothing/enable = true
 smoothing/speed = 12.0
 drag_margin/left = 0.2
@@ -68,5 +69,7 @@ shadow/item_mask = 1
 bleeds = false
 defense = 1
 max_hp = 10
+
+[node name="HPBar" parent="." instance=ExtResource( 6 )]
 
 

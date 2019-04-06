@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://tilesets/dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Map/Map.gd" type="Script" id=2]
 [ext_resource path="res://tilesets/FogSet.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/Map/Fogmap.gd" type="Script" id=4]
+[ext_resource path="res://graphics/misc/cursor.png" type="Texture" id=5]
 
 [node name="Map" type="TileMap"]
 
@@ -46,5 +47,30 @@ script/script = ExtResource( 4 )
 [node name="Darkness" type="CanvasModulate" parent="."]
 
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="Cursor" type="Sprite" parent="."]
+
+visibility/blend_mode = 1
+z/z = 1
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Label" type="Label" parent="Cursor"]
+
+visibility/blend_mode = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -84.0
+margin/top = -14.0
+margin/right = 116.0
+margin/bottom = 0.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "thing"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

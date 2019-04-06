@@ -37,8 +37,38 @@ func get_objects_in_cell(cell):
 	return list
 
 func is_wall(cell):
-	return DungeonGen.datamap[cell.x][cell.y]==1
-	#return DungeonGen.get_cell_data(cell) == 1
+	return DungeonGen.get_cell_data(cell) == 1
+
+func set_cursor_hidden(is_hidden):
+	get_node('Cursor').set_hidden(is_hidden)
+
+func set_cursor():
+	var cell = world_to_map(get_local_mouse_pos())
+	get_node('Cursor').set_pos(map_to_world(cell))
+	
+	var text = 'NO!'
+	if cell in get_node('Fogmap').get_used_cells():
+		# cursor in fog
+		text = 'Unseen'
+	else:
+		var list = get_objects_in_cell(cell)
+		# cursor over object
+		if !list.empty():
+			list.sort_custom(self,'_sort_z')
+			text = list[0].name
+		else:
+			# cursor over empty wall/floor
+			text = "Wall" if is_wall(cell) else "Floor"
+
+	set_cursor_label(text)
+
+func _sort_z(a,b):
+	if a.get_z() > b.get_z():
+		return true
+	return false
+
+func set_cursor_label(text=''):
+	get_node('Cursor/Label').set_text(text)
 
 func _ready():
 	RPG.map = self
@@ -50,12 +80,8 @@ func _ready():
 	PathGen.build_map(RPG.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map
 	draw_map()
-	# spawn the player
-	spawn_object('Player/Player',DungeonGen.start_pos)
 
-func _on_player_acted():
-	#PathGen.clean_dirty_cells()
+func _on_player_acted():	
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != RPG.player and node.ai and node.discovered:
 			node.ai.take_turn()
-			#PathGen.clean_dirty_cells()

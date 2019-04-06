@@ -1,0 +1,71 @@
+[gd_resource type="Theme" load_steps=7 format=1]
+
+[ext_resource path="res://fonts/windows_command_prompt.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = 6.0
+content_margin/right = 6.0
+content_margin/top = 6.0
+content_margin/bottom = 6.0
+bg_color = Color( 0, 0, 0, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin/left = 4.0
+content_margin/right = 4.0
+content_margin/top = 4.0
+content_margin/bottom = 4.0
+bg_color = Color( 0.144196, 0.208001, 0.351563, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 1
+border_blend = false
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin/left = 4.0
+content_margin/right = 4.0
+content_margin/top = 4.0
+content_margin/bottom = 4.0
+bg_color = Color( 0.270996, 0.37992, 0.625, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 1
+border_blend = false
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+content_margin/left = 4.0
+content_margin/right = 4.0
+content_margin/top = 0.0
+content_margin/bottom = 0.0
+bg_color = Color( 0.305882, 0.290196, 0.305882, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 18
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 1 )
+
+[resource]
+
+default_font = SubResource( 5 )
+PanelContainer/styles/panel = SubResource( 1 )
+VScrollBar/styles/grabber = SubResource( 2 )
+VScrollBar/styles/grabber_hilite = SubResource( 3 )
+VScrollBar/styles/scroll = SubResource( 4 )
+
