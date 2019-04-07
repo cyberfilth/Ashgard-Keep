@@ -14,6 +14,7 @@ var seen = false setget _set_seen
 var discovered = false # becomes true the first time seen becomes true
 
 # Components
+var item
 var fighter
 var ai
 

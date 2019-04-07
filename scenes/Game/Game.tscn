@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://scenes/Game/Game.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Map/Map.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Map/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Container"]
 
@@ -12,11 +13,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
 margin/left = 8.0
 margin/top = 6.0
 margin/right = 8.0
 margin/bottom = 6.0
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 
 [node name="frame" type="HBoxContainer" parent="."]
 
@@ -72,7 +74,7 @@ audio_listener/enable_3d = false
 physics/object_picking = false
 gui/disable_input = false
 
-[node name="Map" parent="frame/left/map/Viewport" instance=ExtResource( 2 )]
+[node name="Map" parent="frame/left/map/Viewport" instance=ExtResource( 3 )]
 
 [node name="MessageBox" type="RichTextLabel" parent="frame/left"]
 
@@ -92,18 +94,19 @@ percent_visible = 1.0
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
+visibility/opacity = 0.5
 rect/min_size = Vector2( 400, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/vertical = 3
 margin/left = 608.0
 margin/top = 0.0
 margin/right = 1008.0
 margin/bottom = 588.0
 alignment = 0
 
-[node name="PlayerInfo" parent="frame/right" instance=ExtResource( 3 )]
+[node name="PlayerInfo" parent="frame/right" instance=ExtResource( 4 )]
 
 margin/right = 400.0
 margin/bottom = 588.0

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=1]
 
-[ext_resource path="res://fonts/windows_command_prompt.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/HelveticaNeue-Roman.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -56,7 +56,7 @@ draw_bg = true
 
 [sub_resource type="DynamicFont" id=5]
 
-font/size = 18
+font/size = 14
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 1 )

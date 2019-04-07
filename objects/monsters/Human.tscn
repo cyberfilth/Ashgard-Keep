@@ -8,7 +8,7 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "guard"
+name = "Guard"
 blocks_movement = true
 stay_visible = false
 
