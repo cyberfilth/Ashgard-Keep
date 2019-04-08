@@ -51,7 +51,7 @@ color = Color( 0.27451, 0.27451, 0.27451, 1 )
 [node name="Cursor" type="Sprite" parent="."]
 
 visibility/blend_mode = 1
-z/z = 1
+z/z = 2
 texture = ExtResource( 5 )
 centered = false
 

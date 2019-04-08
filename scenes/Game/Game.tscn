@@ -94,7 +94,6 @@ percent_visible = 1.0
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
-visibility/opacity = 0.5
 rect/min_size = Vector2( 400, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
