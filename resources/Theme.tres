@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=1]
+[gd_resource type="Theme" load_steps=6 format=1]
 
-[ext_resource path="res://fonts/HelveticaNeue-Roman.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -54,16 +54,9 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="DynamicFont" id=5]
-
-font/size = 14
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 1 )
-
 [resource]
 
-default_font = SubResource( 5 )
+default_font = ExtResource( 1 )
 PanelContainer/styles/panel = SubResource( 1 )
 VScrollBar/styles/grabber = SubResource( 2 )
 VScrollBar/styles/grabber_hilite = SubResource( 3 )

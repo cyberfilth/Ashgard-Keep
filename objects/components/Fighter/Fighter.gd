@@ -17,13 +17,27 @@ var hpbar
 func fill_hp():
 	self.hp = self.max_hp
 
+func is_hp_full():
+	return self.hp >= self.max_hp
+
 func fight(who):
 	if who.fighter:
 		who.fighter.take_damage(owner,self.power)
 
+func heal_damage(from,amount):
+	if owner == RPG.player:
+		broadcast_damage_healed(from,amount)
+	self.hp += amount
+
 func take_damage(from,amount):
 	broadcast_damage_taken(from,amount)
 	self.hp -= amount
+
+func broadcast_damage_healed(from, amount):
+	var n = from.name
+	var m = str(amount)
+	var color = RPG.COLOR_GREEN
+	RPG.broadcast("The " +n+ " restores " +m+ " HP!", color)
 
 func broadcast_damage_taken(from, amount):
 	var n = from.name
@@ -53,15 +67,12 @@ func _ready():
 	owner.call_deferred('add_child', hpbar)
 	connect("hp_changed", self, "_on_hp_changed")
 
-
-
 func _set_hp(what):
-	hp = what
+	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
 		RPG.broadcast(owner.name+ " is slain!", RPG.COLOR_DARK_GREEN)
 		die()
-
 
 func _set_max_hp(what):
 	max_hp = what

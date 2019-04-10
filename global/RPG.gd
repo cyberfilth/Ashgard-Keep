@@ -25,6 +25,8 @@ var ROOM_MAX_SIZE = 13
 var game
 var player
 var map
+var inventory
+var inventory_menu
 
 
 func broadcast(message, color=COLOR_WHITE):

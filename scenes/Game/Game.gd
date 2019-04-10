@@ -4,6 +4,8 @@ onready var messagebox = get_node('frame/left/MessageBox')
 onready var playerinfo = get_node('frame/right/PlayerInfo')
 onready var viewport_panel = get_node('frame/left/map')
 
+onready var inventory_menu = get_node('InventoryMenu')
+
 var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
