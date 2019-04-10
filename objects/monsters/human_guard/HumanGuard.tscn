@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://graphics/monster/AT_green.png" type="Texture" id=2]
+[ext_resource path="res://objects/monsters/human_guard/AT_green.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/AI/AI.tscn" type="PackedScene" id=4]
+
 
 [node name="Object" type="Node2D"]
 
