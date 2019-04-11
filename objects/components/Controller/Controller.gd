@@ -1,13 +1,37 @@
 extends Node
 
 
+onready var owner = get_parent()
 
-onready var object = get_parent()
+# Player-specific object functions
+# GRAB action
+func Grab():
+	var items = []
+	for ob in RPG.map.get_objects_in_cell(owner.get_map_pos()):
+		if ob.item:
+			items.append(ob)
+	if not items.empty():
+		items[0].item.pickup()
+
+# DROP action
+func Drop():
+	RPG.inventory.call_drop_menu()
+	var items = yield(RPG.inventory_menu, 'items_selected')
+	if items.empty():
+		RPG.broadcast("action cancelled")
+	else:
+		for obj in items:
+			obj.item.drop()
+			owner.emit_signal('object_acted')
+
+# WAIT action
+func Wait():
+	owner.emit_signal('object_acted')
 
 func _ready():
-	RPG.player = object
-	object.connect("object_moved", RPG.map.get_node('Fogmap'), '_on_player_pos_changed')
-	object.connect("object_acted", RPG.map, "_on_player_acted")
+	RPG.player = owner
+	owner.connect("object_moved", RPG.map.get_node('Fogmap'), '_on_player_pos_changed')
+	owner.connect("object_acted", RPG.map, "_on_player_acted")
 	set_process_input(true)
 
 
@@ -22,22 +46,31 @@ func _input(event):
 	var NW = event.is_action_pressed('step_NW')
 	var WAIT = event.is_action_pressed('step_WAIT')
 	
+	var GRAB = event.is_action_pressed('act_GRAB')
+	var DROP = event.is_action_pressed('act_DROP')
+	
 	if N:
-		object.step(Vector2(0,-1))
+		owner.step(Vector2(0,-1))
 	if NE:
-		object.step(Vector2(1,-1))
+		owner.step(Vector2(1,-1))
 	if E:
-		object.step(Vector2(1,0))
+		owner.step(Vector2(1,0))
 	if SE:
-		object.step(Vector2(1,1))
+		owner.step(Vector2(1,1))
 	if S:
-		object.step(Vector2(0,1))
+		owner.step(Vector2(0,1))
 	if SW:
-		object.step(Vector2(-1,1))
+		owner.step(Vector2(-1,1))
 	if W:
-		object.step(Vector2(-1,0))
+		owner.step(Vector2(-1,0))
 	if NW:
-		object.step(Vector2(-1,-1))
+		owner.step(Vector2(-1,-1))
 	
 	if WAIT:
-		object.wait()
+		Wait()
+	
+	if GRAB:
+		Grab()
+	
+	if DROP:
+		Drop()

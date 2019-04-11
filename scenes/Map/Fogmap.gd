@@ -33,4 +33,4 @@ func _on_player_pos_changed(player):
 		# Keep discovered stay_visible objects seen
 		if node.discovered and node.stay_visible:
 			node.seen = true
-	
+	map.set_cursor()

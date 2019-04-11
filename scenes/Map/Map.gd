@@ -46,9 +46,14 @@ func set_cursor():
 	var cell = world_to_map(get_local_mouse_pos())
 	get_node('Cursor').set_pos(map_to_world(cell))
 	
-	var text = 'NO!'
-	if cell in get_node('Fogmap').get_used_cells():
-		# cursor in fog
+	var oob = false # out of bounds
+	if cell.x < 0 or cell.x >= RPG.MAP_SIZE.x: oob = true
+	if cell.y < 0 or cell.y >= RPG.MAP_SIZE.y: oob = true
+
+	var text = 'NO!' #<-- shouldn't see this in game
+	
+	if cell in get_node('Fogmap').get_used_cells() or oob:
+		# cursor in fog or out of map
 		text = 'Unseen'
 	else:
 		var list = get_objects_in_cell(cell)
@@ -58,7 +63,7 @@ func set_cursor():
 			text = list[0].name
 		else:
 			# cursor over empty wall/floor
-			text = "Wall" if is_wall(cell) else "Floor"
+			text = "A wall" if is_wall(cell) else "A floor"
 
 	set_cursor_label(text)
 

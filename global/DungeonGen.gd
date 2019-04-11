@@ -117,4 +117,4 @@ func place_items(room):
 	var x = RPG.roll(room.pos.x+1, room.end.x-2)
 	var y = RPG.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
-	RPG.map.spawn_object('items/Thing', pos)
+	RPG.map.spawn_object('items/potions/HealthPotion', pos)

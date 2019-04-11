@@ -28,8 +28,8 @@ func spawn(map,cell):
 	if fighter:
 		fighter.fill_hp()
 
-func wait():
-	emit_signal('object_acted')
+#func wait():
+#	emit_signal('object_acted')
 
 # Step 1 tile in a direction
 # or bump into a blocking Object
@@ -60,8 +60,6 @@ func distance_to(cell):
 	var line = FOVGen.get_line(get_map_pos(), cell)
 	return line.size() - 1
 
-
-
 # Set our position in map cell coordinates
 func set_map_pos(cell):
 	set_pos(RPG.map.map_to_world(cell))
@@ -74,7 +72,9 @@ func set_map_pos(cell):
 func get_map_pos():
 	return RPG.map.world_to_map(get_pos())
 
-
+# Get our Icon texture
+func get_icon():
+	return get_node('Sprite').get_texture()
 
 func _ready():
 	add_to_group('objects')

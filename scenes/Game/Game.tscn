@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Map/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=7]
 
 [node name="Game" type="Container"]
 
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
-focus/stop_mouse = true
+focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 theme/theme = ExtResource( 1 )
@@ -107,7 +110,441 @@ alignment = 0
 
 [node name="PlayerInfo" parent="frame/right" instance=ExtResource( 4 )]
 
+size_flags/vertical = 2
+margin/right = 400.0
+margin/bottom = 108.0
+
+[node name="PanelContainer" type="PanelContainer" parent="frame/right"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 112.0
+margin/right = 400.0
+margin/bottom = 348.0
+
+[node name="Activity" type="PanelContainer" parent="frame/right"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 352.0
 margin/right = 400.0
 margin/bottom = 588.0
+
+[node name="box" type="VBoxContainer" parent="frame/right/Activity"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 6.0
+margin/top = 6.0
+margin/right = 394.0
+margin/bottom = 230.0
+alignment = 0
+
+[node name="InventoryAction" type="HBoxContainer" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 388.0
+margin/bottom = 32.0
+alignment = 0
+
+[node name="Drop" type="Button" parent="frame/right/Activity/box/InventoryAction"]
+
+rect/min_size = Vector2( 40, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 80.0
+margin/bottom = 32.0
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+text = "Drop item"
+flat = false
+
+[node name="ItemName" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 36.0
+margin/right = 388.0
+margin/bottom = 52.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 388.0
+margin/bottom = 164.0
+columns = 8
+script/script = ExtResource( 5 )
+
+[node name="InventorySlot" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/right = 24.0
+margin/bottom = 24.0
+
+[node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 28.0
+margin/right = 52.0
+margin/bottom = 24.0
+
+[node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 56.0
+margin/right = 80.0
+margin/bottom = 24.0
+
+[node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 84.0
+margin/right = 108.0
+margin/bottom = 24.0
+
+[node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 112.0
+margin/right = 136.0
+margin/bottom = 24.0
+
+[node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 140.0
+margin/right = 164.0
+margin/bottom = 24.0
+
+[node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 168.0
+margin/right = 192.0
+margin/bottom = 24.0
+
+[node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 196.0
+margin/right = 220.0
+margin/bottom = 24.0
+
+[node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/top = 28.0
+margin/right = 24.0
+margin/bottom = 52.0
+
+[node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 28.0
+margin/top = 28.0
+margin/right = 52.0
+margin/bottom = 52.0
+
+[node name="InventorySlot5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 56.0
+margin/top = 28.0
+margin/right = 80.0
+margin/bottom = 52.0
+
+[node name="InventorySlot16 6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 84.0
+margin/top = 28.0
+margin/right = 108.0
+margin/bottom = 52.0
+
+[node name="InventorySlot6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 112.0
+margin/top = 28.0
+margin/right = 136.0
+margin/bottom = 52.0
+
+[node name="InventorySlot16 7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 140.0
+margin/top = 28.0
+margin/right = 164.0
+margin/bottom = 52.0
+
+[node name="InventorySlot7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 168.0
+margin/top = 28.0
+margin/right = 192.0
+margin/bottom = 52.0
+
+[node name="InventorySlot16 8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 196.0
+margin/top = 28.0
+margin/right = 220.0
+margin/bottom = 52.0
+
+[node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/top = 56.0
+margin/right = 24.0
+margin/bottom = 80.0
+
+[node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 28.0
+margin/top = 56.0
+margin/right = 52.0
+margin/bottom = 80.0
+
+[node name="InventorySlot9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 56.0
+margin/top = 56.0
+margin/right = 80.0
+margin/bottom = 80.0
+
+[node name="InventorySlot16 10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 84.0
+margin/top = 56.0
+margin/right = 108.0
+margin/bottom = 80.0
+
+[node name="InventorySlot10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 112.0
+margin/top = 56.0
+margin/right = 136.0
+margin/bottom = 80.0
+
+[node name="InventorySlot16 11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 140.0
+margin/top = 56.0
+margin/right = 164.0
+margin/bottom = 80.0
+
+[node name="InventorySlot11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 168.0
+margin/top = 56.0
+margin/right = 192.0
+margin/bottom = 80.0
+
+[node name="InventorySlot16 12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 196.0
+margin/top = 56.0
+margin/right = 220.0
+margin/bottom = 80.0
+
+[node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/top = 84.0
+margin/right = 24.0
+margin/bottom = 108.0
+
+[node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 28.0
+margin/top = 84.0
+margin/right = 52.0
+margin/bottom = 108.0
+
+[node name="InventorySlot13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 56.0
+margin/top = 84.0
+margin/right = 80.0
+margin/bottom = 108.0
+
+[node name="InventorySlot16 14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 84.0
+margin/top = 84.0
+margin/right = 108.0
+margin/bottom = 108.0
+
+[node name="InventorySlot14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 112.0
+margin/top = 84.0
+margin/right = 136.0
+margin/bottom = 108.0
+
+[node name="InventorySlot16 15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 140.0
+margin/top = 84.0
+margin/right = 164.0
+margin/bottom = 108.0
+
+[node name="InventorySlot15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 168.0
+margin/top = 84.0
+margin/right = 192.0
+margin/bottom = 108.0
+
+[node name="InventorySlot16 16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
+
+margin/left = 196.0
+margin/top = 84.0
+margin/right = 220.0
+margin/bottom = 108.0
+
+[node name="InventoryObjects" type="Node2D" parent="frame/right/Activity/box"]
+
+visibility/visible = false
+transform/pos = Vector2( -6, -6 )
+
+[node name="InventoryMenu" type="PopupPanel" parent="."]
+
+process/pause_mode = 2
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+popup/exclusive = false
+script/script = ExtResource( 7 )
+
+[node name="frame" type="VBoxContainer" parent="InventoryMenu"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="Header" type="Label" parent="InventoryMenu/frame"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1008.0
+margin/bottom = 17.0
+text = "Choose Item(s) to drop..."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator" type="HSeparator" parent="InventoryMenu/frame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 21.0
+margin/right = 1008.0
+margin/bottom = 24.0
+
+[node name="Contents" type="HBoxContainer" parent="InventoryMenu/frame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 28.0
+margin/right = 1008.0
+margin/bottom = 567.0
+alignment = 0
+
+[node name="scroll" type="ScrollContainer" parent="InventoryMenu/frame/Contents"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 539.0
+scroll/horizontal = false
+scroll/vertical = true
+scroll/deadzone = 0
+
+[node name="Items" type="VBoxContainer" parent="InventoryMenu/frame/Contents/scroll"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 539.0
+alignment = 0
+
+[node name="Info" type="PanelContainer" parent="InventoryMenu/frame/Contents"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+size_flags/stretch_ratio = 3.0
+margin/left = 255.0
+margin/top = 0.0
+margin/right = 1008.0
+margin/bottom = 539.0
+
+[node name="Footer" type="Label" parent="InventoryMenu/frame"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 571.0
+margin/right = 1008.0
+margin/bottom = 588.0
+text = "T to confirm, ESC to cancel"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed"]
 
 
