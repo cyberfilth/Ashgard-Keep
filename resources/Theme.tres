@@ -1,21 +1,11 @@
-[gd_resource type="Theme" load_steps=6 format=1]
+[gd_resource type="Theme" load_steps=8 format=1]
 
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://resources/panelframe_stone.tres" type="StyleBox" id=1]
+[ext_resource path="res://resources/borderframe_aqua.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/black_panel.tres" type="StyleBox" id=3]
+[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
-content_margin/left = 6.0
-content_margin/right = 6.0
-content_margin/top = 6.0
-content_margin/bottom = 6.0
-bg_color = Color( 0, 0, 0, 1 )
-light_color = Color( 0.8, 0.8, 0.8, 1 )
-dark_color = Color( 0.8, 0.8, 0.8, 1 )
-border_size = 0
-border_blend = true
-draw_bg = true
-
-[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin/left = 4.0
 content_margin/right = 4.0
@@ -28,7 +18,7 @@ border_size = 1
 border_blend = false
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin/left = 4.0
 content_margin/right = 4.0
@@ -41,7 +31,7 @@ border_size = 1
 border_blend = false
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 
 content_margin/left = 4.0
 content_margin/right = 4.0
@@ -56,9 +46,21 @@ draw_bg = true
 
 [resource]
 
-default_font = ExtResource( 1 )
-PanelContainer/styles/panel = SubResource( 1 )
-VScrollBar/styles/grabber = SubResource( 2 )
-VScrollBar/styles/grabber_hilite = SubResource( 3 )
-VScrollBar/styles/scroll = SubResource( 4 )
+default_font = ExtResource( 4 )
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 1 )
+Button/styles/focus = ExtResource( 2 )
+Button/styles/hover = ExtResource( 1 )
+Button/styles/normal = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 1 )
+PanelContainer/styles/panel = ExtResource( 3 )
+PopupPanel/styles/panel = ExtResource( 3 )
+VScrollBar/styles/grabber = SubResource( 1 )
+VScrollBar/styles/grabber_hilite = SubResource( 2 )
+VScrollBar/styles/scroll = SubResource( 3 )
 
