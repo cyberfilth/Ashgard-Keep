@@ -19,6 +19,5 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "heal_player"
-stackable = false
 
 
