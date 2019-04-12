@@ -28,9 +28,6 @@ func spawn(map,cell):
 	if fighter:
 		fighter.fill_hp()
 
-#func wait():
-#	emit_signal('object_acted')
-
 # Step 1 tile in a direction
 # or bump into a blocking Object
 func step(dir):

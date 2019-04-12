@@ -1,7 +1,7 @@
 #################################
-#								#
-#	FIELD OF VIEW GENERATOR		#
-#								#
+#				#
+#	FIELD OF VIEW GENERATOR	#
+#				#
 #################################
 
 extends Node

@@ -64,5 +64,3 @@ icon = ExtResource( 1 )
 flat = true
 align = 0
 script/script = ExtResource( 2 )
-
-
