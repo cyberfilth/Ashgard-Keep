@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/items/potions/red.png" type="Texture" id=2]
-[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
+[ext_resource path="res://objects/items/potions/red.png" type="Texture" id=3]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -11,13 +12,37 @@ name = "Health Potion"
 blocks_movement = false
 stay_visible = true
 
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 12, 17 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 8.0
+color = Color( 0.917969, 0.0215149, 0.0215149, 1 )
+energy = 1.5
+mode = 2
+range/height = 30.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
-[node name="Item" parent="." instance=ExtResource( 3 )]
+[node name="Item" parent="." instance=ExtResource( 4 )]
 
 use_function = "heal_player"
+stackable = false
 
 

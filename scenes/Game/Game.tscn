@@ -169,12 +169,12 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 62.0
+margin/right = 70.0
 margin/bottom = 32.0
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
-text = "Drop item"
+text = " Drop item "
 flat = false
 
 [node name="ItemName" type="Label" parent="frame/right/Activity/box"]
