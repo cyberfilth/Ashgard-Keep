@@ -9,6 +9,7 @@ func fill():
 			set_cell(x,y,0)
 
 func reveal(cells):
+	map.fov_cells = cells
 	for cell in cells:
 		if get_cellv(cell) != -1:
 			set_cellv(cell,-1)
