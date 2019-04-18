@@ -71,6 +71,23 @@ func _on_slot_mouse_enter(slot):
 func _on_slot_mouse_exit():
 	name_label.set_text('')
 
+func _on_slot_button_pressed(slot):
+	assert not slot.contents.empty()
+	var obj = slot.contents[0]
+	var result = yield(obj.item, 'used')
+	
+	if result == "OK":
+		if not obj.item.indestructible:
+			slot.remove_contents(obj)
+			obj.kill()
+		RPG.player.emit_signal('object_acted')
+	else:
+		RPG.broadcast(result, RPG.COLOR_BROWN)
+
+func _on_slot_item_used(slot):
+	assert not slot.contents.empty()
+	slot.contents[0].item.use()
+
 func _on_Drop_pressed():
 	var cont = RPG.player.find_node('Controller')
 	cont.Drop()

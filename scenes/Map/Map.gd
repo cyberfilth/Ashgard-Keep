@@ -36,6 +36,14 @@ func spawn_object(partial_path,cell):
 	var ob = load(path)
 	if ob: ob.instance().spawn(self,cell)
 
+func spawn_fx(texture, cell):
+	var fx = Sprite.new()
+	fx.set_centered(false)
+	fx.set_texture(texture)
+	add_child(fx)
+	fx.set_pos( map_to_world(cell) )
+	fx.add_to_group('fx')
+
 func draw_map():
 	var family = TileFamily.FAMILY_SANDSTONE
 	var datamap = DungeonGen.datamap
@@ -117,7 +125,16 @@ func _ready():
 	# paint the visual map
 	draw_map()
 
-func _on_player_acted():	
+func _on_player_acted():
+	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != RPG.player and node.ai and node.discovered:
 			node.ai.take_turn()
+		# tick down status effects
+		node.fighter.process_status_effects()
+	# process FX objects
+	for node in get_tree().get_nodes_in_group('fx'):
+		if node.has_meta('kill'):
+			node.queue_free()	#kill me this turn
+		else:
+			node.set_meta('kill',true)	#kill me next turn

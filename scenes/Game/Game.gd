@@ -12,7 +12,6 @@ var mouse_cell = Vector2() setget _set_mouse_cell
 func spawn_player():
 	RPG.map.spawn_object('Player/Player',DungeonGen.start_pos)
 	var ob = RPG.player
-	
 	ob.connect("name_changed", RPG.game.playerinfo, "name_changed")
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("hp_changed", RPG.game.playerinfo, "hp_changed")
@@ -25,6 +24,9 @@ func _ready():
 	spawn_player()
 	set_process_input(true)
 
+func pos_in_map(pos):
+	var rect = Rect2(pos, Vector2(1,1))
+	return viewport_panel.get_rect().intersects(rect)
 
 func _input( ev ):
 	if ev.type == InputEvent.MOUSE_MOTION:
@@ -34,6 +36,12 @@ func _input( ev ):
 		var new_mouse_cell = RPG.map.world_to_map(RPG.map.get_local_mouse_pos())
 		if new_mouse_cell != mouse_cell:
 			self.mouse_cell = new_mouse_cell
+	if ev.type == InputEvent.MOUSE_BUTTON and ev.pressed:
+		if self.is_mouse_in_map:
+			if ev.button_index == BUTTON_LEFT:
+				emit_signal('map_clicked', self.mouse_cell)
+		if ev.button_index == BUTTON_RIGHT:
+			emit_signal('map_clicked', null)
 
 func _set_is_mouse_in_map(what):
 	is_mouse_in_map = what

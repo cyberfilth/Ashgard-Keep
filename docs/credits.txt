@@ -1,0 +1,7 @@
+CREDITS
+
+Ashgard Keep was created with the following resources;
+
+Roguelike tutorial by YeOldeDM at https://github.com/YeOldeDM
+
+Splashscreen is based on an image designed by Freepik - http://www.freepik.com

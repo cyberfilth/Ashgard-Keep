@@ -29,9 +29,5 @@ func update_slot():
 func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
 	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
-
-func _on_InventorySlot_pressed():
-	var obj = contents[0]
-	contents.remove(0)
-	obj.item.use()
-	update_slot()
+	connect("pressed", get_parent(), "_on_slot_button_pressed", [self])
+	connect("pressed", get_parent(), "_on_slot_item_used", [self])

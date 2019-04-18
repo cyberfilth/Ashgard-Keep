@@ -2,7 +2,7 @@
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
-[ext_resource path="res://objects/items/potions/red.png" type="Texture" id=3]
+[ext_resource path="res://objects/items/red.png" type="Texture" id=3]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
@@ -44,6 +44,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 4 )]
 
 use_function = "heal_player"
+param1 = 5
 stackable = false
 
 

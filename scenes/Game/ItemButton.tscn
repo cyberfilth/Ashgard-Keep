@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://objects/items/potions/red.png" type="Texture" id=1]
+[ext_resource path="res://objects/items/red.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Game/ItemButton.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -64,3 +64,5 @@ icon = ExtResource( 1 )
 flat = true
 align = 0
 script/script = ExtResource( 2 )
+
+

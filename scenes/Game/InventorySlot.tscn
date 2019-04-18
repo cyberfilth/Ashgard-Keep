@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=2 format=1]
 
 [ext_resource path="res://scenes/Game/InventorySlot.gd" type="Script" id=1]
 
@@ -42,7 +42,5 @@ align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[connection signal="pressed" from="." to="." method="_on_InventorySlot_pressed"]
 
 
