@@ -7,7 +7,7 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Scroll of Lightning Bolt"
+name = "Scroll of Confusion"
 blocks_movement = false
 stay_visible = true
 
