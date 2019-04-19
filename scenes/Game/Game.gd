@@ -1,5 +1,7 @@
 extends Container
 
+signal map_clicked(cell)
+
 onready var messagebox = get_node('frame/left/MessageBox')
 onready var playerinfo = get_node('frame/right/PlayerInfo')
 onready var viewport_panel = get_node('frame/left/map')
