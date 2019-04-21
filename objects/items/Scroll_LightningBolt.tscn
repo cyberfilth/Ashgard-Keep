@@ -9,8 +9,9 @@
 
 script/script = ExtResource( 1 )
 name = "Scroll of Lightning Bolt"
+proper_name = false
 blocks_movement = false
-stay_visible = true
+stay_visible = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -21,7 +22,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "damage_nearest"
-effect_name = "Shocker"
+effect_name = "Lightning Strike"
 param1 = 20
 stackable = true
 

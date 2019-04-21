@@ -23,7 +23,8 @@ func use():
 		call(use_function)
 
 func pickup():
-	RPG.inventory.add_to_inventory(owner)
+	var result = RPG.inventory.add_to_inventory(owner)
+	return result
 
 func drop():
 	assert inventory_slot != null

@@ -9,6 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "Scroll of Confusion"
+proper_name = false
 blocks_movement = false
 stay_visible = true
 
@@ -21,7 +22,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "confuse_target"
-effect_name = "So confused!"
+effect_name = null
 param1 = 4
 stackable = true
 

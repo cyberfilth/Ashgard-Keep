@@ -94,6 +94,7 @@ margin/bottom = 588.0
 bbcode/enabled = true
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
@@ -504,6 +505,7 @@ margin/right = 251.0
 margin/bottom = 539.0
 scroll/horizontal = false
 scroll/vertical = true
+scroll/deadzone = 0
 
 [node name="Items" type="VBoxContainer" parent="InventoryMenu/frame/Contents/scroll"]
 

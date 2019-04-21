@@ -8,6 +8,7 @@
 
 script/script = ExtResource( 1 )
 name = "Rock"
+proper_name = false
 blocks_movement = false
 stay_visible = true
 
@@ -16,8 +17,14 @@ stay_visible = true
 texture = ExtResource( 2 )
 centered = false
 
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
+effect_name = null
+param1 = 0
 stackable = true
 
 

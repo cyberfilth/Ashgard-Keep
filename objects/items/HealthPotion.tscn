@@ -9,6 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "Health Potion"
+proper_name = false
 blocks_movement = false
 stay_visible = true
 
@@ -39,6 +40,10 @@ shadow/item_mask = 1
 
 visibility/blend_mode = 1
 texture = ExtResource( 3 )
+centered = false
+
+[node name="Brand" type="Sprite" parent="."]
+
 centered = false
 
 [node name="Item" parent="." instance=ExtResource( 4 )]
