@@ -17,9 +17,11 @@ func remove_contents(what):
 func update_slot():
 	if not contents.empty():
 		get_node('Icon').set_texture(contents[0].get_icon())
+		get_node('Brand').set_texture(contents[0].get_brand())
 		set_disabled(false)
 	else:
 		get_node('Icon').set_texture(null)
+		get_node('Brand').set_texture(null)
 		set_disabled(true)
 
 	var count = contents.size()

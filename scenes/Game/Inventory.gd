@@ -44,6 +44,8 @@ func add_to_inventory(item):
 	
 	# assign the item to the slot
 	slot.add_contents(item)
+	return OK
+
 
 func remove_from_inventory(slot, item):
 	slot.remove_contents(item)
@@ -63,7 +65,7 @@ func _ready():
 	RPG.inventory = self
 
 func _on_slot_mouse_enter(slot):
-	var name = '' if slot.contents.empty() else slot.contents[0].name
+	var name = '' if slot.contents.empty() else slot.contents[0].get_display_name()
 	var count = slot.contents.size()
 	var nt = '' if count < 2 else str(count)+'x '
 	name_label.set_text(nt + name)

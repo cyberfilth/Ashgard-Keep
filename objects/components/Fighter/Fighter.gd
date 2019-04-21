@@ -40,28 +40,28 @@ func is_hp_full():
 
 func fight(who):
 	if who.fighter:
-		who.fighter.take_damage(owner.name, self.power)
+		who.fighter.take_damage(owner.get_display_name(), self.power)
 
 func heal_damage(from,amount):
 	if owner == RPG.player:
 		broadcast_damage_healed(from,amount)
 	self.hp += amount
 
-func take_damage(from,amount):
+func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
 	self.hp -= amount
 
-func broadcast_damage_healed(from, amount):
+func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
 	var color = RPG.COLOR_GREEN
-	RPG.broadcast("The "+from+" restores "+m+" HP!", color)
+	RPG.broadcast(from+ " restores " +m+ " HP!", color)
 
 func broadcast_damage_taken(from, amount):
 	var m = str(amount)
 	var color = RPG.COLOR_DARK_GREY
 	if owner == RPG.player:
 		color = RPG.COLOR_RED
-	RPG.broadcast(from+ " hits " +owner.name+ " for " +str(amount)+ " HP",color)
+	RPG.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
 
 func die():
 	if self.bleeds:
@@ -87,7 +87,7 @@ func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
-		RPG.broadcast(owner.name+ " is slain!", RPG.COLOR_DARK_GREEN)
+		RPG.broadcast(owner.get_display_name()+ " is slain!", RPG.COLOR_DARK_GREEN)
 		die()
 
 func _set_max_hp(what):

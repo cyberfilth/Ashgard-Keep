@@ -36,6 +36,7 @@ draw_bg = true
 
 script/script = ExtResource( 1 )
 name = "Harbek"
+proper_name = true
 blocks_movement = true
 stay_visible = false
 

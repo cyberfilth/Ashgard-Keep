@@ -44,6 +44,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 4 )]
 
 use_function = "heal_player"
+effect_name = "Healin' feelin'"
 param1 = 5
 stackable = false
 

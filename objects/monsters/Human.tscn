@@ -9,6 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "Guard"
+proper_name = true
 blocks_movement = true
 stay_visible = false
 

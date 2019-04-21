@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/items/scroll_1.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://graphics/brands/i-lightning.png" type="Texture" id=4]
+[ext_resource path="res://graphics/brands/i-fireball.png" type="Texture" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -20,9 +20,9 @@ centered = false
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
-use_function = "damage_nearest"
-effect_name = "Shocker"
-param1 = 20
+use_function = "blast_cell"
+effect_name = "Firestarter"
+param1 = 15
 stackable = true
 
 [node name="Brand" type="Sprite" parent="."]

@@ -21,7 +21,9 @@ func Grab():
 		if ob.item:
 			items.append(ob)
 	if not items.empty():
-		items[0].item.pickup()
+		var result = items[0].item.pickup()
+		if result == OK:
+			owner.emit_signal('object_acted')
 
 # DROP action
 func Drop():

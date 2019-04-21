@@ -24,6 +24,10 @@ script/script = ExtResource( 1 )
 
 centered = false
 
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
 [node name="Count" type="Label" parent="."]
 
 anchor/left = 1

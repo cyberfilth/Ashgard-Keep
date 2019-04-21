@@ -9,6 +9,12 @@ func get_objects_in_fov():
 			list.append(obj)
 	return list
 
+func get_actor_in_cell(cell):
+	var list = self.get_objects_in_cell(cell)
+	for obj in list:
+		if obj.is_in_group('actors'):
+			return obj
+
 func get_nearest_visible_actor():
 	# Get visible objects
 	var actors = []
@@ -99,7 +105,7 @@ func set_cursor():
 		# cursor over object
 		if !list.empty():
 			list.sort_custom(self,'_sort_z')
-			text = list[0].name
+			text = list[0].get_display_name()
 		else:
 			# cursor over empty wall/floor
 			text = "A wall" if is_wall(cell) else "A floor"

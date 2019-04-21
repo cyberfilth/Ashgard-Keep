@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/items/scroll_1.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/brands/i-confusion.png" type="Texture" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -20,7 +21,13 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "confuse_target"
+effect_name = "So confused!"
 param1 = 4
 stackable = true
+
+[node name="Brand" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
+centered = false
 
 
