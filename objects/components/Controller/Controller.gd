@@ -46,7 +46,6 @@ func Throw():
 	else:
 		obj = obj[0]
 		obj.item.throw()
-		
 
 # WAIT action
 func Wait():

@@ -57,8 +57,15 @@ func remove_from_inventory(slot, item):
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
-	var footer = "ENTER to confirm, ESC to cancel"
-	RPG.inventory_menu.start(true,header,footer)
+	var footer = "ENTER to confirm, ESC or RMB to cancel"
+	RPG.inventory_menu.start(true, header, footer)
+	
+func call_throw_menu():
+	var header = "Choose an item to Throw..."
+	var footer = "ENTER to confirm, ESC or RMB to cancel"
+	RPG.inventory_menu.start(false, header, footer)
+
+
 
 
 func _ready():
@@ -93,3 +100,7 @@ func _on_slot_item_used(slot):
 func _on_Drop_pressed():
 	var cont = RPG.player.find_node('Controller')
 	cont.Drop()
+
+func _on_Throw_pressed():
+	var cont = RPG.player.find_node('Controller')
+	cont.Throw()
