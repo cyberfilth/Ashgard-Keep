@@ -69,12 +69,15 @@ func distance_to(cell):
 	return line.size() - 1
 
 # Set our position in map cell coordinates
-func set_map_pos(cell):
+# warp=true: set position regardless of blockers 
+# and don't emit moved signal
+func set_map_pos(cell, warp=false):
 	set_pos(RPG.map.map_to_world(cell))
-	if blocks_movement:
-		# declare dirty path cell
-		PathGen.dirty_cells[cell]=false
-	emit_signal('object_moved',self)
+	if not warp:
+		if blocks_movement:
+			# declare dirty path cell
+			PathGen.dirty_cells[cell]=false
+		emit_signal('object_moved',self)
 
 # Get our position in map cell coordinates
 func get_map_pos():

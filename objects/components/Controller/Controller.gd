@@ -36,6 +36,17 @@ func Drop():
 			obj.item.drop()
 			owner.emit_signal('object_acted')
 
+func Throw():
+	RPG.inventory.call_throw_menu()
+	var obj = yield(RPG.inventory_menu, 'items_selected')
+	
+	if obj.empty():
+		RPG.broadcast("action cancelled")
+	else:
+		obj = obj[0]
+		obj.item.throw()
+		
+
 # WAIT action
 func Wait():
 	owner.emit_signal('object_acted')
@@ -60,6 +71,7 @@ func _input(event):
 	
 	var GRAB = event.is_action_pressed('act_GRAB')
 	var DROP = event.is_action_pressed('act_DROP')
+	var THROW = event.is_action_pressed('act_THROW')
 	
 	if owner.fighter.has_status_effect('confused'):
 		if N or NE or E or SE or S or SW or W or NW or WAIT:
@@ -91,3 +103,6 @@ func _input(event):
 	
 	if DROP:
 		Drop()
+
+	if THROW:
+		Throw()

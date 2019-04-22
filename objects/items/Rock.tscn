@@ -26,5 +26,7 @@ centered = false
 effect_name = null
 param1 = 0
 stackable = true
+throw_range = 8
+throw_damage = 3
 
 

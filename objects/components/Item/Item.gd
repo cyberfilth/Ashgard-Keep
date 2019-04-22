@@ -13,6 +13,9 @@ export(int) var param1 = 0
 export(bool) var stackable = false
 export(bool) var indestructible = false
 
+export(int,0,8) var throw_range = 0
+export(int) var throw_damage = 0
+
 var inventory_slot
 
 func use():
@@ -29,6 +32,46 @@ func pickup():
 func drop():
 	assert inventory_slot != null
 	RPG.inventory.remove_from_inventory(inventory_slot,owner)
+
+func throw():
+	if self.throw_range <= 0:
+		RPG.broadcast("You cannot throw that!")
+		return
+	else:
+		RPG.broadcast("Which direction? Click the map to confirm, RMB to cancel")
+	var cell = yield(RPG.game, 'map_clicked')
+	
+	if cell == null:
+		RPG.broadcast("action cancelled")
+		return
+	else:
+		RPG.broadcast("You throw " + owner.get_display_name())
+		drop()
+		
+		var path = FOVGen.get_line(RPG.player.get_map_pos(), cell)
+		if not path.empty():
+			var tpath = []
+			for cell in path:
+				var actor = RPG.map.get_actor_in_cell(cell)
+				if actor and actor != RPG.player:
+					tpath.append(cell)
+					break
+				elif RPG.map.is_wall(cell):
+					break
+				else:
+					tpath.append(cell)
+			
+			if tpath.size() > self.throw_range+1:
+				tpath.resize(self.throw_range+1)
+			self.throw_path = tpath
+			var done = yield(self, 'landed')
+			
+			var target_cell = owner.get_map_pos()
+			var target = RPG.map.get_actor_in_cell(target_cell)
+			if target and target != RPG.player:
+				if self.throw_damage > 0:
+					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
+		RPG.player.emit_signal('object_acted')
 
 func _ready():
 	owner.item = self

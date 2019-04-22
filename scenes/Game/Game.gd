@@ -32,9 +32,7 @@ func pos_in_map(pos):
 
 func _input( ev ):
 	if ev.type == InputEvent.MOUSE_MOTION:
-		var mpos = ev.pos
-		var mrect = Rect2(mpos,Vector2(1,1))
-		self.is_mouse_in_map = viewport_panel.get_rect().intersects(mrect)
+		self.is_mouse_in_map = pos_in_map(ev.pos)
 		var new_mouse_cell = RPG.map.world_to_map(RPG.map.get_local_mouse_pos())
 		if new_mouse_cell != mouse_cell:
 			self.mouse_cell = new_mouse_cell
