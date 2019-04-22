@@ -117,4 +117,8 @@ range/exp_edit = false
 range/rounded = false
 percent/visible = false
 
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
 

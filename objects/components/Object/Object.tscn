@@ -15,4 +15,8 @@ stay_visible = false
 texture = ExtResource( 2 )
 centered = false
 
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
 
