@@ -36,6 +36,7 @@ func Drop():
 			obj.item.drop()
 			owner.emit_signal('object_acted')
 
+#THROW action
 func Throw():
 	RPG.inventory.call_throw_menu()
 	var obj = yield(RPG.inventory_menu, 'items_selected')

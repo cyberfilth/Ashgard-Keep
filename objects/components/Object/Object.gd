@@ -47,7 +47,7 @@ func step(dir):
 	var new_cell = get_map_pos() + dir
 	var blocker = RPG.map.is_cell_blocked(new_cell)
 	if typeof(blocker)==TYPE_OBJECT:
-		if blocker.fighter:
+		if blocker.fighter and blocker != self:
 			fighter.fight(blocker)
 			emit_signal('object_acted')
 	elif blocker==false:
