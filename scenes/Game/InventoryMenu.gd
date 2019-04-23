@@ -32,7 +32,7 @@ func fill_from_inventory():
 	var items = RPG.inventory.get_objects()
 	
 	for obj in items:
-		# instanciate & add
+		# instantiate & add
 		var ob = preload('res://scenes/Game/ItemButton.tscn').instance()
 		item_box.add_child(ob)
 		# assign item to button
