@@ -435,6 +435,21 @@ margin/top = 84.0
 margin/right = 220.0
 margin/bottom = 108.0
 
+[node name="InventoryLabel" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 168.0
+margin/right = 388.0
+margin/bottom = 184.0
+text = "Inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="InventoryObjects" type="Node2D" parent="frame/right/Activity/box"]
 
 visibility/visible = false
