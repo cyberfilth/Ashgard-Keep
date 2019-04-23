@@ -1,6 +1,8 @@
 extends Node
 
 signal used(result)
+signal landed(pos)
+
 onready var owner = get_parent()
 
 export(String,\
@@ -17,6 +19,9 @@ export(int,0,8) var throw_range = 0
 export(int) var throw_damage = 0
 
 var inventory_slot
+
+var throw_path = [] setget _set_throw_path
+
 
 func use():
 	if use_function.empty():
@@ -160,3 +165,20 @@ func blast_cell():
 	for obj in actors:
 		obj.fighter.take_damage(effect_name, amount)
 	emit_signal('used', "OK")
+
+func _process(delta):
+	if throw_path.empty():
+		emit_signal('landed', owner.get_map_pos())
+		set_process(false)
+	else:
+		var i = min(throw_path.size()-1, 1)
+		owner.set_map_pos(throw_path[i], true)
+		throw_path.remove(0)
+
+
+
+func _set_throw_path(what):
+	throw_path = what
+	if !throw_path.empty():
+		set_process(true)
+	

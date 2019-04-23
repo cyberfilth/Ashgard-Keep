@@ -25,6 +25,8 @@ use_function = "damage_nearest"
 effect_name = "Lightning Strike"
 param1 = 20
 stackable = true
+throw_range = 3
+throw_damage = 0
 
 [node name="Brand" type="Sprite" parent="."]
 
