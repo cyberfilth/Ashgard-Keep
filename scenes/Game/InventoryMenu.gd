@@ -25,7 +25,7 @@ func start(multi=false,header='', footer=''):
 
 func clear_items():
 	for i in range(item_box.get_child_count()):
-		item_box.get_child(0).queue_free()
+		item_box.get_child(i).queue_free()
 
 func fill_from_inventory():
 	# Get inventory objects
