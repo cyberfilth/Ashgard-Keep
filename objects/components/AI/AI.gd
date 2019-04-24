@@ -14,6 +14,7 @@ func take_turn():
 		var dir = Vector2( RIGHT-LEFT, DOWN-UP )
 		owner.step(dir)
 		return
+		
 	var target = RPG.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if distance <= RPG.TORCH_RADIUS:

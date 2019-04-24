@@ -28,8 +28,11 @@ func update_slot():
 	var txt = str(count) if count > 1 else ''
 	get_node('Count').set_text(txt)
 
+
+
 func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
 	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
+
 	connect("pressed", get_parent(), "_on_slot_button_pressed", [self])
 	connect("pressed", get_parent(), "_on_slot_item_used", [self])

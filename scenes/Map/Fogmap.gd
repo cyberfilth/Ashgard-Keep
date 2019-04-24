@@ -2,6 +2,7 @@ extends TileMap
 
 onready var map = get_parent()
 
+
 func fill():
 	var size = RPG.MAP_SIZE
 	for x in range(size.x):

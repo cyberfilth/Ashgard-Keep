@@ -6,12 +6,13 @@ signal landed(pos)
 onready var owner = get_parent()
 
 export(String,\
- 'heal_player', 'damage_nearest',\
- 'confuse_target', 'blast_cell'\
-) var use_function = ''
+	'heal_player', 'damage_nearest',\
+	'confuse_target', 'blast_cell'\
+	) var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
+
 export(bool) var stackable = false
 export(bool) var indestructible = false
 
@@ -29,6 +30,7 @@ func use():
 		return
 	if has_method(use_function):
 		call(use_function)
+
 
 func pickup():
 	var result = RPG.inventory.add_to_inventory(owner)
@@ -81,6 +83,8 @@ func throw():
 func _ready():
 	owner.item = self
 
+
+
 # USE FUNCTIONS
 func heal_player():
 	var amount = self.param1
@@ -129,7 +133,7 @@ func confuse_target():
 	RPG.broadcast(target.get_display_name() + " looks very confused!", RPG.COLOR_BROWN)
 	target.fighter.apply_status_effect('confused',param1)
 	emit_signal('used', "OK")
-
+	
 func blast_cell():
 	var amount = param1
 	var target_cell = null

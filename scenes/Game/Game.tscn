@@ -219,7 +219,9 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 56.0
 margin/right = 388.0
-margin/bottom = 164.0
+margin/bottom = 152.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 columns = 8
 script/script = ExtResource( 5 )
 
@@ -230,210 +232,210 @@ margin/bottom = 24.0
 
 [node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 28.0
-margin/right = 52.0
+margin/left = 24.0
+margin/right = 48.0
 margin/bottom = 24.0
 
 [node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 56.0
-margin/right = 80.0
+margin/left = 48.0
+margin/right = 72.0
 margin/bottom = 24.0
 
 [node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 84.0
-margin/right = 108.0
+margin/left = 72.0
+margin/right = 96.0
 margin/bottom = 24.0
 
 [node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 112.0
-margin/right = 136.0
+margin/left = 96.0
+margin/right = 120.0
 margin/bottom = 24.0
 
 [node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 140.0
-margin/right = 164.0
+margin/left = 120.0
+margin/right = 144.0
 margin/bottom = 24.0
 
 [node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 168.0
-margin/right = 192.0
+margin/left = 144.0
+margin/right = 168.0
 margin/bottom = 24.0
 
 [node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 196.0
-margin/right = 220.0
+margin/left = 168.0
+margin/right = 192.0
 margin/bottom = 24.0
 
 [node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/top = 28.0
+margin/top = 24.0
 margin/right = 24.0
-margin/bottom = 52.0
+margin/bottom = 48.0
 
 [node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 28.0
-margin/top = 28.0
-margin/right = 52.0
-margin/bottom = 52.0
+margin/left = 24.0
+margin/top = 24.0
+margin/right = 48.0
+margin/bottom = 48.0
 
 [node name="InventorySlot5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 56.0
-margin/top = 28.0
-margin/right = 80.0
-margin/bottom = 52.0
+margin/left = 48.0
+margin/top = 24.0
+margin/right = 72.0
+margin/bottom = 48.0
 
 [node name="InventorySlot16 6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 84.0
-margin/top = 28.0
-margin/right = 108.0
-margin/bottom = 52.0
+margin/left = 72.0
+margin/top = 24.0
+margin/right = 96.0
+margin/bottom = 48.0
 
 [node name="InventorySlot6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 112.0
-margin/top = 28.0
-margin/right = 136.0
-margin/bottom = 52.0
+margin/left = 96.0
+margin/top = 24.0
+margin/right = 120.0
+margin/bottom = 48.0
 
 [node name="InventorySlot16 7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 140.0
-margin/top = 28.0
-margin/right = 164.0
-margin/bottom = 52.0
+margin/left = 120.0
+margin/top = 24.0
+margin/right = 144.0
+margin/bottom = 48.0
 
 [node name="InventorySlot7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 168.0
-margin/top = 28.0
-margin/right = 192.0
-margin/bottom = 52.0
+margin/left = 144.0
+margin/top = 24.0
+margin/right = 168.0
+margin/bottom = 48.0
 
 [node name="InventorySlot16 8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 196.0
-margin/top = 28.0
-margin/right = 220.0
-margin/bottom = 52.0
+margin/left = 168.0
+margin/top = 24.0
+margin/right = 192.0
+margin/bottom = 48.0
 
 [node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/top = 56.0
+margin/top = 48.0
 margin/right = 24.0
-margin/bottom = 80.0
+margin/bottom = 72.0
 
 [node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 28.0
-margin/top = 56.0
-margin/right = 52.0
-margin/bottom = 80.0
+margin/left = 24.0
+margin/top = 48.0
+margin/right = 48.0
+margin/bottom = 72.0
 
 [node name="InventorySlot9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 56.0
-margin/top = 56.0
-margin/right = 80.0
-margin/bottom = 80.0
+margin/left = 48.0
+margin/top = 48.0
+margin/right = 72.0
+margin/bottom = 72.0
 
 [node name="InventorySlot16 10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 84.0
-margin/top = 56.0
-margin/right = 108.0
-margin/bottom = 80.0
+margin/left = 72.0
+margin/top = 48.0
+margin/right = 96.0
+margin/bottom = 72.0
 
 [node name="InventorySlot10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 112.0
-margin/top = 56.0
-margin/right = 136.0
-margin/bottom = 80.0
+margin/left = 96.0
+margin/top = 48.0
+margin/right = 120.0
+margin/bottom = 72.0
 
 [node name="InventorySlot16 11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 140.0
-margin/top = 56.0
-margin/right = 164.0
-margin/bottom = 80.0
+margin/left = 120.0
+margin/top = 48.0
+margin/right = 144.0
+margin/bottom = 72.0
 
 [node name="InventorySlot11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 168.0
-margin/top = 56.0
-margin/right = 192.0
-margin/bottom = 80.0
+margin/left = 144.0
+margin/top = 48.0
+margin/right = 168.0
+margin/bottom = 72.0
 
 [node name="InventorySlot16 12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 196.0
-margin/top = 56.0
-margin/right = 220.0
-margin/bottom = 80.0
+margin/left = 168.0
+margin/top = 48.0
+margin/right = 192.0
+margin/bottom = 72.0
 
 [node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/top = 84.0
+margin/top = 72.0
 margin/right = 24.0
-margin/bottom = 108.0
+margin/bottom = 96.0
 
 [node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 28.0
-margin/top = 84.0
-margin/right = 52.0
-margin/bottom = 108.0
+margin/left = 24.0
+margin/top = 72.0
+margin/right = 48.0
+margin/bottom = 96.0
 
 [node name="InventorySlot13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 56.0
-margin/top = 84.0
-margin/right = 80.0
-margin/bottom = 108.0
+margin/left = 48.0
+margin/top = 72.0
+margin/right = 72.0
+margin/bottom = 96.0
 
 [node name="InventorySlot16 14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 84.0
-margin/top = 84.0
-margin/right = 108.0
-margin/bottom = 108.0
+margin/left = 72.0
+margin/top = 72.0
+margin/right = 96.0
+margin/bottom = 96.0
 
 [node name="InventorySlot14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 112.0
-margin/top = 84.0
-margin/right = 136.0
-margin/bottom = 108.0
+margin/left = 96.0
+margin/top = 72.0
+margin/right = 120.0
+margin/bottom = 96.0
 
 [node name="InventorySlot16 15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 140.0
-margin/top = 84.0
-margin/right = 164.0
-margin/bottom = 108.0
+margin/left = 120.0
+margin/top = 72.0
+margin/right = 144.0
+margin/bottom = 96.0
 
 [node name="InventorySlot15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 168.0
-margin/top = 84.0
-margin/right = 192.0
-margin/bottom = 108.0
+margin/left = 144.0
+margin/top = 72.0
+margin/right = 168.0
+margin/bottom = 96.0
 
 [node name="InventorySlot16 16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 6 )]
 
-margin/left = 196.0
-margin/top = 84.0
-margin/right = 220.0
-margin/bottom = 108.0
+margin/left = 168.0
+margin/top = 72.0
+margin/right = 192.0
+margin/bottom = 96.0
 
 [node name="InventoryLabel" type="Label" parent="frame/right/Activity/box"]
 
@@ -442,9 +444,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 168.0
+margin/top = 156.0
 margin/right = 388.0
-margin/bottom = 184.0
+margin/bottom = 172.0
 text = "Inventory"
 percent_visible = 1.0
 lines_skipped = 0

@@ -30,7 +30,6 @@ func clear_items():
 func fill_from_inventory():
 	# Get inventory objects
 	var items = RPG.inventory.get_objects()
-	
 	for obj in items:
 		# instantiate & add
 		var ob = preload('res://scenes/Game/ItemButton.tscn').instance()

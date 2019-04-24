@@ -2,6 +2,7 @@ extends Node2D
 
 # signals
 signal name_changed(what)
+
 signal object_moved(me)
 signal object_acted()
 
@@ -68,6 +69,7 @@ func distance_to(cell):
 	var line = FOVGen.get_line(get_map_pos(), cell)
 	return line.size() - 1
 
+
 # Set our position in map cell coordinates
 # warp=true: set position regardless of blockers 
 # and don't emit moved signal
@@ -90,6 +92,7 @@ func get_icon():
 # Get Brand texture
 func get_brand():
 	return get_node('Brand').get_texture()
+
 
 func _ready():
 	add_to_group('objects')

@@ -1,6 +1,7 @@
 extends Node
 
 
+
 onready var owner = get_parent()
 
 # Player-specific object functions
@@ -13,7 +14,7 @@ func random_step():
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
 	owner.step(dir)
-	
+
 # GRAB action
 func Grab():
 	var items = []
@@ -29,6 +30,7 @@ func Grab():
 func Drop():
 	RPG.inventory.call_drop_menu()
 	var items = yield(RPG.inventory_menu, 'items_selected')
+	
 	if items.empty():
 		RPG.broadcast("action cancelled")
 	else:
@@ -46,6 +48,7 @@ func Throw():
 	else:
 		obj = obj[0]
 		obj.item.throw()
+		
 
 # WAIT action
 func Wait():

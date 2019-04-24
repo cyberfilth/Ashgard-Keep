@@ -14,6 +14,7 @@ var mouse_cell = Vector2() setget _set_mouse_cell
 func spawn_player():
 	RPG.map.spawn_object('Player/Player',DungeonGen.start_pos)
 	var ob = RPG.player
+	
 	ob.connect("name_changed", RPG.game.playerinfo, "name_changed")
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("hp_changed", RPG.game.playerinfo, "hp_changed")
@@ -27,7 +28,7 @@ func _ready():
 	set_process_input(true)
 
 func pos_in_map(pos):
-	var rect = Rect2(pos, Vector2(1,1))
+	var rect = Rect2(pos,Vector2(1,1))
 	return viewport_panel.get_rect().intersects(rect)
 
 func _input( ev ):

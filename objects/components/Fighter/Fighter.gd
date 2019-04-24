@@ -1,5 +1,7 @@
 extends Node
 
+
+
 signal hp_changed(current,full)
 
 onready var owner = get_parent()
@@ -83,12 +85,15 @@ func _ready():
 	owner.call_deferred('add_child', hpbar)
 	connect("hp_changed", self, "_on_hp_changed")
 
+
+
 func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
 		RPG.broadcast(owner.get_display_name()+ " is slain!", RPG.COLOR_DARK_GREEN)
 		die()
+
 
 func _set_max_hp(what):
 	max_hp = what
@@ -98,3 +103,5 @@ func _on_hp_changed(current,full):
 	hpbar.set_hidden(current >= full)
 	hpbar.set_max(full)
 	hpbar.set_value(current)
+
+

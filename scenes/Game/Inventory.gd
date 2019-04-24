@@ -3,6 +3,8 @@ extends GridContainer
 onready var objects = get_node('../InventoryObjects')
 onready var name_label = get_node('../ItemName')
 
+
+
 # Get an array of all inventory Objects
 func get_objects():
 	return self.objects.get_children()
@@ -49,11 +51,14 @@ func add_to_inventory(item):
 
 func remove_from_inventory(slot, item):
 	slot.remove_contents(item)
+	
 	item.remove_from_group('inventory')
 	item.add_to_group('objects')
+
 	item.get_parent().remove_child(item)
 	RPG.map.add_child(item)
 	item.set_map_pos(RPG.player.get_map_pos())
+	
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
@@ -71,6 +76,7 @@ func call_throw_menu():
 func _ready():
 	RPG.inventory = self
 
+
 func _on_slot_mouse_enter(slot):
 	var name = '' if slot.contents.empty() else slot.contents[0].get_display_name()
 	var count = slot.contents.size()
@@ -79,6 +85,7 @@ func _on_slot_mouse_enter(slot):
 
 func _on_slot_mouse_exit():
 	name_label.set_text('')
+
 
 func _on_slot_button_pressed(slot):
 	assert not slot.contents.empty()
@@ -93,13 +100,16 @@ func _on_slot_button_pressed(slot):
 	else:
 		RPG.broadcast(result, RPG.COLOR_BROWN)
 
+
 func _on_slot_item_used(slot):
 	assert not slot.contents.empty()
 	slot.contents[0].item.use()
 
+
 func _on_Drop_pressed():
 	var cont = RPG.player.find_node('Controller')
 	cont.Drop()
+
 
 func _on_Throw_pressed():
 	var cont = RPG.player.find_node('Controller')
