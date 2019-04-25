@@ -106,6 +106,8 @@ func generate():
 			
 			rooms.append(new_room)
 			num_rooms += 1
+			#get total number of rooms
+			#print(num_rooms)
 
 func place_monsters(room):
 	var x = RPG.roll(room.pos.x+1, room.end.x-2)

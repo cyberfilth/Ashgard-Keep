@@ -45,7 +45,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 380.0
+margin/right = 516.0
 margin/bottom = 588.0
 alignment = 0
 
@@ -57,13 +57,13 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 380.0
+margin/right = 516.0
 margin/bottom = 434.0
 
 [node name="Viewport" type="Viewport" parent="frame/left/map"]
 
 editor/display_folded = true
-rect = Rect2( 0, 0, 380, 434 )
+rect = Rect2( 0, 0, 516, 434 )
 own_world = false
 world = null
 transparent_bg = false
@@ -89,7 +89,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 438.0
-margin/right = 380.0
+margin/right = 516.0
 margin/bottom = 588.0
 bbcode/enabled = true
 bbcode/bbcode = ""
@@ -98,12 +98,12 @@ percent_visible = 1.0
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
-rect/min_size = Vector2( 400, 0 )
+rect/min_size = Vector2( 204, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 384.0
+margin/left = 516.0
 margin/top = 0.0
 margin/right = 784.0
 margin/bottom = 588.0
@@ -112,7 +112,8 @@ alignment = 0
 [node name="PlayerInfo" parent="frame/right" instance=ExtResource( 4 )]
 
 size_flags/vertical = 2
-margin/right = 400.0
+margin/left = 53.0
+margin/right = 214.0
 margin/bottom = 108.0
 
 [node name="PanelContainer" type="PanelContainer" parent="frame/right"]
@@ -123,7 +124,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 112.0
-margin/right = 400.0
+margin/right = 268.0
 margin/bottom = 348.0
 
 [node name="Activity" type="PanelContainer" parent="frame/right"]
@@ -132,9 +133,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
-margin/left = 0.0
+margin/left = 55.0
 margin/top = 352.0
-margin/right = 400.0
+margin/right = 268.0
 margin/bottom = 588.0
 
 [node name="box" type="VBoxContainer" parent="frame/right/Activity"]
@@ -145,7 +146,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 6.0
 margin/top = 6.0
-margin/right = 394.0
+margin/right = 207.0
 margin/bottom = 230.0
 alignment = 0
 
@@ -157,7 +158,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 388.0
+margin/right = 201.0
 margin/bottom = 32.0
 alignment = 0
 
@@ -203,7 +204,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 36.0
-margin/right = 388.0
+margin/right = 201.0
 margin/bottom = 52.0
 percent_visible = 1.0
 lines_skipped = 0
@@ -211,14 +212,13 @@ max_lines_visible = -1
 
 [node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 56.0
-margin/right = 388.0
+margin/right = 201.0
 margin/bottom = 152.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
@@ -445,7 +445,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 156.0
-margin/right = 388.0
+margin/right = 201.0
 margin/bottom = 172.0
 text = "Inventory"
 percent_visible = 1.0
@@ -550,6 +550,7 @@ margin/bottom = 32.0
 [node name="InventoryMenu" type="PopupPanel" parent="."]
 
 process/pause_mode = 2
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -586,8 +587,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 1008.0
-margin/bottom = 17.0
+margin/right = 784.0
+margin/bottom = 16.0
 text = "Choose Item(s) to drop..."
 align = 1
 percent_visible = 1.0
@@ -601,9 +602,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 21.0
-margin/right = 1008.0
-margin/bottom = 24.0
+margin/top = 20.0
+margin/right = 784.0
+margin/bottom = 23.0
 
 [node name="Contents" type="HBoxContainer" parent="InventoryMenu/frame"]
 
@@ -612,9 +613,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 28.0
-margin/right = 1008.0
-margin/bottom = 567.0
+margin/top = 27.0
+margin/right = 784.0
+margin/bottom = 568.0
 alignment = 0
 
 [node name="scroll" type="ScrollContainer" parent="InventoryMenu/frame/Contents"]
@@ -625,8 +626,8 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 251.0
-margin/bottom = 539.0
+margin/right = 195.0
+margin/bottom = 541.0
 scroll/horizontal = false
 scroll/vertical = true
 scroll/deadzone = 0
@@ -639,8 +640,8 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 251.0
-margin/bottom = 539.0
+margin/right = 195.0
+margin/bottom = 541.0
 alignment = 0
 
 [node name="Info" type="PanelContainer" parent="InventoryMenu/frame/Contents"]
@@ -650,10 +651,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
 size_flags/stretch_ratio = 3.0
-margin/left = 255.0
+margin/left = 199.0
 margin/top = 0.0
-margin/right = 1008.0
-margin/bottom = 539.0
+margin/right = 784.0
+margin/bottom = 541.0
 
 [node name="Footer" type="Label" parent="InventoryMenu/frame"]
 
@@ -662,8 +663,8 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 571.0
-margin/right = 1008.0
+margin/top = 572.0
+margin/right = 784.0
 margin/bottom = 588.0
 text = "T to confirm, ESC to cancel"
 align = 1
