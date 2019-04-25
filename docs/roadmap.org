@@ -1,0 +1,11 @@
+* Roadmap
+
+The tasks below will create a game that has the bare minimum features. From that foundation, I can then start adding content, plot and interesting enemy AI.
+
+
+* Tasks
+** Add full player stats
+** Amend sidebar theme
+** Allow game state to be saved on exit
+** Game state auto-loaded on start
+** Add a variety of dungeon tilesets that are randomly chosen on generation
