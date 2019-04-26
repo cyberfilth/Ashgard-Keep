@@ -30,5 +30,6 @@ throw_damage = 0
 [node name="Brand" type="Sprite" parent="."]
 
 texture = ExtResource( 4 )
+centered = false
 
 
