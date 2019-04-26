@@ -155,22 +155,22 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = 4.0
 margin/right = 192.0
-margin/bottom = 32.0
-alignment = 0
+margin/bottom = 36.0
+alignment = 1
 
 [node name="Drop" type="Button" parent="frame/right/Activity/box/InventoryAction"]
 
-rect/min_size = Vector2( 40, 32 )
+rect/min_size = Vector2( 64, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 64.0
-margin/bottom = 32.0
+margin/left = 26.0
+margin/top = 4.0
+margin/right = 90.0
+margin/bottom = 36.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 toggle_mode = false
 enabled_focus_mode = 0
@@ -180,15 +180,15 @@ flat = false
 
 [node name="Throw" type="Button" parent="frame/right/Activity/box/InventoryAction"]
 
-rect/min_size = Vector2( 40, 32 )
+rect/min_size = Vector2( 72, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 68.0
-margin/top = 0.0
-margin/right = 140.0
-margin/bottom = 32.0
+margin/left = 94.0
+margin/top = 4.0
+margin/right = 166.0
+margin/bottom = 36.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 toggle_mode = false
 enabled_focus_mode = 0
@@ -591,6 +591,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 784.0
 margin/bottom = 16.0
+custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Choose Item(s) to drop..."
 align = 1
 percent_visible = 1.0
@@ -610,6 +611,7 @@ margin/bottom = 23.0
 
 [node name="Contents" type="HBoxContainer" parent="InventoryMenu/frame"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -622,6 +624,7 @@ alignment = 0
 
 [node name="scroll" type="ScrollContainer" parent="InventoryMenu/frame/Contents"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
@@ -668,6 +671,7 @@ margin/left = 0.0
 margin/top = 572.0
 margin/right = 784.0
 margin/bottom = 588.0
+custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "T to confirm, ESC to cancel"
 align = 1
 percent_visible = 1.0
