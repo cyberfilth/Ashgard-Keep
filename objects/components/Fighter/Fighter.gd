@@ -7,6 +7,7 @@ signal hp_changed(current,full)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
+export(String) var blood_colour = "red"
 
 export(int) var power = 1
 export(int) var defense = 1
@@ -67,11 +68,11 @@ func broadcast_damage_taken(from, amount):
 
 func die():
 	if self.bleeds:
-		bleed()
+		bleed(blood_colour)
 	owner.kill()
 
-func bleed():
-	var blood = load('res://graphics/misc/blood_red'+str(randi()%5)+'.png')
+func bleed(blood_colour):
+	var blood = load('res://graphics/fx/blood_'+blood_colour+str(randi()%5)+'.png')
 	var sprite = Sprite.new()
 	sprite.set_centered(false)
 	sprite.set_texture(blood)
