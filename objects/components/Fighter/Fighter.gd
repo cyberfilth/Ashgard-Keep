@@ -7,7 +7,7 @@ signal hp_changed(current,full)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
-export(String) var blood_colour = "red"
+export(String, "red", "green") var blood_colour
 
 export(int) var power = 1
 export(int) var defense = 1
