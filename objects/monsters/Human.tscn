@@ -8,7 +8,8 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Guard"
+name = "human guard"
+race = null
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -20,6 +21,7 @@ centered = false
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
+attack = 1
 defense = 0
 max_hp = 2
 

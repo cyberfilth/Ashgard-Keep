@@ -2,14 +2,14 @@ extends Node2D
 
 # signals
 signal name_changed(what)
-
+signal race_changed(what)
 signal object_moved(me)
 signal object_acted()
 
 export(String, MULTILINE) var name = "OBJECT" setget _set_name
+export(String, "Human", "Dwarf", "Elf") var race = "OBJECT2" setget _set_race
 export(bool) var proper_name = false
 export(bool) var blocks_movement = false
-
 export(bool) var stay_visible = false
 
 var seen = false setget _set_seen
@@ -96,8 +96,7 @@ func get_brand():
 
 func _ready():
 	add_to_group('objects')
-
-	
+	self.race = self.race
 	if fighter:
 		set_z(RPG.LAYER_ACTOR)
 	else:
@@ -106,6 +105,10 @@ func _ready():
 func _set_name(what):
 	name = what
 	emit_signal('name_changed', name)
+
+func _set_race(what):
+	race = what
+	emit_signal('race_changed', race)
 
 func _set_seen(what):
 	seen = what

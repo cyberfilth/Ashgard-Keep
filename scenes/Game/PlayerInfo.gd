@@ -8,6 +8,7 @@ onready var statsright = statsbox.get_node('right')
 
 
 onready var namelabel = frame.get_node('Name')
+onready var racelabel = frame.get_node('Race')
 
 onready var currenthplabel = hpbox.get_node('labels/CurrentHP')
 onready var maxhplabel = hpbox.get_node('labels/MaxHP')
@@ -22,6 +23,9 @@ onready var locationlabel = statsright.get_node('values/Location')
 
 func name_changed(what):
 	namelabel.set_text(what)
+
+func race_changed(what):
+	racelabel.set_text(what)
 
 func hp_changed(current,full):
 	currenthplabel.set_text(str(current))

@@ -9,7 +9,7 @@ onready var owner = get_parent()
 export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
 
-export(int) var power = 1
+export(int) var attack = 1
 export(int) var defense = 1
 
 export(int) var max_hp = 5 setget _set_max_hp
@@ -43,7 +43,7 @@ func is_hp_full():
 
 func fight(who):
 	if who.fighter:
-		who.fighter.take_damage(owner.get_display_name(), self.power)
+		who.fighter.take_damage(owner.get_display_name(), self.attack)
 
 func heal_damage(from,amount):
 	if owner == RPG.player:
