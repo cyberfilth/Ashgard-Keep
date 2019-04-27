@@ -17,6 +17,8 @@ func spawn_player():
 	
 	ob.connect("name_changed", RPG.game.playerinfo, "name_changed")
 	ob.emit_signal("name_changed", ob.name)
+	ob.connect("race_changed", RPG.game.playerinfo, "race_changed")
+	ob.emit_signal("race_changed", ob.race)
 	ob.fighter.connect("hp_changed", RPG.game.playerinfo, "hp_changed")
 	ob.fighter.emit_signal("hp_changed",ob.fighter.hp, ob.fighter.max_hp)
 
