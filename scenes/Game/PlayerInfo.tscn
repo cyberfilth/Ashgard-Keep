@@ -282,7 +282,6 @@ max_lines_visible = -1
 
 [node name="values" type="VBoxContainer" parent="frame/stats/left"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -336,7 +335,7 @@ margin/top = 36.0
 margin/right = 45.0
 margin/bottom = 50.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
-text = "1"
+text = "2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
