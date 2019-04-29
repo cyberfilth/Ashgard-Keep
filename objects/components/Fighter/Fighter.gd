@@ -10,7 +10,7 @@ export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
 
 export(int) var attack = 1
-export(int) var defense = 1
+export(int) var defence = 1
 
 export(int) var max_hp = 5 setget _set_max_hp
 var hp = 5 setget _set_hp

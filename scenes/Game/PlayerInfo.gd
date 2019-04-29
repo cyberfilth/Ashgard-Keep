@@ -15,8 +15,8 @@ onready var maxhplabel = hpbox.get_node('labels/MaxHP')
 onready var hpbar = hpbox.get_node('Bar')
 
 onready var levellabel = statsleft.get_node('values/Level')
-onready var powerlabel = statsleft.get_node('values/Power')
-onready var defenselabel = statsleft.get_node('values/Defense')
+onready var attacklabel = statsleft.get_node('values/Attack')
+onready var defencelabel = statsleft.get_node('values/Defence')
 
 onready var xplabel = statsright.get_node('values/XP')
 onready var locationlabel = statsright.get_node('values/Location')
