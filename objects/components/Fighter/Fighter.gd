@@ -55,9 +55,10 @@ func fight(who):
 		who.fighter.take_damage(owner.get_display_name(), self.attack)
 
 func heal_damage(from,amount):
+	var heal_amount = RPG.roll(2, amount) # Heals by a random amount
 	if owner == RPG.player:
-		broadcast_damage_healed(from,amount)
-	self.hp += amount
+		broadcast_damage_healed(from, heal_amount)
+	self.hp += heal_amount
 
 func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
