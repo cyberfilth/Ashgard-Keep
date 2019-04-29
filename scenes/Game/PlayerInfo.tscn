@@ -248,7 +248,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Power" type="Label" parent="frame/stats/left/labels"]
+[node name="Attack" type="Label" parent="frame/stats/left/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -264,7 +264,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Defense" type="Label" parent="frame/stats/left/labels"]
+[node name="Defence" type="Label" parent="frame/stats/left/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -308,7 +308,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Power" type="Label" parent="frame/stats/left/values"]
+[node name="Attack" type="Label" parent="frame/stats/left/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -324,7 +324,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Defense" type="Label" parent="frame/stats/left/values"]
+[node name="Defence" type="Label" parent="frame/stats/left/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true

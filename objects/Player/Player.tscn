@@ -94,8 +94,8 @@ shadow/item_mask = 1
 [node name="Fighter" parent="." instance=ExtResource( 5 )]
 
 bleeds = false
-attack = 1
-defense = 2
+attack = 2
+defence = 3
 max_hp = 10
 
 [node name="HPBar" type="ProgressBar" parent="."]

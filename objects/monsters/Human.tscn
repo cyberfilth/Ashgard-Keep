@@ -22,7 +22,7 @@ centered = false
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
 attack = 1
-defense = 0
+defence = 0
 max_hp = 2
 
 [node name="AI" parent="." instance=ExtResource( 4 )]
