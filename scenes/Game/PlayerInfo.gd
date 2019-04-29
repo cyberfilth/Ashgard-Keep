@@ -27,6 +27,12 @@ func name_changed(what):
 func race_changed(what):
 	racelabel.set_text(what)
 
+func attack_changed(what):
+	attacklabel.set_text(str(what))
+
+func defence_changed(what):
+	defencelabel.set_text(str(what))
+
 func hp_changed(current,full):
 	currenthplabel.set_text(str(current))
 	maxhplabel.set_text(str(full))
