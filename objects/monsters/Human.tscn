@@ -9,7 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "human guard"
-race = null
+race = "OBJECT2"
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -21,7 +21,6 @@ centered = false
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
-attack = 1
 defence = 0
 max_hp = 2
 

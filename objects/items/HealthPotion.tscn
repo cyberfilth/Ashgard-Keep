@@ -9,6 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "Health Potion"
+race = "OBJECT2"
 proper_name = false
 blocks_movement = false
 stay_visible = true
@@ -52,5 +53,7 @@ use_function = "heal_player"
 effect_name = "Healin' feelin'"
 param1 = 5
 stackable = false
+throw_range = 0
+throw_damage = 0
 
 
