@@ -18,7 +18,8 @@
 │   ├── credits.txt
 │   ├── NewScreenshot.png
 │   ├── README.md
-│   └── roadmap.org
+│   ├── roadmap.org
+│   └── TreeView.txt
 ├── engine.cfg
 ├── export.cfg
 ├── fonts
@@ -149,26 +150,13 @@
 │   │   └── splashscreen.png
 │   ├── gui
 │   │   ├── button.png
-│   │   ├── slot_backup.png
-│   │   ├── slot_cursed.png
-│   │   ├── slot_eq_cursed.png
-│   │   ├── slot_eq.png
-│   │   ├── slot.png
-│   │   ├── tab_mouseover.png
-│   │   ├── tab_selected.png
-│   │   └── tab_unselected.png
+│   │   └── slot.png
 │   ├── lights
 │   │   ├── torch.png
 │   │   └── torch.png.flags
-│   ├── misc
-│   │   ├── cursor.png
-│   │   └── splashscreen.png
-│   ├── monster
-│   │   ├── AT_green.png
-│   │   └── H_Blue.png
-│   └── player
-│       ├── base
-│       └── Player.png
+│   └── monster
+│       ├── AT_green.png
+│       └── H_Blue.png
 ├── icon.png
 ├── icon.png.flags
 ├── objects
@@ -200,7 +188,8 @@
 │   │   ├── Scroll_Fireball.tscn
 │   │   └── Scroll_LightningBolt.tscn
 │   ├── monsters
-│   │   └── Human.tscn
+│   │   ├── Human.tscn
+│   │   └── rat
 │   └── Player
 │       ├── Player.png
 │       └── Player.tscn
@@ -235,4 +224,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-34 directories, 201 files
+32 directories, 192 files
