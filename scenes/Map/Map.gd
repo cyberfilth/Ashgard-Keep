@@ -51,7 +51,7 @@ func spawn_fx(texture, cell):
 	fx.add_to_group('fx')
 
 func draw_map():
-	var family = TileFamily.FAMILY_SANDSTONE
+	var family = TileFamily.FAMILY_BRICK_DARK
 	var datamap = DungeonGen.datamap
 	for x in range(datamap.size()-1):
 		for y in range(datamap[x].size()-1):
