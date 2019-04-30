@@ -51,7 +51,9 @@ func spawn_fx(texture, cell):
 	fx.add_to_group('fx')
 
 func draw_map():
-	var family = TileFamily.FAMILY_SANDSTONE
+	var family = TileFamily.FAMILY_BRICK_DARK
+	# Set Darkness colour programatically
+	get_node("Darkness").set_color(TileFamily.BRICK_DARK_DARKNESS)
 	var datamap = DungeonGen.datamap
 	for x in range(datamap.size()-1):
 		for y in range(datamap[x].size()-1):

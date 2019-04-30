@@ -1,12 +1,10 @@
 #################################
-#				#
-#	FIELD OF VIEW GENERATOR	#
-#				#
+#								#
+#	FIELD OF VIEW GENERATOR		#
+#								#
 #################################
 
 extends Node
-
-
 
 
 # Calculates an array of cells within the FOV of the origin within radius range

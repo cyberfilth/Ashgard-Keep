@@ -46,7 +46,7 @@ script/script = ExtResource( 4 )
 
 [node name="Darkness" type="CanvasModulate" parent="."]
 
-color = Color( 0.27451, 0.27451, 0.27451, 1 )
+color = Color( 0.596878, 0.660389, 0.691406, 1 )
 
 [node name="Cursor" type="Sprite" parent="."]
 
