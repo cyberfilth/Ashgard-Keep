@@ -50,6 +50,8 @@ func spawn_fx(texture, cell):
 	fx.set_pos( map_to_world(cell) )
 	fx.add_to_group('fx')
 
+# Set the Darkness Canvas item 
+# colour to complement each dungeon tileset
 func draw_map():
 	var family = TileFamily.FAMILY_BRICK_DARK
 	# Set Darkness colour programatically

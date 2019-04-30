@@ -1,8 +1,8 @@
 extends Node
 
 # Darkness families
-var SANDSTONE_DARKNESS = Color( 0.27451, 0.27451, 0.27451, 1 )
-var BRICK_DARK_DARKNESS = Color( 0.753906, 0.592186, 0.462357, 1 )
+var SANDSTONE_DARKNESS = Color( 0.27, 0.27, 0.27, 1 )
+var BRICK_DARK_DARKNESS = Color( 0.75, 0.59, 0.46, 1 )
 
 # Dungeon tile families
 var FAMILY_SANDSTONE = [FLOOR_SANDSTONE, WALL_SANDSTONE]
