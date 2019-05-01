@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://objects/monsters/1/H_Blue.png" type="Texture" id=2]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/components/AI/AI.tscn" type="PackedScene" id=4]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "human guard"
+race = "OBJECT2"
+proper_name = true
+blocks_movement = true
+stay_visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Fighter" parent="." instance=ExtResource( 3 )]
+
+defence = 0
+max_hp = 2
+
+[node name="AI" parent="." instance=ExtResource( 4 )]
+
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
+

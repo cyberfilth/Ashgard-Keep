@@ -14,6 +14,9 @@ const LAYER_ITEM = 1
 const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
+## replace this with randomly generated level number
+var rand_dungeon = 1
+
 var TORCH_RADIUS = 6
 
 var MAP_SIZE = Vector2(80, 80) # Changed from 100, 80
