@@ -1,15 +1,15 @@
 extends Node
 
-#var themes = [
-#{ # 1 - Sandstone
-#tileset : FAMILY1,
-#darkness : DARKNESS1
-#},
-#{ # 2 - Brick Dark
-#tileset : FAMILY2,
-#darkness : DARKNESS2
-#}
-#]
+var themes = [
+{ # 1 - Sandstone
+tileset = FAMILY1,
+darkness = DARKNESS1
+},
+{ # 2 - Brick Dark
+tileset = FAMILY2,
+darkness = DARKNESS2
+}
+]
 
 # Darkness families
 var DARKNESS1 = Color( 0.27, 0.27, 0.27, 1 )

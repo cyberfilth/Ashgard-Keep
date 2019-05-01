@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://graphics/monster/H_Blue.png" type="Texture" id=2]
+[ext_resource path="res://objects/monsters/2/rat.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/AI/AI.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "human guard"
+name = "Rat"
 race = "OBJECT2"
 proper_name = true
 blocks_movement = true
@@ -22,7 +22,7 @@ centered = false
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
 defence = 0
-max_hp = 2
+max_hp = 1
 
 [node name="AI" parent="." instance=ExtResource( 4 )]
 
