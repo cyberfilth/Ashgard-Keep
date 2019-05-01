@@ -2,19 +2,6 @@ extends TileMap
 
 var fov_cells # Set by Fogmap
 
-var THEMES = [
-    # Theme 1
-    {
-        tileset = TileFamily.FAMILY1,
-        darkness = TileFamily.DARKNESS1
-    },
- {
-        tileset = TileFamily.FAMILY2,
-        darkness = TileFamily.DARKNESS2
-    }
-]
-
-
 func get_objects_in_fov():
 	var list = []
 	for obj in get_tree().get_nodes_in_group('objects'):
@@ -66,9 +53,8 @@ func spawn_fx(texture, cell):
 # Set the Darkness Canvas item 
 # colour to complement each dungeon tileset
 func draw_map():
-	var theme = THEMES[0]#[randi() % THEMES.size()]
+	var theme = DungeonThemes.themes[0]#themes[randi() % THEMES.size()]
 	var family = theme.tileset
-	print (theme.darkness)
 	get_node("Darkness").set_color(theme.darkness)
 	var datamap = DungeonGen.datamap
 	for x in range(datamap.size()-1):
