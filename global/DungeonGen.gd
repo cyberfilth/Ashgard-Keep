@@ -2,6 +2,7 @@ extends Node
 
 var datamap = []
 var start_pos = Vector2()
+var last_room
 
 # Build a new datamap (fill with walls)
 func build_datamap():
@@ -106,8 +107,7 @@ func generate():
 			
 			rooms.append(new_room)
 			num_rooms += 1
-			#get total number of rooms
-			#print(num_rooms)
+			last_room = new_room
 
 func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
@@ -125,3 +125,9 @@ func place_items(room):
 	var choice = items[GameData.roll(0, items.size()-1)]
 	var path = 'items/' + choice
 	GameData.map.spawn_object(path, pos)
+
+func place_exit_portal(room):
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var pos = Vector2(x,y)
+	GameData.map.spawn_object('items/Portal', pos)

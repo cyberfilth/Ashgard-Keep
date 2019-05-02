@@ -125,9 +125,12 @@ func set_cursor_label(text=''):
 	get_node('Cursor/Label').set_text(text)
 
 func _ready():
+	var portal_room
 	GameData.map = self
 	# Generate a dungeon
 	DungeonGen.generate()
+	# Place the exit
+	DungeonGen.place_exit_portal(DungeonGen.last_room)
 	# Output dungeon to text
 	#DungeonGen.map_to_text()
 	# build a Pathfinding map
