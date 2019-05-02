@@ -29,7 +29,7 @@ func clear_items():
 
 func fill_from_inventory():
 	# Get inventory objects
-	var items = RPG.inventory.get_objects()
+	var items = GameData.inventory.get_objects()
 	for obj in items:
 		# instantiate & add
 		var ob = preload('res://scenes/Game/ItemButton.tscn').instance()
@@ -46,7 +46,7 @@ func done():
 
 
 func _ready():
-	RPG.inventory_menu = self
+	GameData.inventory_menu = self
 	set_process_input(true)
 
 func _input(event):

@@ -29,10 +29,10 @@
 │   └── font_ui.sv.png.flags
 ├── global
 │   ├── DungeonGen.gd
+│   ├── DungeonThemes.gd
 │   ├── FOVGen.gd
-│   ├── PathGen.gd
-│   ├── RPG.gd
-│   └── TileFamily.gd
+│   ├── GameData.gd
+│   └── PathGen.gd
 ├── graphics
 │   ├── brands
 │   │   ├── i-confusion.png
@@ -55,6 +55,13 @@
 │   │   │   ├── grey_dirt6.png
 │   │   │   ├── grey_dirt6.png.import
 │   │   │   ├── normals
+│   │   │   │   ├── grey_dirt0_normal.png
+│   │   │   │   ├── grey_dirt1_normal.png
+│   │   │   │   ├── grey_dirt2_normal.png
+│   │   │   │   ├── grey_dirt3_normal.png
+│   │   │   │   ├── grey_dirt4_normal.png
+│   │   │   │   ├── grey_dirt5_normal.png
+│   │   │   │   ├── grey_dirt6_normal.png
 │   │   │   │   ├── sandstone_floor0_normal.png
 │   │   │   │   ├── sandstone_floor0_normal.png.import
 │   │   │   │   ├── sandstone_floor1_normal.png
@@ -155,8 +162,7 @@
 │   │   ├── torch.png
 │   │   └── torch.png.flags
 │   └── monster
-│       ├── AT_green.png
-│       └── H_Blue.png
+│       └── AT_green.png
 ├── icon.png
 ├── icon.png.flags
 ├── objects
@@ -188,8 +194,12 @@
 │   │   ├── Scroll_Fireball.tscn
 │   │   └── Scroll_LightningBolt.tscn
 │   ├── monsters
-│   │   ├── Human.tscn
-│   │   └── rat
+│   │   ├── 1
+│   │   │   ├── H_Blue.png
+│   │   │   └── human.tscn
+│   │   └── 2
+│   │       ├── rat.png
+│   │       └── rat.tscn
 │   └── Player
 │       ├── Player.png
 │       └── Player.tscn
@@ -224,4 +234,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-32 directories, 192 files
+33 directories, 201 files

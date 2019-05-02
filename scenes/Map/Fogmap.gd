@@ -4,7 +4,7 @@ onready var map = get_parent()
 
 
 func fill():
-	var size = RPG.MAP_SIZE
+	var size = GameData.MAP_SIZE
 	for x in range(size.x):
 		for y in range(size.y):
 			set_cell(x,y,0)
@@ -22,7 +22,7 @@ func _ready():
 
 func _on_player_pos_changed(player):
 	# Torch (sight) radius
-	var r = RPG.TORCH_RADIUS
+	var r = GameData.TORCH_RADIUS
 	
 	# Get FOV cells
 	var cells = FOVGen.calculate_fov(DungeonGen.datamap, 1, player.get_map_pos(), r)
