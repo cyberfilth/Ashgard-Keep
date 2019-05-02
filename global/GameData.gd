@@ -15,7 +15,7 @@ const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
 ## replace this with randomly generated level number
-var rand_dungeon = 1
+var dungeonRNG = 1
 
 var TORCH_RADIUS = 6
 
