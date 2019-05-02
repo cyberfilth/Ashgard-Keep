@@ -15,9 +15,9 @@ func take_turn():
 		owner.step(dir)
 		return
 		
-	var target = RPG.player
+	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= RPG.TORCH_RADIUS:
+	if distance <= GameData.TORCH_RADIUS:
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:

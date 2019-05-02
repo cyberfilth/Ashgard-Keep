@@ -55,8 +55,8 @@ func fight(who):
 		who.fighter.take_damage(owner.get_display_name(), self.attack)
 
 func heal_damage(from,amount):
-	var heal_amount = RPG.roll(2, amount) # Heals by a random amount
-	if owner == RPG.player:
+	var heal_amount = GameData.roll(2, amount) # Heals by a random amount
+	if owner == GameData.player:
 		broadcast_damage_healed(from, heal_amount)
 	self.hp += heal_amount
 
@@ -66,15 +66,15 @@ func take_damage(from="An Unknown Force", amount=0):
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
-	var color = RPG.COLOR_GREEN
-	RPG.broadcast(from+ " restores " +m+ " HP!", color)
+	var color = GameData.COLOR_GREEN
+	GameData.broadcast(from+ " restores " +m+ " HP!", color)
 
 func broadcast_damage_taken(from, amount):
 	var m = str(amount)
-	var color = RPG.COLOR_DARK_GREY
-	if owner == RPG.player:
-		color = RPG.COLOR_RED
-	RPG.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
+	var color = GameData.COLOR_DARK_GREY
+	if owner == GameData.player:
+		color = GameData.COLOR_RED
+	GameData.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
 
 func die():
 	if self.bleeds:
@@ -86,8 +86,8 @@ func bleed(blood_colour):
 	var sprite = Sprite.new()
 	sprite.set_centered(false)
 	sprite.set_texture(blood)
-	RPG.map.add_child(sprite)
-	sprite.set_pos(RPG.map.map_to_world(owner.get_map_pos()))
+	GameData.map.add_child(sprite)
+	sprite.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 
 func _ready():
 	owner.fighter = self
@@ -102,7 +102,7 @@ func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
-		RPG.broadcast(owner.get_display_name()+ " is slain!", RPG.COLOR_DARK_GREEN)
+		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_DARK_GREEN)
 		die()
 
 

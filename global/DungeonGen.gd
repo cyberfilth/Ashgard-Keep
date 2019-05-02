@@ -5,7 +5,7 @@ var start_pos = Vector2()
 
 # Build a new datamap (fill with walls)
 func build_datamap():
-	var size = RPG.MAP_SIZE
+	var size = GameData.MAP_SIZE
 	
 	for x in range(size.x):
 		var row = []
@@ -57,8 +57,8 @@ func map_to_text():
 
 func get_floor_cells():
 	var list = []
-	for x in range(RPG.MAP_SIZE.x):
-		for y in range(RPG.MAP_SIZE.y):
+	for x in range(GameData.MAP_SIZE.x):
+		for y in range(GameData.MAP_SIZE.y):
 			if datamap[x][y] == 0:
 				list.append(Vector2(x,y))
 	return list
@@ -69,11 +69,11 @@ func generate():
 	
 	var rooms = []
 	var num_rooms = 0
-	for r in range(RPG.MAX_ROOMS):
-		var w = RPG.roll(RPG.ROOM_MIN_SIZE, RPG.ROOM_MAX_SIZE)
-		var h = RPG.roll(RPG.ROOM_MIN_SIZE, RPG.ROOM_MAX_SIZE)
-		var x = RPG.roll(0, RPG.MAP_SIZE.x - w-1)
-		var y = RPG.roll(0, RPG.MAP_SIZE.y - h-1)
+	for r in range(GameData.MAX_ROOMS):
+		var w = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
+		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
+		var x = GameData.roll(0, GameData.MAP_SIZE.x - w-1)
+		var y = GameData.roll(0, GameData.MAP_SIZE.y - h-1)
 		
 		var new_room = Rect2(x,y,w,h)
 		var fail = false
@@ -110,18 +110,18 @@ func generate():
 			#print(num_rooms)
 
 func place_monsters(room):
-	var x = RPG.roll(room.pos.x+1, room.end.x-2)
-	var y = RPG.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 	var theme = DungeonThemes.themes[0] # to be moved
 	var minion = theme.minion			# to be moved
-	RPG.map.spawn_object(minion, pos)
+	GameData.map.spawn_object(minion, pos)
 
 func place_items(room):
-	var x = RPG.roll(room.pos.x+1, room.end.x-2)
-	var y = RPG.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 	var items = ['Rock', 'HealthPotion', 'Scroll_Fireball', 'Scroll_LightningBolt', 'Scroll_Confusion']
-	var choice = items[RPG.roll(0, items.size()-1)]
+	var choice = items[GameData.roll(0, items.size()-1)]
 	var path = 'items/' + choice
-	RPG.map.spawn_object(path, pos)
+	GameData.map.spawn_object(path, pos)

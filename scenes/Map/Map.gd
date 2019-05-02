@@ -19,17 +19,17 @@ func get_nearest_visible_actor():
 	# Get visible objects
 	var actors = []
 	for obj in get_objects_in_fov():
-		if obj.is_in_group('actors') and obj != RPG.player:
+		if obj.is_in_group('actors') and obj != GameData.player:
 			actors.append(obj)
 	# drop out if no actors visible
 	if actors.empty():
 		return null
 	# keep track of nearest object and its distance
 	var nearest = actors[0]
-	var distance = nearest.distance_to(RPG.player.get_map_pos())
+	var distance = nearest.distance_to(GameData.player.get_map_pos())
 	# compare all actors against nearest, replace if nearer
 	for actor in actors:
-		var D = actor.distance_to(RPG.player.get_map_pos())
+		var D = actor.distance_to(GameData.player.get_map_pos())
 		if D < distance:
 			nearest = actor
 			distance = D
@@ -62,9 +62,9 @@ func draw_map():
 			var tile = datamap[x][y]
 			var idx = -1
 			if tile == 0: # Floor
-				idx = RPG.roll(family[0][0],family[0][1])
+				idx = GameData.roll(family[0][0],family[0][1])
 			elif tile == 1:
-				idx = RPG.roll(family[1][0],family[1][1])
+				idx = GameData.roll(family[1][0],family[1][1])
 			set_cell(x,y,idx)
 
 # Return True if cell is a wall
@@ -96,8 +96,8 @@ func set_cursor():
 	get_node('Cursor').set_pos(map_to_world(cell))
 	
 	var oob = false # out of bounds
-	if cell.x < 0 or cell.x >= RPG.MAP_SIZE.x: oob = true
-	if cell.y < 0 or cell.y >= RPG.MAP_SIZE.y: oob = true
+	if cell.x < 0 or cell.x >= GameData.MAP_SIZE.x: oob = true
+	if cell.y < 0 or cell.y >= GameData.MAP_SIZE.y: oob = true
 
 	var text = 'NO!' #<-- shouldn't see this in game
 	
@@ -125,20 +125,20 @@ func set_cursor_label(text=''):
 	get_node('Cursor/Label').set_text(text)
 
 func _ready():
-	RPG.map = self
+	GameData.map = self
 	# Generate a dungeon
 	DungeonGen.generate()
 	# Output dungeon to text
 	#DungeonGen.map_to_text()
 	# build a Pathfinding map
-	PathGen.build_map(RPG.MAP_SIZE,DungeonGen.get_floor_cells())
+	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map
 	draw_map()
 
 func _on_player_acted():
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
-		if node != RPG.player and node.ai and node.discovered:
+		if node != GameData.player and node.ai and node.discovered:
 			node.ai.take_turn()
 		# tick down status effects
 		node.fighter.process_status_effects()

@@ -56,25 +56,25 @@ func remove_from_inventory(slot, item):
 	item.add_to_group('objects')
 
 	item.get_parent().remove_child(item)
-	RPG.map.add_child(item)
-	item.set_map_pos(RPG.player.get_map_pos())
+	GameData.map.add_child(item)
+	item.set_map_pos(GameData.player.get_map_pos())
 	
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
-	RPG.inventory_menu.start(true, header, footer)
+	GameData.inventory_menu.start(true, header, footer)
 	
 func call_throw_menu():
 	var header = "Choose an item to Throw..."
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
-	RPG.inventory_menu.start(false, header, footer)
+	GameData.inventory_menu.start(false, header, footer)
 
 
 
 
 func _ready():
-	RPG.inventory = self
+	GameData.inventory = self
 
 
 func _on_slot_mouse_enter(slot):
@@ -96,9 +96,9 @@ func _on_slot_button_pressed(slot):
 		if not obj.item.indestructible:
 			slot.remove_contents(obj)
 			obj.kill()
-		RPG.player.emit_signal('object_acted')
+		GameData.player.emit_signal('object_acted')
 	else:
-		RPG.broadcast(result, RPG.COLOR_BROWN)
+		GameData.broadcast(result, GameData.COLOR_BROWN)
 
 
 func _on_slot_item_used(slot):
@@ -107,10 +107,10 @@ func _on_slot_item_used(slot):
 
 
 func _on_Drop_pressed():
-	var cont = RPG.player.find_node('Controller')
+	var cont = GameData.player.find_node('Controller')
 	cont.Drop()
 
 
 func _on_Throw_pressed():
-	var cont = RPG.player.find_node('Controller')
+	var cont = GameData.player.find_node('Controller')
 	cont.Throw()

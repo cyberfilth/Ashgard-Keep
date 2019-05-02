@@ -26,44 +26,44 @@ var throw_path = [] setget _set_throw_path
 
 func use():
 	if use_function.empty():
-		RPG.broadcast(owner.get_display_name() + " cannot be used", RPG.COLOR_DARK_GREY)
+		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOR_DARK_GREY)
 		return
 	if has_method(use_function):
 		call(use_function)
 
 
 func pickup():
-	var result = RPG.inventory.add_to_inventory(owner)
+	var result = GameData.inventory.add_to_inventory(owner)
 	return result
 
 func drop():
 	assert inventory_slot != null
-	RPG.inventory.remove_from_inventory(inventory_slot,owner)
+	GameData.inventory.remove_from_inventory(inventory_slot,owner)
 
 func throw():
 	if self.throw_range <= 0:
-		RPG.broadcast("You cannot throw that!")
+		GameData.broadcast("You cannot throw that!")
 		return
 	else:
-		RPG.broadcast("Which direction? Click the map to confirm, RMB to cancel")
-	var cell = yield(RPG.game, 'map_clicked')
+		GameData.broadcast("Which direction? Click the map to confirm, RMB to cancel")
+	var cell = yield(GameData.game, 'map_clicked')
 	
 	if cell == null:
-		RPG.broadcast("action cancelled")
+		GameData.broadcast("action cancelled")
 		return
 	else:
-		RPG.broadcast("You throw " + owner.get_display_name())
+		GameData.broadcast("You throw " + owner.get_display_name())
 		drop()
 		
-		var path = FOVGen.get_line(RPG.player.get_map_pos(), cell)
+		var path = FOVGen.get_line(GameData.player.get_map_pos(), cell)
 		if not path.empty():
 			var tpath = []
 			for cell in path:
-				var actor = RPG.map.get_actor_in_cell(cell)
-				if actor and actor != RPG.player:
+				var actor = GameData.map.get_actor_in_cell(cell)
+				if actor and actor != GameData.player:
 					tpath.append(cell)
 					break
-				elif RPG.map.is_wall(cell):
+				elif GameData.map.is_wall(cell):
 					break
 				else:
 					tpath.append(cell)
@@ -74,11 +74,11 @@ func throw():
 			var done = yield(self, 'landed')
 			
 			var target_cell = owner.get_map_pos()
-			var target = RPG.map.get_actor_in_cell(target_cell)
-			if target and target != RPG.player:
+			var target = GameData.map.get_actor_in_cell(target_cell)
+			if target and target != GameData.player:
 				if self.throw_damage > 0:
 					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
-		RPG.player.emit_signal('object_acted')
+		GameData.player.emit_signal('object_acted')
 
 func _ready():
 	owner.item = self
@@ -88,29 +88,29 @@ func _ready():
 # USE FUNCTIONS
 func heal_player():
 	var amount = self.param1
-	if RPG.player.fighter.is_hp_full():
+	if GameData.player.fighter.is_hp_full():
 		emit_signal('used', "You're already at full health")
 		return
-	RPG.player.fighter.heal_damage(owner.get_display_name(), amount)
+	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
 	emit_signal('used', "OK")
 
 func damage_nearest():
 	var amount = self.param1
-	var target = RPG.map.get_nearest_visible_actor()
+	var target = GameData.map.get_nearest_visible_actor()
 	if not target:
 		emit_signal('used', "No targets in sight")
 		return
 	target.fighter.take_damage(self.effect_name, amount)
 	var fx_tex = preload('res://graphics/fx/bolt_electricity.png')
-	RPG.map.spawn_fx(fx_tex, target.get_map_pos())
+	GameData.map.spawn_fx(fx_tex, target.get_map_pos())
 	emit_signal('used', "OK")
 
 func confuse_target():
 	var target = null
 	# instruct the player to choose a target or cancel
-	RPG.broadcast("Use your mouse to target an enemy.  LMB to select a target, RMB to cancel")
+	GameData.broadcast("Use your mouse to target an enemy.  LMB to select a target, RMB to cancel")
 	# yield for map clicking feedback
-	var callback = yield(RPG.game, 'map_clicked')
+	var callback = yield(GameData.game, 'map_clicked')
 	
 	# callback==null = RMB to cancel
 	if callback==null:
@@ -119,18 +119,18 @@ func confuse_target():
 	# cell clicked
 	else:
 		# assign potential target
-		target = RPG.map.get_actor_in_cell(callback)
+		target = GameData.map.get_actor_in_cell(callback)
 	# if no actor in cell
 	if not target:
 		emit_signal('used', "no target there")
 		return
 	# if clicking yourself
-	elif target == RPG.player:
+	elif target == GameData.player:
 		emit_signal('used', "you don't want to confuse yourself!")
 		return
 	
 	# found valid target
-	RPG.broadcast(target.get_display_name() + " looks very confused!", RPG.COLOR_BROWN)
+	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOR_BROWN)
 	target.fighter.apply_status_effect('confused',param1)
 	emit_signal('used', "OK")
 	
@@ -138,15 +138,15 @@ func blast_cell():
 	var amount = param1
 	var target_cell = null
 	# instruct the player to choose a target or cancel
-	RPG.broadcast("Use your mouse to target a visible space.  LMB to select a target, RMB to cancel")
+	GameData.broadcast("Use your mouse to target a visible space.  LMB to select a target, RMB to cancel")
 	# yield for map clicking feedback
-	var callback = yield(RPG.game, 'map_clicked')
+	var callback = yield(GameData.game, 'map_clicked')
 	
 	# callback==null = RMB to cancel
 	if callback == null:
 		emit_signal('used', "action cancelled")
 		return
-	if not callback in RPG.map.fov_cells:
+	if not callback in GameData.map.fov_cells:
 		emit_signal('used', "can't cast there!")
 		return
 	target_cell = callback
@@ -158,10 +158,10 @@ func blast_cell():
 	for x in range(-1,2):
 		for y in range(-1,2):
 			var cell = Vector2(x,y) + target_cell
-			if not RPG.map.is_wall(cell):
+			if not GameData.map.is_wall(cell):
 				rect.append(cell)
 				var fx_tex = preload('res://graphics/fx/bolt_fire.png')
-				RPG.map.spawn_fx(fx_tex, cell)
+				GameData.map.spawn_fx(fx_tex, cell)
 	
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node.get_map_pos() in rect:

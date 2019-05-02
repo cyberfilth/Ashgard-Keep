@@ -18,7 +18,7 @@ func random_step():
 # GRAB action
 func Grab():
 	var items = []
-	for ob in RPG.map.get_objects_in_cell(owner.get_map_pos()):
+	for ob in GameData.map.get_objects_in_cell(owner.get_map_pos()):
 		if ob.item:
 			items.append(ob)
 	if not items.empty():
@@ -28,11 +28,11 @@ func Grab():
 
 # DROP action
 func Drop():
-	RPG.inventory.call_drop_menu()
-	var items = yield(RPG.inventory_menu, 'items_selected')
+	GameData.inventory.call_drop_menu()
+	var items = yield(GameData.inventory_menu, 'items_selected')
 	
 	if items.empty():
-		RPG.broadcast("action cancelled")
+		GameData.broadcast("action cancelled")
 	else:
 		for obj in items:
 			obj.item.drop()
@@ -40,11 +40,11 @@ func Drop():
 
 #THROW action
 func Throw():
-	RPG.inventory.call_throw_menu()
-	var obj = yield(RPG.inventory_menu, 'items_selected')
+	GameData.inventory.call_throw_menu()
+	var obj = yield(GameData.inventory_menu, 'items_selected')
 	
 	if obj.empty():
-		RPG.broadcast("action cancelled")
+		GameData.broadcast("action cancelled")
 	else:
 		obj = obj[0]
 		obj.item.throw()
@@ -55,9 +55,9 @@ func Wait():
 	owner.emit_signal('object_acted')
 
 func _ready():
-	RPG.player = owner
-	owner.connect("object_moved", RPG.map.get_node('Fogmap'), '_on_player_pos_changed')
-	owner.connect("object_acted", RPG.map, "_on_player_acted")
+	GameData.player = owner
+	owner.connect("object_moved", GameData.map.get_node('Fogmap'), '_on_player_pos_changed')
+	owner.connect("object_acted", GameData.map, "_on_player_acted")
 	set_process_input(true)
 
 

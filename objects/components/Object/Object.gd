@@ -31,7 +31,7 @@ func get_display_name():
 	return pre + self.name
 
 func kill():
-	if RPG.player != self:
+	if GameData.player != self:
 		queue_free()
 
 func spawn(map,cell):
@@ -46,7 +46,7 @@ func step(dir):
 	dir.x = clamp(dir.x, -1, 1)
 	dir.y = clamp(dir.y, -1, 1)
 	var new_cell = get_map_pos() + dir
-	var blocker = RPG.map.is_cell_blocked(new_cell)
+	var blocker = GameData.map.is_cell_blocked(new_cell)
 	if typeof(blocker)==TYPE_OBJECT:
 		if blocker.fighter and blocker != self:
 			fighter.fight(blocker)
@@ -74,7 +74,7 @@ func distance_to(cell):
 # warp=true: set position regardless of blockers 
 # and don't emit moved signal
 func set_map_pos(cell, warp=false):
-	set_pos(RPG.map.map_to_world(cell))
+	set_pos(GameData.map.map_to_world(cell))
 	if not warp:
 		if blocks_movement:
 			# declare dirty path cell
@@ -83,7 +83,7 @@ func set_map_pos(cell, warp=false):
 
 # Get our position in map cell coordinates
 func get_map_pos():
-	return RPG.map.world_to_map(get_pos())
+	return GameData.map.world_to_map(get_pos())
 
 # Get our Icon texture
 func get_icon():
@@ -98,9 +98,9 @@ func _ready():
 	add_to_group('objects')
 	self.race = self.race
 	if fighter:
-		set_z(RPG.LAYER_ACTOR)
+		set_z(GameData.LAYER_ACTOR)
 	else:
-		set_z(RPG.LAYER_ITEM)
+		set_z(GameData.LAYER_ITEM)
 
 func _set_name(what):
 	name = what
@@ -114,9 +114,9 @@ func _set_seen(what):
 	seen = what
 	set_hidden(not seen)
 	# Discover if seen for the first time
-	if seen and not discovered and not self==RPG.player:
+	if seen and not discovered and not self==GameData.player:
 		discovered = true
-		RPG.broadcast(self.get_display_name()+ " has been found", RPG.COLOR_YELLOW)
+		GameData.broadcast(self.get_display_name()+ " has been found", GameData.COLOR_YELLOW)
 
 func _on_hp_changed(current,full):
 	if not fighter: return
