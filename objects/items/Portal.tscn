@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/fx/portal.png" type="Texture" id=2]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Rock"
+race = "OBJECT2"
+proper_name = false
+blocks_movement = false
+stay_visible = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
+[node name="Item" parent="." instance=ExtResource( 3 )]
+
+effect_name = null
+param1 = 0
+stackable = true
+throw_range = 8
+throw_damage = 3
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 11.9707, 11.0001 )
+config/amount = 50
+config/lifetime = 2.0
+config/process_mode = 1
+params/direction = 180.0
+params/spread = 180.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 2.0
+params/final_size = 0.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 1.0
+color/color = Color( 0.185303, 0.456194, 0.71875, 1 )
+
+
