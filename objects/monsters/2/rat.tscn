@@ -9,7 +9,7 @@
 
 script/script = ExtResource( 1 )
 name = "Rat"
-race = "OBJECT2"
+race = "animal"
 proper_name = true
 blocks_movement = true
 stay_visible = false
