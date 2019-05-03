@@ -1,7 +1,5 @@
 extends Node
 
-
-
 signal hp_changed(current,full)
 signal attack_changed(what)
 signal defence_changed(what)
@@ -74,7 +72,10 @@ func broadcast_damage_taken(from, amount):
 	var color = GameData.COLOR_DARK_GREY
 	if owner == GameData.player:
 		color = GameData.COLOR_RED
-	GameData.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
+	if from == "Rat":
+		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " HP",color)
+	else:
+		GameData.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
 
 func die():
 	if self.bleeds:
