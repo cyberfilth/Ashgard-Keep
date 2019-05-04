@@ -7,7 +7,7 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Rock"
+name = "Portal"
 race = "OBJECT2"
 proper_name = false
 blocks_movement = false
