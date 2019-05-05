@@ -1,0 +1,314 @@
+[gd_scene load_steps=15 format=1]
+
+[ext_resource path="res://scenes/TitleMenu/TitleMenu.gd" type="Script" id=1]
+[ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
+[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://graphics/gui/sword.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[node name="TitleMenu" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 40.0
+margin/right = 50.0
+margin/bottom = 40.0
+alignment = 0
+
+[node name="TitleLogo" type="TextureFrame" parent="Menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 700.0
+margin/bottom = 97.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CentreRow" type="HBoxContainer" parent="Menu"]
+
+rect/min_size = Vector2( 700, 419 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 101.0
+margin/right = 700.0
+margin/bottom = 520.0
+alignment = 0
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CentreRow"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 348.0
+margin/bottom = 419.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NewGame" type="Button" parent="Menu/CentreRow/Buttons"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 136, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 129.0
+margin/right = 348.0
+margin/bottom = 169.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/NewGame"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 594.0
+margin/bottom = -12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.266667, 0.254902, 0.305882, 1 )
+text = "New Game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="About" type="Button" parent="Menu/CentreRow/Buttons"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 136, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 189.0
+margin/right = 348.0
+margin/bottom = 229.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/About"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 594.0
+margin/bottom = -12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.266667, 0.254902, 0.305882, 1 )
+text = "About"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Credits" type="Button" parent="Menu/CentreRow/Buttons"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 136, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 249.0
+margin/right = 348.0
+margin/bottom = 289.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/Credits"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 594.0
+margin/bottom = -12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.266667, 0.254902, 0.305882, 1 )
+text = "Credits"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CentreRow"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 352.0
+margin/top = 0.0
+margin/right = 700.0
+margin/bottom = 419.0
+use_top_left = false
+
+[node name="Logo" type="TextureFrame" parent="Menu/CentreRow/CenterContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 64.0
+margin/top = 37.0
+margin/right = 284.0
+margin/bottom = 382.0
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="Version" type="Label" parent="Menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 524.0
+margin/right = 700.0
+margin/bottom = 555.0
+custom_colors/font_color = Color( 0.137255, 0.333333, 0.427451, 1 )
+text = "Version 0.3
+Chris Hawkins"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="Menu/CentreRow/Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+
+
