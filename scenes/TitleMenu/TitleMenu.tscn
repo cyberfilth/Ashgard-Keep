@@ -1,38 +1,11 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://scenes/TitleMenu/TitleMenu.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
 [ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://graphics/gui/sword.png" type="Texture" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=7]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=9]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=1]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -68,6 +41,34 @@ content_margin/top = -1.0
 content_margin/bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id=6]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -130,6 +131,7 @@ alignment = 0
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CentreRow"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -153,11 +155,11 @@ margin/left = 0.0
 margin/top = 129.0
 margin/right = 348.0
 margin/bottom = 169.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -184,6 +186,7 @@ max_lines_visible = -1
 
 [node name="About" type="Button" parent="Menu/CentreRow/Buttons"]
 
+editor/display_folded = true
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -193,11 +196,11 @@ margin/left = 0.0
 margin/top = 189.0
 margin/right = 348.0
 margin/bottom = 229.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -234,11 +237,11 @@ margin/left = 0.0
 margin/top = 249.0
 margin/right = 348.0
 margin/bottom = 289.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -265,6 +268,7 @@ max_lines_visible = -1
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CentreRow"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
@@ -281,10 +285,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 174.0
-margin/top = 209.0
-margin/right = 174.0
-margin/bottom = 209.0
+margin/left = 64.0
+margin/top = 37.0
+margin/right = 284.0
+margin/bottom = 382.0
+texture = ExtResource( 4 )
 stretch_mode = 0
 
 [node name="Version" type="Label" parent="Menu"]
