@@ -11,6 +11,13 @@ onready var inventory_menu = get_node('InventoryMenu')
 var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		var saved = save_game()
+		if saved != OK:
+			print('SAVE GAME RETURNED ERROR '+str(saved))
+		get_tree().quit()
+
 func spawn_player():
 	GameData.map.spawn_object('Player/Player',DungeonGen.start_pos)
 	var ob = GameData.player
@@ -28,6 +35,7 @@ func spawn_player():
 
 
 func _ready():
+	get_tree().set_auto_accept_quit(false)
 	GameData.game = self
 	messagebox.set_scroll_follow(true)
 	spawn_player()
@@ -57,3 +65,47 @@ func _set_is_mouse_in_map(what):
 func _set_mouse_cell(what):
 	mouse_cell = what
 	GameData.map.set_cursor()
+
+# Save Game Function
+func save_game():	
+	# create a new file object to work with
+	var file = File.new()
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)
+	
+	# Alert and return error if file can't be opened
+	if not opened == OK:
+		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
+		return opened
+
+	# Gather data to save
+	var data = {}
+	
+	# Map data: Datamap and Fogmap
+	data.map = GameData.map.save()
+	
+	# Player object data
+	data.player = GameData.player.save()
+	
+	# Global player data
+	data.player_data = GameData.player_data
+	
+	# non-player Objects group
+	data.objects = []
+	data.inventory = []
+	for node in get_tree().get_nodes_in_group('objects'):
+		if node != GameData.player:
+			if node.is_in_group('world'):
+				data.objects.append(node.save())
+			elif node.is_in_group('inventory'):
+				data.inventory.append(node.save())
+		
+#	# Inventory group
+	data.inventory = []
+	for node in get_tree().get_nodes_in_group('inventory'):
+		data.inventory.append(node.save())
+	
+	# Store data and close file
+	file.store_line(data.to_json())
+	file.close()
+	# Return OK if all goes well
+	return opened

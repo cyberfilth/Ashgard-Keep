@@ -23,6 +23,17 @@ var inventory_slot
 
 var throw_path = [] setget _set_throw_path
 
+func save():
+	var data = {}
+	data.use_function = self.use_function
+	data.effect_name = self.effect_name
+	data.param1 = self.param1
+	data.stackable = self.stackable
+	data.indestructible = self.indestructible
+	data.throw_range = self.throw_range
+	data.throw_damage = self.throw_damage
+	return data
+
 
 func use():
 	if use_function.empty():

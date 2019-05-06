@@ -2,6 +2,12 @@ extends TileMap
 
 var fov_cells # Set by Fogmap
 
+func save():
+	var data = {}
+	data.datamap = DungeonGen.datamap
+	data.fogmap = get_node('Fogmap').get_datamap()
+	return data
+
 func get_objects_in_fov():
 	var list = []
 	for obj in get_tree().get_nodes_in_group('objects'):
@@ -132,7 +138,7 @@ func _ready():
 	# Place the exit
 	DungeonGen.place_exit_portal(DungeonGen.last_room)
 	# Output dungeon to text
-	#DungeonGen.map_to_text()
+	DungeonGen.map_to_text()
 	# build a Pathfinding map
 	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map
