@@ -2,6 +2,15 @@ extends TileMap
 
 onready var map = get_parent()
 
+func get_datamap():
+	var data = []
+	var size = GameData.MAP_SIZE
+	for x in range(size.x):
+		var col = []
+		for y in range(size.y):
+			col.append(get_cell(x,y))
+		data.append(col)
+	return data
 
 func fill():
 	var size = GameData.MAP_SIZE

@@ -118,6 +118,7 @@ stretch_mode = 4
 
 [node name="CentreRow" type="HBoxContainer" parent="Menu"]
 
+editor/display_folded = true
 rect/min_size = Vector2( 700, 419 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -131,7 +132,6 @@ alignment = 0
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CentreRow"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -145,7 +145,6 @@ alignment = 1
 
 [node name="NewGame" type="Button" parent="Menu/CentreRow/Buttons"]
 
-editor/display_folded = true
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -186,7 +185,6 @@ max_lines_visible = -1
 
 [node name="About" type="Button" parent="Menu/CentreRow/Buttons"]
 
-editor/display_folded = true
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
 focus/stop_mouse = true

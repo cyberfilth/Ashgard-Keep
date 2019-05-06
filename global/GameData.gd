@@ -1,5 +1,7 @@
 extends Node
 
+const SAVEGAME_PATH = 'res://game.sav'
+
 const COLOR_WHITE = '#deeed6'
 const COLOR_LIGHT_GREY = '#8595a1'
 const COLOR_DARK_GREY = '#4e4a4e'
@@ -13,6 +15,10 @@ const LAYER_DECAL = 0
 const LAYER_ITEM = 1
 const LAYER_ACTOR = 2
 const LAYER_FX = 3
+
+var restore_game = false
+
+var player_data = {}
 
 ## replace this with randomly generated level number
 var dungeonRNG = 1
