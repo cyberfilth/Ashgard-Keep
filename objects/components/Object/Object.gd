@@ -128,6 +128,7 @@ func save():
 	var data = {}
 	data.name = self.name
 	data.proper_name = self.proper_name
+	data.race = self.race
 	data.filename = get_filename()
 	var pos = get_map_pos()
 	data.x = pos.x
