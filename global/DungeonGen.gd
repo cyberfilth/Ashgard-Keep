@@ -45,17 +45,6 @@ func carve_v_hall( y1, y2, x):
 		set_cell_data( Vector2(x, y), 0 )
 
 
-func map_to_text():
-	var file = File.new()
-	file.open('res://map.txt',File.WRITE)
-	for row in datamap:
-		var t = ''
-		for col in row:
-			t += str(['_','#'][col])
-		file.store_line(t)
-
-	file.close()
-
 func get_floor_cells():
 	var list = []
 	for x in range(GameData.MAP_SIZE.x):
