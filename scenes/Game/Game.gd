@@ -80,14 +80,14 @@ func save_game():
 	# Gather data to save
 	var data = {}
 	
+	# Dungeon RNG seed
+	data.dungeon_rng = GameData.dungeonRNG
+	
 	# Map data: Datamap and Fogmap
 	data.map = GameData.map.save()
 	
 	# Player object data
 	data.player = GameData.player.save()
-	
-	# Global player data
-	#data.player_data = GameData.player_data
 	
 	# non-player Objects group
 	data.objects = []
@@ -100,7 +100,7 @@ func save_game():
 				data.inventory.append(node.save())
 		
 #	# Inventory group
-	#data.inventory = [] ?
+	data.inventory = []
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
 	
