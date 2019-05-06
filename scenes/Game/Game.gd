@@ -87,7 +87,7 @@ func save_game():
 	data.player = GameData.player.save()
 	
 	# Global player data
-	data.player_data = GameData.player_data
+	#data.player_data = GameData.player_data
 	
 	# non-player Objects group
 	data.objects = []
@@ -100,7 +100,7 @@ func save_game():
 				data.inventory.append(node.save())
 		
 #	# Inventory group
-	data.inventory = []
+	#data.inventory = [] ?
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
 	
