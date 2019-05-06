@@ -137,8 +137,6 @@ func _ready():
 	DungeonGen.generate()
 	# Place the exit
 	DungeonGen.place_exit_portal(DungeonGen.last_room)
-	# Output dungeon to text
-	DungeonGen.map_to_text()
 	# build a Pathfinding map
 	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map

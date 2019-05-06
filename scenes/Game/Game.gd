@@ -70,36 +70,26 @@ func _set_mouse_cell(what):
 func save_game():	
 	# create a new file object to work with
 	var file = File.new()
-	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)
-	
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)	
 	# Alert and return error if file can't be opened
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
-
 	# Gather data to save
-	var data = {}
-	
+	var data = {}	
+	# Dungeon RNG seed
+	data.dungeon_rng = GameData.dungeonRNG
 	# Map data: Datamap and Fogmap
 	data.map = GameData.map.save()
-	
 	# Player object data
 	data.player = GameData.player.save()
 	
-	# Global player data
-	data.player_data = GameData.player_data
-	
 	# non-player Objects group
 	data.objects = []
-	data.inventory = []
 	for node in get_tree().get_nodes_in_group('objects'):
-		if node != GameData.player:
-			if node.is_in_group('world'):
-				data.objects.append(node.save())
-			elif node.is_in_group('inventory'):
-				data.inventory.append(node.save())
-		
-#	# Inventory group
+		data.objects.append(node.save())
+	
+	# Inventory group
 	data.inventory = []
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())

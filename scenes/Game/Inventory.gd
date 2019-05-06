@@ -88,10 +88,9 @@ func _on_slot_mouse_exit():
 
 
 func _on_slot_button_pressed(slot):
-	assert not slot.contents.empty()
+	assert !slot.contents.empty()
 	var obj = slot.contents[0]
 	var result = yield(obj.item, 'used')
-	
 	if result == "OK":
 		if not obj.item.indestructible:
 			slot.remove_contents(obj)
@@ -102,7 +101,7 @@ func _on_slot_button_pressed(slot):
 
 
 func _on_slot_item_used(slot):
-	assert not slot.contents.empty()
+	assert !slot.contents.empty()
 	slot.contents[0].item.use()
 
 
