@@ -23,6 +23,10 @@
 ├── engine.cfg
 ├── export.cfg
 ├── fonts
+│   ├── font_title.fnt
+│   ├── font_title.inc
+│   ├── font_title.sv.png
+│   ├── font_title.sv.png.flags
 │   ├── font_ui.fnt
 │   ├── font_ui.inc
 │   ├── font_ui.sv.png
@@ -154,10 +158,13 @@
 │   │   ├── bolt_electricity.png
 │   │   ├── bolt_fire.png
 │   │   ├── cursor.png
+│   │   ├── portal.png
 │   │   └── splashscreen.png
 │   ├── gui
+│   │   ├── ashgard_keep.png
 │   │   ├── button.png
-│   │   └── slot.png
+│   │   ├── slot.png
+│   │   └── sword.png
 │   ├── lights
 │   │   ├── torch.png
 │   │   └── torch.png.flags
@@ -186,6 +193,7 @@
 │   ├── items
 │   │   ├── HealthPotion.tscn
 │   │   ├── misc_stone.png
+│   │   ├── Portal.tscn
 │   │   ├── red.png
 │   │   ├── Rock.tscn
 │   │   ├── scroll_1.png
@@ -223,10 +231,13 @@
 │   │   ├── ItemButton.tscn
 │   │   ├── PlayerInfo.gd
 │   │   └── PlayerInfo.tscn
-│   └── Map
-│       ├── Fogmap.gd
-│       ├── Map.gd
-│       └── Map.tscn
+│   ├── Map
+│   │   ├── Fogmap.gd
+│   │   ├── Map.gd
+│   │   └── Map.tscn
+│   └── TitleMenu
+│       ├── TitleMenu.gd
+│       └── TitleMenu.tscn
 ├── tilesets
 │   ├── Dungeon_edit.tscn
 │   ├── dungeon.tres
@@ -234,4 +245,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-33 directories, 201 files
+34 directories, 211 files
