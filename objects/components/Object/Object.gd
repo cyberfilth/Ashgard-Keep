@@ -140,3 +140,27 @@ func save():
 	if fighter:
 		data.fighter = fighter.save()
 	return data
+
+func restore(data, on_map=true):
+	if 'name' in data:
+		self.name = data.name
+	if 'proper_name' in data:
+		self.proper_name = data.proper_name
+	if 'discovered' in data:
+		self.discovered = data.discovered
+#	if on_map and 'x' in data and 'y' in data:
+#		set_map_pos(Vector2(data.x, data.y), true)
+	if item and 'item' in data:
+		item.restore(data.item)
+	if fighter and 'fighter' in data:
+		fighter.restore(data.fighter)
+	if ai and 'ai' in data:
+		ai.restore(data.ai)
+	return self
+
+func pickup():
+	if is_in_group('world'):
+		remove_from_group('world')
+	if !is_in_group('inventory'):
+		add_to_group('inventory')
+	GameData.inventory.add_to_inventory(self)

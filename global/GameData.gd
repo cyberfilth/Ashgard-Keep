@@ -1,6 +1,6 @@
 extends Node
 
-const SAVEGAME_PATH = 'res://game.sav'
+const SAVEGAME_PATH = 'user://game.sav'
 
 const COLOR_WHITE = '#deeed6'
 const COLOR_LIGHT_GREY = '#8595a1'

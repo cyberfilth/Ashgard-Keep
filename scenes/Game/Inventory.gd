@@ -25,7 +25,7 @@ func get_matching_slot(item):
 # add an item to an inventoryslot
 func add_to_inventory(item):
 	var slot = null
-	if item.item.stackable:
+	if item.item && item.item.stackable:
 		# find a matching slot
 		slot = get_matching_slot(item)
 	# find free slot if no matches found
@@ -41,7 +41,8 @@ func add_to_inventory(item):
 		item.add_to_group('inventory')
 	
 	# shift item parent from Map to InventoryObjects
-	item.get_parent().remove_child(item)
+	if item.get_parent() == GameData.map:
+		item.get_parent().remove_child(item)
 	objects.add_child(item)
 	
 	# assign the item to the slot

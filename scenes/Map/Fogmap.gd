@@ -12,6 +12,14 @@ func get_datamap():
 		data.append(col)
 	return data
 
+func reveal_from_data(data):
+	var cells = []
+	for x in range(data.size()-1):
+		for y in range(data[x].size()-1):
+			if data[x][y] == -1:
+				cells.append(Vector2(x, y))
+	reveal(cells)
+
 func fill():
 	var size = GameData.MAP_SIZE
 	for x in range(size.x):
