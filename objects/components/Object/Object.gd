@@ -2,12 +2,11 @@ extends Node2D
 
 # signals
 signal name_changed(what)
-signal race_changed(what)
 signal object_moved(me)
 signal object_acted()
 
 export(String, MULTILINE) var name = "OBJECT" setget _set_name
-export(String, "Human", "Dwarf", "Elf") var race = "OBJECT2" setget _set_race
+
 export(bool) var proper_name = false
 export(bool) var blocks_movement = false
 export(bool) var stay_visible = false
@@ -39,6 +38,7 @@ func spawn(map,cell):
 	set_map_pos(cell)
 	if fighter:
 		fighter.fill_hp()
+	return self
 
 # Step 1 tile in a direction
 # or bump into a blocking Object
@@ -96,7 +96,6 @@ func get_brand():
 
 func _ready():
 	add_to_group('objects')
-	self.race = self.race
 	if fighter:
 		set_z(GameData.LAYER_ACTOR)
 	else:
@@ -106,9 +105,6 @@ func _set_name(what):
 	name = what
 	emit_signal('name_changed', name)
 
-func _set_race(what):
-	race = what
-	emit_signal('race_changed', race)
 
 func _set_seen(what):
 	seen = what
@@ -128,7 +124,6 @@ func save():
 	var data = {}
 	data.name = self.name
 	data.proper_name = self.proper_name
-	data.race = self.race
 	data.filename = get_filename()
 	var pos = get_map_pos()
 	data.x = pos.x

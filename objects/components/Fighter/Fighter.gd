@@ -3,10 +3,12 @@ extends Node
 signal hp_changed(current,full)
 signal attack_changed(what)
 signal defence_changed(what)
+signal race_changed(what)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
+export(String, "Human", "Dwarf", "Elf", "animal") var race = "animal" setget _set_race
 
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
@@ -27,6 +29,7 @@ func save():
 	var data = {}
 	data.bleeds = self.bleeds
 	data.blood_colour = self.blood_colour
+	data.race = self.race
 	data.attack = self.attack
 	data.defence = self.defence
 	data.max_hp = self.max_hp
@@ -108,12 +111,15 @@ func bleed(blood_colour):
 
 func _ready():
 	owner.fighter = self
+	self.race = self.race
 	owner.add_to_group('actors')
 	hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
 	owner.call_deferred('add_child', hpbar)
 	connect("hp_changed", self, "_on_hp_changed")
 
-
+func _set_race(what):
+	race = what
+	emit_signal('race_changed', race)
 
 func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)

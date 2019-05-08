@@ -29,8 +29,8 @@ func spawn_player(cell):
 	
 	ob.connect("name_changed", GameData.game.playerinfo, "name_changed")
 	ob.emit_signal("name_changed", ob.name)
-	ob.connect("race_changed", GameData.game.playerinfo, "race_changed")
-	ob.emit_signal("race_changed", ob.race)
+	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
+	ob.fighter.emit_signal("race_changed", ob.fighter.race)
 	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
 	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
 	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
