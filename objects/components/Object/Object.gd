@@ -19,6 +19,36 @@ var item
 var fighter
 var ai
 
+func save():
+	var data = {}
+	data.name = self.name
+	data.proper_name = self.proper_name
+	data.filename = get_filename()
+	var pos = get_map_pos()
+	data.x = pos.x
+	data.y = pos.y
+	data.discovered = discovered
+	if item:
+		data.item = item.save()
+	if fighter:
+		data.fighter = fighter.save()
+#	if ai:
+#		data.ai = ai.save()
+	return data
+
+func restore(data, on_map=true):
+	if 'name' in data:
+		self.name = data.name
+	if 'proper_name' in data:
+		self.proper_name = data.proper_name
+	if 'discovered' in data:
+		self.discovered = data.discovered
+	if item and 'item' in data:
+		item.restore(data.item)
+	if fighter and 'fighter' in data:
+		fighter.restore(data.fighter)
+	return self
+
 func get_display_name():
 	if self.proper_name:
 		# Return name if proper noun
@@ -34,11 +64,22 @@ func kill():
 		queue_free()
 
 func spawn(map,cell):
+	if is_in_group('inventory'):
+		remove_from_group('inventory')
+	if !is_in_group('world'):
+		add_to_group('world')
 	map.add_child(self)
 	set_map_pos(cell)
 	if fighter:
 		fighter.fill_hp()
 	return self
+
+func pickup():
+	if is_in_group('world'):
+		remove_from_group('world')
+	if !is_in_group('inventory'):
+		add_to_group('inventory')
+	GameData.inventory.add_to_inventory(self)
 
 # Step 1 tile in a direction
 # or bump into a blocking Object
@@ -120,42 +161,4 @@ func _on_hp_changed(current,full):
 	get_node('HPBar').set_max(full)
 	get_node('HPBar').set_value(current)
 
-func save():
-	var data = {}
-	data.name = self.name
-	data.proper_name = self.proper_name
-	data.filename = get_filename()
-	var pos = get_map_pos()
-	data.x = pos.x
-	data.y = pos.y
-	data.discovered = discovered
-	if item:
-		print("saving item for "+get_display_name())
-		data.item = item.save()
-	if fighter:
-		data.fighter = fighter.save()
-	return data
 
-func restore(data, on_map=true):
-	if 'name' in data:
-		self.name = data.name
-	if 'proper_name' in data:
-		self.proper_name = data.proper_name
-	if 'discovered' in data:
-		self.discovered = data.discovered
-#	if on_map and 'x' in data and 'y' in data:
-#		set_map_pos(Vector2(data.x, data.y), true)
-	if item and 'item' in data:
-		item.restore(data.item)
-	if fighter and 'fighter' in data:
-		fighter.restore(data.fighter)
-	if ai and 'ai' in data:
-		ai.restore(data.ai)
-	return self
-
-func pickup():
-	if is_in_group('world'):
-		remove_from_group('world')
-	if !is_in_group('inventory'):
-		add_to_group('inventory')
-	GameData.inventory.add_to_inventory(self)

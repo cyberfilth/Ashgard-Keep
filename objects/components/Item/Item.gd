@@ -23,6 +23,7 @@ var inventory_slot
 
 var throw_path = [] setget _set_throw_path
 
+
 func save():
 	var data = {}
 	data.use_function = self.use_function
@@ -33,6 +34,12 @@ func save():
 	data.throw_range = self.throw_range
 	data.throw_damage = self.throw_damage
 	return data
+
+func restore(data):
+	for key in data:
+		if get(key)!=null:
+			set(key, data[key])
+	self.throw_path = []
 
 
 func use():

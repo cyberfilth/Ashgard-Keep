@@ -15,6 +15,8 @@ func new_map():
 
 func save():
 	var data = {}
+	# Dungeon RNG seed	
+	data.dungeon_rng = GameData.dungeonRNG
 	data.datamap = DungeonGen.datamap
 	data.fogmap = get_node('Fogmap').get_datamap()
 	return data
