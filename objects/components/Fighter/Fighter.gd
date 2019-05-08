@@ -18,6 +18,11 @@ var status_effects = {}
 
 var hpbar
 
+func restore(data):
+	for key in data:
+		if self.get(key)!=null:
+			self.set(key, data[key])
+
 func save():
 	var data = {}
 	data.bleeds = self.bleeds

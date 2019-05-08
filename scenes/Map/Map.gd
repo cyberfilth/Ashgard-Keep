@@ -2,11 +2,77 @@ extends TileMap
 
 var fov_cells # Set by Fogmap
 
+func new_map():
+	var portal_room
+	# Generate a dungeon
+	DungeonGen.generate()
+	# Place the exit
+	DungeonGen.place_exit_portal(DungeonGen.last_room)
+	# build a Pathfinding map
+	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
+	# paint the visual map
+	draw_map()
+
 func save():
 	var data = {}
 	data.datamap = DungeonGen.datamap
 	data.fogmap = get_node('Fogmap').get_datamap()
 	return data
+
+func restore(data):
+	if 'datamap' in data:
+		DungeonGen.datamap = data.datamap
+	if 'fogmap' in data:
+		get_node('Fogmap').reveal_from_data(data.fogmap)
+	draw_map()
+
+func restore_object(data):
+	var ob = load(data.filename)
+	var pos = Vector2(data.x, data.y)
+	if ob: 
+		ob = ob.instance().spawn(self,pos)
+		ob.restore(data)
+		return ob
+
+func spawn_object(partial_path,cell):
+	var path = 'res://objects/' +partial_path+ '.tscn'
+	var ob = load(path)
+	if ob: ob.instance().spawn(self,cell)
+
+# Set the Darkness Canvas item 
+# colour to complement each dungeon tileset
+func draw_map():
+	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+	var family = theme.tileset
+	get_node("Darkness").set_color(theme.darkness)
+	var datamap = DungeonGen.datamap
+	for x in range(datamap.size()-1):
+		for y in range(datamap[x].size()-1):
+			var tile = datamap[x][y]
+			var idx = -1
+			if tile == 0: # Floor
+				idx = GameData.roll(family[0][0],family[0][1])
+			elif tile == 1:
+				idx = GameData.roll(family[1][0],family[1][1])
+			set_cell(x,y,idx)
+
+# Return True if cell is a wall
+# Return False if cell is an unblocked floor
+# Return Object if cell has a blocking Object
+func is_cell_blocked(cell):
+	var blocks = is_wall(cell)
+	var objects = get_objects_in_cell(cell)
+	for obj in objects:
+		if obj.blocks_movement:
+			blocks = obj
+	return blocks
+
+func get_objects_in_cell(cell):
+	var list = []
+	for obj in get_tree().get_nodes_in_group('objects'):
+		if obj.get_parent() == GameData.map and obj.get_map_pos() == cell:
+			list.append(obj)
+	return list
 
 func get_objects_in_fov():
 	var list = []
@@ -42,11 +108,9 @@ func get_nearest_visible_actor():
 	# return nearest
 	return nearest
 
+func is_wall(cell):
+	return DungeonGen.get_cell_data(cell) == 1
 
-func spawn_object(partial_path,cell):
-	var path = 'res://objects/' +partial_path+ '.tscn'
-	var ob = load(path)
-	if ob: ob.instance().spawn(self,cell)
 
 func spawn_fx(texture, cell):
 	var fx = Sprite.new()
@@ -56,43 +120,7 @@ func spawn_fx(texture, cell):
 	fx.set_pos( map_to_world(cell) )
 	fx.add_to_group('fx')
 
-# Set the Darkness Canvas item 
-# colour to complement each dungeon tileset
-func draw_map():
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-	var family = theme.tileset
-	get_node("Darkness").set_color(theme.darkness)
-	var datamap = DungeonGen.datamap
-	for x in range(datamap.size()-1):
-		for y in range(datamap[x].size()-1):
-			var tile = datamap[x][y]
-			var idx = -1
-			if tile == 0: # Floor
-				idx = GameData.roll(family[0][0],family[0][1])
-			elif tile == 1:
-				idx = GameData.roll(family[1][0],family[1][1])
-			set_cell(x,y,idx)
 
-# Return True if cell is a wall
-# Return False if cell is an unblocked floor
-# Return Object if cell has a blocking Object
-func is_cell_blocked(cell):
-	var blocks = is_wall(cell)
-	var objects = get_objects_in_cell(cell)
-	for obj in objects:
-		if obj.blocks_movement:
-			blocks = obj
-	return blocks
-
-func get_objects_in_cell(cell):
-	var list = []
-	for obj in get_tree().get_nodes_in_group('objects'):
-		if obj.get_map_pos() == cell:
-			list.append(obj)
-	return list
-
-func is_wall(cell):
-	return DungeonGen.get_cell_data(cell) == 1
 
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
@@ -126,21 +154,14 @@ func _sort_z(a,b):
 	if a.get_z() > b.get_z():
 		return true
 	return false
+	
 
 func set_cursor_label(text=''):
 	get_node('Cursor/Label').set_text(text)
 
 func _ready():
-	var portal_room
 	GameData.map = self
-	# Generate a dungeon
-	DungeonGen.generate()
-	# Place the exit
-	DungeonGen.place_exit_portal(DungeonGen.last_room)
-	# build a Pathfinding map
-	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
-	# paint the visual map
-	draw_map()
+
 
 func _on_player_acted():
 	# process active actors
@@ -155,3 +176,4 @@ func _on_player_acted():
 			node.queue_free()	#kill me this turn
 		else:
 			node.set_meta('kill',true)	#kill me next turn
+			

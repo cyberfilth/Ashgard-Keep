@@ -11,6 +11,11 @@ onready var inventory_menu = get_node('InventoryMenu')
 var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
+func new_game():
+	GameData.map.new_map()
+	spawn_player(DungeonGen.start_pos)
+
+
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var saved = save_game()
@@ -18,7 +23,7 @@ func _notification(what):
 			print('SAVE GAME RETURNED ERROR '+str(saved))
 		get_tree().quit()
 
-func spawn_player():
+func spawn_player(cell):
 	GameData.map.spawn_object('Player/Player',DungeonGen.start_pos)
 	var ob = GameData.player
 	
@@ -38,8 +43,12 @@ func _ready():
 	get_tree().set_auto_accept_quit(false)
 	GameData.game = self
 	messagebox.set_scroll_follow(true)
-	spawn_player()
 	set_process_input(true)
+	if GameData.restore_game:
+		restore_game()
+	else:
+		new_game()
+	
 
 func pos_in_map(pos):
 	var rect = Rect2(pos,Vector2(1,1))
@@ -99,3 +108,74 @@ func save_game():
 	file.close()
 	# Return OK if all goes well
 	return opened
+
+# Restore Game Mother Function
+func restore_game():
+	
+	# create a new file object to work with
+	var file = File.new()
+	
+	# return error if file not found
+	if !file.file_exists(GameData.SAVEGAME_PATH):
+		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
+		return ERR_FILE_NOT_FOUND
+
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)
+	
+	# Alert and return error if file can't be opened
+	if !opened == OK:
+		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
+		return opened
+
+	# Dictionary to store file data
+	var data = {}
+	
+	# Parse data from json file
+	while not file.eof_reached():
+		data.parse_json(file.get_line())
+	
+	# Restore game from data
+	
+	# Map Data
+	if 'map' in data:
+		GameData.map.restore(data.map)
+	
+	# Global Playerdata
+	if 'player_data' in data:
+		for key in data.player_data.keys():
+				GameData.player_data[key] = data.player_data[key]
+	
+	# Player data
+	if 'player' in data:
+		var start_pos = Vector2(data.player.x, data.player.y)
+		spawn_player(start_pos)
+		GameData.player.restore(data.player)
+	
+	# Object data
+	if 'objects' in data:
+		for entry in data.objects:
+			var ob = restore_object(entry)
+			var pos = Vector2(entry.x,entry.y)
+			ob.spawn(GameData.map,pos)
+
+	# Inventory data
+	if 'inventory' in data:
+		for entry in data.inventory:
+			var ob = restore_object(entry)
+			print(ob.item != null)
+			ob.pickup()
+	
+	
+	# close file and return status
+	file.close()
+	
+	# build a Pathfinding map
+	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
+	
+	return opened
+
+func restore_object(data):
+	var ob = load(data.filename).instance()
+	ob = ob.restore(data)
+	return ob
+
