@@ -9,7 +9,6 @@
 
 script/script = ExtResource( 1 )
 name = "Rat"
-race = "animal"
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -22,6 +21,7 @@ centered = false
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
+race = "animal"
 defence = 0
 max_hp = 1
 

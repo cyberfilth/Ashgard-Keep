@@ -36,7 +36,6 @@ draw_bg = true
 
 script/script = ExtResource( 1 )
 name = "Fang the Delectable"
-race = "Human"
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -94,6 +93,7 @@ shadow/item_mask = 1
 [node name="Fighter" parent="." instance=ExtResource( 5 )]
 
 bleeds = false
+race = "Human"
 attack = 2
 defence = 3
 max_hp = 10
