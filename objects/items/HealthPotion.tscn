@@ -9,7 +9,6 @@
 
 script/script = ExtResource( 1 )
 name = "Health Potion"
-race = "OBJECT2"
 proper_name = false
 blocks_movement = false
 stay_visible = true
