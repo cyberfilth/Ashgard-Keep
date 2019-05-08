@@ -15,7 +15,7 @@ func remove_contents(what):
 
 
 func update_slot():
-	if not contents.empty():
+	if !contents.empty():
 		get_node('Icon').set_texture(contents[0].get_icon())
 		get_node('Brand').set_texture(contents[0].get_brand())
 		set_disabled(false)

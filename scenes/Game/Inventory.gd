@@ -37,7 +37,7 @@ func add_to_inventory(item):
 	if item.is_in_group('objects'):
 		item.remove_from_group('objects')
 	# add to inventory group
-	if not item.is_in_group('inventory'):
+	if !item.is_in_group('inventory'):
 		item.add_to_group('inventory')
 	
 	# shift item parent from Map to InventoryObjects
@@ -51,20 +51,17 @@ func add_to_inventory(item):
 
 func remove_from_inventory(slot, item):
 	slot.remove_contents(item)
-	
 	item.remove_from_group('inventory')
 	item.add_to_group('objects')
-
 	item.get_parent().remove_child(item)
 	GameData.map.add_child(item)
 	item.set_map_pos(GameData.player.get_map_pos())
-	
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
 	GameData.inventory_menu.start(true, header, footer)
-	
+
 func call_throw_menu():
 	var header = "Choose an item to Throw..."
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
