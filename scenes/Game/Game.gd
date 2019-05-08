@@ -24,17 +24,17 @@ func save_game():
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
+		
 	# Gather data to save
 	var data = {}
 	
-	# Map data: Datamap and Fogmap
+	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
 	data.player = GameData.player.save()
 	
 	# Non-player Objects group
 	data.objects = []
-	data.inventory = []
 	for node in get_tree().get_nodes_in_group('objects'):
 		data.objects.append(node.save())
 	
