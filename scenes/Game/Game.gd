@@ -33,26 +33,16 @@ func save_game():
 	# Player object data
 	data.player = GameData.player.save()
 	
-	# Non-player Objects group
 	data.objects = []
-	for node in get_tree().get_nodes_in_group('objects'):
+	data.inventory = []
+	for node in get_tree().get_nodes_in_group('world'):
+		# exclude saved player data
+		#if node != GameData.player:
 		data.objects.append(node.save())
 	
-	# Inventory group
-	data.inventory = []
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
-		#if node != GameData.player:
-	#		if node.is_in_group('world'):
-	#			data.objects.append(node.save())
-	#		elif node.is_in_group('inventory'):
-	#			data.inventory.append(node.save())
-	#	
-#	# Inventory group
-#	data.inventory = []
-#	for node in get_tree().get_nodes_in_group('inventory'):
-#		data.inventory.append(node.save())
-	
+		
 	# Store data and close file
 	file.store_line(data.to_json())
 	file.close()
