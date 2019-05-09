@@ -32,8 +32,6 @@ func save():
 		data.item = item.save()
 	if fighter:
 		data.fighter = fighter.save()
-#	if ai:
-#		data.ai = ai.save()
 	return data
 
 func restore(data, on_map=true):
