@@ -23,40 +23,46 @@ func get_matching_slot(item):
 				return node
 
 # add an item to an inventoryslot
-func add_to_inventory(item):
+func add_to_inventory(obj):
+	print(obj.get_display_name())
 	var slot = null
-	if item.item && item.item.stackable:
+
+	if obj.item && obj.item.stackable:
 		# find a matching slot
-		slot = get_matching_slot(item)
+		slot = get_matching_slot(obj)
 	# find free slot if no matches found
 	if !slot: slot = get_free_slot()
 	# break if no slots free
 	if !slot: return
 	
 	# remove from world objects group
-	if item.is_in_group('objects'):
-		item.remove_from_group('objects')
+	if obj.is_in_group('world'):
+		obj.remove_from_group('world')
 	# add to inventory group
-	if !item.is_in_group('inventory'):
-		item.add_to_group('inventory')
+	if !obj.is_in_group('inventory'):
+		obj.add_to_group('inventory')
 	
 	# shift item parent from Map to InventoryObjects
-	if item.get_parent() == GameData.map:
-		item.get_parent().remove_child(item)
-	objects.add_child(item)
+	if obj.get_parent() == GameData.map:
+		obj.get_parent().remove_child(obj)
+	objects.add_child(obj)
 	
-	# assign the item to the slot
-	slot.add_contents(item)
+	# assign the obj to the slot
+	slot.add_contents(obj)
+	print(obj.get_groups())
 	return OK
 
 
 func remove_from_inventory(slot, item):
 	slot.remove_contents(item)
+	
 	item.remove_from_group('inventory')
-	item.add_to_group('objects')
+	item.add_to_group('world')
+
 	item.get_parent().remove_child(item)
 	GameData.map.add_child(item)
 	item.set_map_pos(GameData.player.get_map_pos())
+	
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
@@ -67,8 +73,6 @@ func call_throw_menu():
 	var header = "Choose an item to Throw..."
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
 	GameData.inventory_menu.start(false, header, footer)
-
-
 
 
 func _ready():
@@ -86,9 +90,10 @@ func _on_slot_mouse_exit():
 
 
 func _on_slot_button_pressed(slot):
-	assert !slot.contents.empty()
+	assert not slot.contents.empty()
 	var obj = slot.contents[0]
 	var result = yield(obj.item, 'used')
+	
 	if result == "OK":
 		if not obj.item.indestructible:
 			slot.remove_contents(obj)
@@ -99,7 +104,7 @@ func _on_slot_button_pressed(slot):
 
 
 func _on_slot_item_used(slot):
-	assert !slot.contents.empty()
+	assert not slot.contents.empty()
 	slot.contents[0].item.use()
 
 

@@ -15,66 +15,6 @@ func new_game():
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 
-
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		var saved = save_game()
-		if saved != OK:
-			print('SAVE GAME RETURNED ERROR '+str(saved))
-		get_tree().quit()
-
-func spawn_player(cell):
-	GameData.map.spawn_object('Player/Player',DungeonGen.start_pos)
-	var ob = GameData.player
-	
-	ob.connect("name_changed", GameData.game.playerinfo, "name_changed")
-	ob.emit_signal("name_changed", ob.name)
-	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
-	ob.fighter.emit_signal("race_changed", ob.fighter.race)
-	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
-	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
-	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
-	ob.fighter.emit_signal("defence_changed",ob.fighter.defence)
-	ob.fighter.connect("hp_changed", GameData.game.playerinfo, "hp_changed")
-	ob.fighter.emit_signal("hp_changed",ob.fighter.hp, ob.fighter.max_hp)
-
-
-func _ready():
-	get_tree().set_auto_accept_quit(false)
-	GameData.game = self
-	messagebox.set_scroll_follow(true)
-	set_process_input(true)
-	if GameData.restore_game:
-		restore_game()
-	else:
-		new_game()
-	
-
-func pos_in_map(pos):
-	var rect = Rect2(pos,Vector2(1,1))
-	return viewport_panel.get_rect().intersects(rect)
-
-func _input( ev ):
-	if ev.type == InputEvent.MOUSE_MOTION:
-		self.is_mouse_in_map = pos_in_map(ev.pos)
-		var new_mouse_cell = GameData.map.world_to_map(GameData.map.get_local_mouse_pos())
-		if new_mouse_cell != mouse_cell:
-			self.mouse_cell = new_mouse_cell
-	if ev.type == InputEvent.MOUSE_BUTTON and ev.pressed:
-		if self.is_mouse_in_map:
-			if ev.button_index == BUTTON_LEFT:
-				emit_signal('map_clicked', self.mouse_cell)
-		if ev.button_index == BUTTON_RIGHT:
-			emit_signal('map_clicked', null)
-
-func _set_is_mouse_in_map(what):
-	is_mouse_in_map = what
-	GameData.map.set_cursor_hidden(!is_mouse_in_map)
-
-func _set_mouse_cell(what):
-	mouse_cell = what
-	GameData.map.set_cursor()
-
 # Save Game Function
 func save_game():	
 	# create a new file object to work with
@@ -84,16 +24,16 @@ func save_game():
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
+		
 	# Gather data to save
-	var data = {}	
-	# Dungeon RNG seed
-	data.dungeon_rng = GameData.dungeonRNG
-	# Map data: Datamap and Fogmap
+	var data = {}
+	
+	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
 	data.player = GameData.player.save()
 	
-	# non-player Objects group
+	# Non-player Objects group
 	data.objects = []
 	for node in get_tree().get_nodes_in_group('objects'):
 		data.objects.append(node.save())
@@ -102,6 +42,16 @@ func save_game():
 	data.inventory = []
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
+		#if node != GameData.player:
+	#		if node.is_in_group('world'):
+	#			data.objects.append(node.save())
+	#		elif node.is_in_group('inventory'):
+	#			data.inventory.append(node.save())
+	#	
+#	# Inventory group
+#	data.inventory = []
+#	for node in get_tree().get_nodes_in_group('inventory'):
+#		data.inventory.append(node.save())
 	
 	# Store data and close file
 	file.store_line(data.to_json())
@@ -109,19 +59,15 @@ func save_game():
 	# Return OK if all goes well
 	return opened
 
-# Restore Game Mother Function
-func restore_game():
-	
+# Restore Game Function
+func restore_game():	
 	# create a new file object to work with
-	var file = File.new()
-	
+	var file = File.new()	
 	# return error if file not found
 	if !file.file_exists(GameData.SAVEGAME_PATH):
 		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
 		return ERR_FILE_NOT_FOUND
-
-	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)
-	
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)	
 	# Alert and return error if file can't be opened
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -144,20 +90,20 @@ func restore_game():
 	if 'player_data' in data:
 		for key in data.player_data.keys():
 				GameData.player_data[key] = data.player_data[key]
-	
-	# Player data
+				
+		# Player data
 	if 'player' in data:
 		var start_pos = Vector2(data.player.x, data.player.y)
 		spawn_player(start_pos)
 		GameData.player.restore(data.player)
-	
+		
 	# Object data
 	if 'objects' in data:
 		for entry in data.objects:
 			var ob = restore_object(entry)
 			var pos = Vector2(entry.x,entry.y)
 			ob.spawn(GameData.map,pos)
-
+			
 	# Inventory data
 	if 'inventory' in data:
 		for entry in data.inventory:
@@ -178,4 +124,64 @@ func restore_object(data):
 	var ob = load(data.filename).instance()
 	ob = ob.restore(data)
 	return ob
+
+func spawn_player(cell):
+	GameData.map.spawn_object('Player/Player',DungeonGen.start_pos)
+	var ob = GameData.player
+	
+	ob.connect("name_changed", GameData.game.playerinfo, "name_changed")
+	ob.emit_signal("name_changed", ob.name)
+	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
+	ob.fighter.emit_signal("race_changed", ob.fighter.race)
+	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
+	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
+	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
+	ob.fighter.emit_signal("defence_changed",ob.fighter.defence)
+	ob.fighter.connect("hp_changed", GameData.game.playerinfo, "hp_changed")
+	ob.fighter.emit_signal("hp_changed",ob.fighter.hp, ob.fighter.max_hp)
+
+func pos_in_map(pos):
+	var rect = Rect2(pos,Vector2(1,1))
+	return viewport_panel.get_rect().intersects(rect)
+
+func _ready():
+	get_tree().set_auto_accept_quit(false)
+	GameData.game = self
+	messagebox.set_scroll_follow(true)
+	set_process_input(true)
+	if GameData.restore_game:
+		restore_game()
+	else:
+		new_game()
+
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		var saved = save_game()
+		if saved != OK:
+			print('SAVE GAME RETURNED ERROR '+str(saved))
+		get_tree().quit()
+
+
+func _input( ev ):
+	if ev.type == InputEvent.MOUSE_MOTION:
+		self.is_mouse_in_map = pos_in_map(ev.pos)
+		var new_mouse_cell = GameData.map.world_to_map(GameData.map.get_local_mouse_pos())
+		if new_mouse_cell != mouse_cell:
+			self.mouse_cell = new_mouse_cell
+	if ev.type == InputEvent.MOUSE_BUTTON and ev.pressed:
+		if self.is_mouse_in_map:
+			if ev.button_index == BUTTON_LEFT:
+				emit_signal('map_clicked', self.mouse_cell)
+		if ev.button_index == BUTTON_RIGHT:
+			emit_signal('map_clicked', null)
+
+func _set_is_mouse_in_map(what):
+	is_mouse_in_map = what
+	GameData.map.set_cursor_hidden(!is_mouse_in_map)
+
+func _set_mouse_cell(what):
+	mouse_cell = what
+	GameData.map.set_cursor()
+
 
