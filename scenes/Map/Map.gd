@@ -22,6 +22,8 @@ func save():
 	return data
 
 func restore(data):
+	if 'dungeon_rng' in data:
+		GameData.dungeonRNG = data.dungeon_rng
 	if 'datamap' in data:
 		DungeonGen.datamap = data.datamap
 	if 'fogmap' in data:

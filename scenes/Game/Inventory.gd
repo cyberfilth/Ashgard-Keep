@@ -24,7 +24,7 @@ func get_matching_slot(item):
 
 # add an item to an inventoryslot
 func add_to_inventory(obj):
-	print(obj.get_display_name())
+	#print(obj.get_display_name())
 	var slot = null
 
 	if obj.item && obj.item.stackable:
@@ -49,7 +49,7 @@ func add_to_inventory(obj):
 	
 	# assign the obj to the slot
 	slot.add_contents(obj)
-	print(obj.get_groups())
+	#print(obj.get_groups())
 	return OK
 
 

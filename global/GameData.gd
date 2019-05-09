@@ -21,7 +21,7 @@ var restore_game = false
 var player_data = {}
 
 ## replace this with randomly generated level number
-var dungeonRNG = 1
+var dungeonRNG = 0
 
 var TORCH_RADIUS = 6
 

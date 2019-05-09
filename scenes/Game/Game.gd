@@ -98,7 +98,7 @@ func restore_game():
 	if 'inventory' in data:
 		for entry in data.inventory:
 			var ob = restore_object(entry)
-			print(ob.item != null)
+			#print(ob.item != null)
 			ob.pickup()
 	
 	
