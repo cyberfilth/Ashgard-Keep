@@ -12,4 +12,6 @@ func _ready():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
+	GameData.restore_game = true
+	get_tree().change_scene('res://scenes/Game/Game.tscn')
 	get_tree().change_scene('res://scenes/Game/Game.tscn')
