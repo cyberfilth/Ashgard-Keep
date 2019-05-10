@@ -1,5 +1,7 @@
 extends Node
 
+const version = "Version 0.4"
+
 const SAVEGAME_PATH = 'user://game.sav'
 
 const COLOR_WHITE = '#deeed6'

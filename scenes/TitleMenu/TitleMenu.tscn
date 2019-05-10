@@ -296,10 +296,25 @@ size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 524.0
 margin/right = 700.0
-margin/bottom = 555.0
+margin/bottom = 538.0
 custom_colors/font_color = Color( 0.137255, 0.333333, 0.427451, 1 )
-text = "Version 0.3
-Chris Hawkins"
+text = "Version"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Author" type="Label" parent="Menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 542.0
+margin/right = 700.0
+margin/bottom = 556.0
+custom_colors/font_color = Color( 0.137255, 0.333333, 0.427451, 1 )
+text = "Chris Hawkins"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
