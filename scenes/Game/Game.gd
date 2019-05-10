@@ -12,6 +12,7 @@ var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
 func new_game():
+	GameData.set_dungeon_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 
@@ -75,7 +76,6 @@ func restore_game():
 	# Map Data
 	if 'map' in data:
 		GameData.map.restore(data.map)
-	
 	# Global Playerdata
 	if 'player_data' in data:
 		for key in data.player_data.keys():

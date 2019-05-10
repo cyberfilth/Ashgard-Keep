@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	pass
+	randomize()
 
 
 func _on_NewGame_pressed():
