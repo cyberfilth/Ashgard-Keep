@@ -100,12 +100,10 @@ func _input(event):
 	
 	if WAIT:
 		Wait()
-	
 	if GRAB:
 		Grab()
-	
 	if DROP:
 		Drop()
-
 	if THROW:
 		Throw()
+	

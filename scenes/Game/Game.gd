@@ -44,6 +44,7 @@ func save_game():
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
 		
+		
 	# Store data and close file
 	file.store_line(data.to_json())
 	file.close()
@@ -76,11 +77,7 @@ func restore_game():
 	# Map Data
 	if 'map' in data:
 		GameData.map.restore(data.map)
-	# Global Playerdata
-	if 'player_data' in data:
-		for key in data.player_data.keys():
-				GameData.player_data[key] = data.player_data[key]
-				
+		
 		# Player data
 	if 'player' in data:
 		var start_pos = Vector2(data.player.x, data.player.y)
@@ -98,7 +95,6 @@ func restore_game():
 	if 'inventory' in data:
 		for entry in data.inventory:
 			var ob = restore_object(entry)
-			#print(ob.item != null)
 			ob.pickup()
 	
 	
