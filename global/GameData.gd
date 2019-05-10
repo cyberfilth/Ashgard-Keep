@@ -1,5 +1,7 @@
 extends Node
 
+const version = "Version 0.4"
+
 const SAVEGAME_PATH = 'user://game.sav'
 
 const COLOR_WHITE = '#deeed6'
@@ -20,8 +22,8 @@ var restore_game = false
 
 var player_data = {}
 
-## replace this with randomly generated level number
-var dungeonRNG = 0
+## replaced with randomly generated theme number
+var dungeonRNG
 
 var TORCH_RADIUS = 6
 
@@ -46,3 +48,6 @@ func broadcast(message, color=COLOR_WHITE):
 
 func roll(l,h):
 	return int(round(rand_range(l,h)))
+
+func set_dungeon_theme():
+	dungeonRNG = roll(0,1)

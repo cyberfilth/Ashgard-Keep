@@ -55,7 +55,6 @@ func get_floor_cells():
 
 func generate():
 	build_datamap()
-	randomize()
 	
 	var rooms = []
 	var num_rooms = 0
