@@ -20,7 +20,7 @@ func _on_NewGame_pressed():
 
 func _on_Continue_pressed():
 	GameData.restore_game = true
-	get_tree().change_scene('res://scenes/Game/Game.tscn')
+	get_tree().change_scene('res://scenes/TitleMenu/ContinueScreen.tscn')
 
 
 func _on_Quit_pressed():
