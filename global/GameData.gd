@@ -38,6 +38,7 @@ var player
 var map
 var inventory
 var inventory_menu
+var load_continue = "load"
 
 
 func broadcast(message, color=COLOR_WHITE):

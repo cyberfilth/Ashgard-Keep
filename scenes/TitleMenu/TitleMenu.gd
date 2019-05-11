@@ -16,11 +16,12 @@ func _ready():
 
 
 func _on_NewGame_pressed():
+	GameData.load_continue = "load"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
 
 func _on_Continue_pressed():
-	GameData.restore_game = true
-	get_tree().change_scene('res://scenes/TitleMenu/ContinueScreen.tscn')
+	GameData.load_continue = "continue"
+	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
 
 
 func _on_Quit_pressed():

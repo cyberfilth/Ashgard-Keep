@@ -72,7 +72,7 @@ margin/bottom = 419.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Loading" type="Label" parent="Menu/CentreRow/message"]
+[node name="LoadContinue" type="Label" parent="Menu/CentreRow/message"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
