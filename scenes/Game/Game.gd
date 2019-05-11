@@ -40,8 +40,8 @@ func save_game():
 	
 	for node in get_tree().get_nodes_in_group('world'):
 		# exclude saved player data
-		#if node != GameData.player:
-		data.objects.append(node.save())
+		if node != GameData.player:
+			data.objects.append(node.save())
 	
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
