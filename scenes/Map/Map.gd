@@ -36,6 +36,7 @@ func restore_object(data):
 	if ob: 
 		ob = ob.instance().spawn(self,pos)
 		ob.restore(data)
+		#update()
 		return ob
 
 func spawn_object(partial_path,cell):

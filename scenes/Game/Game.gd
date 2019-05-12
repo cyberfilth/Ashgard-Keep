@@ -29,6 +29,11 @@ func save_game():
 	# Gather data to save
 	var data = {}
 	
+	# version
+	data.version = {
+	"AshgardKeep" : GameData.version
+	}
+	
 	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
