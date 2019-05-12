@@ -7,6 +7,7 @@
 script/script = ExtResource( 1 )
 bleeds = true
 blood_colour = "red"
+race = "Human"
 attack = 1
 defence = 1
 max_hp = 5
