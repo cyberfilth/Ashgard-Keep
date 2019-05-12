@@ -41,12 +41,16 @@ func restore(data, on_map=true):
 		self.proper_name = data.proper_name
 	if 'discovered' in data:
 		self.discovered = data.discovered
+		if self.discovered == false:
+			_set_seen(item)
 	if on_map and 'x' in data and 'y' in data:
 		set_map_pos(Vector2(data.x, data.y), true)
 	if item and 'item' in data:
 		item.restore(data.item)
 	if fighter and 'fighter' in data:
 		fighter.restore(data.fighter)
+		# A bit of a hack but it shows the player on game restore
+		GameData.player.show()
 	return self
 
 func get_display_name():

@@ -2,9 +2,12 @@ extends Control
 
 onready var versionlabel = get_node('Menu/Version')
 onready var messagelabel = get_node('Menu/CentreRow/message/LoadContinue')
+onready var loadingimage = get_node('Menu/CentreRow/CenterContainer/Logo')
 
 func _ready():
 	versionlabel.set_text(GameData.version)
+	var artwork = load('res://graphics/gui/loading'+str(randi()%3)+'.png')
+	loadingimage.set_texture(artwork)
 	if GameData.load_continue == "continue":
 		messagelabel.set_text("Restoring game...")
 	else:
