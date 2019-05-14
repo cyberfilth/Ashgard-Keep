@@ -19,7 +19,7 @@ var themes = [
 { # 1 - Sandstone
 tileset = FAMILY1,
 darkness = DARKNESS1,
-minion = 'monsters/1/human'
+minion = 'monsters/1/zombie'
 },
 { # 2 - Brick Dark
 tileset = FAMILY2,
