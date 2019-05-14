@@ -53,6 +53,8 @@ func add_to_inventory(obj):
 
 func remove_from_inventory(slot, item):
 	slot.remove_contents(item)
+	item.inventory_slot = null
+	update_slot()
 	
 	item.remove_from_group('inventory')
 	item.add_to_group('world')
