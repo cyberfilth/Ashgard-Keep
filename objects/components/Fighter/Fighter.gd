@@ -68,8 +68,14 @@ func _set_defence(what):
 	emit_signal('defence_changed', defence)
 
 func fight(who):
-	if who.fighter:
-		who.fighter.take_damage(owner.get_display_name(), self.attack)
+	# Damage = 0 to ATTACK amount - DEFENCE
+	var damage_amount = GameData.roll(0, self.attack) - who.fighter.defence
+	if damage_amount > 0:
+		who.fighter.take_damage(owner.get_display_name(), damage_amount)
+	elif damage_amount <= 0:
+		broadcast_miss(owner.get_display_name())
+	else:
+		return
 
 func heal_damage(from,amount):
 	var heal_amount = GameData.roll(2, amount) # Heals by a random amount
@@ -92,9 +98,15 @@ func broadcast_damage_taken(from, amount):
 	if owner == GameData.player:
 		color = GameData.COLOR_RED
 	if from == "Rat":
-		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " HP",color)
+		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
 	else:
-		GameData.broadcast(from+ " hits " +owner.get_display_name()+ " for " +m+ " HP",color)
+		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
+
+func broadcast_miss(from):
+	if self.hp <= 0:
+		return # Stop a 'misses' message appearing after NPC is dead
+	else:
+		GameData.broadcast(from + " misses ")
 
 func die():
 	if self.bleeds:
