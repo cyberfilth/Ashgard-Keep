@@ -4,7 +4,6 @@ onready var objects = get_node('../InventoryObjects')
 onready var name_label = get_node('../ItemName')
 
 
-
 # Get an array of all inventory Objects
 func get_objects():
 	return self.objects.get_children()
@@ -87,20 +86,6 @@ func _on_slot_mouse_enter(slot):
 
 func _on_slot_mouse_exit():
 	name_label.set_text('')
-
-
-func _on_slot_button_pressed(slot):
-	assert not slot.contents.empty()
-	var obj = slot.contents[0]
-	var result = yield(obj.item, 'used')
-	
-	if result == "OK":
-		if not obj.item.indestructible:
-			slot.remove_contents(obj)
-			obj.kill()
-		GameData.player.emit_signal('object_acted')
-	else:
-		GameData.broadcast(result, GameData.COLOR_BROWN)
 
 
 func _on_slot_item_used(slot):
