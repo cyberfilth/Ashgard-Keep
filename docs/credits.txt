@@ -2,6 +2,8 @@ CREDITS
 
 Ashgard Keep was created with the following resources;
 
-Roguelike tutorial by YeOldeDM at https://github.com/YeOldeDM
+Based on a roguelike tutorial by YeOldeDM at https://github.com/YeOldeDM
 
-Splashscreen is based on an image designed by Freepik - http://www.freepik.com
+Dungeon tiles are public domain tiles from Crawl and the Crawl Stone Soup team (http://crawl.develz.org/wordpress/).
+
+This work features adaptations of art by Daniel F. Walthall, originals found at: drivethrurpg.com/product/181517, available under a CC BY 4.0 license: creativecommons.org/licenses/by/4.0/
