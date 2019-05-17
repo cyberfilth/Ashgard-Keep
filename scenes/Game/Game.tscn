@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=7]
+[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=8]
 
 [node name="Game" type="Container"]
 
@@ -213,6 +214,7 @@ max_lines_visible = -1
 
 [node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -462,8 +464,6 @@ transform/pos = Vector2( -6, -6 )
 [node name="InventoryMenu" type="PopupPanel" parent="."]
 
 process/pause_mode = 2
-editor/display_folded = true
-visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -501,6 +501,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 784.0
 margin/bottom = 16.0
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Choose Item(s) to drop..."
 align = 1
@@ -521,7 +522,6 @@ margin/bottom = 23.0
 
 [node name="Contents" type="HBoxContainer" parent="InventoryMenu/frame"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -534,7 +534,6 @@ alignment = 0
 
 [node name="scroll" type="ScrollContainer" parent="InventoryMenu/frame/Contents"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
@@ -581,6 +580,7 @@ margin/left = 0.0
 margin/top = 572.0
 margin/right = 784.0
 margin/bottom = 588.0
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "T to confirm, ESC to cancel"
 align = 1
