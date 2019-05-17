@@ -18,6 +18,7 @@ const FLOOR_BRICK_DARK = [27,33]
 var themes = [
 { # 1 - Sandstone
 tileset = FAMILY1,
+darkness = DARKNESS1,
 minion = 'monsters/2/rat',
 undead = 'monsters/1/zombie'
 },
