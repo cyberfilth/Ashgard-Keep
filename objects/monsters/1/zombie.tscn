@@ -35,7 +35,7 @@ percent_visible = 1.0
 blood_colour = "green"
 attack = 10
 defence = 10
-max_hp = 50
+max_hp = 40
 
 [node name="AI" parent="." instance=ExtResource( 4 )]
 

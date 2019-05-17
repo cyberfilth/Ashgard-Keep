@@ -25,7 +25,7 @@ var player_data = {}
 ## replaced with randomly generated theme number
 var dungeonRNG
 
-var TORCH_RADIUS = 6
+var TORCH_RADIUS = 5
 
 var MAP_SIZE = Vector2(80, 80) # Changed from 100, 80
 var MAX_ROOMS = 60

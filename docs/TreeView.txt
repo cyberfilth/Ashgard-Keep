@@ -23,6 +23,10 @@
 ├── engine.cfg
 ├── export.cfg
 ├── fonts
+│   ├── font_characters_32.fnt
+│   ├── font_characters_32.inc
+│   ├── font_characters_32.sv.png
+│   ├── font_characters_32.sv.png.flags
 │   ├── font_title.fnt
 │   ├── font_title.inc
 │   ├── font_title.sv.png
@@ -163,6 +167,9 @@
 │   ├── gui
 │   │   ├── ashgard_keep.png
 │   │   ├── button.png
+│   │   ├── loading0.png
+│   │   ├── loading1.png
+│   │   ├── loading2.png
 │   │   ├── slot.png
 │   │   └── sword.png
 │   ├── lights
@@ -172,11 +179,14 @@
 │       └── AT_green.png
 ├── icon.png
 ├── icon.png.flags
+├── LICENSE
 ├── objects
 │   ├── components
 │   │   ├── AI
 │   │   │   ├── AI.gd
-│   │   │   └── AI.tscn
+│   │   │   ├── AI.tscn
+│   │   │   ├── zombie_AI.gd
+│   │   │   └── zombie_AI.tscn
 │   │   ├── Controller
 │   │   │   ├── Controller.gd
 │   │   │   └── Controller.tscn
@@ -203,10 +213,8 @@
 │   │   └── Scroll_LightningBolt.tscn
 │   ├── monsters
 │   │   ├── 1
-│   │   │   ├── H_Blue.png
-│   │   │   └── human.tscn
+│   │   │   └── zombie.tscn
 │   │   └── 2
-│   │       ├── rat.png
 │   │       └── rat.tscn
 │   └── Player
 │       ├── Player.png
@@ -236,6 +244,8 @@
 │   │   ├── Map.gd
 │   │   └── Map.tscn
 │   └── TitleMenu
+│       ├── LoadingScreen.gd
+│       ├── LoadingScreen.tscn
 │       ├── TitleMenu.gd
 │       └── TitleMenu.tscn
 ├── tilesets
@@ -245,4 +255,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-34 directories, 211 files
+34 directories, 221 files
