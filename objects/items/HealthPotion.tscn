@@ -42,17 +42,17 @@ visibility/blend_mode = 1
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Brand" type="Sprite" parent="."]
-
-centered = false
-
 [node name="Item" parent="." instance=ExtResource( 4 )]
 
 use_function = "heal_player"
 effect_name = "Healin' feelin'"
 param1 = 5
 stackable = false
-throw_range = 0
+throw_range = 5
 throw_damage = 0
+
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
 
 

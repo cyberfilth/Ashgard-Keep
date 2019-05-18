@@ -12,7 +12,6 @@ func _ready():
 	button.set_disabled(!save_exists)
 	if !save_exists:
 		get_node('Menu/CentreRow/Buttons/Continue/Label').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
-	
 
 
 func _on_NewGame_pressed():

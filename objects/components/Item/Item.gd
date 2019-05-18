@@ -110,6 +110,16 @@ func heal_player():
 		emit_signal('used', "You're already at full health")
 		return
 	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
+# Timer added to avoid glitch where health
+# potions were not being remove from inventory
+	var t = Timer.new()
+	t.set_wait_time(0.1)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	#####	
 	emit_signal('used', "OK")
 
 func damage_nearest():
