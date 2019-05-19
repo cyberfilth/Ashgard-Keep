@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Controller/Controller.tscn" type="PackedScene" id=3]
-[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=4]
-[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Player/CameraShake.gd" type="Script" id=4]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=5]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -32,7 +33,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[node name="Object" type="Node2D"]
+[node name="Player" type="Node2D"]
 
 script/script = ExtResource( 1 )
 name = "Fang the Delectable"
@@ -66,13 +67,14 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+script/script = ExtResource( 4 )
 
 [node name="Torch" type="Light2D" parent="."]
 
 transform/pos = Vector2( 12, 12 )
 enabled = true
 editor_only = false
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
 scale = 13.5
 color = Color( 1, 1, 1, 1 )
@@ -90,7 +92,7 @@ shadow/buffer_size = 128
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Fighter" parent="." instance=ExtResource( 5 )]
+[node name="Fighter" parent="." instance=ExtResource( 6 )]
 
 bleeds = false
 attack = 20

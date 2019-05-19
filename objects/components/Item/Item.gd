@@ -190,6 +190,7 @@ func blast_cell():
 				rect.append(cell)
 				var fx_tex = preload('res://graphics/fx/bolt_fire.png')
 				GameData.map.spawn_fx(fx_tex, cell)
+				GameData.player.get_node("Camera").shake(0.4, 16)
 	
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node.get_map_pos() in rect:

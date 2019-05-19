@@ -4,14 +4,14 @@ const version = "Version 0.4"
 
 const SAVEGAME_PATH = 'user://game.sav'
 
-const COLOR_WHITE = '#deeed6'
-const COLOR_LIGHT_GREY = '#8595a1'
-const COLOR_DARK_GREY = '#4e4a4e'
-const COLOR_RED = '#d04648'
-const COLOR_BROWN = '#854c30'
-const COLOR_DARK_GREEN = '#346524'
-const COLOR_GREEN = '#6daa2c'
-const COLOR_YELLOW = '#dad45e'
+const COLOR_WHITE = '#91B4C1' # Default broadcast message
+#const COLOR_LIGHT_GREY = '#8595a1' # NOT USED
+const COLOR_DARK_GREY = '#bb3f40' # Monster damage taken
+const COLOR_RED = '#d04648' # Player damage taken
+const COLOR_BROWN = '#6C73AA' # looks confused || Slot button pressed issue
+const COLOR_DARK_GREEN = '#5C899E' # is slain
+const COLOR_GREEN = '#64B187' # Uses health potion
+const COLOR_YELLOW = '#dad45e' # Item / object has been found
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1
