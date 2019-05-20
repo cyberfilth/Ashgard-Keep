@@ -17,10 +17,10 @@ func new_game():
 	spawn_player(DungeonGen.start_pos)
 
 # Save Game Function
-func save_game():	
+func save_game():
 	# create a new file object to work with
 	var file = File.new()
-	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)	
+	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
 	# Alert and return error if file can't be opened
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -66,7 +66,7 @@ func restore_game():
 	if !file.file_exists(GameData.SAVEGAME_PATH):
 		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
 		return ERR_FILE_NOT_FOUND
-	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)	
+	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
 	# Alert and return error if file can't be opened
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
