@@ -52,3 +52,4 @@ func roll(l,h):
 
 func set_dungeon_theme():
 	dungeonRNG = roll(0,2)
+	#dungeonRNG = 2 # set number here to test a new dungeon
