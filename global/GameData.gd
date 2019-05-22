@@ -51,4 +51,4 @@ func roll(l,h):
 	return int(round(rand_range(l,h)))
 
 func set_dungeon_theme():
-	dungeonRNG = roll(0,1)
+	dungeonRNG = roll(0,2)
