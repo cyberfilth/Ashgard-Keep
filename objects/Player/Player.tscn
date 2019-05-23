@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Controller/Controller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Player/CameraShake.gd" type="Script" id=4]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=5]
@@ -41,10 +41,22 @@ proper_name = true
 blocks_movement = true
 stay_visible = false
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Glyph" type="RichTextLabel" parent="."]
 
-texture = ExtResource( 2 )
-centered = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = -3.0
+margin/right = 38.0
+margin/bottom = 37.0
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 0.870588, 1, 0, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "@"
+visible_characters = -1
+percent_visible = 1.0
 
 [node name="Controller" parent="." instance=ExtResource( 3 )]
 
@@ -61,7 +73,7 @@ limit/right = 10000000
 limit/bottom = 10000000
 drag_margin/h_enabled = false
 drag_margin/v_enabled = false
-smoothing/enable = true
+smoothing/enable = false
 smoothing/speed = 12.0
 drag_margin/left = 0.2
 drag_margin/top = 0.2

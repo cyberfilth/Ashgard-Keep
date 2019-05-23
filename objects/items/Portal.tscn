@@ -8,9 +8,8 @@
 
 script/script = ExtResource( 1 )
 name = "Portal"
-race = "OBJECT2"
 proper_name = false
-blocks_movement = false
+blocks_movement = true
 stay_visible = true
 
 [node name="Sprite" type="Sprite" parent="."]
