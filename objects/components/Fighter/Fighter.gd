@@ -4,11 +4,13 @@ signal hp_changed(current,full)
 signal attack_changed(what)
 signal defence_changed(what)
 signal race_changed(what)
+signal archetype_changed(what)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
 export(String, "Human", "Dwarf", "Elf", "animal") var race = "animal" setget _set_race
+export(String, "Warrior", "Wizard", "Rogue") var archetype = "Warrior" setget _set_archetype
 
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
@@ -30,6 +32,7 @@ func save():
 	data.bleeds = self.bleeds
 	data.blood_colour = self.blood_colour
 	data.race = self.race
+	data.archetype = self.archetype
 	data.attack = self.attack
 	data.defence = self.defence
 	data.max_hp = self.max_hp
@@ -124,6 +127,7 @@ func bleed(blood_colour):
 func _ready():
 	owner.fighter = self
 	self.race = self.race
+	self.archetype = self.archetype
 	owner.add_to_group('actors')
 	hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
 	owner.call_deferred('add_child', hpbar)
@@ -133,13 +137,16 @@ func _set_race(what):
 	race = what
 	emit_signal('race_changed', race)
 
+func _set_archetype(what):
+	archetype = what
+	emit_signal('archetype_changed', archetype)
+
 func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
 		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_DARK_GREEN)
 		die()
-
 
 func _set_max_hp(what):
 	max_hp = what
@@ -149,5 +156,3 @@ func _on_hp_changed(current,full):
 	hpbar.set_hidden(current >= full)
 	hpbar.set_max(full)
 	hpbar.set_value(current)
-
-

@@ -68,25 +68,52 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Race" type="Label" parent="frame"]
+[node name="race_class" type="HBoxContainer" parent="frame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 190.0
+margin/bottom = 32.0
+alignment = 0
+
+[node name="Race" type="Label" parent="frame/race_class"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 18.0
-margin/right = 190.0
-margin/bottom = 32.0
+margin/top = 0.0
+margin/right = 38.0
+margin/bottom = 14.0
 custom_colors/font_color = Color( 0.854902, 0.831373, 0.368627, 1 )
 text = "[Race]"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Archetype" type="Label" parent="frame/race_class"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 42.0
+margin/top = 0.0
+margin/right = 83.0
+margin/bottom = 14.0
+custom_colors/font_color = Color( 0.854902, 0.831373, 0.364706, 1 )
+text = "[Class]"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="HP" type="HBoxContainer" parent="frame"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -342,7 +369,6 @@ max_lines_visible = -1
 
 [node name="right" type="HBoxContainer" parent="frame/stats"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -361,25 +387,9 @@ size_flags/horizontal = 3
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 51.0
+margin/right = 53.0
 margin/bottom = 50.0
 alignment = 0
-
-[node name="XP" type="Label" parent="frame/stats/right/labels"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 51.0
-margin/bottom = 14.0
-custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
-text = "To Next"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Location" type="Label" parent="frame/stats/right/labels"]
 
@@ -388,27 +398,56 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
+margin/top = 0.0
+margin/right = 53.0
+margin/bottom = 14.0
+custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
+text = "1st floor"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="XP" type="Label" parent="frame/stats/right/labels"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
 margin/top = 18.0
-margin/right = 51.0
+margin/right = 53.0
 margin/bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
-text = "Keep lvl"
+text = "XP"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="values" type="VBoxContainer" parent="frame/stats/right"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 55.0
+margin/left = 57.0
 margin/top = 0.0
 margin/right = 93.0
 margin/bottom = 50.0
 alignment = 0
+
+[node name="spacer" type="Label" parent="frame/stats/right/values"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 36.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="XP" type="Label" parent="frame/stats/right/values"]
 
@@ -417,27 +456,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 0.0
-margin/right = 38.0
-margin/bottom = 14.0
-custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
-text = "0%"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Location" type="Label" parent="frame/stats/right/values"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
 margin/top = 18.0
-margin/right = 38.0
+margin/right = 36.0
 margin/bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
-text = "1"
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

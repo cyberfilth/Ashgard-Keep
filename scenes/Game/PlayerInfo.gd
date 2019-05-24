@@ -6,9 +6,9 @@ onready var statsbox = frame.get_node('stats')
 onready var statsleft = statsbox.get_node('left')
 onready var statsright = statsbox.get_node('right')
 
-
 onready var namelabel = frame.get_node('Name')
-onready var racelabel = frame.get_node('Race')
+onready var racelabel = frame.get_node('race_class/Race')
+onready var archetypelabel = frame.get_node('race_class/Archetype')
 
 onready var currenthplabel = hpbox.get_node('labels/CurrentHP')
 onready var maxhplabel = hpbox.get_node('labels/MaxHP')
@@ -19,13 +19,19 @@ onready var attacklabel = statsleft.get_node('values/Attack')
 onready var defencelabel = statsleft.get_node('values/Defence')
 
 onready var xplabel = statsright.get_node('values/XP')
-onready var locationlabel = statsright.get_node('values/Location')
+#onready var locationlabel = statsright.get_node('values/Location')
 
 func name_changed(what):
 	namelabel.set_text(what)
 
 func race_changed(what):
 	racelabel.set_text(what)
+	
+
+func archetype_changed(what):
+	print(what)
+	archetypelabel.set_text(what)
+	print(what)
 
 func attack_changed(what):
 	attacklabel.set_text(str(what))

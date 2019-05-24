@@ -20,7 +20,8 @@ func new_game():
 func save_game():
 	# create a new file object to work with
 	var file = File.new()
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
 	# Alert and return error if file can't be opened
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -66,7 +67,8 @@ func restore_game():
 	if !file.file_exists(GameData.SAVEGAME_PATH):
 		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
 		return ERR_FILE_NOT_FOUND
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
 	# Alert and return error if file can't be opened
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -125,6 +127,8 @@ func spawn_player(cell):
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
 	ob.fighter.emit_signal("race_changed", ob.fighter.race)
+	ob.fighter.connect("archetype_changed", GameData.game.playerinfo, "archetype_changed")
+	ob.fighter.emit_signal("archetype_changed", ob.fighter.archetype)
 	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
 	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
 	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
