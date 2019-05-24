@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://objects/components/Weapon/Weapon.gd" type="Script" id=1]
+
+[node name="Weapon" type="Node"]
+
+script/script = ExtResource( 1 )
+damage_adds = 0
+stackable = false
+indestructible = false
+equipped = false
+throw_range = 0
+throw_damage = 0
+
+
