@@ -82,3 +82,8 @@ func restore(data):
 		if get(key)!=null:
 			set(key, data[key])
 	self.throw_path = []
+
+func _set_throw_path(what):
+	throw_path = what
+	if !throw_path.empty():
+		set_process(true)

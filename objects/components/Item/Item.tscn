@@ -6,6 +6,11 @@
 
 script/script = ExtResource( 1 )
 use_function = ""
+effect_name = null
+param1 = 0
+stackable = false
 indestructible = false
+throw_range = 0
+throw_damage = 0
 
 

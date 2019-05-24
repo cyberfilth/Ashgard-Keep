@@ -24,7 +24,6 @@ centered = false
 [node name="Weapon" parent="." instance=ExtResource( 3 )]
 
 damage_adds = 2
-thrown_damage_adds = 1
 throw_range = 4
 throw_damage = 1
 

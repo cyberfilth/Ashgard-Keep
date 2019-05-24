@@ -209,9 +209,7 @@ func _process(delta):
 		throw_path.remove(0)
 
 
-
 func _set_throw_path(what):
 	throw_path = what
 	if !throw_path.empty():
 		set_process(true)
-	
