@@ -29,9 +29,7 @@ func race_changed(what):
 	
 
 func archetype_changed(what):
-	print(what)
 	archetypelabel.set_text(what)
-	print(what)
 
 func attack_changed(what):
 	attacklabel.set_text(str(what))

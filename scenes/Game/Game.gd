@@ -15,6 +15,26 @@ func new_game():
 	GameData.set_dungeon_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
+	# Welcome message
+	var suffix = ""
+	var date_string = ""
+	var time = OS.get_date()
+	var dayofweek = time["weekday"]
+	var month_num = time["month"]
+	var date_num = time["day"]
+	if date_num == 11 || date_num == 12 || date_num == 13:
+		suffix = "th"
+	elif (date_num % 10 == 1):
+		suffix = "st"
+	elif (date_num % 10 == 2):
+		suffix = "nd"
+	elif (date_num % 10 == 3):
+		suffix = "rd"
+	else:
+		suffix = "th"
+	date_string = str(("It is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
+	GameData.broadcast(date_string)
+	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
 
 # Save Game Function
 func save_game():
