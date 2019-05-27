@@ -2,6 +2,7 @@ extends Node
 
 export(int) var dice = 0
 export(int) var adds = 0
+export(String) var description = " "
 export(bool) var equipped = false
 
 

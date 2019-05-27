@@ -164,9 +164,13 @@ func confuse_target():
 
 func weapon():
 	var weapon_name = owner.get_display_name()
+	var weapon = get_node('../Weapon')
+	#var description = owner.weapon.description
 	# Update GUI
-	var weapon_label = get_node('/root/Game/frame/right/Activity/box/EquipmentLabel')
-	weapon_label.set_text(weapon_name + " equipped")
+	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
+	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
+	equipped_weapon.set_text(weapon_name + " equipped")
+	weapon_description.set_text(weapon.description)
 	# Update weapon stats
 	var weapon_stats = get_node('../Weapon')
 	var dice = weapon_stats.dice

@@ -33,5 +33,6 @@ throw_damage = 3
 
 dice = 2
 adds = 6
+description = "Adds 2D+6 to ATTACK"
 
 
