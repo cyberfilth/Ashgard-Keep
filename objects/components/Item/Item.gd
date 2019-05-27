@@ -7,8 +7,8 @@ onready var owner = get_parent()
 
 export(String,\
 	'heal_player', 'damage_nearest',\
-	'confuse_target', 'blast_cell'\
-	) var use_function = ''
+	'confuse_target', 'blast_cell',\
+	'weapon') var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
@@ -161,7 +161,14 @@ func confuse_target():
 	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOR_BROWN)
 	target.fighter.apply_status_effect('confused',param1)
 	emit_signal('used', "OK")
-	
+
+func weapon():
+	var weapon_name = owner.get_display_name()
+	var weapon_stats = get_node('../Weapon')
+	var dice = weapon_stats.dice
+	var adds = weapon_stats.adds
+	weapon_stats.equip(weapon_name, dice, adds)
+
 func blast_cell():
 	var amount = param1
 	var target_cell = null

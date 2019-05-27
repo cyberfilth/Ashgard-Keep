@@ -5,11 +5,8 @@
 [node name="Weapon" type="Node"]
 
 script/script = ExtResource( 1 )
-damage_adds = 0
-stackable = false
-indestructible = false
+dice = 0
+adds = 0
 equipped = false
-throw_range = 0
-throw_damage = 0
 
 

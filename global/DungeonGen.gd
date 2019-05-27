@@ -122,7 +122,7 @@ func place_weapons(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
-	var weapons = ['dagger']
+	var weapons = ['crude_dagger']
 	var choice = weapons[GameData.roll(0, weapons.size()-1)]
 	var path = 'weapons/' + choice
 	GameData.map.spawn_object(path, pos)

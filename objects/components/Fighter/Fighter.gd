@@ -19,7 +19,9 @@ export(int) var max_hp = 5 setget _set_max_hp
 var hp = 5 setget _set_hp
 
 var status_effects = {}
-
+var weapon_equipped = false
+var weapon_dice = 0
+var weapon_adds = 0
 var hpbar
 
 func restore(data):
@@ -71,8 +73,11 @@ func _set_defence(what):
 	emit_signal('defence_changed', defence)
 
 func fight(who):
-	# Damage = 0 to ATTACK amount - DEFENCE
-	var damage_amount = GameData.roll(0, self.attack) - who.fighter.defence
+	# Weapon Modifier
+	var max_roll = weapon_dice * 6
+	var weapon_modifier = GameData.roll(weapon_dice, max_roll)
+	# Damage = ATTACK amount - DEFENCE
+	var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
 	if damage_amount > 0:
 		who.fighter.take_damage(owner.get_display_name(), damage_amount)
 	elif damage_amount <= 0:

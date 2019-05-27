@@ -116,17 +116,6 @@ rect/min_size = Vector2( 204, 116 )
 size_flags/vertical = 2
 margin/bottom = 128.0
 
-[node name="PanelContainer" type="PanelContainer" parent="frame/right"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 132.0
-margin/right = 204.0
-margin/bottom = 358.0
-
 [node name="Activity" type="PanelContainer" parent="frame/right"]
 
 focus/ignore_mouse = false
@@ -134,7 +123,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 362.0
+margin/top = 132.0
 margin/right = 204.0
 margin/bottom = 588.0
 
@@ -147,7 +136,7 @@ size_flags/vertical = 2
 margin/left = 6.0
 margin/top = 6.0
 margin/right = 198.0
-margin/bottom = 220.0
+margin/bottom = 450.0
 alignment = 0
 
 [node name="InventoryAction" type="HBoxContainer" parent="frame/right/Activity/box"]
