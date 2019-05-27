@@ -445,6 +445,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="EquipmentLabel" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 176.0
+margin/right = 192.0
+margin/bottom = 192.0
+custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
+text = "equipment"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="InventoryObjects" type="Node2D" parent="frame/right/Activity/box"]
 
 visibility/visible = false
