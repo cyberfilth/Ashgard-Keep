@@ -20,12 +20,11 @@ centered = false
 
 [node name="Brand" type="Sprite" parent="."]
 
-centered = false
+transform/pos = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "weapon"
-stackable = true
 throw_range = 8
 throw_damage = 3
 

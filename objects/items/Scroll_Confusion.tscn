@@ -22,11 +22,9 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "confuse_target"
-effect_name = null
 param1 = 4
 stackable = true
 throw_range = 3
-throw_damage = 0
 
 [node name="Brand" type="Sprite" parent="."]
 

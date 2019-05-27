@@ -28,7 +28,8 @@ func update_slot():
 	var txt = str(count) if count > 1 else ''
 	get_node('Count').set_text(txt)
 
-
+func show_equipped():
+	get_node('EQ_icon').show()
 
 func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
