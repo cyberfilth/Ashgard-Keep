@@ -17,7 +17,6 @@ export(int) var defence = 1 setget _set_defence
 
 export(int) var max_hp = 5 setget _set_max_hp
 var hp = 5 setget _set_hp
-
 var status_effects = {}
 var weapon_equipped = false
 var weapon_dice = 0
@@ -73,17 +72,18 @@ func _set_defence(what):
 	emit_signal('defence_changed', defence)
 
 func fight(who):
-	# Weapon Modifier
-	var max_roll = weapon_dice * 6
-	var weapon_modifier = GameData.roll(weapon_dice, max_roll)
-	# Damage = ATTACK amount - DEFENCE
-	var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
-	if damage_amount > 0:
-		who.fighter.take_damage(owner.get_display_name(), damage_amount)
-	elif damage_amount <= 0:
-		broadcast_miss(owner.get_display_name())
+	if owner.fighter.hp < 1:
+		die()
 	else:
-		return
+	# Weapon Modifier
+		var max_roll = weapon_dice * 6
+		var weapon_modifier = GameData.roll(weapon_dice, max_roll)
+	# Damage = ATTACK amount - DEFENCE
+		var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
+		if damage_amount > 0:
+			who.fighter.take_damage(owner.get_display_name(), damage_amount)
+		else:
+			broadcast_miss(owner.get_display_name())
 
 func heal_damage(from,amount):
 	var heal_amount = GameData.roll(2, amount) # Heals by a random amount
@@ -92,8 +92,8 @@ func heal_damage(from,amount):
 	self.hp += heal_amount
 
 func take_damage(from="An Unknown Force", amount=0):
-	broadcast_damage_taken(from,amount)
-	self.hp -= amount
+			broadcast_damage_taken(from,amount)
+			self.hp -= amount
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
@@ -103,12 +103,14 @@ func broadcast_damage_healed(from="An Unknown Force", amount=0):
 func broadcast_damage_taken(from, amount):
 	var m = str(amount)
 	var color = GameData.COLOR_DARK_GREY
+	var damage_type = "" # Bitey or stabby, depending on the enemy
+	if from == "Rat":
+		damage_type = " bites "
+	else:
+		damage_type = " attacks "
 	if owner == GameData.player:
 		color = GameData.COLOR_RED
-	if from == "Rat":
-		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
-	else:
-		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from + damage_type + owner.get_display_name() + " for " + m + " damage", color)
 
 func broadcast_miss(from):
 	if self.hp <= 0:
@@ -120,6 +122,7 @@ func die():
 	if self.bleeds:
 		bleed(blood_colour)
 	owner.kill()
+	self.queue_free()
 
 func bleed(blood_colour):
 	var blood = load('res://graphics/fx/blood_'+blood_colour+str(randi()%5)+'.png')
