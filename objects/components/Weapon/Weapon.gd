@@ -11,5 +11,13 @@ func equip(weapon_name, dice, adds):
 	fighter.weapon_equipped = true
 	fighter.weapon_dice = dice
 	fighter.weapon_adds = adds
-	equipped == true
+	equipped = true
 	GameData.broadcast(weapon_name + " has been equipped, +" + str(dice)+"D"+str(adds) + " to Attack")
+
+func unequip(weapon_name, dice, adds):
+	var fighter = GameData.player.fighter
+	fighter.weapon_equipped = false
+	fighter.weapon_dice -= dice
+	fighter.weapon_adds -= adds
+	equipped = false
+	GameData.broadcast(weapon_name + " unequipped")

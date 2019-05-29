@@ -73,20 +73,17 @@ func _set_defence(what):
 	emit_signal('defence_changed', defence)
 
 func fight(who):
-	if owner.fighter.hp < 1:
-		die()
-	else:
 	# Weapon Modifier
-		var max_roll = weapon_dice * 6
-		var weapon_modifier = GameData.roll(weapon_dice, max_roll)
+	var max_roll = weapon_dice * 6
+	var weapon_modifier = GameData.roll(weapon_dice, max_roll)
 	# Damage = ATTACK amount - DEFENCE
-		var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
-		if damage_amount > 0:
-			who.fighter.take_damage(owner.get_display_name(), damage_amount)
-		elif damage_amount <= 0:
-			broadcast_miss(owner.get_display_name())
-		else:
-			return
+	var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
+	if damage_amount > 0:
+		who.fighter.take_damage(owner.get_display_name(), damage_amount)
+	elif damage_amount <= 0:
+		broadcast_miss(owner.get_display_name())
+	else:
+		return
 
 func heal_damage(from,amount):
 	var heal_amount = GameData.roll(2, amount) # Heals by a random amount

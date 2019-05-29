@@ -101,8 +101,6 @@ func throw():
 func _ready():
 	owner.item = self
 
-
-
 # USE FUNCTIONS
 func heal_player():
 	var amount = self.param1
@@ -163,20 +161,40 @@ func confuse_target():
 	emit_signal('used', "OK")
 
 func weapon():
-	var weapon_name = owner.get_display_name()
 	var weapon = get_node('../Weapon')
-	# Update GUI
+	if weapon.equipped == true:
+		unequip_weapon(weapon)
+	elif GameData.player.fighter.weapon_equipped == true:
+		GameData.broadcast('Unequip your current weapon before selecting a new one')
+		return
+	else:
+		equip_weapon(weapon)
+
+func unequip_weapon(weapon):
+	var weapon_name = owner.get_display_name()
+	inventory_slot.show_unequipped()
+	## Update GUI ##
+	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
+	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
+	equipped_weapon.set_text("No weapon equipped")
+	weapon_description.set_text(" ")
+	## Update weapon stats ##
+	var dice = weapon.dice
+	var adds = weapon.adds
+	weapon.unequip(weapon_name, dice, adds)
+
+func equip_weapon(weapon):
+	var weapon_name = owner.get_display_name()
+	## Update GUI ##
 	inventory_slot.show_equipped()
 	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
 	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
 	equipped_weapon.set_text(weapon_name + " equipped")
 	weapon_description.set_text(weapon.description)
-	# Update weapon stats
-	var weapon_stats = get_node('../Weapon')
-	var dice = weapon_stats.dice
-	var adds = weapon_stats.adds
-	weapon_stats.equip(weapon_name, dice, adds)
-	#emit_signal('used', "OK")
+	## Update weapon stats ##
+	var dice = weapon.dice
+	var adds = weapon.adds
+	weapon.equip(weapon_name, dice, adds)
 
 func blast_cell():
 	var amount = param1
@@ -194,7 +212,6 @@ func blast_cell():
 		emit_signal('used', "can't cast there!")
 		return
 	target_cell = callback
-	
 	# list of actors in blast area
 	var actors = []
 	
@@ -223,7 +240,6 @@ func _process(delta):
 		var i = min(throw_path.size()-1, 1)
 		owner.set_map_pos(throw_path[i], true)
 		throw_path.remove(0)
-
 
 func _set_throw_path(what):
 	throw_path = what

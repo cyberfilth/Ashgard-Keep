@@ -31,6 +31,9 @@ func update_slot():
 func show_equipped():
 	get_node('EQ_icon').show()
 
+func show_unequipped():
+	get_node('EQ_icon').hide()
+
 func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
 	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
