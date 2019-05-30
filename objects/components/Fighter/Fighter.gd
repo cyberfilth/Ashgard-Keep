@@ -110,6 +110,8 @@ func broadcast_damage_taken(from, amount):
 		color = GameData.COLOR_RED
 	if from == "Rat":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
+	elif from == "Fire":
+		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
 	else:
 		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
 
