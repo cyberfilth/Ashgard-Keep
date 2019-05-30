@@ -47,9 +47,7 @@ centered = false
 use_function = "heal_player"
 effect_name = "Healin' feelin'"
 param1 = 5
-stackable = false
 throw_range = 5
-throw_damage = 0
 
 [node name="Brand" type="Sprite" parent="."]
 

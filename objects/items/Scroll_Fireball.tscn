@@ -25,7 +25,6 @@ effect_name = "Fire"
 param1 = 15
 stackable = true
 throw_range = 3
-throw_damage = 0
 
 [node name="Brand" type="Sprite" parent="."]
 
