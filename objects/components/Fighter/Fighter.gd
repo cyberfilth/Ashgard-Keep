@@ -112,6 +112,8 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
+	elif from == "Lightning Strike":
+		GameData.broadcast(from+ " zaps " +owner.get_display_name()+ " for " +m+ " damage",color)
 	else:
 		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
 
