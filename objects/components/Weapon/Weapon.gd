@@ -3,7 +3,6 @@ extends Node
 export(int) var dice = 0
 export(int) var adds = 0
 export(String) var description = " "
-export(bool) var equipped = false
 
 
 func equip(weapon_name, dice, adds):
@@ -11,7 +10,7 @@ func equip(weapon_name, dice, adds):
 	fighter.weapon_equipped = true
 	fighter.weapon_dice = dice
 	fighter.weapon_adds = adds
-	equipped = true
+	get_parent().get_node('Item').equipped = true
 	GameData.broadcast(weapon_name + " has been equipped, +" + str(dice)+"D"+str(adds) + " to Attack")
 
 func unequip(weapon_name, dice, adds):
@@ -19,5 +18,5 @@ func unequip(weapon_name, dice, adds):
 	fighter.weapon_equipped = false
 	fighter.weapon_dice -= dice
 	fighter.weapon_adds -= adds
-	equipped = false
+	get_parent().get_node('Item').equipped = false
 	GameData.broadcast(weapon_name + " unequipped")

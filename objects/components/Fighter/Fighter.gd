@@ -40,6 +40,9 @@ func save():
 	data.max_hp = self.max_hp
 	data.hp = self.hp
 	data.status_effects = self.status_effects
+	data.weapon_equipped = self.weapon_equipped
+	data.weapon_dice = self.weapon_dice
+	data.weapon_adds = self.weapon_adds
 	return data
 
 func has_status_effect(name):

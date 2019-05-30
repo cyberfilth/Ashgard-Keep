@@ -52,7 +52,7 @@ func add_to_inventory(obj):
 func check_if_can_remove_from_inventory(slot, item):
 	if item.has_node("Weapon"):
 		var weapon = item.get_node('Weapon')
-		if weapon.equipped == false:
+		if item.get_node('Item').equipped == false:
 			remove_from_inventory(slot, item)
 			return
 		else:

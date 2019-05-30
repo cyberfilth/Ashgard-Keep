@@ -12,5 +12,6 @@ stackable = false
 indestructible = false
 throw_range = 0
 throw_damage = 0
+equipped = false
 
 

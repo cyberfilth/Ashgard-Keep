@@ -19,6 +19,8 @@ export(bool) var indestructible = false
 export(int,0,8) var throw_range = 0
 export(int) var throw_damage = 0
 
+export(bool) var equipped = false
+
 var inventory_slot
 
 var throw_path = [] setget _set_throw_path
@@ -33,6 +35,7 @@ func save():
 	data.indestructible = self.indestructible
 	data.throw_range = self.throw_range
 	data.throw_damage = self.throw_damage
+	data.equipped = self.equipped
 	return data
 
 func restore(data):
@@ -162,7 +165,7 @@ func confuse_target():
 
 func weapon():
 	var weapon = get_node('../Weapon')
-	if weapon.equipped == true:
+	if equipped == true:
 		unequip_weapon(weapon)
 	elif GameData.player.fighter.weapon_equipped == true:
 		GameData.broadcast('Unequip your current weapon before selecting a new one')
