@@ -1,17 +1,13 @@
-#################################
-#								#
-#	FIELD OF VIEW GENERATOR		#
-#								#
-#################################
+# Field Of View generator
 
 extends Node
 
 
-# Calculates an array of cells within the FOV of the origin within radius range
-#  data= source datamap (2-dimensional array of int)
-#  wall_index= datamap int which represents a sight-blocker
-#  origin= origin cell to cast FOV from
-#  radius= distance in cells to cast to (only cells within radius are considered)
+#  Calculates an array of cells within the FOV of the origin within radius range
+#  data = source datamap (2-dimensional array of int)
+#  wall_index = datamap int which represents a sight-blocker
+#  origin = origin cell to cast FOV from
+#  radius = distance in cells to cast to (only cells within radius are considered)
 
 func calculate_fov(data, wall_index, origin, radius):
 	var rect = get_fov_rect(origin, radius)

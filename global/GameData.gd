@@ -22,13 +22,13 @@ var restore_game = false
 
 var player_data = {}
 
-## replaced with randomly generated theme number
+# Randomly generated dungeon theme number
 var dungeonRNG
 
 # Player sight radius
 var TORCH_RADIUS = 5
 
-# Dungeon variables
+# Dungeon map parameters
 var MAP_SIZE = Vector2(80, 80) # Changed from 100, 80
 var MAX_ROOMS = 60
 var ROOM_MIN_SIZE = 5

@@ -36,7 +36,6 @@ func restore_object(data):
 	if ob: 
 		ob = ob.instance().spawn(self,pos)
 		ob.restore(data)
-		#update()
 		return ob
 
 func spawn_object(partial_path,cell):
@@ -126,7 +125,6 @@ func spawn_fx(texture, cell):
 	fx.add_to_group('fx')
 
 
-
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
 
@@ -151,7 +149,7 @@ func set_cursor():
 			text = list[0].get_display_name()
 		else:
 			# cursor over empty wall/floor
-			text = "A wall" if is_wall(cell) else "A floor"
+			text = "wall" if is_wall(cell) else "floor"
 
 	set_cursor_label(text)
 

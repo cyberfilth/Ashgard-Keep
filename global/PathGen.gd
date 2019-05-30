@@ -5,7 +5,7 @@ var BOUNDS
 var floor_cells = []
 
 # dirty cells made by blocking Objects
-#{Vector2 cell: bool not_blocked}
+# {Vector2 cell: bool not_blocked}
 var dirty_cells = {}
 
 func find_path(from, to):
@@ -46,7 +46,7 @@ func clean_dirty_cells():
 					else:
 						if map.are_points_connected(id,nid):
 							map.disconnect_points(id,nid)
-		# pop the cell off the list
+		# remove the cell off the list
 		cells.remove(0)
 		dirty_cells.erase(cell)
 		

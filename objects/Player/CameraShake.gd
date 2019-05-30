@@ -1,4 +1,3 @@
-# Attached Player.Camera (Player.tscn)
 extends Camera2D
 
 var velocity = -50
@@ -19,7 +18,6 @@ func _process(delta):
 		set_offset(Vector2(0, 0))
 
 # shake the camera for 'duration' amount of time, with specified 'magnitude'
-# currently being tested in world.gd
 func shake(duration, magnitude):
 	max_mag = magnitude
 	timer = duration
