@@ -1,24 +1,11 @@
 .
-├── addons
-│   └── ch.fischspiele.tilesethelper
-│       ├── AssetLibIcon.png
-│       ├── gui_image_multiple.png
-│       ├── gui_image_single.png
-│       ├── gui_image_single.png.flags
-│       ├── gui_image_tileset.png
-│       ├── icon_collision_polygon_2d.png
-│       ├── icon_collision_shape_2d.png
-│       ├── icon_light_occluder_2d.png
-│       ├── icon_navigation_polygon_instance.png
-│       ├── plugin.cfg
-│       ├── tilesethelper_dock.tscn
-│       └── tilesethelper.gd
 ├── docs
 │   ├── _config.yml
 │   ├── credits.txt
 │   ├── NewScreenshot.png
 │   ├── README.md
 │   ├── roadmap.org
+│   ├── small_animation.gif
 │   └── TreeView.txt
 ├── engine.cfg
 ├── export.cfg
@@ -44,10 +31,23 @@
 ├── graphics
 │   ├── brands
 │   │   ├── i-confusion.png
+│   │   ├── i-equipped1.png
 │   │   ├── i-fireball.png
 │   │   └── i-lightning.png
 │   ├── dungeon
 │   │   ├── floorsx24
+│   │   │   ├── cobble_blood10.png
+│   │   │   ├── cobble_blood11.png
+│   │   │   ├── cobble_blood12.png
+│   │   │   ├── cobble_blood1.png
+│   │   │   ├── cobble_blood2.png
+│   │   │   ├── cobble_blood3.png
+│   │   │   ├── cobble_blood4.png
+│   │   │   ├── cobble_blood5.png
+│   │   │   ├── cobble_blood6.png
+│   │   │   ├── cobble_blood7.png
+│   │   │   ├── cobble_blood8.png
+│   │   │   ├── cobble_blood9.png
 │   │   │   ├── grey_dirt0.png
 │   │   │   ├── grey_dirt0.png.import
 │   │   │   ├── grey_dirt1.png
@@ -63,6 +63,18 @@
 │   │   │   ├── grey_dirt6.png
 │   │   │   ├── grey_dirt6.png.import
 │   │   │   ├── normals
+│   │   │   │   ├── cobble_blood10_normal.png
+│   │   │   │   ├── cobble_blood11_normal.png
+│   │   │   │   ├── cobble_blood12_normal.png
+│   │   │   │   ├── cobble_blood1_normal.png
+│   │   │   │   ├── cobble_blood2_normal.png
+│   │   │   │   ├── cobble_blood3_normal.png
+│   │   │   │   ├── cobble_blood4_normal.png
+│   │   │   │   ├── cobble_blood5_normal.png
+│   │   │   │   ├── cobble_blood6_normal.png
+│   │   │   │   ├── cobble_blood7_normal.png
+│   │   │   │   ├── cobble_blood8_normal.png
+│   │   │   │   ├── cobble_blood9_normal.png
 │   │   │   │   ├── grey_dirt0_normal.png
 │   │   │   │   ├── grey_dirt1_normal.png
 │   │   │   │   ├── grey_dirt2_normal.png
@@ -147,7 +159,11 @@
 │   │       ├── sandstone_wall8.png
 │   │       ├── sandstone_wall8.png.import
 │   │       ├── sandstone_wall9.png
-│   │       └── sandstone_wall9.png.import
+│   │       ├── sandstone_wall9.png.import
+│   │       ├── stone_gray0.png
+│   │       ├── stone_gray1.png
+│   │       ├── stone_gray2.png
+│   │       └── stone_gray3.png
 │   ├── fx
 │   │   ├── blood_green0.png
 │   │   ├── blood_green1.png
@@ -165,13 +181,17 @@
 │   │   ├── portal.png
 │   │   └── splashscreen.png
 │   ├── gui
+│   │   ├── armour_equipment_slot.png
 │   │   ├── ashgard_keep.png
 │   │   ├── button.png
 │   │   ├── loading0.png
 │   │   ├── loading1.png
 │   │   ├── loading2.png
+│   │   ├── shield_equipment_slot.png
+│   │   ├── slot_equipped.png
 │   │   ├── slot.png
-│   │   └── sword.png
+│   │   ├── sword.png
+│   │   └── weapon_equipment_slot.png
 │   ├── lights
 │   │   ├── torch.png
 │   │   └── torch.png.flags
@@ -192,14 +212,18 @@
 │   │   │   └── Controller.tscn
 │   │   ├── Fighter
 │   │   │   ├── Fighter.gd
-│   │   │   └── Fighter.tscn
+│   │   │   ├── Fighter.tscn
+│   │   │   └── OldFighter.gd
 │   │   ├── Item
 │   │   │   ├── Item.gd
 │   │   │   └── Item.tscn
-│   │   └── Object
-│   │       ├── HPBar.tscn
-│   │       ├── Object.gd
-│   │       └── Object.tscn
+│   │   ├── Object
+│   │   │   ├── HPBar.tscn
+│   │   │   ├── Object.gd
+│   │   │   └── Object.tscn
+│   │   └── Weapon
+│   │       ├── Weapon.gd
+│   │       └── Weapon.tscn
 │   ├── items
 │   │   ├── HealthPotion.tscn
 │   │   ├── misc_stone.png
@@ -216,9 +240,14 @@
 │   │   │   └── zombie.tscn
 │   │   └── 2
 │   │       └── rat.tscn
-│   └── Player
-│       ├── Player.png
-│       └── Player.tscn
+│   ├── Player
+│   │   ├── CameraShake.gd
+│   │   ├── Player.png
+│   │   └── Player.tscn
+│   └── weapons
+│       ├── crude_dagger.tscn
+│       ├── dagger2.png
+│       └── dagger.png
 ├── README.md
 ├── resources
 │   ├── black_panel.tres
@@ -255,4 +284,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-34 directories, 221 files
+34 directories, 250 files
