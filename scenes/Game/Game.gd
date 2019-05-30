@@ -62,7 +62,6 @@ func save_game():
 	
 	data.objects = []
 	data.inventory = []
-	#GameData.player.remove_from_group('world')
 	
 	for node in get_tree().get_nodes_in_group('world'):
 		# exclude saved player data
@@ -125,6 +124,11 @@ func restore_game():
 		for entry in data.inventory:
 			var ob = restore_object(entry)
 			ob.pickup()
+			# Equip weapon
+			if entry.item.equipped == true:
+				var weapon = ob.get_node('Weapon')
+				ob.item.equip_weapon(weapon)
+
 	
 	# close file and return status
 	file.close()

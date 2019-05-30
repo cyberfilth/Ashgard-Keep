@@ -43,6 +43,9 @@ func restore(data):
 		if get(key)!=null:
 			set(key, data[key])
 	self.throw_path = []
+	# Equip weapon
+	#if self.equipped == true:
+		#print("HERE!")
 
 
 func use():
