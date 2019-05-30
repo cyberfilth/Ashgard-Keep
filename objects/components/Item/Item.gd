@@ -56,7 +56,7 @@ func pickup():
 
 func drop():
 	assert inventory_slot != null
-	GameData.inventory.remove_from_inventory(inventory_slot,owner)
+	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,owner)
 
 func throw():
 	if self.throw_range <= 0:

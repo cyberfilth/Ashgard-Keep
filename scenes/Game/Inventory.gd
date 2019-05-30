@@ -49,18 +49,25 @@ func add_to_inventory(obj):
 	return OK
 
 
-func remove_from_inventory(slot, item):
-	var weapon = item.get_node('Weapon')
-	if weapon.equipped == false:
-		slot.remove_contents(item)
-		item.remove_from_group('inventory')
-		item.add_to_group('world')
-		item.get_parent().remove_child(item)
-		GameData.map.add_child(item)
-		item.set_map_pos(GameData.player.get_map_pos())
+func check_if_can_remove_from_inventory(slot, item):
+	if item.has_node("Weapon"):
+		var weapon = item.get_node('Weapon')
+		if weapon.equipped == false:
+			remove_from_inventory(slot, item)
+			return
+		else:
+			GameData.broadcast('Unequip an item before dropping it')
+			return
 	else:
-		GameData.broadcast('Unequip an item before dropping it')
+		remove_from_inventory(slot, item)
 
+func remove_from_inventory(slot, item):
+	slot.remove_contents(item)
+	item.remove_from_group('inventory')
+	item.add_to_group('world')
+	item.get_parent().remove_child(item)
+	GameData.map.add_child(item)
+	item.set_map_pos(GameData.player.get_map_pos())
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."
