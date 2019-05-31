@@ -49,6 +49,10 @@ func broadcast(message, color=COLOR_WHITE):
 			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")
 			game.messagebox.newline()
 
+# Clear status messages
+func clear_messages():
+	game.messagebox.clear()
+
 # Random number generator
 func roll(l,h):
 	return int(round(rand_range(l,h)))

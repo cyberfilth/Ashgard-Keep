@@ -92,7 +92,7 @@ func restore_game():
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
-
+	
 	# Dictionary to store file data
 	var data = {}
 	
@@ -128,14 +128,12 @@ func restore_game():
 			if entry.item.equipped == true:
 				var weapon = ob.get_node('Weapon')
 				ob.item.equip_weapon(weapon)
-
-	
+			# Clear status messages
+			GameData.clear_messages()
 	# close file and return status
 	file.close()
-	
 	# build a Pathfinding map
 	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
-	
 	return opened
 
 func restore_object(data):
