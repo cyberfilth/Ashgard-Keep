@@ -5,11 +5,10 @@ const version = "Version 0.4.5"
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
 
-const COLOR_WHITE = '#91B4C1' # Default broadcast message
-const COLOR_DARK_GREY = '#bb3f40' # Monster damage taken
+const COLOR_LIGHT_BLUE = '#91B4C1' # Default broadcast message
 const COLOR_RED = '#d04648' # Player damage taken
-const COLOR_BROWN = '#6C73AA' # looks confused || Slot button pressed issue
-const COLOR_DARK_GREEN = '#5C899E' # is slain
+const COLOR_BLUE = '#6C73AA' # looks confused || Slot button pressed issue, bluer blue
+const COLOR_TEAL = '#5C899E' # is slain
 const COLOR_GREEN = '#64B187' # Uses health potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 
@@ -43,7 +42,7 @@ var inventory_menu
 var load_continue = "load"
 
 # Broadcast status messages
-func broadcast(message, color=COLOR_WHITE):
+func broadcast(message, color=COLOR_LIGHT_BLUE):
 	if game:
 		if game.messagebox:
 			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")

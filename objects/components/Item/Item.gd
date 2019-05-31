@@ -50,7 +50,7 @@ func restore(data):
 
 func use():
 	if use_function.empty():
-		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOR_DARK_GREY)
+		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOR_TEAL)
 		return
 	if has_method(use_function):
 		call(use_function)
@@ -162,7 +162,7 @@ func confuse_target():
 		return
 	
 	# found valid target
-	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOR_BROWN)
+	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOR_BLUE)
 	target.fighter.apply_status_effect('confused',param1)
 	emit_signal('used', "OK")
 

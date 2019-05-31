@@ -4,7 +4,6 @@
 │   ├── credits.txt
 │   ├── NewScreenshot.png
 │   ├── README.md
-│   ├── roadmap.org
 │   ├── small_animation.gif
 │   └── TreeView.txt
 ├── engine.cfg
@@ -212,8 +211,7 @@
 │   │   │   └── Controller.tscn
 │   │   ├── Fighter
 │   │   │   ├── Fighter.gd
-│   │   │   ├── Fighter.tscn
-│   │   │   └── OldFighter.gd
+│   │   │   └── Fighter.tscn
 │   │   ├── Item
 │   │   │   ├── Item.gd
 │   │   │   └── Item.tscn
@@ -284,4 +282,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-34 directories, 250 files
+34 directories, 248 files

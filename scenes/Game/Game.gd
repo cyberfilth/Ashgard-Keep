@@ -130,6 +130,8 @@ func restore_game():
 				ob.item.equip_weapon(weapon)
 			# Clear status messages
 			GameData.clear_messages()
+			# Welcome message
+			GameData.broadcast("Welcome back "+GameData.player.name+"...")
 	# close file and return status
 	file.close()
 	# build a Pathfinding map

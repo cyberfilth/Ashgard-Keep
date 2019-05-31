@@ -106,7 +106,7 @@ func broadcast_damage_healed(from="An Unknown Force", amount=0):
 
 func broadcast_damage_taken(from, amount):
 	var m = str(amount)
-	var color = GameData.COLOR_DARK_GREY
+	var color = GameData.COLOR_TEAL
 	if owner == GameData.player:
 		color = GameData.COLOR_RED
 	if from == "Rat":
@@ -158,7 +158,7 @@ func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
-		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_DARK_GREEN)
+		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_TEAL)
 		die()
 
 func _set_max_hp(what):
