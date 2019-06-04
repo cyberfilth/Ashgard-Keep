@@ -161,8 +161,8 @@ func _set_seen(what):
 
 func _on_hp_changed(current,full):
 	if not fighter: return
-	get_node('HPBar').set_hidden(current >= full)
-	get_node('HPBar').set_max(full)
-	get_node('HPBar').set_value(current)
+	#get_node('HPBar').set_hidden(current >= full)
+	#get_node('HPBar').set_max(full)
+	#get_node('HPBar').set_value(current)
 
 
