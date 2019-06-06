@@ -82,7 +82,6 @@ func generate():
 			else:
 				place_monsters(new_room)
 				place_items(new_room)
-				place_weapons(new_room)
 				var prev_center = center(rooms[num_rooms-1])
 				# flip a coin
 				if randi()%2 == 0:
@@ -113,19 +112,9 @@ func place_items(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
-	var items = ['Rock', 'HealthPotion', 'Scroll_Fireball', 'Scroll_LightningBolt', 'Scroll_Confusion']
+	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger']
 	var choice = items[GameData.roll(0, items.size()-1)]
-	var path = 'items/' + choice
-	GameData.map.spawn_object(path, pos)
-
-func place_weapons(room):
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
-	var pos = Vector2(x,y)
-	var weapons = ['crude_dagger']
-	var choice = weapons[GameData.roll(0, weapons.size()-1)]
-	var path = 'weapons/' + choice
-	GameData.map.spawn_object(path, pos)
+	GameData.map.spawn_object(choice, pos)
 
 func place_exit_portal(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
