@@ -26,25 +26,29 @@ var themes = [
 { # 1 - Sandstone
 tileset = FAMILY1,
 darkness = DARKNESS1,
-minion = 'monsters/2/rat',
-undead = 'monsters/1/zombie'
+minion1 = 'monsters/animals/rat',
+minion2 = 'monsters/animals/bat',
+undead = 'monsters/undead/zombie'
 },
 { # 2 - Brick Dark
 tileset = FAMILY2,
 darkness = DARKNESS2,
-minion = 'monsters/2/rat',
-undead = 'monsters/1/zombie'
+minion1 = 'monsters/animals/rat',
+minion2 = 'monsters/animals/bat',
+undead = 'monsters/undead/zombie'
 },
 { # 3 - Bloody Cobbles
 tileset = FAMILY3,
 darkness = DARKNESS3,
-minion = 'monsters/2/rat',
-undead = 'monsters/1/zombie'
+minion1 = 'monsters/animals/rat',
+minion2 = 'monsters/animals/bat',
+undead = 'monsters/undead/zombie'
 },
 { # 4 - Green flagstones
 tileset = FAMILY4,
 darkness = DARKNESS4,
-minion = 'monsters/2/rat',
-undead = 'monsters/1/zombie'
+minion1 = 'monsters/animals/rat',
+minion2 = 'monsters/animals/bat',
+undead = 'monsters/undead/zombie'
 }
 ]

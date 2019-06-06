@@ -102,9 +102,10 @@ func place_monsters(room):
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-	var minion = theme.minion
+	var minion1 = theme.minion1
+	var minion2 = theme.minion2
 	var bigbad = theme.undead
-	var monsters = [minion, bigbad]
+	var monsters = [minion1, minion2, bigbad]
 	var choice = monsters[GameData.roll(0, monsters.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 

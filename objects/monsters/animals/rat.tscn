@@ -3,17 +3,18 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/1/zombie_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/animals/rat_AI.gd" type="Script" id=4]
+
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "zombie"
+name = "Rat"
 proper_name = true
 blocks_movement = true
 stay_visible = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Glyph" type="RichTextLabel" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -24,18 +25,18 @@ margin/top = -3.0
 margin/right = 46.0
 margin/bottom = 37.0
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.564468, 0.816406, 0.651072, 1 )
-bbcode/enabled = false
-bbcode/bbcode = "z"
+custom_colors/default_color = Color( 0.429688, 0.341411, 0.17, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "r"
 visible_characters = -1
 percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
-blood_colour = "green"
-attack = 10
-defence = 10
-max_hp = 40
+race = "animal"
+attack = 15
+defence = 5
+max_hp = 2
 
 [node name="AI" type="Node" parent="."]
 
