@@ -9,13 +9,7 @@ func _ready():
 
 func take_turn():
 	if owner.fighter.has_status_effect('confused'):
-		var UP = randi()%2
-		var DOWN = randi()%2
-		var LEFT = randi()%2
-		var RIGHT = randi()%2
-		var dir = Vector2( RIGHT-LEFT, DOWN-UP )
-		owner.step(dir)
-		return
+		wander()
 	
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
@@ -28,3 +22,12 @@ func take_turn():
 			var attention = randi()%2
 			if attention == 1:
 				owner.step_to(target.get_map_pos())
+
+func wander():
+	var UP = randi()%2
+	var DOWN = randi()%2
+	var LEFT = randi()%2
+	var RIGHT = randi()%2
+	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
+	owner.step(dir)
+	print("Wander")
