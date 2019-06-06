@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/components/AI/AI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/monsters/1/zombie_AI.gd" type="Script" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -37,7 +37,9 @@ attack = 10
 defence = 10
 max_hp = 40
 
-[node name="AI" parent="." instance=ExtResource( 4 )]
+[node name="AI" type="Node" parent="."]
+
+script/script = ExtResource( 4 )
 
 [node name="Brand" type="Sprite" parent="."]
 
