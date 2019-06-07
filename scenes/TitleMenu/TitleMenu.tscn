@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://scenes/TitleMenu/TitleMenu.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
-[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://graphics/gui/sword.png" type="Texture" id=4]
+[ext_resource path="res://graphics/gui/AT_teal.png" type="Texture" id=3]
+[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://graphics/gui/sword.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -142,7 +143,24 @@ margin/bottom = 419.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="NewGame" type="Button" parent="Menu/CentreRow/Buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/CentreRow/Buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 129.0
+margin/right = 348.0
+margin/bottom = 169.0
+alignment = 0
+
+[node name="ng_icon" type="Sprite" parent="Menu/CentreRow/Buttons/HBoxContainer"]
+
+transform/pos = Vector2( -20, 15 )
+texture = ExtResource( 3 )
+
+[node name="NewGame" type="Button" parent="Menu/CentreRow/Buttons/HBoxContainer"]
 
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
@@ -150,9 +168,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 129.0
-margin/right = 348.0
-margin/bottom = 169.0
+margin/top = 0.0
+margin/right = 136.0
+margin/bottom = 40.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -163,7 +181,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = true
 
-[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/NewGame"]
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/HBoxContainer/NewGame"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -175,14 +193,31 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 594.0
 margin/bottom = -12.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0.266667, 0.254902, 0.305882, 1 )
 text = "New Game"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Continue" type="Button" parent="Menu/CentreRow/Buttons"]
+[node name="HBoxContainer 2" type="HBoxContainer" parent="Menu/CentreRow/Buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 189.0
+margin/right = 348.0
+margin/bottom = 229.0
+alignment = 0
+
+[node name="cn_icon" type="Sprite" parent="Menu/CentreRow/Buttons/HBoxContainer 2"]
+
+transform/pos = Vector2( -20, 15 )
+texture = ExtResource( 3 )
+
+[node name="Continue" type="Button" parent="Menu/CentreRow/Buttons/HBoxContainer 2"]
 
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
@@ -190,9 +225,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 189.0
-margin/right = 348.0
-margin/bottom = 229.0
+margin/top = 0.0
+margin/right = 136.0
+margin/bottom = 40.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -204,7 +239,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = true
 
-[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/Continue"]
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/HBoxContainer 2/Continue"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -216,14 +251,31 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 594.0
 margin/bottom = -12.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0.266667, 0.254902, 0.305882, 1 )
 text = "Continue"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Quit" type="Button" parent="Menu/CentreRow/Buttons"]
+[node name="HBoxContainer 3" type="HBoxContainer" parent="Menu/CentreRow/Buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 249.0
+margin/right = 348.0
+margin/bottom = 289.0
+alignment = 0
+
+[node name="qt_icon" type="Sprite" parent="Menu/CentreRow/Buttons/HBoxContainer 3"]
+
+transform/pos = Vector2( -20, 15 )
+texture = ExtResource( 3 )
+
+[node name="Quit" type="Button" parent="Menu/CentreRow/Buttons/HBoxContainer 3"]
 
 rect/min_size = Vector2( 136, 40 )
 focus/ignore_mouse = false
@@ -231,9 +283,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 249.0
-margin/right = 348.0
-margin/bottom = 289.0
+margin/top = 0.0
+margin/right = 136.0
+margin/bottom = 40.0
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
@@ -244,7 +296,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = true
 
-[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/Quit"]
+[node name="Label" type="Label" parent="Menu/CentreRow/Buttons/HBoxContainer 3/Quit"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -256,7 +308,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 594.0
 margin/bottom = -12.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Quit"
 percent_visible = 1.0
 lines_skipped = 0
@@ -285,7 +337,7 @@ margin/left = 64.0
 margin/top = 37.0
 margin/right = 284.0
 margin/bottom = 382.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 stretch_mode = 0
 
 [node name="Version" type="Label" parent="Menu"]
@@ -320,10 +372,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[connection signal="pressed" from="Menu/CentreRow/Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="mouse_enter" from="Menu/CentreRow/Buttons/HBoxContainer/NewGame" to="." method="_on_NewGame_mouse_enter"]
 
-[connection signal="pressed" from="Menu/CentreRow/Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_exit" from="Menu/CentreRow/Buttons/HBoxContainer/NewGame" to="." method="_on_NewGame_mouse_exit"]
 
-[connection signal="pressed" from="Menu/CentreRow/Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Menu/CentreRow/Buttons/HBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+
+[connection signal="mouse_enter" from="Menu/CentreRow/Buttons/HBoxContainer 2/Continue" to="." method="_on_Continue_mouse_enter"]
+
+[connection signal="mouse_exit" from="Menu/CentreRow/Buttons/HBoxContainer 2/Continue" to="." method="_on_Continue_mouse_exit"]
+
+[connection signal="pressed" from="Menu/CentreRow/Buttons/HBoxContainer 2/Continue" to="." method="_on_Continue_pressed"]
+
+[connection signal="mouse_enter" from="Menu/CentreRow/Buttons/HBoxContainer 3/Quit" to="." method="_on_Quit_mouse_enter"]
+
+[connection signal="mouse_exit" from="Menu/CentreRow/Buttons/HBoxContainer 3/Quit" to="." method="_on_Quit_mouse_exit"]
+
+[connection signal="pressed" from="Menu/CentreRow/Buttons/HBoxContainer 3/Quit" to="." method="_on_Quit_pressed"]
 
 
