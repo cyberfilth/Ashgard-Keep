@@ -1,4 +1,23 @@
 .
+├── addons
+│   └── ch.fischspiele.tilesethelper
+│       ├── AssetLibIcon.png
+│       ├── gui_image_multiple.png
+│       ├── gui_image_single.png
+│       ├── gui_image_single.png.flags
+│       ├── gui_image_tileset.png
+│       ├── icon_collision_polygon_2d.png
+│       ├── icon_collision_shape_2d.png
+│       ├── icon_light_occluder_2d.png
+│       ├── icon_navigation_polygon_instance.png
+│       ├── plugin.cfg
+│       ├── test_tilemap.tscn
+│       ├── test_tileset_one_line.png
+│       ├── test_tileset.png
+│       ├── test_tileset.tres
+│       ├── test_tileset.tscn
+│       ├── tilesethelper_dock.tscn
+│       └── tilesethelper.gd
 ├── docs
 │   ├── _config.yml
 │   ├── credits.txt
@@ -100,7 +119,23 @@
 │   │   │   │   ├── sandstone_floor8_normal.png
 │   │   │   │   ├── sandstone_floor8_normal.png.import
 │   │   │   │   ├── sandstone_floor9_normal.png
-│   │   │   │   └── sandstone_floor9_normal.png.import
+│   │   │   │   ├── sandstone_floor9_normal.png.import
+│   │   │   │   ├── slab10_normal.png
+│   │   │   │   ├── slab11_normal.png
+│   │   │   │   ├── slab12_normal.png
+│   │   │   │   ├── slab13_normal.png
+│   │   │   │   ├── slab14_normal.png
+│   │   │   │   ├── slab15_normal.png
+│   │   │   │   ├── slab16_normal.png
+│   │   │   │   ├── slab1_normal.png
+│   │   │   │   ├── slab2_normal.png
+│   │   │   │   ├── slab3_normal.png
+│   │   │   │   ├── slab4_normal.png
+│   │   │   │   ├── slab5_normal.png
+│   │   │   │   ├── slab6_normal.png
+│   │   │   │   ├── slab7_normal.png
+│   │   │   │   ├── slab8_normal.png
+│   │   │   │   └── slab9_normal.png
 │   │   │   ├── sandstone_floor0.png
 │   │   │   ├── sandstone_floor0.png.import
 │   │   │   ├── sandstone_floor1.png
@@ -120,7 +155,23 @@
 │   │   │   ├── sandstone_floor8.png
 │   │   │   ├── sandstone_floor8.png.import
 │   │   │   ├── sandstone_floor9.png
-│   │   │   └── sandstone_floor9.png.import
+│   │   │   ├── sandstone_floor9.png.import
+│   │   │   ├── slab10.png
+│   │   │   ├── slab11.png
+│   │   │   ├── slab12.png
+│   │   │   ├── slab13.png
+│   │   │   ├── slab14.png
+│   │   │   ├── slab15.png
+│   │   │   ├── slab16.png
+│   │   │   ├── slab1.png
+│   │   │   ├── slab2.png
+│   │   │   ├── slab3.png
+│   │   │   ├── slab4.png
+│   │   │   ├── slab5.png
+│   │   │   ├── slab6.png
+│   │   │   ├── slab7.png
+│   │   │   ├── slab8.png
+│   │   │   └── slab9.png
 │   │   ├── misc
 │   │   │   ├── fog.png.flags
 │   │   │   └── fogx30.png
@@ -201,11 +252,6 @@
 ├── LICENSE
 ├── objects
 │   ├── components
-│   │   ├── AI
-│   │   │   ├── AI.gd
-│   │   │   ├── AI.tscn
-│   │   │   ├── zombie_AI.gd
-│   │   │   └── zombie_AI.tscn
 │   │   ├── Controller
 │   │   │   ├── Controller.gd
 │   │   │   └── Controller.tscn
@@ -234,10 +280,14 @@
 │   │   ├── Scroll_Fireball.tscn
 │   │   └── Scroll_LightningBolt.tscn
 │   ├── monsters
-│   │   ├── 1
-│   │   │   └── zombie.tscn
-│   │   └── 2
-│   │       └── rat.tscn
+│   │   ├── animals
+│   │   │   ├── bat_AI.gd
+│   │   │   ├── bat.tscn
+│   │   │   ├── rat_AI.gd
+│   │   │   └── rat.tscn
+│   │   └── undead
+│   │       ├── zombie_AI.gd
+│   │       └── zombie.tscn
 │   ├── Player
 │   │   ├── CameraShake.gd
 │   │   ├── Player.png
@@ -245,7 +295,8 @@
 │   └── weapons
 │       ├── crude_dagger.tscn
 │       ├── dagger2.png
-│       └── dagger.png
+│       ├── dagger.png
+│       └── rusty_dagger.tscn
 ├── README.md
 ├── resources
 │   ├── black_panel.tres
@@ -282,4 +333,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-34 directories, 248 files
+35 directories, 298 files
