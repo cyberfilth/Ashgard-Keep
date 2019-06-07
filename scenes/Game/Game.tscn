@@ -273,7 +273,6 @@ max_lines_visible = -1
 
 [node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -289,55 +288,44 @@ script/script = ExtResource( 6 )
 
 [node name="InventorySlot" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
-margin/right = 24.0
-margin/bottom = 24.0
-
 [node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 24.0
 margin/right = 48.0
-margin/bottom = 24.0
 
 [node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 48.0
 margin/right = 72.0
-margin/bottom = 24.0
 
 [node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 72.0
 margin/right = 96.0
-margin/bottom = 24.0
 
 [node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 96.0
 margin/right = 120.0
-margin/bottom = 24.0
 
 [node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 120.0
 margin/right = 144.0
-margin/bottom = 24.0
 
 [node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 144.0
 margin/right = 168.0
-margin/bottom = 24.0
 
 [node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/left = 168.0
 margin/right = 192.0
-margin/bottom = 24.0
 
 [node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/top = 24.0
-margin/right = 24.0
 margin/bottom = 48.0
 
 [node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
@@ -392,7 +380,6 @@ margin/bottom = 48.0
 [node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/top = 48.0
-margin/right = 24.0
 margin/bottom = 72.0
 
 [node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
@@ -447,7 +434,6 @@ margin/bottom = 72.0
 [node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
 
 margin/top = 72.0
-margin/right = 24.0
 margin/bottom = 96.0
 
 [node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]

@@ -15,6 +15,14 @@ func new_game():
 	GameData.set_dungeon_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
+	# Add starting equipment
+	var weapon_list = ['weapons/rusty_dagger', 'weapons/crude_dagger']
+	var starting_weapon = weapon_list[GameData.roll(0, weapon_list.size()-1)]
+	GameData.map.spawn_object(starting_weapon, DungeonGen.start_pos)
+	GameData.player.get_node('Controller').Grab()
+	get_node('frame/right/Activity/box/Inventory/InventorySlot').emit_signal("pressed")
+	# Clear status messages
+	GameData.clear_messages()
 	# Welcome message
 	var suffix = ""
 	var date_string = ""
@@ -35,6 +43,7 @@ func new_game():
 	date_string = str(("It is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
 	GameData.broadcast(date_string)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
+
 
 # Save Game Function
 func save_game():

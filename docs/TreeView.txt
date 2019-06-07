@@ -231,17 +231,13 @@
 │   │   ├── portal.png
 │   │   └── splashscreen.png
 │   ├── gui
-│   │   ├── armour_equipment_slot.png
 │   │   ├── ashgard_keep.png
 │   │   ├── button.png
 │   │   ├── loading0.png
 │   │   ├── loading1.png
 │   │   ├── loading2.png
-│   │   ├── shield_equipment_slot.png
-│   │   ├── slot_equipped.png
 │   │   ├── slot.png
-│   │   ├── sword.png
-│   │   └── weapon_equipment_slot.png
+│   │   └── sword.png
 │   ├── lights
 │   │   ├── torch.png
 │   │   └── torch.png.flags
@@ -333,4 +329,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-35 directories, 298 files
+35 directories, 294 files

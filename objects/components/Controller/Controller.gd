@@ -1,7 +1,5 @@
 extends Node
 
-
-
 onready var owner = get_parent()
 
 # Player-specific object functions
