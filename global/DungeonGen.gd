@@ -42,11 +42,15 @@ func carve_room(rect):
 func carve_h_hall(x1,x2,y):
 	for x in range( min( x1, x2 ),max( x1,x2 ) + 1 ):
 		set_cell_data( Vector2(x, y), 0 )
+	var mid_x = (x1+x2)/2
+	place_corridor_monsters(mid_x, y)
 
 # Fill a vertical strip of cells at column X from Y1 to Y2
 func carve_v_hall( y1, y2, x):
 	for y in range( min( y1, y2 ),max( y1, y2 ) + 1 ):
 		set_cell_data( Vector2(x, y), 0 )
+	var mid_y = (y1+y2)/2
+	place_corridor_monsters(x, mid_y)
 
 
 func get_floor_cells():
@@ -117,6 +121,22 @@ func place_monsters(room):
 	var monsters = [minion1, minion2, bigbad]
 	var choice = monsters[GameData.roll(0, monsters.size()-1)]
 	GameData.map.spawn_object(choice, pos)
+
+func place_corridor_monsters(x, y):
+	# chance of encountering a monster
+	var encounter_chance = randi()%3
+	print(encounter_chance)
+	if encounter_chance == 1:
+		var monster
+		var pos = Vector2(x,y)
+		var theme = DungeonThemes.themes[GameData.dungeonRNG]
+		# select which low-level monster is encountered
+		var wandering_monster = randi()%2
+		if wandering_monster == 0:
+			monster = theme.minion1
+		else:
+			monster = theme.minion2
+		GameData.map.spawn_object(monster, pos)
 
 func place_items(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
