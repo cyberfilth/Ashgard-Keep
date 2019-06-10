@@ -30,4 +30,3 @@ func wander():
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
 	owner.step(dir)
-	print("Wander")

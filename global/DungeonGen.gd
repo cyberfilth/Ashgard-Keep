@@ -33,6 +33,10 @@ func carve_room(rect):
 	for x in range(rect.size.x-2):
 		for y in range(rect.size.y-2):
 			set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
+	# place random pillar
+	var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
+	var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
+	set_cell_data( Vector2(x2, y2), 1 )
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
 func carve_h_hall(x1,x2,y):
@@ -101,6 +105,11 @@ func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
+		# stops monsters being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
 	var theme = DungeonThemes.themes[GameData.dungeonRNG]
 	var minion1 = theme.minion1
 	var minion2 = theme.minion2
@@ -113,6 +122,11 @@ func place_items(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
+	# stops items being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
 	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger']
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
@@ -121,4 +135,9 @@ func place_exit_portal(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
+		# stops portal being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
 	GameData.map.spawn_object('items/Portal', pos)
