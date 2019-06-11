@@ -114,18 +114,22 @@ func place_monsters(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-	var minion1 = theme.minion1
-	var minion2 = theme.minion2
-	var bigbad = theme.undead
-	var monsters = [minion1, minion2, bigbad]
-	var choice = monsters[GameData.roll(0, monsters.size()-1)]
-	GameData.map.spawn_object(choice, pos)
+		# commented out for testing
+#	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+#	var minion1 = theme.minion1
+#	var minion2 = theme.minion2
+#	var bigbad = theme.undead
+#	var monsters = [minion1, minion2, bigbad]
+#	var choice = monsters[GameData.roll(0, monsters.size()-1)]
+#	GameData.map.spawn_object(choice, pos)
+# delete below after testing
+	GameData.map.spawn_object('monsters/undead/diseased_zombie', pos)
+
+
 
 func place_corridor_monsters(x, y):
 	# chance of encountering a monster
 	var encounter_chance = randi()%3
-	print(encounter_chance)
 	if encounter_chance == 1:
 		var monster
 		var pos = Vector2(x,y)

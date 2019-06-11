@@ -125,6 +125,13 @@ func broadcast_miss(from):
 		GameData.broadcast(from + " misses ")
 
 func die():
+	var corpse = get_parent().name
+	if corpse == "Diseased zombie":
+		var gas_cloud = load("res://objects/monsters/undead/poison_cloud.tscn")
+		var scene_instance = gas_cloud.instance()
+		scene_instance.set_name("gas_cloud")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 	if self.bleeds:
 		bleed(blood_colour)
 	owner.kill()
