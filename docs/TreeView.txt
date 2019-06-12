@@ -229,9 +229,10 @@
 │   │   ├── bolt_fire.png
 │   │   ├── cursor.png
 │   │   ├── portal.png
-│   │   └── splashscreen.png
+│   │   └── smoke_particle.png
 │   ├── gui
 │   │   ├── ashgard_keep.png
+│   │   ├── AT_teal.png
 │   │   ├── button.png
 │   │   ├── loading0.png
 │   │   ├── loading1.png
@@ -247,6 +248,8 @@
 ├── icon.png.flags
 ├── LICENSE
 ├── objects
+│   ├── armour
+│   │   └── chainmail_armour.png
 │   ├── components
 │   │   ├── Controller
 │   │   │   ├── Controller.gd
@@ -282,6 +285,9 @@
 │   │   │   ├── rat_AI.gd
 │   │   │   └── rat.tscn
 │   │   └── undead
+│   │       ├── diseased_zombie.tscn
+│   │       ├── poison_cloud.gd
+│   │       ├── poison_cloud.tscn
 │   │       ├── zombie_AI.gd
 │   │       └── zombie.tscn
 │   ├── Player
@@ -329,4 +335,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-35 directories, 294 files
+36 directories, 299 files
