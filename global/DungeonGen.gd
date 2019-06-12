@@ -115,16 +115,14 @@ func place_monsters(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 		# commented out for testing
-#	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-#	var minion1 = theme.minion1
-#	var minion2 = theme.minion2
-#	var bigbad = theme.undead
-#	var monsters = [minion1, minion2, bigbad]
-#	var choice = monsters[GameData.roll(0, monsters.size()-1)]
-#	GameData.map.spawn_object(choice, pos)
-# delete below after testing
-	GameData.map.spawn_object('monsters/undead/diseased_zombie', pos)
-
+	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+	var minion1 = theme.minion1
+	var minion2 = theme.minion2
+	var undead1 = theme.undead1
+	var undead2 = theme.undead2
+	var monsters = [minion1, minion2, undead1, undead2]
+	var choice = monsters[GameData.roll(0, monsters.size()-1)]
+	GameData.map.spawn_object(choice, pos)
 
 
 func place_corridor_monsters(x, y):
