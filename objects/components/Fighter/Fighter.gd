@@ -81,7 +81,7 @@ func fight(who):
 		var max_roll = weapon_dice * 6
 		var weapon_modifier = GameData.roll(weapon_dice, max_roll)
 	# Damage = ATTACK amount - DEFENCE
-		var damage_amount = GameData.roll(0, self.attack)+weapon_modifier - who.fighter.defence
+		var damage_amount = GameData.roll(0, self.attack)+weapon_modifier+weapon_adds - who.fighter.defence
 		if damage_amount > 0:
 			who.fighter.take_damage(owner.get_display_name(), damage_amount)
 		elif damage_amount <= 0:
@@ -111,6 +111,14 @@ func broadcast_damage_taken(from, amount):
 		color = GameData.COLOR_RED
 	if from == "Rat":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
+	elif from == "Diseased Zombie":
+		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
+		# random chance of being poisoned by the zombie
+		var chance_of_poison = randi()%3
+		if chance_of_poison == 1:
+			poisoned()
+	elif from == "Poison":
+		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",color)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Lightning Strike":
@@ -132,6 +140,7 @@ func die():
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		poisoned()
 	if self.bleeds:
 		bleed(blood_colour)
 	owner.kill()
@@ -176,3 +185,7 @@ func _on_hp_changed(current,full):
 	hpbar.set_hidden(current >= full)
 	hpbar.set_max(full)
 	hpbar.set_value(current)
+
+func poisoned():
+	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
+	apply_status_effect('poisoned', 4)
