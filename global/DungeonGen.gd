@@ -150,7 +150,8 @@ func place_items(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger']
-	var choice = items[GameData.roll(0, items.size()-1)]
+	#var choice = items[GameData.roll(0, items.size()-1)]
+	var choice = 'items/Scroll_Fireball'
 	GameData.map.spawn_object(choice, pos)
 
 func place_exit_portal(room):

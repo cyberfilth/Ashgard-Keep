@@ -242,8 +242,22 @@
 │   ├── lights
 │   │   ├── torch.png
 │   │   └── torch.png.flags
-│   └── monster
-│       └── AT_green.png
+│   ├── monster
+│   │   └── AT_green.png
+│   └── particles
+│       ├── fire_particle.png
+│       ├── flame_frames
+│       │   ├── flames1.png
+│       │   ├── flames2.png
+│       │   ├── flames3.png
+│       │   ├── flames4.png
+│       │   ├── flames5.png
+│       │   ├── flames6.png
+│       │   ├── flames7.png
+│       │   └── flames8.png
+│       ├── Flames.gd
+│       ├── Flames_sprite.tscn
+│       └── Flames.tscn
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
@@ -335,4 +349,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-36 directories, 299 files
+38 directories, 311 files

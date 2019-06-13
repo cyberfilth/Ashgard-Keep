@@ -137,7 +137,7 @@ func damage_nearest():
 func confuse_target():
 	var target = null
 	# instruct the player to choose a target or cancel
-	GameData.broadcast("Use your mouse to target an enemy.  LMB to select a target, RMB to cancel")
+	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
 	# yield for map clicking feedback
 	var callback = yield(GameData.game, 'map_clicked')
 	
@@ -203,7 +203,7 @@ func blast_cell():
 	var amount = param1
 	var target_cell = null
 	# instruct the player to choose a target or cancel
-	GameData.broadcast("Use your mouse to target a visible space.  LMB to select a target, RMB to cancel")
+	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
 	# yield for map clicking feedback
 	var callback = yield(GameData.game, 'map_clicked')
 	
@@ -217,17 +217,14 @@ func blast_cell():
 	target_cell = callback
 	# list of actors in blast area
 	var actors = []
-	
 	var rect = []
 	for x in range(-1,2):
 		for y in range(-1,2):
 			var cell = Vector2(x,y) + target_cell
 			if not GameData.map.is_wall(cell):
 				rect.append(cell)
-				var fx_tex = preload('res://graphics/fx/bolt_fire.png')
-				GameData.map.spawn_fx(fx_tex, cell)
+				GameData.map.spawn_particle_fx(cell)
 				GameData.player.get_node("Camera").shake(0.4, 16)
-	
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node.get_map_pos() in rect:
 			actors.append(node)

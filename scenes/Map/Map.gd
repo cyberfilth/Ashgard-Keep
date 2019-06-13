@@ -124,6 +124,12 @@ func spawn_fx(texture, cell):
 	fx.set_pos( map_to_world(cell) )
 	fx.add_to_group('fx')
 
+func spawn_particle_fx(cell):
+	var fx = load("res://graphics/particles/Flames.tscn")
+	var scene_instance = fx.instance()
+	scene_instance.set_name("fx")
+	add_child(scene_instance)
+	scene_instance.set_pos(map_to_world(cell))
 
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
