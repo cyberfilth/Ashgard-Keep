@@ -17,6 +17,8 @@ const LAYER_ITEM = 1
 const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
+var player_moves
+
 var restore_game = false
 
 var player_data = {}

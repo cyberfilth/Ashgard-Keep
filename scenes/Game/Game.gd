@@ -64,6 +64,7 @@ func save_game():
 	"AshgardKeep" : GameData.version
 	}
 	
+	
 	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
@@ -212,5 +213,3 @@ func _set_is_mouse_in_map(what):
 func _set_mouse_cell(what):
 	mouse_cell = what
 	GameData.map.set_cursor()
-
-

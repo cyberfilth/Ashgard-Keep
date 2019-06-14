@@ -65,54 +65,26 @@ func _input(event):
 	
 	if N:
 		owner.step(Vector2(0,-1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if NE:
 		owner.step(Vector2(1,-1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if E:
 		owner.step(Vector2(1,0))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if SE:
 		owner.step(Vector2(1,1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if S:
 		owner.step(Vector2(0,1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if SW:
 		owner.step(Vector2(-1,1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if W:
 		owner.step(Vector2(-1,0))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if NW:
 		owner.step(Vector2(-1,-1))
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	
 	if WAIT:
 		Wait()
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if GRAB:
 		Grab()
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if DROP:
 		Drop()
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
 	if THROW:
 		Throw()
-		if owner.fighter.has_status_effect('poisoned'):
-			owner.fighter.take_damage('Poison', 1)
-	
-	# remove Green poison colour from player
-	if !owner.fighter.has_status_effect('poisoned'):
-		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))

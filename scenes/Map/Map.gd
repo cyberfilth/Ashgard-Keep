@@ -17,6 +17,8 @@ func save():
 	var data = {}
 	# Dungeon RNG seed	
 	data.dungeon_rng = GameData.dungeonRNG
+	# Number of moves
+	data.player_moves = GameData.player_moves
 	data.datamap = DungeonGen.datamap
 	data.fogmap = get_node('Fogmap').get_datamap()
 	return data
@@ -24,6 +26,8 @@ func save():
 func restore(data):
 	if 'dungeon_rng' in data:
 		GameData.dungeonRNG = data.dungeon_rng
+	if 'player_moves' in data:
+		GameData.player_moves = data.player_moves
 	if 'datamap' in data:
 		DungeonGen.datamap = data.datamap
 	if 'fogmap' in data:
@@ -173,16 +177,24 @@ func _ready():
 
 
 func _on_player_acted():
+	# increase number of moves made
+	GameData.player_moves += 1
+	print(GameData.player_moves)
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
 			node.ai.take_turn()
 		# tick down status effects
 		node.fighter.process_status_effects()
+	if GameData.player.fighter.has_status_effect('poisoned'):
+			GameData.player.fighter.take_damage('Poison', 1)
+	# remove Green poison colour from player
+	if !GameData.player.fighter.has_status_effect('poisoned'):
+		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
+	
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):
 		if node.has_meta('kill'):
-			node.queue_free()	#kill me this turn
+			node.queue_free() #kill me this turn
 		else:
-			node.set_meta('kill',true)	#kill me next turn
-			
+			node.set_meta('kill',true) #kill me next turn

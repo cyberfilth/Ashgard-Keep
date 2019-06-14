@@ -22,6 +22,7 @@ func _ready():
 
 # new game
 func _on_NewGame_pressed():
+	GameData.player_moves = 0
 	GameData.load_continue = "load"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
 
