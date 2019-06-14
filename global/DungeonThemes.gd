@@ -26,7 +26,7 @@ var themes = [
 { # 1 - Sandstone
 tileset = FAMILY1,
 darkness = DARKNESS1,
-minion1 = 'monsters/animals/rat',
+minion1 = 'monsters/undead/ghoul_rat',
 minion2 = 'monsters/animals/bat',
 undead1 = 'monsters/undead/zombie',
 undead2 = 'monsters/undead/diseased_zombie'

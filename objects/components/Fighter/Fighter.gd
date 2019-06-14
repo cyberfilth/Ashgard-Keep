@@ -141,7 +141,6 @@ func die():
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-		poisoned()
 	if self.bleeds:
 		bleed(blood_colour)
 	owner.kill()

@@ -5,7 +5,6 @@
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/monsters/animals/rat_AI.gd" type="Script" id=4]
 
-
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
@@ -36,7 +35,7 @@ percent_visible = 1.0
 race = "animal"
 attack = 15
 defence = 5
-max_hp = 2
+max_hp = 10
 
 [node name="AI" type="Node" parent="."]
 
