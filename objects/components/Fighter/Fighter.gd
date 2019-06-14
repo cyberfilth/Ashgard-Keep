@@ -114,9 +114,10 @@ func broadcast_damage_taken(from, amount):
 	elif from == "Diseased Zombie":
 		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being poisoned by the zombie
-		var chance_of_poison = randi()%3
-		if chance_of_poison == 1:
-			poisoned()
+		if owner == GameData.player:
+			var chance_of_poison = randi()%3
+			if chance_of_poison == 1:
+				poisoned()
 	elif from == "Poison":
 		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOR_POISON_GREEN)
 	elif from == "Fire":
