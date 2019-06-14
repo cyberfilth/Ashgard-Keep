@@ -179,7 +179,6 @@ func _ready():
 func _on_player_acted():
 	# increase number of moves made
 	GameData.player_moves += 1
-	print(GameData.player_moves)
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
@@ -188,7 +187,7 @@ func _on_player_acted():
 		node.fighter.process_status_effects()
 	if GameData.player.fighter.has_status_effect('poisoned'):
 			GameData.player.fighter.take_damage('Poison', 1)
-	# remove Green poison colour from player
+	# remove Green poison colour from player if not poisoned
 	if !GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
 	

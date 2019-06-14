@@ -118,7 +118,7 @@ func broadcast_damage_taken(from, amount):
 		if chance_of_poison == 1:
 			poisoned()
 	elif from == "Poison":
-		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",color)
+		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOR_POISON_GREEN)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Lightning Strike":
@@ -188,4 +188,5 @@ func _on_hp_changed(current,full):
 
 func poisoned():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
+	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOR_POISON_GREEN)
 	apply_status_effect('poisoned', 4)
