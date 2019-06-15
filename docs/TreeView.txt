@@ -50,6 +50,7 @@
 │   ├── brands
 │   │   ├── i-confusion.png
 │   │   ├── i-equipped1.png
+│   │   ├── i-equipped2.png
 │   │   ├── i-fireball.png
 │   │   └── i-lightning.png
 │   ├── dungeon
@@ -263,8 +264,12 @@
 ├── LICENSE
 ├── objects
 │   ├── armour
-│   │   └── chainmail_armour.png
+│   │   ├── chainmail_armour.png
+│   │   └── heavy_cloth_armour.tscn
 │   ├── components
+│   │   ├── Armour
+│   │   │   ├── Armour.gd
+│   │   │   └── Armour.tscn
 │   │   ├── Controller
 │   │   │   ├── Controller.gd
 │   │   │   └── Controller.tscn
@@ -300,6 +305,8 @@
 │   │   │   └── rat.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
+│   │       ├── ghoul_rat_AI.gd
+│   │       ├── ghoul_rat.tscn
 │   │       ├── poison_cloud.gd
 │   │       ├── poison_cloud.tscn
 │   │       ├── zombie_AI.gd
@@ -349,4 +356,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-38 directories, 311 files
+39 directories, 317 files
