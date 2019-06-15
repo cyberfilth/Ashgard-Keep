@@ -28,11 +28,17 @@ func update_slot():
 	var txt = str(count) if count > 1 else ''
 	get_node('Count').set_text(txt)
 
-func show_equipped():
-	get_node('EQ_icon').show()
+func show_equipped_weapon():
+	get_node('EQ_weapon').show()
 
-func show_unequipped():
-	get_node('EQ_icon').hide()
+func show_unequipped_weapon():
+	get_node('EQ_weapon').hide()
+
+func show_equipped_armour():
+	get_node('EQ_armour').show()
+
+func show_unequipped_armour():
+	get_node('EQ_armour').hide()
 
 func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])

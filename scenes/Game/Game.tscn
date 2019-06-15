@@ -209,6 +209,59 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="armourName" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 80.0
+margin/right = 192.0
+margin/bottom = 96.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
+text = "No armour equipped"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="armourDescription" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 100.0
+margin/right = 192.0
+margin/bottom = 116.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.372549, 0.533333, 0.619608, 1 )
+text = " "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="divider2" type="Label" parent="frame/right/Activity/box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 120.0
+margin/right = 192.0
+margin/bottom = 136.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.054902, 0.235294, 0.32549, 1 )
+text = "------------------------------"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="InventoryAction" type="HBoxContainer" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = false
@@ -216,9 +269,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 80.0
+margin/top = 140.0
 margin/right = 192.0
-margin/bottom = 112.0
+margin/bottom = 172.0
 alignment = 1
 
 [node name="Drop" type="Button" parent="frame/right/Activity/box/InventoryAction"]
@@ -264,9 +317,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 116.0
+margin/top = 176.0
 margin/right = 192.0
-margin/bottom = 132.0
+margin/bottom = 192.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -278,9 +331,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 136.0
+margin/top = 196.0
 margin/right = 192.0
-margin/bottom = 232.0
+margin/bottom = 292.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 8
@@ -492,9 +545,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 236.0
+margin/top = 296.0
 margin/right = 192.0
-margin/bottom = 252.0
+margin/bottom = 312.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Inventory"
 percent_visible = 1.0

@@ -20,8 +20,10 @@ var hp = 5 setget _set_hp
 
 var status_effects = {}
 var weapon_equipped = false
+var armour_equipped = false
 var weapon_dice = 0
 var weapon_adds = 0
+var armour_protection = 0
 var hpbar
 
 func restore(data):
@@ -78,10 +80,12 @@ func fight(who):
 		die()
 	else:
 	# Weapon Modifier
-		var max_roll = weapon_dice * 6
-		var weapon_modifier = GameData.roll(weapon_dice, max_roll)
-	# Damage = ATTACK amount - DEFENCE
-		var damage_amount = GameData.roll(0, self.attack)+weapon_modifier+weapon_adds - who.fighter.defence
+		var max_roll = self.weapon_dice * 6
+		var weapon_modifier = GameData.roll(self.weapon_dice, max_roll)
+		var attack_roll = GameData.roll(0, self.attack)+weapon_modifier+self.weapon_adds
+	# Defence Modifier
+		var defence_roll = who.fighter.defence + who.fighter.armour_protection
+		var damage_amount = attack_roll - defence_roll
 		if damage_amount > 0:
 			who.fighter.take_damage(owner.get_display_name(), damage_amount)
 		elif damage_amount <= 0:

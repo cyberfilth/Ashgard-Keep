@@ -8,7 +8,7 @@ onready var owner = get_parent()
 export(String,\
 	'heal_player', 'damage_nearest',\
 	'confuse_target', 'blast_cell',\
-	'weapon') var use_function = ''
+	'weapon', 'armour') var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
@@ -175,7 +175,7 @@ func weapon():
 
 func unequip_weapon(weapon):
 	var weapon_name = owner.get_display_name()
-	inventory_slot.show_unequipped()
+	inventory_slot.show_unequipped_weapon()
 	## Update GUI ##
 	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
 	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
@@ -189,7 +189,7 @@ func unequip_weapon(weapon):
 func equip_weapon(weapon):
 	var weapon_name = owner.get_display_name()
 	## Update GUI ##
-	inventory_slot.show_equipped()
+	inventory_slot.show_equipped_weapon()
 	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
 	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
 	equipped_weapon.set_text(weapon_name + " equipped")
@@ -198,6 +198,40 @@ func equip_weapon(weapon):
 	var dice = weapon.dice
 	var adds = weapon.adds
 	weapon.equip(weapon_name, dice, adds)
+
+func armour():
+	var armour = get_node('../Armour')
+	if equipped == true:
+		unequip_armour(armour)
+	elif GameData.player.fighter.armour_equipped == true:
+		GameData.broadcast('Remove your current armour before selecting a new one')
+		return
+	else:
+		equip_armour(armour)
+
+func unequip_armour(armour):
+	var armour_name = owner.get_display_name()
+	inventory_slot.show_unequipped_armour()
+	## Update GUI ##
+	var equipped_armour = get_node('/root/Game/frame/right/Activity/box/armourName')
+	var armour_description = get_node('/root/Game/frame/right/Activity/box/armourDescription')
+	equipped_armour.set_text("No armour worn")
+	armour_description.set_text(" ")
+	## Update defence stats ##
+	var armour_protection = armour.armour_protection
+	armour.unequip(armour_name, armour_protection)
+
+func equip_armour(armour):
+	var armour_name = owner.get_display_name()
+	## Update GUI ##
+	inventory_slot.show_equipped_armour()
+	var equipped_armour = get_node('/root/Game/frame/right/Activity/box/armourName')
+	var armour_description = get_node('/root/Game/frame/right/Activity/box/armourDescription')
+	equipped_armour.set_text(armour_name + " worn")
+	armour_description.set_text(armour.description)
+	## Update defence stats ##
+	var armour_protection = armour.armour_protection
+	armour.equip(armour_name, armour_protection)
 
 func blast_cell():
 	var amount = param1

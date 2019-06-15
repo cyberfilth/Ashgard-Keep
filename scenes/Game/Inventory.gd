@@ -58,6 +58,14 @@ func check_if_can_remove_from_inventory(slot, item):
 		else:
 			GameData.broadcast('Unequip an item before dropping it')
 			return
+	elif item.has_node("Armour"):
+		var weapon = item.get_node('Armour')
+		if item.get_node('Item').equipped == false:
+			remove_from_inventory(slot, item)
+			return
+		else:
+			GameData.broadcast('Unequip an item before dropping it')
+			return
 	else:
 		remove_from_inventory(slot, item)
 

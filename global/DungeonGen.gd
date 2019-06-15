@@ -149,7 +149,7 @@ func place_items(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger']
+	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger', 'armour/heavy_cloth_armour']
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 
