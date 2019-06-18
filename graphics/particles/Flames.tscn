@@ -16,6 +16,7 @@ script/script = ExtResource( 1 )
 
 visibility/blend_mode = 1
 transform/rot = -179.791
+z/z = 1
 config/amount = 32
 config/lifetime = 1.0
 config/emit_timeout = 1.0
