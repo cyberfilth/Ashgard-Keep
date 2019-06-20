@@ -10,6 +10,7 @@ colors = ColorArray( 0.39444, 0.917969, 0.40262, 1, 0.451978, 0.785156, 0.371109
 
 [node name="poison_cloud" type="Node2D"]
 
+z/z = 2
 script/script = ExtResource( 1 )
 
 [node name="green_cloud" type="Particles2D" parent="."]

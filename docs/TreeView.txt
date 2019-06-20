@@ -241,11 +241,16 @@
 │   │   ├── slot.png
 │   │   └── sword.png
 │   ├── lights
+│   │   ├── spark.png
 │   │   ├── torch.png
 │   │   └── torch.png.flags
 │   ├── monster
 │   │   └── AT_green.png
 │   └── particles
+│       ├── bolt.png
+│       ├── bolt.png.flags
+│       ├── electricity.gd
+│       ├── electricity.tscn
 │       ├── fire_particle.png
 │       ├── flame_frames
 │       │   ├── flames1.png
@@ -356,4 +361,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-39 directories, 317 files
+39 directories, 322 files

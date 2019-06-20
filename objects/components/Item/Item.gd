@@ -130,8 +130,8 @@ func damage_nearest():
 		emit_signal('used', "No targets in sight")
 		return
 	target.fighter.take_damage(self.effect_name, amount)
-	var fx_tex = preload('res://graphics/fx/bolt_electricity.png')
-	GameData.map.spawn_fx(fx_tex, target.get_map_pos())
+	GameData.map.spawn_lightningbolt_fx(target.get_pos())
+	GameData.player.get_node("Camera").shake(0.3, 10)
 	emit_signal('used', "OK")
 
 func confuse_target():
@@ -257,7 +257,7 @@ func blast_cell():
 			var cell = Vector2(x,y) + target_cell
 			if not GameData.map.is_wall(cell):
 				rect.append(cell)
-				GameData.map.spawn_particle_fx(cell)
+				GameData.map.spawn_inferno_fx(cell)
 				GameData.player.get_node("Camera").shake(0.4, 16)
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node.get_map_pos() in rect:
