@@ -155,9 +155,14 @@ func _set_seen(what):
 	seen = what
 	set_hidden(not seen)
 	# Discover if seen for the first time
-	if seen and not discovered and not self==GameData.player:
+	if seen && !discovered && !self==GameData.player:
 		discovered = true
-		GameData.broadcast(self.get_display_name()+ " has been found", GameData.COLOR_YELLOW)
+		# Stops a found message being displayed for starting equipment
+		if self.has_node("Weapon") && self.get_node("Item").equipped == true:
+			pass
+		else:
+			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOR_YELLOW)
+		
 
 func _on_hp_changed(current,full):
 	if not fighter: return
