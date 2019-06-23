@@ -5,6 +5,8 @@ extends Node
 onready var owner = get_parent()
 var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
+var ready_to_zap = false
+var zap_timer = 3 # timer before zapping the player
 
 func _ready():
 	owner.ai = self
@@ -25,7 +27,9 @@ func take_turn():
 			check_if_at_location() # check if arrived, set new location if needed
 	# If in range of player
 	elif distance <= GameData.TORCH_RADIUS:
-		if distance <= 1:
+		if distance > (GameData.TORCH_RADIUS / 2): # if player is over half distance of LoS away
+			necromancy()
+		elif distance <= 1:
 			owner.fighter.fight(target)
 		else:
 			owner.step_to(target.get_map_pos())
@@ -53,3 +57,27 @@ func choose_random_location():
 func check_if_at_location():
 	if owner.get_map_pos() == random_location:
 		has_random_location = false
+
+func necromancy():
+	if ready_to_zap == false:
+		glow_with_necromantic_energy()
+		ready_to_zap = true
+		return
+	else:
+		if zap_timer > 1:
+			zap_timer -=1
+			return
+		else:
+			zap_player()
+
+func glow_with_necromantic_energy():
+	print("GLOWING")
+
+func stop_glowing():
+	print("stop glowing")
+	ready_to_zap = false
+	zap_timer = 3
+
+func zap_player():
+	print("Zap!")
+	stop_glowing()
