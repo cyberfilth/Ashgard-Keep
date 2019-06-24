@@ -79,6 +79,8 @@ func fight(who):
 	if owner.fighter.hp < 1:
 		die()
 	else:
+		if who.get_display_name() == owner.get_display_name():
+			return
 	# Weapon Modifier
 		var max_roll = self.weapon_dice * 6
 		var weapon_modifier = GameData.roll(self.weapon_dice, max_roll)
@@ -89,7 +91,7 @@ func fight(who):
 		if damage_amount > 0:
 			who.fighter.take_damage(owner.get_display_name(), damage_amount)
 		elif damage_amount <= 0:
-			broadcast_miss(owner.get_display_name())
+			broadcast_miss(who.get_display_name(), owner.get_display_name())
 		else:
 			return
 
@@ -131,11 +133,11 @@ func broadcast_damage_taken(from, amount):
 	else:
 		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
 
-func broadcast_miss(from):
+func broadcast_miss(target, from):
 	if self.hp <= 0:
 		return # Stop a 'misses' message appearing after NPC is dead
 	else:
-		GameData.broadcast(from + " misses ")
+		GameData.broadcast(from + " attacks " + target + " but misses ")
 
 func die():
 	var corpse = get_parent().name

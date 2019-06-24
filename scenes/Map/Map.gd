@@ -141,6 +141,12 @@ func spawn_lightningbolt_fx(target):
 	get_parent().add_child(bolt)
 	bolt.add_to_group('fx')
 
+func spawn_necrotic_energy_fx(necromancer):
+	var bolt = load("res://graphics/particles/necro_energy.tscn").instance()
+	bolt.init(necromancer)
+	get_parent().add_child(bolt)
+	bolt.add_to_group('fx')
+
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
 

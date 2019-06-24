@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
+[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/monsters/undead/necromancer_AI.gd" type="Script" id=5]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Gnome necromancer"
+proper_name = true
+blocks_movement = true
+stay_visible = false
+
+[node name="Light2D" type="Light2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 14.5757, 15.9268 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 8.0
+color = Color( 0.863281, 0.0404663, 0.763253, 1 )
+energy = 1.5
+mode = 0
+range/height = 30.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 6.0
+margin/top = -3.0
+margin/right = 46.0
+margin/bottom = 37.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0.73364, 0.125748, 0.785156, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "n"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="Fighter" parent="." instance=ExtResource( 4 )]
+
+blood_colour = "green"
+attack = 10
+defence = 10
+max_hp = 40
+
+[node name="AI" type="Node" parent="."]
+
+script/script = ExtResource( 5 )
+
+[node name="Brand" type="Sprite" parent="."]
+
+centered = false
+
+

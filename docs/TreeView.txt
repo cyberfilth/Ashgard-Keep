@@ -263,7 +263,12 @@
 │       │   └── flames8.png
 │       ├── Flames.gd
 │       ├── Flames_sprite.tscn
-│       └── Flames.tscn
+│       ├── Flames.tscn
+│       ├── necro_energy.gd
+│       ├── necro_energy.tscn
+│       ├── necrotic_bolt.png
+│       ├── necrotic_spark.png
+│       └── skull.png
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
@@ -312,6 +317,8 @@
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
 │   │       ├── ghoul_rat.tscn
+│   │       ├── necromancer_AI.gd
+│   │       ├── necromancer.tscn
 │   │       ├── poison_cloud.gd
 │   │       ├── poison_cloud.tscn
 │   │       ├── zombie_AI.gd
@@ -361,4 +368,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-39 directories, 322 files
+39 directories, 329 files

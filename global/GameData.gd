@@ -12,6 +12,7 @@ const COLOR_TEAL = '#5C899E' # is slain
 const COLOR_GREEN = '#65f23e' # Uses health potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
+const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1
@@ -62,5 +63,5 @@ const TROLL_DAY = {1:"Onesday", 2:"Twosday", 3:"Frogday", 4:"Hawksday", 5:"Feast
 const TROLL_MONTH = {1:"Mistmon", 2:"Brittleice", 3:"Windmon", 4:"Gunther", 5:"Sweetbriar", 6:"Greenling", 7:"Frogsong", 8:"Sunmon", 9:"Southflight", 10:"Harvestmoon", 11:"Ghostmoon", 12:"Stormlight"}
 
 func set_dungeon_theme():
-	dungeonRNG = roll(0,3)
-	#dungeonRNG = 0 # set number here to test a new dungeon
+	#dungeonRNG = roll(0,3)
+	dungeonRNG = 0 # set number here to test a new dungeon
