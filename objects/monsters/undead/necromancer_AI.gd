@@ -7,6 +7,7 @@ var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
 var zap_timer = 3 # timer before zapping the player
+var warning_message = ['Necrotic magic fills the air','Strange chanting fills your ears','The necromancer begins tracing magical symbols in the air']
 
 func _ready():
 	owner.ai = self
@@ -43,13 +44,13 @@ func confused_wander():
 	owner.step(dir)
 
 func choose_random_location():
-	var x = GameData.roll(owner.get_map_pos().x+10, owner.get_map_pos().x-10)
-	var y = GameData.roll(owner.get_map_pos().y+10, owner.get_map_pos().y-10)
+	var x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
+	var y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(owner.get_map_pos().x+10, owner.get_map_pos().x-10)
-		y = GameData.roll(owner.get_map_pos().y+10, owner.get_map_pos().y-10)
+		x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
+		y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
 		pos = Vector2(x,y)
 	random_location = pos
 	has_random_location = true
@@ -71,13 +72,22 @@ func necromancy():
 			zap_player()
 
 func glow_with_necromantic_energy():
-	print("GLOWING")
+	owner.get_node('Light2D').show()
+	var message = warning_message[GameData.roll(0, warning_message.size()-1)]
+	GameData.broadcast(message, GameData.COLOR_NECROTIC_PURPLE)
 
 func stop_glowing():
-	print("stop glowing")
+	owner.get_node('Light2D').hide()
 	ready_to_zap = false
 	zap_timer = 3
 
 func zap_player():
-	print("Zap!")
-	stop_glowing()
+	var target = GameData.player
+	var distance = owner.distance_to(target.get_map_pos())
+	if distance <= GameData.TORCH_RADIUS:
+		var necromancer_position = owner.get_map_pos()
+		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
+		print("Zap!")
+		stop_glowing()
+	else:
+		stop_glowing()
