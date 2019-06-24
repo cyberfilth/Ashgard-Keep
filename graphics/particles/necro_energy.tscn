@@ -23,14 +23,17 @@ region_rect = Rect2( 0, 0, 109, 24 )
 
 [node name="end" type="Sprite" parent="."]
 
+visibility/blend_mode = 1
 transform/pos = Vector2( 98.9422, -13.2669 )
 z/z = 1
 z/relative = false
 texture = ExtResource( 3 )
 centered = false
+offset = Vector2( 6, -3 )
 
 [node name="Light2D" type="Light2D" parent="end"]
 
+visibility/behind_parent = true
 transform/pos = Vector2( 18.3723, 16.2109 )
 enabled = true
 editor_only = false
@@ -54,6 +57,7 @@ shadow/item_mask = 1
 
 [node name="start" type="Sprite" parent="."]
 
+visibility/visible = false
 visibility/blend_mode = 1
 z/z = 1
 z/relative = false

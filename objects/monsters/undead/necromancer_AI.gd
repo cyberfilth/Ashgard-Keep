@@ -85,9 +85,10 @@ func zap_player():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if distance <= GameData.TORCH_RADIUS:
-		var necromancer_position = owner.get_map_pos()
+		var necromancer_position = get_parent().get_pos()
 		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
-		print("Zap!")
+		GameData.player.get_node("Camera").shake(0.3, 10)
+		GameData.player.fighter.take_damage('Necromantic energy', 10)
 		stop_glowing()
 	else:
 		stop_glowing()
