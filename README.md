@@ -1,6 +1,6 @@
 # Ashgard Keep
 
-A work in progress attempt to create a simple roguelike game in the Godot game engine 
+A work in progress attempt to create a simple roguelike game in the Godot game engine.
 
 ![alt Screenshot of dungeon](docs/NewScreenshot.png) 
 
