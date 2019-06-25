@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Map/Map.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=4]
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=6]
-[ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=8]
+[ext_resource path="res://graphics/gui/message_shader.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=7]
+[ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=9]
 
 [node name="Game" type="Container"]
 
@@ -97,6 +98,23 @@ bbcode/bbcode = ""
 visible_characters = -1
 percent_visible = 1.0
 
+[node name="TextureFrame" type="TextureFrame" parent="frame/left/MessageBox"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 10, 85 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 10.0
+margin/bottom = 65.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
 [node name="right" type="VBoxContainer" parent="frame"]
 
 editor/display_folded = true
@@ -111,7 +129,7 @@ margin/right = 784.0
 margin/bottom = 588.0
 alignment = 0
 
-[node name="PlayerInfo" parent="frame/right" instance=ExtResource( 4 )]
+[node name="PlayerInfo" parent="frame/right" instance=ExtResource( 5 )]
 
 rect/min_size = Vector2( 204, 116 )
 size_flags/vertical = 2
@@ -150,7 +168,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 192.0
 margin/bottom = 16.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.137255, 0.333333, 0.423529, 1 )
 text = "Equipment"
 percent_visible = 1.0
@@ -167,7 +185,7 @@ margin/left = 0.0
 margin/top = 20.0
 margin/right = 192.0
 margin/bottom = 36.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "No weapon equipped"
 percent_visible = 1.0
@@ -184,7 +202,7 @@ margin/left = 0.0
 margin/top = 40.0
 margin/right = 192.0
 margin/bottom = 56.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.372549, 0.533333, 0.619608, 1 )
 text = " "
 percent_visible = 1.0
@@ -201,7 +219,7 @@ margin/left = 0.0
 margin/top = 60.0
 margin/right = 192.0
 margin/bottom = 76.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.054902, 0.235294, 0.32549, 1 )
 text = "------------------------------"
 align = 1
@@ -220,7 +238,7 @@ margin/left = 0.0
 margin/top = 80.0
 margin/right = 192.0
 margin/bottom = 96.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "No armour equipped"
 percent_visible = 1.0
@@ -237,7 +255,7 @@ margin/left = 0.0
 margin/top = 100.0
 margin/right = 192.0
 margin/bottom = 116.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.372549, 0.533333, 0.619608, 1 )
 text = " "
 percent_visible = 1.0
@@ -254,7 +272,7 @@ margin/left = 0.0
 margin/top = 120.0
 margin/right = 192.0
 margin/bottom = 136.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.054902, 0.235294, 0.32549, 1 )
 text = "------------------------------"
 align = 1
@@ -307,201 +325,201 @@ margin/bottom = 276.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 8
-script/script = ExtResource( 6 )
+script/script = ExtResource( 7 )
 
-[node name="InventorySlot" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-[node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 24.0
 margin/right = 48.0
 
-[node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 48.0
 margin/right = 72.0
 
-[node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 72.0
 margin/right = 96.0
 
-[node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 96.0
 margin/right = 120.0
 
-[node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 120.0
 margin/right = 144.0
 
-[node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 144.0
 margin/right = 168.0
 
-[node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 168.0
 margin/right = 192.0
 
-[node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/top = 24.0
 margin/bottom = 48.0
 
-[node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 24.0
 margin/top = 24.0
 margin/right = 48.0
 margin/bottom = 48.0
 
-[node name="InventorySlot5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 48.0
 margin/top = 24.0
 margin/right = 72.0
 margin/bottom = 48.0
 
-[node name="InventorySlot16 6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 72.0
 margin/top = 24.0
 margin/right = 96.0
 margin/bottom = 48.0
 
-[node name="InventorySlot6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 96.0
 margin/top = 24.0
 margin/right = 120.0
 margin/bottom = 48.0
 
-[node name="InventorySlot16 7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 120.0
 margin/top = 24.0
 margin/right = 144.0
 margin/bottom = 48.0
 
-[node name="InventorySlot7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 144.0
 margin/top = 24.0
 margin/right = 168.0
 margin/bottom = 48.0
 
-[node name="InventorySlot16 8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 168.0
 margin/top = 24.0
 margin/right = 192.0
 margin/bottom = 48.0
 
-[node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/top = 48.0
 margin/bottom = 72.0
 
-[node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 24.0
 margin/top = 48.0
 margin/right = 48.0
 margin/bottom = 72.0
 
-[node name="InventorySlot9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 48.0
 margin/top = 48.0
 margin/right = 72.0
 margin/bottom = 72.0
 
-[node name="InventorySlot16 10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 72.0
 margin/top = 48.0
 margin/right = 96.0
 margin/bottom = 72.0
 
-[node name="InventorySlot10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 96.0
 margin/top = 48.0
 margin/right = 120.0
 margin/bottom = 72.0
 
-[node name="InventorySlot16 11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 120.0
 margin/top = 48.0
 margin/right = 144.0
 margin/bottom = 72.0
 
-[node name="InventorySlot11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 144.0
 margin/top = 48.0
 margin/right = 168.0
 margin/bottom = 72.0
 
-[node name="InventorySlot16 12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 168.0
 margin/top = 48.0
 margin/right = 192.0
 margin/bottom = 72.0
 
-[node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/top = 72.0
 margin/bottom = 96.0
 
-[node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 24.0
 margin/top = 72.0
 margin/right = 48.0
 margin/bottom = 96.0
 
-[node name="InventorySlot13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 48.0
 margin/top = 72.0
 margin/right = 72.0
 margin/bottom = 96.0
 
-[node name="InventorySlot16 14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 72.0
 margin/top = 72.0
 margin/right = 96.0
 margin/bottom = 96.0
 
-[node name="InventorySlot14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 96.0
 margin/top = 72.0
 margin/right = 120.0
 margin/bottom = 96.0
 
-[node name="InventorySlot16 15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 120.0
 margin/top = 72.0
 margin/right = 144.0
 margin/bottom = 96.0
 
-[node name="InventorySlot15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 144.0
 margin/top = 72.0
 margin/right = 168.0
 margin/bottom = 96.0
 
-[node name="InventorySlot16 16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 7 )]
+[node name="InventorySlot16 16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
 margin/left = 168.0
 margin/top = 72.0
@@ -578,7 +596,7 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 popup/exclusive = false
-script/script = ExtResource( 8 )
+script/script = ExtResource( 9 )
 
 [node name="frame" type="VBoxContainer" parent="InventoryMenu"]
 
@@ -604,7 +622,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 784.0
 margin/bottom = 16.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Choose Item(s) to drop..."
 align = 1
@@ -683,7 +701,7 @@ margin/left = 0.0
 margin/top = 572.0
 margin/right = 784.0
 margin/bottom = 588.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "T to confirm, ESC to cancel"
 align = 1
