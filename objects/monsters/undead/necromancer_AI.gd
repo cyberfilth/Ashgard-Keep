@@ -6,7 +6,7 @@ onready var owner = get_parent()
 var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
-var zap_timer = 3 # timer before zapping the player
+var zap_timer = 2 # timer before zapping the player
 var warning_message = ['Necrotic magic fills the air',\
 	'Strange chanting reaches your ears','The necromancer begins tracing magical symbols in the air',\
 	'Purple sparks dance in the air', 'The necromancer prepares to cast a spell']
@@ -83,7 +83,7 @@ func glow_with_necromantic_energy():
 func stop_glowing():
 	owner.get_node('Light2D').hide()
 	ready_to_zap = false
-	zap_timer = 3
+	zap_timer = 2
 
 func zap_player():
 	var target = GameData.player

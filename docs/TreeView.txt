@@ -238,6 +238,7 @@
 │   │   ├── loading0.png
 │   │   ├── loading1.png
 │   │   ├── loading2.png
+│   │   ├── message_shader.png
 │   │   ├── slot.png
 │   │   └── sword.png
 │   ├── lights
@@ -351,7 +352,8 @@
 │   │   ├── ItemButton.gd
 │   │   ├── ItemButton.tscn
 │   │   ├── PlayerInfo.gd
-│   │   └── PlayerInfo.tscn
+│   │   ├── PlayerInfo.tscn
+│   │   └── RIP.gd
 │   ├── Map
 │   │   ├── Fogmap.gd
 │   │   ├── Map.gd
@@ -368,4 +370,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-39 directories, 329 files
+39 directories, 331 files
