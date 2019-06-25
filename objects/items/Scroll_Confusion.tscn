@@ -22,7 +22,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
 use_function = "confuse_target"
-param1 = 4
+param1 = 6
 stackable = true
 throw_range = 3
 
