@@ -99,6 +99,7 @@ percent_visible = 1.0
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
+editor/display_folded = true
 rect/min_size = Vector2( 204, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -686,6 +687,43 @@ custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "T to confirm, ESC to cancel"
 align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RIP" type="PopupPanel" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = -16.0
+margin/bottom = -12.0
+popup/exclusive = true
+
+[node name="Label" type="Label" parent="RIP"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 400.0
+margin/top = 300.0
+margin/right = 360.0
+margin/bottom = 284.0
+text = "You have died"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

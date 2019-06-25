@@ -18,7 +18,7 @@ func _ready():
 	var button = get_node("Menu/CentreRow/Buttons/HBoxContainer 2/Continue")
 	button.set_disabled(!save_exists)
 	if !save_exists:
-		get_node('Menu/CentreRow/Buttons/Continue/Label').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
+		get_node('Menu/CentreRow/Buttons/HBoxContainer 2/Continue/Label').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
 
 # new game
 func _on_NewGame_pressed():

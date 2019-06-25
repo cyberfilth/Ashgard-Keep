@@ -66,6 +66,11 @@ func get_display_name():
 func kill():
 	if GameData.player != self:
 		queue_free()
+	else:
+		# Inevitable death screen
+		var RIP = get_node('/root/Game/RIP')
+		get_tree().set_pause(true)
+		RIP.show()
 
 func spawn(map,cell):
 	if is_in_group('inventory'):
