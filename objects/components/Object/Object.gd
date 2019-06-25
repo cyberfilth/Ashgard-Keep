@@ -67,10 +67,16 @@ func kill():
 	if GameData.player != self:
 		queue_free()
 	else:
-		# Inevitable death screen
+		game_over()
+
+func game_over():
+	# Show the death screen
 		var RIP = get_node('/root/Game/RIP')
 		get_tree().set_pause(true)
 		RIP.show()
+		var dir = Directory.new()
+		if dir.file_exists(GameData.SAVEGAME_PATH):
+			dir.remove(GameData.SAVEGAME_PATH)
 
 func spawn(map,cell):
 	if is_in_group('inventory'):
