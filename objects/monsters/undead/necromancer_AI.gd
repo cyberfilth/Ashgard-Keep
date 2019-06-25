@@ -7,7 +7,11 @@ var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
 var zap_timer = 3 # timer before zapping the player
-var warning_message = ['Necrotic magic fills the air','Strange chanting fills your ears','The necromancer begins tracing magical symbols in the air']
+var warning_message = ['Necrotic magic fills the air',\
+	'Strange chanting reaches your ears','The necromancer begins tracing magical symbols in the air',\
+	'Purple sparks dance in the air', 'The necromancer prepares to cast a spell']
+var dodged_message = ['Necromancer curses loudly', 'Necromancer is unable to zap you',\
+	'You are out of range of the necromancer\'s spell']
 
 func _ready():
 	owner.ai = self
@@ -88,7 +92,8 @@ func zap_player():
 		var necromancer_position = get_parent().get_pos()
 		var path = FOVGen.get_line(necromancer_position, GameData.player.get_map_pos())
 		if !path.empty():
-			GameData.broadcast("Necromancer curses loudly", GameData.COLOR_NECROTIC_PURPLE)
+			var message = dodged_message[GameData.roll(0, dodged_message.size()-1)]
+			GameData.broadcast(message, GameData.COLOR_BLUE)
 			stop_glowing()
 		elif path.empty():
 			GameData.map.spawn_necrotic_energy_fx(necromancer_position)
