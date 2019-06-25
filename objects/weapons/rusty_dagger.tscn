@@ -26,7 +26,7 @@ transform/pos = Vector2( 0, -1 )
 
 use_function = "weapon"
 throw_range = 8
-throw_damage = 3
+throw_damage = 4
 
 [node name="Weapon" parent="." instance=ExtResource( 4 )]
 

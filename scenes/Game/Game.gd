@@ -40,7 +40,7 @@ func new_game():
 		suffix = "rd"
 	else:
 		suffix = "th"
-	date_string = str(("It is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
+	date_string = str(("\n\nIt is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
 	GameData.broadcast(date_string)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
 
@@ -141,7 +141,7 @@ func restore_game():
 			# Clear status messages
 			GameData.clear_messages()
 			# Welcome message
-			GameData.broadcast("Welcome back "+GameData.player.name+"...")
+			GameData.broadcast("\n\nWelcome back "+GameData.player.name+"...")
 	# close file and return status
 	file.close()
 	# build a Pathfinding map
