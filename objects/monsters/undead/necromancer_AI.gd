@@ -6,12 +6,10 @@ onready var owner = get_parent()
 var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
-var zap_timer = 2 # timer before zapping the player
+var zap_timer = 3 # timer before zapping the player
 var warning_message = ['Necrotic magic fills the air',\
 	'Strange chanting reaches your ears','The necromancer begins tracing magical symbols in the air',\
 	'Purple sparks dance in the air', 'The necromancer prepares to cast a spell']
-var dodged_message = ['Necromancer curses loudly', 'Necromancer is unable to zap you',\
-	'You are out of range of the necromancer\'s spell']
 
 func _ready():
 	owner.ai = self
@@ -22,7 +20,7 @@ func take_turn():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	# If not in range of the player
-	if distance > (GameData.TORCH_RADIUS - 2):
+	if distance > GameData.TORCH_RADIUS:
 		if has_random_location == false:
 			choose_random_location() # Select location
 			owner.step_to(random_location) # Move to location
@@ -83,22 +81,16 @@ func glow_with_necromantic_energy():
 func stop_glowing():
 	owner.get_node('Light2D').hide()
 	ready_to_zap = false
-	zap_timer = 2
+	zap_timer = 3
 
 func zap_player():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if distance <= GameData.TORCH_RADIUS:
 		var necromancer_position = get_parent().get_pos()
-		var path = FOVGen.get_line(necromancer_position, GameData.player.get_map_pos())
-		if !path.empty():
-			var message = dodged_message[GameData.roll(0, dodged_message.size()-1)]
-			GameData.broadcast(message, GameData.COLOR_BLUE)
-			stop_glowing()
-		elif path.empty():
-			GameData.map.spawn_necrotic_energy_fx(necromancer_position)
-			GameData.player.get_node("Camera").shake(0.3, 10)
-			GameData.player.fighter.take_damage('Necromantic energy', 10)
-			stop_glowing()
-		else:
-			stop_glowing()
+		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
+		GameData.player.get_node("Camera").shake(0.3, 10)
+		GameData.player.fighter.take_damage('Necromantic energy', 10)
+		stop_glowing()
+	else:
+		stop_glowing()
