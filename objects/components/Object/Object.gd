@@ -177,3 +177,6 @@ func _set_seen(what):
 
 func _on_hp_changed(current,full):
 	if not fighter: return
+
+func _on_xp_changed(what):
+	if not fighter: return

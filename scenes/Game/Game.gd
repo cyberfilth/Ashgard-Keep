@@ -169,6 +169,8 @@ func spawn_player(cell):
 	ob.fighter.emit_signal("defence_changed",ob.fighter.defence)
 	ob.fighter.connect("hp_changed", GameData.game.playerinfo, "hp_changed")
 	ob.fighter.emit_signal("hp_changed",ob.fighter.hp, ob.fighter.max_hp)
+	ob.fighter.connect("xp_changed", GameData.game.playerinfo, "xp_changed")
+	ob.fighter.emit_signal("xp_changed",ob.fighter.xp)
 
 func pos_in_map(pos):
 	var rect = Rect2(pos,Vector2(1,1))
