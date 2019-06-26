@@ -44,6 +44,7 @@ func save():
 	data.defence = self.defence
 	data.max_hp = self.max_hp
 	data.hp = self.hp
+	data.xp = self.xp
 	data.status_effects = self.status_effects
 	data.weapon_equipped = self.weapon_equipped
 	return data
@@ -162,6 +163,7 @@ func die():
 	if killer == GameData.player:
 		var xp_earned = self.attack
 		GameData.player.fighter.xp += xp_earned
+		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
 	# remove the enemy from the screen
 	owner.kill()
 
