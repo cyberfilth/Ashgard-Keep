@@ -14,8 +14,10 @@ export(String, "Warrior", "Wizard", "Rogue") var archetype = "Warrior" setget _s
 
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
-
 export(int) var max_hp = 5 setget _set_max_hp
+#export(int) var player_level = 1 setget _set_player_level
+var killer = "No Juan"
+#var xp = 0 setget _set_xp
 var hp = 5 setget _set_hp
 
 var status_effects = {}
@@ -76,6 +78,7 @@ func _set_defence(what):
 	emit_signal('defence_changed', defence)
 
 func fight(who):
+	killer = who
 	if owner.fighter.hp < 1:
 		die()
 	else:
@@ -103,6 +106,7 @@ func heal_damage(from,amount):
 
 func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
+	killer = from
 	self.hp -= amount
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
@@ -140,6 +144,9 @@ func broadcast_miss(target, from):
 		GameData.broadcast(from + " attacks " + target + " but misses ")
 
 func die():
+	if owner == GameData.player:
+		print(killer)
+	# Release cloud of gas if poison zombie killed
 	var corpse = get_parent().name
 	if corpse == "Diseased zombie":
 		var gas_cloud = load("res://objects/monsters/undead/poison_cloud.tscn")
@@ -147,8 +154,13 @@ func die():
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+	# leave bloodstain
 	if self.bleeds:
 		bleed(blood_colour)
+	# Get XP
+	var xp_earned = self.attack
+	award_xp(xp_earned)
+	# remove the enemy from the screen
 	owner.kill()
 
 func bleed(blood_colour):
@@ -168,6 +180,9 @@ func _ready():
 	owner.call_deferred('add_child', hpbar)
 	connect("hp_changed", self, "_on_hp_changed")
 
+func award_xp(xp_earned):
+	GameData.broadcast("You earned "+str(xp_earned)+" XP")
+
 func _set_race(what):
 	race = what
 	emit_signal('race_changed', race)
@@ -181,7 +196,10 @@ func _set_hp(what):
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
 		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_TEAL)
-		die()
+		if owner == GameData.player:
+			die()
+		#die() # commented out to stop XP being awarded twice. 
+				# die() function in fight() should pick this up
 
 func _set_max_hp(what):
 	max_hp = what
