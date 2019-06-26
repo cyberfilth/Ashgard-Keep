@@ -82,7 +82,8 @@ func _set_defence(what):
 func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
-		die()
+		#die() # commented out to stop XP being awarded twice
+		return
 	else:
 		if who.get_display_name() == owner.get_display_name():
 			return
@@ -159,8 +160,8 @@ func die():
 	# leave bloodstain
 	if self.bleeds:
 		bleed(blood_colour)
-	# Get XP
-	if killer == GameData.player:
+	# Get XP if you are the killer
+	if killer == (GameData.player.get_display_name()):
 		var xp_earned = self.attack
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
@@ -202,10 +203,7 @@ func _set_hp(what):
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
 		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_TEAL)
-		if owner == GameData.player:
-			die()
-		#die() # commented out and added 'if owner == GameData.player:' to stop 
-				# XP being awarded twice. die() function in fight() should pick this up
+		die()
 
 func _set_max_hp(what):
 	max_hp = what
