@@ -1,6 +1,7 @@
 extends Node
 
 signal hp_changed(current,full)
+signal xp_changed(what)
 signal attack_changed(what)
 signal defence_changed(what)
 signal race_changed(what)
@@ -15,9 +16,9 @@ export(String, "Warrior", "Wizard", "Rogue") var archetype = "Warrior" setget _s
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
 export(int) var max_hp = 5 setget _set_max_hp
-#export(int) var player_level = 1 setget _set_player_level
-var killer = "No Juan"
-#var xp = 0 setget _set_xp
+
+var killer = "No Juan" # Name of the enemy that kills the player
+var xp = 0 setget _set_xp
 var hp = 5 setget _set_hp
 
 var status_effects = {}
@@ -158,8 +159,9 @@ func die():
 	if self.bleeds:
 		bleed(blood_colour)
 	# Get XP
-	var xp_earned = self.attack
-	award_xp(xp_earned)
+	if killer == GameData.player:
+		var xp_earned = self.attack
+		GameData.player.fighter.xp += xp_earned
 	# remove the enemy from the screen
 	owner.kill()
 
@@ -175,13 +177,11 @@ func _ready():
 	owner.fighter = self
 	self.race = self.race
 	self.archetype = self.archetype
+	self.xp = self.xp
 	owner.add_to_group('actors')
 	hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
 	owner.call_deferred('add_child', hpbar)
 	connect("hp_changed", self, "_on_hp_changed")
-
-func award_xp(xp_earned):
-	GameData.broadcast("You earned "+str(xp_earned)+" XP")
 
 func _set_race(what):
 	race = what
@@ -191,6 +191,10 @@ func _set_archetype(what):
 	archetype = what
 	emit_signal('archetype_changed', archetype)
 
+func _set_xp(what):
+	xp = what
+	emit_signal('xp_changed', xp)
+
 func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
@@ -198,8 +202,8 @@ func _set_hp(what):
 		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_TEAL)
 		if owner == GameData.player:
 			die()
-		#die() # commented out to stop XP being awarded twice. 
-				# die() function in fight() should pick this up
+		#die() # commented out and added 'if owner == GameData.player:' to stop 
+				# XP being awarded twice. die() function in fight() should pick this up
 
 func _set_max_hp(what):
 	max_hp = what
