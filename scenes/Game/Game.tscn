@@ -711,7 +711,6 @@ max_lines_visible = -1
 
 [node name="RIP" type="PopupPanel" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1

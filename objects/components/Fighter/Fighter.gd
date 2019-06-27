@@ -148,7 +148,7 @@ func broadcast_miss(target, from):
 
 func die():
 	if owner == GameData.player:
-		print(killer)
+		game_over(killer)
 	# Release cloud of gas if poison zombie killed
 	var corpse = get_parent().name
 	if corpse == "Diseased zombie":
@@ -167,6 +167,14 @@ func die():
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
 	# remove the enemy from the screen
 	owner.kill()
+
+func game_over(killer):
+	# Show the death screen
+	GameData.killer = killer
+	get_tree().change_scene('res://scenes/GameOver/RIPScreen.tscn')
+#	var RIP = get_node('/root/Game/RIP')
+#	get_tree().set_pause(true)
+#	RIP.show()
 
 func bleed(blood_colour):
 	var blood = load('res://graphics/fx/blood_'+blood_colour+str(randi()%5)+'.png')

@@ -43,6 +43,9 @@ var inventory
 var inventory_menu
 var load_continue = "load"
 
+# RIP - You were killed by
+var killer = "An unknown enemy"
+
 # Broadcast status messages
 func broadcast(message, color=COLOR_LIGHT_BLUE):
 	if game:
