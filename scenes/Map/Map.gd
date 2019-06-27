@@ -202,10 +202,14 @@ func _on_player_acted():
 	# remove Green poison colour from player if not poisoned
 	if !GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
-	
+		
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):
 		if node.has_meta('kill'):
 			node.queue_free() #kill me this turn
 		else:
 			node.set_meta('kill',true) #kill me next turn
+	
+	# Check XP for level progression
+	if GameData.player.fighter.xp > ((1*150)+100):
+		print("LEVEL UP")
