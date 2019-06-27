@@ -82,7 +82,6 @@ func _set_defence(what):
 func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
-		#die() # commented out to stop XP being awarded twice
 		return
 	else:
 		if who.get_display_name() == owner.get_display_name():
@@ -161,7 +160,7 @@ func die():
 	if self.bleeds:
 		bleed(blood_colour)
 	# Get XP if you are the killer
-	if killer == (GameData.player.get_display_name()):
+	if killer == (GameData.player.get_display_name()) || killer == "Fire" || killer == "Lightning Strike":
 		var xp_earned = self.attack
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
