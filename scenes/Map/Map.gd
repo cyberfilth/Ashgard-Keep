@@ -211,5 +211,10 @@ func _on_player_acted():
 			node.set_meta('kill',true) #kill me next turn
 	
 	# Check XP for level progression
-	if GameData.player.fighter.xp > ((1*150)+100):
+	#if GameData.player.fighter.xp > ((1*150)+100):
+	if GameData.player.fighter.xp > 10:
 		print("LEVEL UP")
+		var level_up_screen = get_node('/root/Game/LevelUp')
+		get_tree().set_pause(true)
+		level_up_screen.show()
+		
