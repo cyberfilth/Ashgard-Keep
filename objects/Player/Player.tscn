@@ -81,7 +81,6 @@ shadow/item_mask = 1
 [node name="Fighter" parent="." instance=ExtResource( 6 )]
 
 bleeds = false
-character_level = 1
 attack = 20
 defence = 5
 max_hp = 100

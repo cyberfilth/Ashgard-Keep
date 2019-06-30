@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Game/LevelUp.gd" type="Script" id=10]
+[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=11]
 
 [node name="Game" type="Container"]
 
@@ -711,7 +713,7 @@ max_lines_visible = -1
 
 [node name="LevelUp" type="PopupPanel" parent="."]
 
-visibility/visible = false
+process/pause_mode = 2
 visibility/opacity = 0.75
 anchor/right = 1
 anchor/bottom = 1
@@ -721,24 +723,52 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = -16.0
-margin/bottom = -12.0
+margin/right = 0.0
+margin/bottom = 0.0
 popup/exclusive = false
+script/script = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="LevelUp"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelUp"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 4.0
+margin/right = 0.0
+margin/bottom = 40.0
+alignment = 1
+
+[node name="Title" type="Label" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 784.0
+margin/bottom = 35.0
+custom_fonts/font = ExtResource( 11 )
+text = "Level Up"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="LevelUp/VBoxContainer"]
+
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 240.0
-margin/top = 190.0
-margin/right = 124.0
-margin/bottom = 174.0
+margin/left = 0.0
+margin/top = 39.0
+margin/right = 784.0
+margin/bottom = 55.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level up message"
 align = 1
