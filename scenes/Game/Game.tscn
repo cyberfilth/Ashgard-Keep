@@ -759,7 +759,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label" type="Label" parent="LevelUp/VBoxContainer"]
+[node name="LevelUp" type="Label" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -771,6 +771,39 @@ margin/right = 784.0
 margin/bottom = 55.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level up message"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="LevelUp/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 15 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 59.0
+margin/right = 784.0
+margin/bottom = 74.0
+split/offset = 0
+split/collapsed = false
+split/dragger_visibility = 0
+
+[node name="FlavourText" type="Label" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 78.0
+margin/right = 784.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 6 )
+text = "blurb"
 align = 1
 valign = 1
 percent_visible = 1.0
