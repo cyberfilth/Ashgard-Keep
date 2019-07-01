@@ -1,6 +1,6 @@
 extends PopupPanel
 
-signal items_selected(items)	# emits an array of selected items
+signal items_selected(items) # emits an array of selected items
 
 
 onready var item_box = get_node('frame/Contents/scroll/Items')
@@ -21,7 +21,7 @@ func start(multi=false,header='', footer=''):
 	# pause and show
 	show()
 	get_tree().set_pause(true)
-	
+
 
 func clear_items():
 	for i in range(item_box.get_child_count()):
@@ -52,21 +52,15 @@ func _ready():
 func _input(event):
 	var CANCEL = event.is_action_pressed('act_CANCEL')
 	var CONFIRM = event.is_action_pressed('act_CONFIRM')
-
 	if CANCEL:
 		done()
-
 		emit_signal('items_selected', []) # signal no items selected
-
-	
 	if CONFIRM:
 		done()
-
 		var items = []
 		for itm in item_box.get_children():
 			if itm.is_pressed():
 				items.append(itm.owner)
-
 		emit_signal('items_selected', items)
 
 func _on_ItemButton_toggled( pressed, who ):

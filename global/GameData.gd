@@ -41,6 +41,7 @@ var player
 var map
 var inventory
 var inventory_menu
+var levelup_menu
 var load_continue = "load"
 
 # RIP - You were killed by

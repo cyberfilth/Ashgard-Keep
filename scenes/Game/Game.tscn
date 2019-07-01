@@ -715,6 +715,7 @@ max_lines_visible = -1
 [node name="LevelUp" type="PopupPanel" parent="."]
 
 process/pause_mode = 2
+visibility/visible = false
 visibility/opacity = 0.75
 anchor/right = 1
 anchor/bottom = 1
@@ -913,5 +914,13 @@ flat = false
 [connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed"]
 
 [connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Throw" to="frame/right/Activity/box/Inventory" method="_on_Throw_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseHP" to="." method="_on_IncreaseHP_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATT" to="." method="_on_IncreaseATT_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseDEF" to="." method="_on_IncreaseDEF_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATTDEF" to="." method="_on_IncreaseATTDEF_pressed"]
 
 

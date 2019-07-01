@@ -212,16 +212,16 @@ func _on_player_acted():
 
 	# Check XP for level progression
 	var level = GameData.player.fighter.character_level
-	#if GameData.player.fighter.xp > ((level*150)+100): # actual code
-	if GameData.player.fighter.xp > 10: # For testing
+	if GameData.player.fighter.xp > ((level*150)+100): # actual code
+	#if GameData.player.fighter.xp > 10: # For testing
 		# Increase level
-		level += level
+		level += 1
 		GameData.player.fighter._set_character_level(level)
 		# Increase max health 20%
 		var newmax = floor((GameData.player.fighter.max_hp/100.0)*20) + GameData.player.fighter.max_hp
 		GameData.player.fighter.max_hp = newmax
-		# Increase current HP by 10%
-		var boost = floor((GameData.player.fighter.hp/100.0)*10)
+		# Increase current HP by 20%
+		var boost = floor((GameData.player.fighter.hp/100.0)*20)
 		GameData.player.fighter.heal_non_random("Leveling up", boost)
 		var level_up_screen = get_node('/root/Game/LevelUp')
 		get_tree().set_pause(true)
