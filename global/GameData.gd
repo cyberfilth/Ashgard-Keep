@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.4.9"
+const version = "Version 0.5"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -28,6 +28,8 @@ var dungeonRNG
 
 # Player sight radius
 var TORCH_RADIUS = 5
+# 'Hunger clock'
+var torch_height
 
 # Dungeon map parameters
 var MAP_SIZE = Vector2(70, 70) # Changed from 80, 80
