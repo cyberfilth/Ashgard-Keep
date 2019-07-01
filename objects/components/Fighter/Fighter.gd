@@ -108,6 +108,11 @@ func heal_damage(from,amount):
 		broadcast_damage_healed(from, heal_amount)
 	self.hp += heal_amount
 
+func heal_non_random(from, amount):
+	if owner == GameData.player:
+		broadcast_damage_healed(from, amount)
+		self.hp += amount
+
 func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
 	killer = from
