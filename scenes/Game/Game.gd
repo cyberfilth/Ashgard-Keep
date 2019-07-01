@@ -222,8 +222,6 @@ func _on_IncreaseHP_pressed():
 	# Increase max health 10%
 	var newmax = floor((GameData.player.fighter.max_hp/100.0)*10) + GameData.player.fighter.max_hp
 	GameData.player.fighter.max_hp = newmax
-	# boost current HP to max
-	GameData.player.fighter.hp = newmax
 	get_node('LevelUp').hide()
 	get_tree().set_pause(false)
 
