@@ -90,7 +90,7 @@ func zap_player():
 		var necromancer_position = get_parent().get_pos()
 		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
 		GameData.player.get_node("Camera").shake(0.3, 10)
-		GameData.player.fighter.take_damage('Necromantic energy', 10)
+		GameData.player.fighter.take_damage('Necromantic energy blast', 10)
 		stop_glowing()
 	else:
 		stop_glowing()
