@@ -136,8 +136,13 @@ func restore_game():
 			ob.pickup()
 			# Equip weapon
 			if entry.item.equipped == true:
-				var weapon = ob.get_node('Weapon')
-				ob.item.equip_weapon(weapon)
+				if ob.has_node('Weapon'):
+					var weapon = ob.get_node('Weapon')
+					ob.item.equip_weapon(weapon)
+			# Equip armour
+				else:
+					var armour = ob.get_node('Armour')
+					ob.item.equip_armour(armour)
 			# Clear status messages
 			GameData.clear_messages()
 			# Welcome message
