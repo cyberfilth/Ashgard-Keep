@@ -7,7 +7,7 @@ var last_room
 # Build a new datamap (fill with walls)
 func build_datamap():
 	var size = GameData.MAP_SIZE
-	
+
 	for x in range(size.x):
 		var row = []
 		for y in range(size.y):
@@ -63,7 +63,7 @@ func get_floor_cells():
 
 func generate():
 	build_datamap()
-	
+
 	var rooms = []
 	var num_rooms = 0
 	for r in range(GameData.MAX_ROOMS):
@@ -71,20 +71,20 @@ func generate():
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var x = GameData.roll(0, GameData.MAP_SIZE.x - w-1)
 		var y = GameData.roll(0, GameData.MAP_SIZE.y - h-1)
-		
+
 		var new_room = Rect2(x,y,w,h)
 		var fail = false
-		
+
 		for other_room in rooms:
 			if other_room.intersects(new_room):
 				fail = true
 				break
-		
+
 		if !fail:
 			carve_room(new_room)
-			
+
 			var new_center = center(new_room)
-			
+
 			if num_rooms == 0:
 				start_pos = new_center
 			else:
@@ -100,7 +100,7 @@ func generate():
 					# go vertical then horizontal
 					carve_v_hall(prev_center.y, new_center.y, prev_center.x)
 					carve_h_hall(prev_center.x, new_center.x, new_center.y)
-			
+
 			rooms.append(new_room)
 			num_rooms += 1
 			last_room = new_room

@@ -170,3 +170,6 @@ func _on_hp_changed(current,full):
 
 func _on_xp_changed(what):
 	if not fighter: return
+
+func _on_character_level_changed(what):
+	if not fighter: return

@@ -9,6 +9,7 @@ bleeds = true
 blood_colour = "red"
 race = "Human"
 archetype = "Warrior"
+character_level = 1
 attack = 1
 defence = 1
 max_hp = 5

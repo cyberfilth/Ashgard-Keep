@@ -171,6 +171,8 @@ func spawn_player(cell):
 	ob.fighter.emit_signal("hp_changed",ob.fighter.hp, ob.fighter.max_hp)
 	ob.fighter.connect("xp_changed", GameData.game.playerinfo, "xp_changed")
 	ob.fighter.emit_signal("xp_changed",ob.fighter.xp)
+	ob.fighter.connect("character_level_changed", GameData.game.playerinfo, "character_level_changed")
+	ob.fighter.emit_signal("character_level_changed",ob.fighter.character_level)
 
 func pos_in_map(pos):
 	var rect = Rect2(pos,Vector2(1,1))
@@ -215,3 +217,27 @@ func _set_is_mouse_in_map(what):
 func _set_mouse_cell(what):
 	mouse_cell = what
 	GameData.map.set_cursor()
+
+func _on_IncreaseHP_pressed():
+	# Increase max health 10%
+	var newmax = floor((GameData.player.fighter.max_hp/100.0)*10) + GameData.player.fighter.max_hp
+	GameData.player.fighter.max_hp = newmax
+	get_node('LevelUp').hide()
+	get_tree().set_pause(false)
+
+func _on_IncreaseATT_pressed():
+	GameData.player.fighter.attack += GameData.player.fighter.character_level
+	get_node('LevelUp').hide()
+	get_tree().set_pause(false)
+
+func _on_IncreaseDEF_pressed():
+	GameData.player.fighter.defence += GameData.player.fighter.character_level
+	get_node('LevelUp').hide()
+	get_tree().set_pause(false)
+
+func _on_IncreaseATTDEF_pressed():
+	var boost = floor(GameData.player.fighter.character_level/2)
+	GameData.player.fighter.attack += boost
+	GameData.player.fighter.defence += boost
+	get_node('LevelUp').hide()
+	get_tree().set_pause(false)

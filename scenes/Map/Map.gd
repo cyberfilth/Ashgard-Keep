@@ -15,7 +15,7 @@ func new_map():
 
 func save():
 	var data = {}
-	# Dungeon RNG seed	
+	# Dungeon RNG seed
 	data.dungeon_rng = GameData.dungeonRNG
 	# Number of moves
 	data.player_moves = GameData.player_moves
@@ -37,7 +37,7 @@ func restore(data):
 func restore_object(data):
 	var ob = load(data.filename)
 	var pos = Vector2(data.x, data.y)
-	if ob: 
+	if ob:
 		ob = ob.instance().spawn(self,pos)
 		ob.restore(data)
 		return ob
@@ -47,7 +47,7 @@ func spawn_object(partial_path,cell):
 	var ob = load(path)
 	if ob: ob.instance().spawn(self,cell)
 
-# Set the Darkness Canvas item 
+# Set the Darkness Canvas item
 # colour to complement each dungeon tileset
 func draw_map():
 	var theme = DungeonThemes.themes[GameData.dungeonRNG]
@@ -153,13 +153,13 @@ func set_cursor_hidden(is_hidden):
 func set_cursor():
 	var cell = world_to_map(get_local_mouse_pos())
 	get_node('Cursor').set_pos(map_to_world(cell))
-	
+
 	var oob = false # out of bounds
 	if cell.x < 0 or cell.x >= GameData.MAP_SIZE.x: oob = true
 	if cell.y < 0 or cell.y >= GameData.MAP_SIZE.y: oob = true
 
 	var text = 'NO!' #<-- shouldn't see this in game
-	
+
 	if cell in get_node('Fogmap').get_used_cells() or oob:
 		# cursor in fog or out of map
 		text = 'Unseen'
@@ -179,7 +179,7 @@ func _sort_z(a,b):
 	if a.get_z() > b.get_z():
 		return true
 	return false
-	
+
 
 func set_cursor_label(text=''):
 	get_node('Cursor/Label').set_text(text)
@@ -202,14 +202,29 @@ func _on_player_acted():
 	# remove Green poison colour from player if not poisoned
 	if !GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
-		
+
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):
 		if node.has_meta('kill'):
 			node.queue_free() #kill me this turn
 		else:
 			node.set_meta('kill',true) #kill me next turn
-	
+
 	# Check XP for level progression
-	if GameData.player.fighter.xp > ((1*150)+100):
-		print("LEVEL UP")
+	var level = GameData.player.fighter.character_level
+	if GameData.player.fighter.xp > ((level*150)+100): # actual code
+	#if GameData.player.fighter.xp > 10: # For testing
+		# Increase level
+		level += 1
+		GameData.player.fighter._set_character_level(level)
+		# Increase max health 20%
+		var newmax = floor((GameData.player.fighter.max_hp/100.0)*20) + GameData.player.fighter.max_hp
+		GameData.player.fighter.max_hp = newmax
+		# Increase current HP by 20%
+		var boost = floor((GameData.player.fighter.hp/100.0)*20)
+		GameData.player.fighter.heal_non_random("Leveling up", boost)
+		var level_up_screen = get_node('/root/Game/LevelUp')
+		get_tree().set_pause(true)
+		level_up_screen.show()
+		level_up_screen.start(level)
+

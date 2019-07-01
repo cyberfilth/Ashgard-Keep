@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Game/LevelUp.gd" type="Script" id=10]
+[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://resources/black_panel.tres" type="StyleBox" id=12]
 
 [node name="Game" type="Container"]
 
@@ -709,9 +712,11 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="RIP" type="PopupPanel" parent="."]
+[node name="LevelUp" type="PopupPanel" parent="."]
 
+process/pause_mode = 2
 visibility/visible = false
+visibility/opacity = 0.75
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -720,33 +725,202 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = -16.0
-margin/bottom = -12.0
-popup/exclusive = true
+margin/right = 0.0
+margin/bottom = 0.0
+popup/exclusive = false
+script/script = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="RIP"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelUp"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 4.0
+margin/right = 0.0
+margin/bottom = 40.0
+alignment = 1
+
+[node name="Title" type="Label" parent="LevelUp/VBoxContainer"]
+
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
+size_flags/horizontal = 3
 size_flags/vertical = 0
-margin/left = 400.0
-margin/top = 300.0
-margin/right = 360.0
-margin/bottom = 284.0
-text = "You have died"
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 784.0
+margin/bottom = 35.0
+custom_fonts/font = ExtResource( 11 )
+text = "Level Up"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="LevelUp" type="Label" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 39.0
+margin/right = 784.0
+margin/bottom = 55.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Level up message"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="LevelUp/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 15 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 59.0
+margin/right = 784.0
+margin/bottom = 74.0
+split/offset = 0
+split/collapsed = false
+split/dragger_visibility = 0
+
+[node name="FlavourText" type="Label" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 78.0
+margin/right = 784.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 6 )
+text = "blurb"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSplitContainer 2" type="VSplitContainer" parent="LevelUp/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 98.0
+margin/right = 784.0
+margin/bottom = 138.0
+split/offset = 0
+split/collapsed = false
+split/dragger_visibility = 0
+
+[node name="IncreaseHP" type="Button" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 142.0
+margin/right = 784.0
+margin/bottom = 170.0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/normal = ExtResource( 12 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_hover = Color( 0.123596, 0.878906, 0.878906, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Increase total HP"
+flat = false
+
+[node name="IncreaseATT" type="Button" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 174.0
+margin/right = 784.0
+margin/bottom = 202.0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/normal = ExtResource( 12 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_hover = Color( 0.123608, 0.879098, 0.878863, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Increase Attack by 2"
+flat = false
+
+[node name="IncreaseDEF" type="Button" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 206.0
+margin/right = 784.0
+margin/bottom = 234.0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/normal = ExtResource( 12 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_hover = Color( 0.123608, 0.879098, 0.878863, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Increase Defence by 2"
+flat = false
+
+[node name="IncreaseATTDEF" type="Button" parent="LevelUp/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 238.0
+margin/right = 784.0
+margin/bottom = 266.0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/normal = ExtResource( 12 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_hover = Color( 0.123608, 0.879098, 0.878863, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Increase both Defence and Attack by 1"
+flat = false
+
 [connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed"]
 
 [connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Throw" to="frame/right/Activity/box/Inventory" method="_on_Throw_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseHP" to="." method="_on_IncreaseHP_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATT" to="." method="_on_IncreaseATT_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseDEF" to="." method="_on_IncreaseDEF_pressed"]
+
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATTDEF" to="." method="_on_IncreaseATTDEF_pressed"]
 
 

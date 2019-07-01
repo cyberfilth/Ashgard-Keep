@@ -15,7 +15,7 @@ onready var maxhplabel = hpbox.get_node('labels/MaxHP')
 onready var hpbar = hpbox.get_node('Bar')
 onready var xplabel = statsright.get_node('values/XP')
 
-onready var levellabel = statsleft.get_node('values/Level')
+onready var characterlevellabel = statsleft.get_node('values/Level')
 onready var attacklabel = statsleft.get_node('values/Attack')
 onready var defencelabel = statsleft.get_node('values/Defence')
 
@@ -44,6 +44,9 @@ func hp_changed(current,full):
 
 func xp_changed(what):
 	xplabel.set_text(str(what))
+
+func character_level_changed(what):
+	characterlevellabel.set_text(str(what))
 
 func _ready():
 	pass

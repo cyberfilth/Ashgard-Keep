@@ -2,6 +2,7 @@ extends Node
 
 signal hp_changed(current,full)
 signal xp_changed(what)
+signal character_level_changed(what)
 signal attack_changed(what)
 signal defence_changed(what)
 signal race_changed(what)
@@ -12,7 +13,7 @@ export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
 export(String, "Human", "Dwarf", "Elf", "animal") var race = "animal" setget _set_race
 export(String, "Warrior", "Wizard", "Rogue") var archetype = "Warrior" setget _set_archetype
-
+export(int) var character_level = 1 setget _set_character_level
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
 export(int) var max_hp = 5 setget _set_max_hp
@@ -40,6 +41,7 @@ func save():
 	data.blood_colour = self.blood_colour
 	data.race = self.race
 	data.archetype = self.archetype
+	data.character_level = self.character_level
 	data.attack = self.attack
 	data.defence = self.defence
 	data.max_hp = self.max_hp
@@ -82,7 +84,6 @@ func _set_defence(what):
 func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
-		#die() # commented out to stop XP being awarded twice
 		return
 	else:
 		if who.get_display_name() == owner.get_display_name():
@@ -106,6 +107,11 @@ func heal_damage(from,amount):
 	if owner == GameData.player:
 		broadcast_damage_healed(from, heal_amount)
 	self.hp += heal_amount
+
+func heal_non_random(from, amount):
+	if owner == GameData.player:
+		broadcast_damage_healed(from, amount)
+		self.hp += amount
 
 func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
@@ -161,7 +167,7 @@ func die():
 	if self.bleeds:
 		bleed(blood_colour)
 	# Get XP if you are the killer
-	if killer == (GameData.player.get_display_name()):
+	if killer == (GameData.player.get_display_name()) || killer == "Fire" || killer == "Lightning Strike":
 		var xp_earned = self.attack
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
@@ -172,9 +178,6 @@ func game_over(killer):
 	# Show the death screen
 	GameData.killer = killer
 	get_tree().change_scene('res://scenes/GameOver/RIPScreen.tscn')
-#	var RIP = get_node('/root/Game/RIP')
-#	get_tree().set_pause(true)
-#	RIP.show()
 
 func bleed(blood_colour):
 	var blood = load('res://graphics/fx/blood_'+blood_colour+str(randi()%5)+'.png')
@@ -189,6 +192,7 @@ func _ready():
 	self.race = self.race
 	self.archetype = self.archetype
 	self.xp = self.xp
+	self.character_level = self.character_level
 	owner.add_to_group('actors')
 	hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
 	owner.call_deferred('add_child', hpbar)
@@ -205,6 +209,10 @@ func _set_archetype(what):
 func _set_xp(what):
 	xp = what
 	emit_signal('xp_changed', xp)
+
+func _set_character_level(what):
+	character_level = what
+	emit_signal('character_level_changed', character_level)
 
 func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
