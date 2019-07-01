@@ -844,7 +844,7 @@ custom_colors/font_color_hover = Color( 0.123596, 0.878906, 0.878906, 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Increase HP 20%"
+text = "Increase total HP"
 flat = false
 
 [node name="IncreaseATT" type="Button" parent="LevelUp/VBoxContainer"]
