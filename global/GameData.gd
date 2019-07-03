@@ -29,7 +29,12 @@ var dungeonRNG
 # Player sight radius
 var TORCH_RADIUS = 5
 # 'Hunger clock'
+var getting_dimmer = false
 var torch_height
+var torch_timer
+var colr
+var colg
+var colb
 
 # Dungeon map parameters
 var MAP_SIZE = Vector2(70, 70) # Changed from 80, 80
