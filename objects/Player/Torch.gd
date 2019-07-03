@@ -3,10 +3,6 @@ extends Light2D
 func _ready():
 	pass
 
-func restore_light():
-	self.set_height(64.9)
-	self.set_shadow_esm_multiplier(80)
-
 func dim_light():
 	if GameData.dungeonRNG == 0:
 		GameData.colr = 0.27
@@ -31,4 +27,8 @@ func darker():
 	GameData.colr = GameData.colr - 0.05
 	GameData.colg = GameData.colg - 0.05
 	GameData.colb = GameData.colb - 0.05
+	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
+
+func restore_game_darkness():
+	var darkness = get_node('../../Darkness')
 	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))

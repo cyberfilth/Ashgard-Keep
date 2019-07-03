@@ -49,39 +49,38 @@ func new_game():
 func save_game():
 	# create a new file object to work with
 	var file = File.new()
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
-	#var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
 	# Alert and return error if file can't be opened
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
-		
+
 	# Gather data to save
 	var data = {}
-	
+
 	# version
 	data.version = {
 	"AshgardKeep" : GameData.version
 	}
-	
-	
+
 	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
 	data.player = GameData.player.save()
-	
+
 	data.objects = []
 	data.inventory = []
-	
+
 	for node in get_tree().get_nodes_in_group('world'):
 		# exclude saved player data
 		if node != GameData.player:
 			data.objects.append(node.save())
-	
+
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
-		
-		
+
+
 	# Store data and close file
 	file.store_line(data.to_json())
 	file.close()
@@ -89,15 +88,15 @@ func save_game():
 	return opened
 
 # Restore Game Function
-func restore_game():	
+func restore_game():
 	# create a new file object to work with
-	var file = File.new()	
+	var file = File.new()
 	# return error if file not found
 	if !file.file_exists(GameData.SAVEGAME_PATH):
 		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
 		return ERR_FILE_NOT_FOUND
-	#var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
 	# Alert and return error if file can't be opened
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -115,20 +114,24 @@ func restore_game():
 	# Map Data
 	if 'map' in data:
 		GameData.map.restore(data.map)
-		
+	
 		# Player data
 	if 'player' in data:
 		var start_pos = Vector2(data.player.x, data.player.y)
 		spawn_player(start_pos)
 		GameData.player.restore(data.player)
-		
+	
+	# set Darkness
+	if GameData.getting_dimmer == true:
+		GameData.player.get_node("Torch").restore_game_darkness()
+	
 	# Object data
 	if 'objects' in data:
 		for entry in data.objects:
 			var ob = restore_object(entry)
 			var pos = Vector2(entry.x,entry.y)
 			ob.spawn(GameData.map,pos)
-			
+	
 	# Inventory data
 	if 'inventory' in data:
 		for entry in data.inventory:
@@ -161,7 +164,7 @@ func restore_object(data):
 func spawn_player(cell):
 	GameData.map.spawn_object('Player/Player',DungeonGen.start_pos)
 	var ob = GameData.player
-	
+
 	ob.connect("name_changed", GameData.game.playerinfo, "name_changed")
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")

@@ -19,15 +19,27 @@ func save():
 	data.dungeon_rng = GameData.dungeonRNG
 	# Number of moves
 	data.player_moves = GameData.player_moves
+	# torch timer
+	data.player_view = GameData.player_view
+	data.getting_dimmer = GameData.getting_dimmer
+	data.torch_timer = GameData.torch_timer
+	data.colr = GameData.colr
+	data.colg = GameData.colg
+	data.colb = GameData.colb
+	# map data
 	data.datamap = DungeonGen.datamap
 	data.fogmap = get_node('Fogmap').get_datamap()
 	return data
 
 func restore(data):
-	if 'dungeon_rng' in data:
-		GameData.dungeonRNG = data.dungeon_rng
-	if 'player_moves' in data:
-		GameData.player_moves = data.player_moves
+	GameData.dungeonRNG = data.dungeon_rng
+	GameData.player_moves = data.player_moves
+	GameData.player_view = data.player_view
+	GameData.getting_dimmer = data.getting_dimmer
+	GameData.torch_timer = int(data.torch_timer)
+	GameData.colr = data.colr
+	GameData.colg = data.colg
+	GameData.colb = data.colb
 	if 'datamap' in data:
 		DungeonGen.datamap = data.datamap
 	if 'fogmap' in data:
@@ -196,7 +208,7 @@ func _on_player_acted():
 		if GameData.getting_dimmer == false:
 			dim_the_lights()
 		else:
-			if GameData.player_moves % 50 == 0:
+			if GameData.torch_timer % 50 == 0:
 				GameData.torch_timer += 1
 				darker()
 			else:
@@ -224,8 +236,7 @@ func _on_player_acted():
 	if GameData.player.fighter.xp > ((level*150)+100): # actual code
 	#if GameData.player.fighter.xp > 10: # For testing
 		level_up(level)
-	print(GameData.player_moves)
-	print(GameData.torch_timer)
+
 
 func level_up(level):
 	# Increase level

@@ -29,9 +29,9 @@ var dungeonRNG
 # Area around the player
 var player_radius = 5
 # Distance the player can see
-var player_view = 5
+var player_view
 # 'Hunger clock'
-var getting_dimmer = false
+var getting_dimmer
 var torch_timer
 var colr
 var colg
