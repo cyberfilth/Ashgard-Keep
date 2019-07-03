@@ -20,7 +20,7 @@ func take_turn():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	# If not in range of the player
-	if distance > GameData.TORCH_RADIUS:
+	if distance > GameData.player_radius:
 		if has_random_location == false:
 			choose_random_location() # Select location
 			owner.step_to(random_location) # Move to location
@@ -29,8 +29,8 @@ func take_turn():
 			owner.step_to(random_location) # move to location
 			check_if_at_location() # check if arrived, set new location if needed
 	# If in range of player
-	elif distance <= GameData.TORCH_RADIUS:
-		if distance > (GameData.TORCH_RADIUS / 2): # if player is over half distance of LoS away
+	elif distance <= GameData.player_radius:
+		if distance > (GameData.player_radius / 2): # if player is over half distance of LoS away
 			necromancy()
 		elif distance <= 1:
 			owner.fighter.fight(target)
@@ -86,7 +86,7 @@ func stop_glowing():
 func zap_player():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= GameData.TORCH_RADIUS:
+	if distance <= GameData.player_radius:
 		var necromancer_position = get_parent().get_pos()
 		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
 		GameData.player.get_node("Camera").shake(0.3, 10)

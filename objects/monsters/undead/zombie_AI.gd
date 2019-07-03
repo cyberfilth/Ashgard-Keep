@@ -13,7 +13,7 @@ func take_turn():
 	
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= (GameData.TORCH_RADIUS - 1):
+	if distance <= (GameData.player_radius - 1):
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:

@@ -26,11 +26,12 @@ var player_data = {}
 # Randomly generated dungeon theme number
 var dungeonRNG
 
-# Player sight radius
-var TORCH_RADIUS = 5
+# Area around the player
+var player_radius = 5
+# Distance the player can see
+var player_view = 5
 # 'Hunger clock'
 var getting_dimmer = false
-var torch_height
 var torch_timer
 var colr
 var colg
