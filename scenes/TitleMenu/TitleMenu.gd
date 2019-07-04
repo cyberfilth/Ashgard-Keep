@@ -24,7 +24,7 @@ func _ready():
 func _on_NewGame_pressed():
 	GameData.player_moves = 0
 	GameData.player_view = 5
-	GameData.getting_dimmer = false
+	GameData.getting_dimmer = 0
 	GameData.torch_timer = 0
 	GameData.colr = 0
 	GameData.colg = 0

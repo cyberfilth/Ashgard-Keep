@@ -204,8 +204,8 @@ func _on_player_acted():
 	# increase number of moves made
 	GameData.player_moves += 1
 	# check torch light
-	if GameData.player_moves > 100:
-		if GameData.getting_dimmer == false:
+	if GameData.player_moves > 100 && GameData.getting_dimmer != 2:
+		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
 			if GameData.torch_timer % 50 == 0:
@@ -254,7 +254,7 @@ func level_up(level):
 	level_up_screen.start(level)
 
 func dim_the_lights():
-	GameData.getting_dimmer = true
+	GameData.getting_dimmer = 1
 	GameData.torch_timer = 1
 	GameData.player.get_node("Torch").dim_light()
 	GameData.broadcast("Your torch begins to flicker, the flames die down", GameData.COLOR_YELLOW)
@@ -265,4 +265,5 @@ func darker():
 		GameData.player.get_node("Torch").darker()
 		GameData.broadcast("The light grows dimmer", GameData.COLOR_YELLOW)
 	else:
-		print("FINISH HIM!")
+		GameData.getting_dimmer = 2
+		GameData.player.get_node("Torch").total_darkness()

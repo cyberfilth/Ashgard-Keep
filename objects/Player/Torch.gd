@@ -29,6 +29,15 @@ func darker():
 	GameData.colb = GameData.colb - 0.05
 	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
 
-func restore_game_darkness():
+func total_darkness():
 	var darkness = get_node('../../Darkness')
+	GameData.colr = 0
+	GameData.colg = 0
+	GameData.colb = 0
 	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
+	self.set_height(40.0)
+
+func restore_game_darkness():
+	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+	get_node('../../Darkness').set_color(theme.darkness)
+	self.set_height(64.9)
