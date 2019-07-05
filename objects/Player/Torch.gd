@@ -23,21 +23,20 @@ func dim_light():
 	darker()
 
 func darker():
-	var darkness = get_node('../../Darkness')
 	GameData.colr = GameData.colr - 0.05
 	GameData.colg = GameData.colg - 0.05
 	GameData.colb = GameData.colb - 0.05
-	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
+	get_node('../../Darkness').set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
+	self.set_texture_scale(self.get_texture_scale()-2)
 
 func total_darkness():
-	var darkness = get_node('../../Darkness')
 	GameData.colr = 0
 	GameData.colg = 0
 	GameData.colb = 0
-	darkness.set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
-	self.set_height(40.0)
+	get_node('../../Darkness').set_color(Color(GameData.colr, GameData.colg, GameData.colb, 1))
+	self.set_texture_scale(2.0)
 
 func restore_game_darkness():
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-	get_node('../../Darkness').set_color(theme.darkness)
+	get_node('../../Darkness').set_color(DungeonThemes.themes[GameData.dungeonRNG])
 	self.set_height(64.9)
+	self.set_texture_scale(13.5)

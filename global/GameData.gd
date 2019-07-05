@@ -13,6 +13,7 @@ const COLOR_GREEN = '#65f23e' # Uses health potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
 const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
+const COLOUR_WHITE = '#ffffff' # Torch messages
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1

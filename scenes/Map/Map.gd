@@ -257,13 +257,14 @@ func dim_the_lights():
 	GameData.getting_dimmer = 1
 	GameData.torch_timer = 1
 	GameData.player.get_node("Torch").dim_light()
-	GameData.broadcast("Your torch begins to flicker, the flames die down", GameData.COLOR_YELLOW)
+	GameData.broadcast("Your torch begins to flicker, the flames die down", GameData.COLOUR_WHITE)
 
 func darker():
 	if GameData.player_view > 1:
 		GameData.player_view -=1
 		GameData.player.get_node("Torch").darker()
-		GameData.broadcast("The light grows dimmer", GameData.COLOR_YELLOW)
+		GameData.broadcast("The light grows dimmer", GameData.COLOUR_WHITE)
 	else:
 		GameData.getting_dimmer = 2
 		GameData.player.get_node("Torch").total_darkness()
+		GameData.broadcast("Your torch is extinguished...", GameData.COLOUR_WHITE)
