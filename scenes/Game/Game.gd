@@ -16,11 +16,15 @@ func new_game():
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 	# Add starting equipment
+	#torch
+	GameData.map.spawn_object('items/torch/torch', DungeonGen.start_pos)
+	GameData.player.get_node('Controller').Grab()
+	# weapon
 	var weapon_list = ['weapons/rusty_dagger', 'weapons/crude_dagger']
 	var starting_weapon = weapon_list[GameData.roll(0, weapon_list.size()-1)]
 	GameData.map.spawn_object(starting_weapon, DungeonGen.start_pos)
 	GameData.player.get_node('Controller').Grab()
-	get_node('frame/right/Activity/box/Inventory/InventorySlot').emit_signal("pressed")
+	get_node('frame/right/Activity/box/Inventory/InventorySlot16').emit_signal("pressed")
 	# Clear status messages
 	GameData.clear_messages()
 	# Welcome message

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
-[ext_resource path="res://objects/items/torch/torch_burning.png" type="Texture" id=3]
+[ext_resource path="res://graphics/gui/torch_lit.png" type="Texture" id=3]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
@@ -48,6 +48,7 @@ use_function = "torch"
 effect_name = "light"
 param1 = 5
 throw_range = 5
+equipped = true
 
 [node name="Brand" type="Sprite" parent="."]
 

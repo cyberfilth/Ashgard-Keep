@@ -159,7 +159,7 @@ func _set_seen(what):
 	if seen && !discovered && !self==GameData.player:
 		discovered = true
 		# Stops a found message being displayed for starting equipment
-		if self.has_node("Weapon") && self.get_node("Item").equipped == true:
+		if self.has_node("Item") && self.get_node("Item").equipped == true:
 			pass
 		else:
 			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOR_YELLOW)
