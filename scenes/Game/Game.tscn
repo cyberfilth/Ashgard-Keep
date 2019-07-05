@@ -584,7 +584,6 @@ transform/pos = Vector2( -6, -6 )
 [node name="InventoryMenu" type="PopupPanel" parent="."]
 
 process/pause_mode = 2
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1

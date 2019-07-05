@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/Game/InventorySlot.gd" type="Script" id=1]
 [ext_resource path="res://graphics/brands/i-equipped1.png" type="Texture" id=2]
 [ext_resource path="res://graphics/brands/i-equipped2.png" type="Texture" id=3]
+[ext_resource path="res://graphics/gui/torch_extinguished.png" type="Texture" id=4]
 
 [node name="InventorySlot" type="Button"]
 
@@ -59,6 +60,12 @@ offset = Vector2( 12, 12 )
 
 visibility/visible = false
 texture = ExtResource( 3 )
+offset = Vector2( 12, 12 )
+
+[node name="Torch_unlit" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 4 )
 offset = Vector2( 12, 12 )
 
 

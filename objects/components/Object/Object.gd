@@ -158,7 +158,7 @@ func _set_seen(what):
 	# Discover if seen for the first time
 	if seen && !discovered && !self==GameData.player:
 		discovered = true
-		# Stops a found message being displayed for starting equipment
+		# Stops a 'found' message being displayed for starting equipment
 		if self.has_node("Item") && self.get_node("Item").equipped == true:
 			pass
 		else:
