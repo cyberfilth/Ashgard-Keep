@@ -19,15 +19,27 @@ func save():
 	data.dungeon_rng = GameData.dungeonRNG
 	# Number of moves
 	data.player_moves = GameData.player_moves
+	# torch timer
+	data.player_view = GameData.player_view
+	data.getting_dimmer = GameData.getting_dimmer
+	data.torch_timer = GameData.torch_timer
+	data.colr = GameData.colr
+	data.colg = GameData.colg
+	data.colb = GameData.colb
+	# map data
 	data.datamap = DungeonGen.datamap
 	data.fogmap = get_node('Fogmap').get_datamap()
 	return data
 
 func restore(data):
-	if 'dungeon_rng' in data:
-		GameData.dungeonRNG = data.dungeon_rng
-	if 'player_moves' in data:
-		GameData.player_moves = data.player_moves
+	GameData.dungeonRNG = data.dungeon_rng
+	GameData.player_moves = data.player_moves
+	GameData.player_view = data.player_view
+	GameData.getting_dimmer = data.getting_dimmer
+	GameData.torch_timer = int(data.torch_timer)
+	GameData.colr = data.colr
+	GameData.colg = data.colg
+	GameData.colb = data.colb
 	if 'datamap' in data:
 		DungeonGen.datamap = data.datamap
 	if 'fogmap' in data:
@@ -191,6 +203,17 @@ func _ready():
 func _on_player_acted():
 	# increase number of moves made
 	GameData.player_moves += 1
+	# check torch light
+	if GameData.player_moves > 100 && GameData.getting_dimmer != 2:
+		if GameData.getting_dimmer == 0:
+			dim_the_lights()
+		else:
+			if GameData.torch_timer % 50 == 0:
+				GameData.torch_timer += 1
+				darker()
+			else:
+				GameData.torch_timer += 1
+	
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
@@ -202,29 +225,46 @@ func _on_player_acted():
 	# remove Green poison colour from player if not poisoned
 	if !GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
-
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):
 		if node.has_meta('kill'):
 			node.queue_free() #kill me this turn
 		else:
 			node.set_meta('kill',true) #kill me next turn
-
 	# Check XP for level progression
 	var level = GameData.player.fighter.character_level
 	if GameData.player.fighter.xp > ((level*150)+100): # actual code
 	#if GameData.player.fighter.xp > 10: # For testing
-		# Increase level
-		level += 1
-		GameData.player.fighter._set_character_level(level)
-		# Increase max health 20%
-		var newmax = floor((GameData.player.fighter.max_hp/100.0)*20) + GameData.player.fighter.max_hp
-		GameData.player.fighter.max_hp = newmax
-		# Increase current HP by 20%
-		var boost = floor((GameData.player.fighter.hp/100.0)*20)
-		GameData.player.fighter.heal_non_random("Leveling up", boost)
-		var level_up_screen = get_node('/root/Game/LevelUp')
-		get_tree().set_pause(true)
-		level_up_screen.show()
-		level_up_screen.start(level)
+		level_up(level)
 
+
+func level_up(level):
+	# Increase level
+	level += 1
+	GameData.player.fighter._set_character_level(level)
+	# Increase max health 20%
+	var newmax = floor((GameData.player.fighter.max_hp/100.0)*20) + GameData.player.fighter.max_hp
+	GameData.player.fighter.max_hp = newmax
+	# Increase current HP
+	var boost = floor((GameData.player.fighter.hp/100.0)*20)+20
+	GameData.player.fighter.heal_non_random("Leveling up", boost)
+	var level_up_screen = get_node('/root/Game/LevelUp')
+	get_tree().set_pause(true)
+	level_up_screen.show()
+	level_up_screen.start(level)
+
+func dim_the_lights():
+	GameData.getting_dimmer = 1
+	GameData.torch_timer = 1
+	GameData.player.get_node("Torch").dim_light()
+	GameData.broadcast("Your torch begins to flicker, the flames die down", GameData.COLOUR_WHITE)
+
+func darker():
+	if GameData.player_view > 1:
+		GameData.player_view -=1
+		GameData.player.get_node("Torch").darker()
+		GameData.broadcast("The light grows dimmer", GameData.COLOUR_WHITE)
+	else:
+		GameData.getting_dimmer = 2
+		GameData.player.get_node("Torch").total_darkness()
+		GameData.broadcast("Your torch is extinguished...", GameData.COLOUR_WHITE)

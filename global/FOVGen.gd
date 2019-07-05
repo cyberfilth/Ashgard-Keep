@@ -2,7 +2,6 @@
 
 extends Node
 
-
 #  Calculates an array of cells within the FOV of the origin within radius range
 #  data = source datamap (2-dimensional array of int)
 #  wall_index = datamap int which represents a sight-blocker

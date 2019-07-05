@@ -120,7 +120,6 @@ stretch_mode = 2
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
-editor/display_folded = true
 rect/min_size = Vector2( 204, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -316,7 +315,6 @@ max_lines_visible = -1
 
 [node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -586,7 +584,6 @@ transform/pos = Vector2( -6, -6 )
 [node name="InventoryMenu" type="PopupPanel" parent="."]
 
 process/pause_mode = 2
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1

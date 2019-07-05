@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.4.9"
+const version = "Version 0.5"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -13,6 +13,7 @@ const COLOR_GREEN = '#65f23e' # Uses health potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
 const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
+const COLOUR_WHITE = '#ffffff' # Torch messages
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1
@@ -26,8 +27,16 @@ var player_data = {}
 # Randomly generated dungeon theme number
 var dungeonRNG
 
-# Player sight radius
-var TORCH_RADIUS = 5
+# Area around the player
+var player_radius = 5
+# Distance the player can see
+var player_view
+# 'Hunger clock'
+var getting_dimmer # 0 - off, 1 - dimmer, 2 - dark
+var torch_timer
+var colr
+var colg
+var colb
 
 # Dungeon map parameters
 var MAP_SIZE = Vector2(70, 70) # Changed from 80, 80

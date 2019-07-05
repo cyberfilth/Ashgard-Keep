@@ -31,6 +31,12 @@ func update_slot():
 func show_equipped_weapon():
 	get_node('EQ_weapon').show()
 
+func extinguish_torch():
+	get_node('Torch_unlit').show()
+
+func light_torch():
+	get_node('Torch_unlit').hide()
+
 func show_unequipped_weapon():
 	get_node('EQ_weapon').hide()
 

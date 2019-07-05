@@ -8,7 +8,7 @@ onready var owner = get_parent()
 export(String,\
 	'heal_player', 'damage_nearest',\
 	'confuse_target', 'blast_cell',\
-	'weapon', 'armour') var use_function = ''
+	'weapon', 'armour','torch') var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
