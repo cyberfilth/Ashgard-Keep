@@ -17,6 +17,8 @@ func save():
 	var data = {}
 	# Dungeon RNG seed
 	data.dungeon_rng = GameData.dungeonRNG
+	# Enemy RNG seed
+	data.enemy_rng = GameData.enemyRNG
 	# Number of moves
 	data.player_moves = GameData.player_moves
 	# torch timer
@@ -33,6 +35,7 @@ func save():
 
 func restore(data):
 	GameData.dungeonRNG = data.dungeon_rng
+	GameData.enemyRNG = data.enemy_rng
 	GameData.player_moves = data.player_moves
 	GameData.player_view = data.player_view
 	GameData.getting_dimmer = data.getting_dimmer

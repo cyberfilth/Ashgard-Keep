@@ -114,8 +114,7 @@ func place_monsters(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-		# commented out for testing
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+	var theme = DungeonThemes.themes[GameData.enemyRNG]
 	var minion1 = theme.minion1
 	var minion2 = theme.minion2
 	var undead1 = theme.undead1
@@ -132,7 +131,7 @@ func place_corridor_monsters(x, y):
 	if encounter_chance == 1:
 		var monster
 		var pos = Vector2(x,y)
-		var theme = DungeonThemes.themes[GameData.dungeonRNG]
+		var theme = DungeonThemes.themes[GameData.enemyRNG]
 		# select which low-level monster is encountered
 		var wandering_monster = randi()%2
 		if wandering_monster == 0:
