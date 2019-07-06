@@ -1,46 +1,23 @@
 .
 ├── addons
-│   ├── ch.fischspiele.tilesethelper
-│   │   ├── AssetLibIcon.png
-│   │   ├── gui_image_multiple.png
-│   │   ├── gui_image_single.png
-│   │   ├── gui_image_single.png.flags
-│   │   ├── gui_image_tileset.png
-│   │   ├── icon_collision_polygon_2d.png
-│   │   ├── icon_collision_shape_2d.png
-│   │   ├── icon_light_occluder_2d.png
-│   │   ├── icon_navigation_polygon_instance.png
-│   │   ├── plugin.cfg
-│   │   ├── test_tilemap.tscn
-│   │   ├── test_tileset_one_line.png
-│   │   ├── test_tileset.png
-│   │   ├── test_tileset.tres
-│   │   ├── test_tileset.tscn
-│   │   ├── tilesethelper_dock.tscn
-│   │   └── tilesethelper.gd
-│   └── godot-project-analytics.funabab
-│       ├── AnalysisDialog.gd
-│       ├── analysis_dialog.tscn
-│       ├── AnalysisTreeManager.gd
-│       ├── analytic.png
-│       ├── analytic.png.flags
-│       ├── CodeScanner.gd
-│       ├── data.json
-│       ├── FileScanner.gd
-│       ├── gear.png
-│       ├── gear.png.flags
-│       ├── icon.png
-│       ├── pause.png
-│       ├── pause.png.flags
-│       ├── play.png
+│   └── ch.fischspiele.tilesethelper
+│       ├── AssetLibIcon.png
+│       ├── gui_image_multiple.png
+│       ├── gui_image_single.png
+│       ├── gui_image_single.png.flags
+│       ├── gui_image_tileset.png
+│       ├── icon_collision_polygon_2d.png
+│       ├── icon_collision_shape_2d.png
+│       ├── icon_light_occluder_2d.png
+│       ├── icon_navigation_polygon_instance.png
 │       ├── plugin.cfg
-│       ├── plugin.gd
-│       ├── TimeManager.gd
-│       ├── timer.png
-│       ├── timer.png.flags
-│       ├── tool_button.tscn
-│       ├── TreeItemsManager.gd
-│       └── Utils.gd
+│       ├── test_tilemap.tscn
+│       ├── test_tileset_one_line.png
+│       ├── test_tileset.png
+│       ├── test_tileset.tres
+│       ├── test_tileset.tscn
+│       ├── tilesethelper_dock.tscn
+│       └── tilesethelper.gd
 ├── docs
 │   ├── _config.yml
 │   ├── credits.txt
@@ -262,6 +239,7 @@
 │   │   ├── loading1.png
 │   │   ├── loading2.png
 │   │   ├── message_shader.png
+│   │   ├── ml_torch.png
 │   │   ├── slot.png
 │   │   ├── sword.png
 │   │   ├── torch_extinguished.png
@@ -401,5 +379,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-42 directories, 359 files
-2074 lines of code
+41 directories, 338 files
