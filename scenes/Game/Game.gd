@@ -13,6 +13,7 @@ var mouse_cell = Vector2() setget _set_mouse_cell
 
 func new_game():
 	GameData.set_dungeon_theme()
+	GameData.set_enemy_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 	# Add starting equipment

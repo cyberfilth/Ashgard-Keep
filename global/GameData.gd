@@ -26,6 +26,8 @@ var player_data = {}
 
 # Randomly generated dungeon theme number
 var dungeonRNG
+# Randomly generated enemy theme number
+var enemyRNG
 
 # Area around the player
 var player_radius = 5
@@ -76,5 +78,9 @@ const TROLL_DAY = {1:"Onesday", 2:"Twosday", 3:"Frogday", 4:"Hawksday", 5:"Feast
 const TROLL_MONTH = {1:"Mistmon", 2:"Brittleice", 3:"Windmon", 4:"Gunther", 5:"Sweetbriar", 6:"Greenling", 7:"Frogsong", 8:"Sunmon", 9:"Southflight", 10:"Harvestmoon", 11:"Ghostmoon", 12:"Stormlight"}
 
 func set_dungeon_theme():
-	#dungeonRNG = roll(0,3)
-	dungeonRNG = 0 # set number here to test a new dungeon
+	dungeonRNG = roll(0,3)
+	#dungeonRNG = 0 # set number here to test a new dungeon
+
+func set_enemy_theme():
+	#enemyRNG = roll(0,3)
+	enemyRNG = 0 # set number here to test enemies
