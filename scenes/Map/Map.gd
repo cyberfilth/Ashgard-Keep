@@ -204,19 +204,15 @@ func _ready():
 
 
 func _on_player_acted():
-	# increase number of moves made
-	GameData.player_moves += 1
-	# check torch light
-	if GameData.player_moves > 100 && GameData.getting_dimmer != 2:
+	GameData.player_moves += 1 # increment counter for No of moves made
+	GameData.torch_timer += 1 #  increment counter for burning torch
+	# check state of torch light
+	if GameData.torch_timer > 100 && GameData.getting_dimmer != 2:
 		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
 			if GameData.torch_timer % 50 == 0:
-				GameData.torch_timer += 1
 				darker()
-			else:
-				GameData.torch_timer += 1
-	
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
@@ -236,8 +232,7 @@ func _on_player_acted():
 			node.set_meta('kill',true) #kill me next turn
 	# Check XP for level progression
 	var level = GameData.player.fighter.character_level
-	if GameData.player.fighter.xp > ((level*150)+100): # actual code
-	#if GameData.player.fighter.xp > 10: # For testing
+	if GameData.player.fighter.xp > ((level*150)+100):
 		level_up(level)
 
 
@@ -258,16 +253,15 @@ func level_up(level):
 
 func dim_the_lights():
 	GameData.getting_dimmer = 1
-	GameData.torch_timer = 1
 	GameData.player.get_node("Torch").dim_light()
-	GameData.broadcast("Your torch begins to flicker, the flames die down", GameData.COLOUR_WHITE)
+	GameData.broadcast_torch("Your torch begins to flicker, the flames die down")
 
 func darker():
 	if GameData.player_view > 1:
 		GameData.player_view -=1
 		GameData.player.get_node("Torch").darker()
-		GameData.broadcast("The light grows dimmer", GameData.COLOUR_WHITE)
+		GameData.broadcast_torch("The light grows dimmer")
 	else:
 		GameData.getting_dimmer = 2
 		GameData.player.get_node("Torch").total_darkness()
-		GameData.broadcast("Your torch is extinguished...", GameData.COLOUR_WHITE)
+		GameData.broadcast_torch("Your torch is extinguished...")

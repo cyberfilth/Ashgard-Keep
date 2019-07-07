@@ -13,7 +13,7 @@ const COLOR_GREEN = '#65f23e' # Uses health potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
 const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
-const COLOUR_WHITE = '#ffffff' # Torch messages
+const COLOUR_ORANGE = '#e1bb37' # Torch messages
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1
@@ -58,10 +58,21 @@ var load_continue = "load"
 # RIP - You were killed by
 var killer = "An unknown enemy"
 
+# message log icons
+var torch_icon = load('res://graphics/gui/ml_torch.png')
+
 # Broadcast status messages
 func broadcast(message, color=COLOR_LIGHT_BLUE):
 	if game:
 		if game.messagebox:
+			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")
+			game.messagebox.newline()
+
+# Broadcast messages about torch with icon
+func broadcast_torch(message, color=COLOUR_ORANGE):
+	if game:
+		if game.messagebox:
+			game.messagebox.add_image(torch_icon)
 			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")
 			game.messagebox.newline()
 

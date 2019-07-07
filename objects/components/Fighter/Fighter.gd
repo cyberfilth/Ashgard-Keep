@@ -130,7 +130,7 @@ func broadcast_damage_taken(from, amount):
 		color = GameData.COLOR_RED
 	if from == "Rat":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
-	elif from == "Diseased Zombie":
+	elif from == "Diseased Zombie" || from == "Scorpion":
 		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being poisoned by the zombie
 		if owner == GameData.player:
@@ -164,13 +164,22 @@ func die():
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 	# leave bloodstain
-	if self.bleeds:
+	if !owner.has_node("Inventory") && self.bleeds:
 		bleed(blood_colour)
 	# Get XP if you are the killer
 	if killer == (GameData.player.get_display_name()) || killer == "Fire" || killer == "Lightning Strike":
 		var xp_earned = self.attack
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
+	# check if enemy drops any items
+	if owner.has_node("Inventory"):
+		var item = owner.get_node("Inventory").drop_item()
+		print(item)
+		var dropped = load(item)
+		var dropped_item = dropped.instance()
+		GameData.map.add_child(dropped_item)
+		dropped_item.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		GameData.broadcast("The "+corpse+" drops an item")
 	# remove the enemy from the screen
 	owner.kill()
 
