@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/monsters/undead/necromancer_AI.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/undead/necromancer_inventory.gd" type="Script" id=6]
 
 [node name="Object" type="Node2D"]
 
@@ -69,5 +70,9 @@ script/script = ExtResource( 5 )
 [node name="Brand" type="Sprite" parent="."]
 
 centered = false
+
+[node name="Inventory" type="Node2D" parent="."]
+
+script/script = ExtResource( 6 )
 
 

@@ -318,12 +318,15 @@
 │   │   │   ├── bat_AI.gd
 │   │   │   ├── bat.tscn
 │   │   │   ├── rat_AI.gd
-│   │   │   └── rat.tscn
+│   │   │   ├── rat.tscn
+│   │   │   ├── scorpion_AI.gd
+│   │   │   └── scorpion.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
 │   │       ├── ghoul_rat.tscn
 │   │       ├── necromancer_AI.gd
+│   │       ├── necromancer_inventory.gd
 │   │       ├── necromancer.tscn
 │   │       ├── poison_cloud.gd
 │   │       ├── poison_cloud.tscn
@@ -379,4 +382,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-41 directories, 338 files
+41 directories, 341 files

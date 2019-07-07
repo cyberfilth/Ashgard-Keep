@@ -122,8 +122,8 @@ func place_monsters(room):
 	var necromancer = theme.necromancer
 	var monsters = [minion1, minion2, undead1, undead2, necromancer]
 	var choice = monsters[GameData.roll(0, monsters.size()-1)]
-	GameData.map.spawn_object(choice, pos)
-
+	#GameData.map.spawn_object(choice, pos)
+	GameData.map.spawn_object(necromancer, pos)
 
 func place_corridor_monsters(x, y):
 	# chance of encountering a monster
