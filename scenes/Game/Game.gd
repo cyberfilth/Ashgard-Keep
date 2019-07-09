@@ -61,10 +61,8 @@ func save_game():
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
-
 	# Gather data to save
 	var data = {}
-
 	# version
 	data.version = {
 	"AshgardKeep" : GameData.version
@@ -75,19 +73,14 @@ func save_game():
 	data.map = GameData.map.save()
 	# Player object data
 	data.player = GameData.player.save()
-
 	data.objects = []
 	data.inventory = []
-
 	for node in get_tree().get_nodes_in_group('world'):
 		# exclude saved player data
 		if node != GameData.player:
 			data.objects.append(node.save())
-
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
-
-
 	# Store data and close file
 	file.store_line(data.to_json())
 	file.close()

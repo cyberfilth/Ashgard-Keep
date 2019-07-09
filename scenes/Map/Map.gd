@@ -25,6 +25,7 @@ func save():
 	data.player_view = GameData.player_view
 	data.getting_dimmer = GameData.getting_dimmer
 	data.torch_timer = GameData.torch_timer
+	data.light_circle = GameData.light_circle
 	data.colr = GameData.colr
 	data.colg = GameData.colg
 	data.colb = GameData.colb
@@ -40,6 +41,7 @@ func restore(data):
 	GameData.player_view = data.player_view
 	GameData.getting_dimmer = data.getting_dimmer
 	GameData.torch_timer = int(data.torch_timer)
+	GameData.light_circle = data.light_circle
 	GameData.colr = data.colr
 	GameData.colg = data.colg
 	GameData.colb = data.colb
