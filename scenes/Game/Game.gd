@@ -12,6 +12,7 @@ var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
 func new_game():
+	PlotGen.generate_plot()
 	GameData.set_dungeon_theme()
 	GameData.set_enemy_theme()
 	GameData.map.new_map()
@@ -54,8 +55,8 @@ func new_game():
 func save_game():
 	# create a new file object to work with
 	var file = File.new()
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
-	#var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
 	# Alert and return error if file can't be opened
 	if not opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -68,7 +69,8 @@ func save_game():
 	data.version = {
 	"AshgardKeep" : GameData.version
 	}
-
+	# Game story and characters
+	data.plot = PlotGen.save()
 	# Map data: Datamap, Fogmap and DungeonRNG
 	data.map = GameData.map.save()
 	# Player object data
@@ -100,8 +102,8 @@ func restore_game():
 	if !file.file_exists(GameData.SAVEGAME_PATH):
 		OS.alert("No file found at " + GameData.SAVEGAME_PATH)
 		return ERR_FILE_NOT_FOUND
-	#var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
-	var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
 	# Alert and return error if file can't be opened
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
@@ -115,6 +117,10 @@ func restore_game():
 		data.parse_json(file.get_line())
 	
 	# Restore game from data
+	
+	# Game story and characters
+	if 'plot' in data:
+		PlotGen.restore(data.plot)
 	
 	# Map Data
 	if 'map' in data:
@@ -149,8 +155,9 @@ func restore_game():
 					ob.item.equip_weapon(weapon)
 			# Equip armour
 				else:
-					var armour = ob.get_node('Armour')
-					ob.item.equip_armour(armour)
+					if ob.has_node('Armour'):
+						var armour = ob.get_node('Armour')
+						ob.item.equip_armour(armour)
 			# Clear status messages
 			GameData.clear_messages()
 			# Welcome message
