@@ -39,7 +39,4 @@ func total_darkness():
 
 func restore_game_darkness():
 	get_node('/root/Game/frame/right/Activity/box/Inventory/InventorySlot').light_torch()
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
-	get_node('../../Darkness').set_color(theme.darkness)
-	self.set_height(64.9)
-	self.set_texture_scale(13.5)
+	get_node('../../Darkness').set_color(Color(GameData.colr,GameData.colg,GameData.colb))

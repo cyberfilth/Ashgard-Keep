@@ -135,6 +135,8 @@ func restore_game():
 	# set Darkness
 	if GameData.getting_dimmer == 1:
 		GameData.player.get_node("Torch").restore_game_darkness()
+	if GameData.getting_dimmer == 2:
+		GameData.player.get_node("Torch").total_darkness()
 	
 	# Object data
 	if 'objects' in data:
