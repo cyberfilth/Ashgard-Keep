@@ -1,7 +1,7 @@
 extends Node2D
 
 var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nVictorius wizards win first, then go to war.\nDefeated wizards go to war first, then try to win.\"",\
-"\"For life is short, and death is long.\nThese rotten zombies don\'t half pong...\"\n -A short poem by Davgrim the reluctant, apprentice Necromancer"]
+"\"For life is short, and death is long.\nThese rotten zombies don\'t half pong...\"\n -A short poem by Davgrim the Reluctant, apprentice Necromancer"]
 
 func _ready():
 	pass

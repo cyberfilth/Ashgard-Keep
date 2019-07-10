@@ -45,7 +45,8 @@
 │   ├── DungeonThemes.gd
 │   ├── FOVGen.gd
 │   ├── GameData.gd
-│   └── PathGen.gd
+│   ├── PathGen.gd
+│   └── PlotGen.gd
 ├── graphics
 │   ├── brands
 │   │   ├── i-confusion.png
@@ -301,6 +302,10 @@
 │   │       ├── Weapon.gd
 │   │       └── Weapon.tscn
 │   ├── items
+│   │   ├── books
+│   │   │   ├── Book_necro1.tscn
+│   │   │   ├── book_of_the_dead.png
+│   │   │   └── lore_necro1.gd
 │   │   ├── HealthPotion.tscn
 │   │   ├── misc_stone.png
 │   │   ├── Portal.tscn
@@ -382,4 +387,4 @@
 │   └── FogSet.tscn
 └── TreeView.txt
 
-41 directories, 341 files
+42 directories, 345 files
