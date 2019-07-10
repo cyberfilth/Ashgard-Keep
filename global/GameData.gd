@@ -36,6 +36,7 @@ var player_view
 # 'Hunger clock'
 var getting_dimmer # 0 - off, 1 - dimmer, 2 - dark
 var torch_timer
+var light_circle
 var colr
 var colg
 var colb

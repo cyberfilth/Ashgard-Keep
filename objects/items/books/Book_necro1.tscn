@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://objects/items/books/book_of_the_dead.png" type="Texture" id=2]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/items/books/lore_necro1.gd" type="Script" id=4]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Book of Lore"
+proper_name = false
+blocks_movement = false
+stay_visible = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/blend_mode = 1
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Item" parent="." instance=ExtResource( 3 )]
+
+use_function = "read"
+param1 = 6
+throw_range = 3
+
+[node name="Brand" type="Sprite" parent="."]
+
+visibility/visible = false
+centered = false
+
+[node name="Lore" type="Node2D" parent="."]
+
+script/script = ExtResource( 4 )
+
+
