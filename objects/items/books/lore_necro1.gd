@@ -2,10 +2,9 @@ extends Node2D
 
 var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nVictorius wizards win first, then go to war.\nDefeated wizards go to war first, then try to win.\"",\
 "\"For life is short, and death is long.\nThese rotten zombies don\'t half pong...\"\n - A short poem by Davgrim the Reluctant, apprentice Necromancer",\
-"\"With careful concentration of magic, the Keep could become so much more.\nPulling in evil from every land, trapping them to serve as guardians.\"\
-\n - Taken from the ramblings of the Mad Mage at the last great Wizard War",
+"\"With careful concentration of magic, the Keep could become so much more.\nPulling in evil from every land, trapping them to serve as guardians.\"\n - Taken from the ramblings of the Mad Mage at the last great Wizard War",
 "\"My brethren and I have been trapped in this damned tower for years now.\nAt least this floor is preferable to the alternatives...\"\nJournal of the Red Brotherhood, disciples of "+PlotGen.mage,
-"\"Graveyard chill and Creeping dark,\nListen to the werewolves bark.\"\n - A short poem by Davgrim the Reluctant, apprentice Necromancer"\,
+"\"Graveyard chill and Creeping dark,\nListen to the werewolves bark.\"\n - A short poem by Davgrim the Reluctant, apprentice Necromancer",\
 "The runes move and swirl on the page, forming shapes.\nThey create an image, of you. Standing victorius at the top of the Keep.\nThe book disintegrates in your hands..."]
 
 func _ready():
