@@ -121,6 +121,7 @@ func place_monsters(room):
 	var undead2 = theme.undead2
 	var necromancer = theme.necromancer
 	var monsters = [minion1, minion2, undead1, undead2, necromancer]
+	#var monsters = [minion1, minion2, necromancer] # testing
 	var choice = monsters[GameData.roll(0, monsters.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 

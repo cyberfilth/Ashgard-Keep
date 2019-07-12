@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.5.2"
+const version = "Version 0.5.4"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -9,7 +9,7 @@ const COLOR_LIGHT_BLUE = '#91B4C1' # Default broadcast message
 const COLOR_RED = '#d04648' # Player damage taken
 const COLOR_BLUE = '#6C73AA' # looks confused || Slot button pressed issue, bluer blue
 const COLOR_TEAL = '#5C899E' # is slain
-const COLOR_GREEN = '#65f23e' # Uses health potion
+const COLOR_GREEN = '#65f23e' # Uses potion
 const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
 const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
@@ -31,6 +31,8 @@ var enemyRNG
 
 # Area around the player
 var player_radius = 5
+# Keep original value when using stealth potion
+var original_player_radius
 # Distance the player can see
 var player_view
 # 'Hunger clock'

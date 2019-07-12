@@ -32,6 +32,6 @@ throw_damage = 4
 
 dice = 3
 adds = 1
-description = "Adds 3D to ATTACK"
+description = "Adds 3D+1 to ATTACK"
 
 

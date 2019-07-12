@@ -1,7 +1,9 @@
 extends Node2D
 
 # list of things the necromancer may be carrying
-var items = ["res://objects/items/books/Book_necro1.tscn","res://objects/weapons/bone_dagger.tscn"]
+var items = ["res://objects/items/books/Book_necro1.tscn",\
+			"res://objects/weapons/bone_dagger.tscn",\
+			"res://objects/items/StealthPotion.tscn"]
 
 
 func _ready():
