@@ -2,13 +2,13 @@
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
-[ext_resource path="res://objects/items/red.png" type="Texture" id=3]
+[ext_resource path="res://objects/items/purple.png" type="Texture" id=3]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Health Potion"
+name = "Potion of Stealth"
 proper_name = false
 blocks_movement = false
 stay_visible = true
@@ -21,7 +21,7 @@ editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 8.0
-color = Color( 0.917969, 0.0215149, 0.0215149, 1 )
+color = Color( 0.917969, 0.0215149, 0.882951, 1 )
 energy = 1.5
 mode = 0
 range/height = 30.0
@@ -44,10 +44,10 @@ centered = false
 
 [node name="Item" parent="." instance=ExtResource( 4 )]
 
-use_function = "heal_player"
-effect_name = "Healin' feelin'"
-param1 = 7
-throw_range = 5
+use_function = "stealth"
+effect_name = "Sneaky juice"
+param1 = 19
+throw_range = 3
 
 [node name="Brand" type="Sprite" parent="."]
 

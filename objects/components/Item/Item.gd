@@ -8,7 +8,8 @@ onready var owner = get_parent()
 export(String,\
 	'heal_player', 'damage_nearest',\
 	'confuse_target', 'blast_cell',\
-	'weapon', 'armour','torch','read') var use_function = ''
+	'weapon', 'armour','torch','read',\
+	'stealth') var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
@@ -120,7 +121,18 @@ func heal_player():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
-	#####	
+	#####
+	emit_signal('used', "OK")
+
+func stealth():
+	if GameData.player.fighter.has_status_effect('poisoned'):
+		emit_signal('used', "You cannot drink this potion whilst poisoned!")
+		return
+	GameData.original_player_radius = GameData.player_radius
+	GameData.player_radius = 1
+	var stealth_time = self.param1
+	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOR_GREEN)
+	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
 	emit_signal('used', "OK")
 
 func damage_nearest():

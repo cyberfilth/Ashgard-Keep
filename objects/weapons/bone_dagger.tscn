@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/weapons/dagger2.png" type="Texture" id=2]
+[ext_resource path="res://objects/weapons/bone_dagger.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/Weapon/Weapon.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "crude dagger"
+name = "bone dagger"
 proper_name = true
 blocks_movement = false
 stay_visible = true
@@ -30,8 +30,8 @@ throw_damage = 4
 
 [node name="Weapon" parent="." instance=ExtResource( 4 )]
 
-dice = 2
-adds = 5
-description = "Adds 2D+5 to ATTACK"
+dice = 3
+adds = 1
+description = "Adds 3D+1 to ATTACK"
 
 

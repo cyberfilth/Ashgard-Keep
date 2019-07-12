@@ -209,7 +209,7 @@ func _on_player_acted():
 	GameData.player_moves += 1 # increment counter for No of moves made
 	GameData.torch_timer += 1 #  increment counter for burning torch
 	# check state of torch light
-	if GameData.torch_timer > 100 && GameData.getting_dimmer != 2:
+	if GameData.torch_timer > 150 && GameData.getting_dimmer != 2:
 		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
@@ -222,10 +222,15 @@ func _on_player_acted():
 		# tick down status effects
 		node.fighter.process_status_effects()
 	if GameData.player.fighter.has_status_effect('poisoned'):
-			GameData.player.fighter.take_damage('Poison', 1)
+			var damage = GameData.roll(1, 10)
+			GameData.player.fighter.take_damage('Poison', damage)
 	# remove Green poison colour from player if not poisoned
 	if !GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
+	# remove effects of stealth potion
+	if !GameData.player.fighter.has_status_effect('stealth') && GameData.player_radius == 1:
+		GameData.broadcast("The stealth potion wears off...", GameData.COLOR_GREEN)
+		GameData.player_radius = GameData.original_player_radius
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):
 		if node.has_meta('kill'):
