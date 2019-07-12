@@ -209,7 +209,7 @@ func _on_player_acted():
 	GameData.player_moves += 1 # increment counter for No of moves made
 	GameData.torch_timer += 1 #  increment counter for burning torch
 	# check state of torch light
-	if GameData.torch_timer > 100 && GameData.getting_dimmer != 2:
+	if GameData.torch_timer > 150 && GameData.getting_dimmer != 2:
 		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
