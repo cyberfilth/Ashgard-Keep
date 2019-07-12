@@ -1,23 +1,4 @@
 .
-├── addons
-│   └── ch.fischspiele.tilesethelper
-│       ├── AssetLibIcon.png
-│       ├── gui_image_multiple.png
-│       ├── gui_image_single.png
-│       ├── gui_image_single.png.flags
-│       ├── gui_image_tileset.png
-│       ├── icon_collision_polygon_2d.png
-│       ├── icon_collision_shape_2d.png
-│       ├── icon_light_occluder_2d.png
-│       ├── icon_navigation_polygon_instance.png
-│       ├── plugin.cfg
-│       ├── test_tilemap.tscn
-│       ├── test_tileset_one_line.png
-│       ├── test_tileset.png
-│       ├── test_tileset.tres
-│       ├── test_tileset.tscn
-│       ├── tilesethelper_dock.tscn
-│       └── tilesethelper.gd
 ├── docs
 │   ├── _config.yml
 │   ├── credits.txt
@@ -380,11 +361,10 @@
 │       ├── LoadingScreen.tscn
 │       ├── TitleMenu.gd
 │       └── TitleMenu.tscn
-├── tilesets
-│   ├── Dungeon_edit.tscn
-│   ├── dungeon.tres
-│   ├── FogSet.tres
-│   └── FogSet.tscn
-└── TreeView.txt
+└── tilesets
+    ├── Dungeon_edit.tscn
+    ├── dungeon.tres
+    ├── FogSet.tres
+    └── FogSet.tscn
 
-42 directories, 345 files
+40 directories, 327 files
