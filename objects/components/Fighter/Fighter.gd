@@ -59,6 +59,7 @@ func process_status_effects():
 		self.status_effects[key] -= 1
 		if self.status_effects[key] <= 0:
 			self.status_effects.erase(key)
+			get_node('/root/Game/frame/right/StatusMessage').set_text("")
 
 func apply_status_effect(name, time):
 	if has_status_effect(name):
@@ -242,4 +243,5 @@ func _on_hp_changed(current,full):
 func poisoned():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
 	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOR_POISON_GREEN)
+	get_node('/root/Game/frame/right/StatusMessage').set_text("Poisoned")
 	apply_status_effect('poisoned', 4)

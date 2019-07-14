@@ -21,6 +21,8 @@ func save():
 	data.enemy_rng = GameData.enemyRNG
 	# Number of moves
 	data.player_moves = GameData.player_moves
+	data.player_radius = GameData.player_radius
+	data.original_player_radius = GameData.original_player_radius
 	# torch timer
 	data.player_view = GameData.player_view
 	data.getting_dimmer = GameData.getting_dimmer
@@ -38,6 +40,7 @@ func restore(data):
 	GameData.dungeonRNG = data.dungeon_rng
 	GameData.enemyRNG = data.enemy_rng
 	GameData.player_moves = data.player_moves
+	GameData.original_player_radius = data.original_player_radius
 	GameData.player_view = data.player_view
 	GameData.getting_dimmer = data.getting_dimmer
 	GameData.torch_timer = int(data.torch_timer)
