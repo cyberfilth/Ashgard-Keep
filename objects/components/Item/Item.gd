@@ -133,6 +133,7 @@ func stealth():
 	var stealth_time = self.param1
 	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOR_GREEN)
 	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
+	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
 	emit_signal('used', "OK")
 
 func damage_nearest():

@@ -101,16 +101,12 @@ func restore_game():
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
-	
 	# Dictionary to store file data
 	var data = {}
-	
 	# Parse data from json file
 	while not file.eof_reached():
 		data.parse_json(file.get_line())
-	
 	# Restore game from data
-	
 	# Game story and characters
 	if 'plot' in data:
 		PlotGen.restore(data.plot)
@@ -130,6 +126,16 @@ func restore_game():
 		GameData.player.get_node("Torch").restore_game_darkness()
 	if GameData.getting_dimmer == 2:
 		GameData.player.get_node("Torch").total_darkness()
+	
+	# Add status effects and messages
+	var st_message = get_node('/root/Game/frame/right/StatusMessage')
+	if GameData.player.fighter.has_status_effect('poisoned'):
+		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
+		st_message.set_text("Poisoned")
+	if GameData.player.fighter.has_status_effect('stealth'):
+		GameData.original_player_radius = GameData.player_radius
+		GameData.player_radius = 1
+		st_message.set_text("Stealthy")
 	
 	# Object data
 	if 'objects' in data:
