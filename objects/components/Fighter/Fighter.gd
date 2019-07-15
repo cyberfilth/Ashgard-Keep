@@ -86,6 +86,9 @@ func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
 		return
+	if owner.get_display_name() == "A Portal" || who.get_display_name() == "Portal":
+		print("This is the exit!")
+		return
 	else:
 		if who.get_display_name() == owner.get_display_name():
 			return
