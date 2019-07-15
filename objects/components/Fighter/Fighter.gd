@@ -204,9 +204,10 @@ func _ready():
 	self.xp = self.xp
 	self.character_level = self.character_level
 	owner.add_to_group('actors')
-	hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
-	owner.call_deferred('add_child', hpbar)
-	connect("hp_changed", self, "_on_hp_changed")
+	if owner != GameData.player:
+		hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
+		owner.call_deferred('add_child', hpbar)
+		connect("hp_changed", self, "_on_hp_changed")
 
 func _set_race(what):
 	race = what
