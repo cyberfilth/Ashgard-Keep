@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.5.5"
+const version = "Version 0.5.5.6"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -57,6 +57,7 @@ var inventory
 var inventory_menu
 var levelup_menu
 var load_continue = "load"
+var keeplvl
 
 # RIP - You were killed by
 var killer = "An unknown enemy"
@@ -77,6 +78,7 @@ func broadcast_torch(message, color=COLOUR_ORANGE):
 		if game.messagebox:
 			game.messagebox.add_image(torch_icon)
 			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")
+			game.messagebox.add_image(torch_icon)
 			game.messagebox.newline()
 
 # Clear status messages

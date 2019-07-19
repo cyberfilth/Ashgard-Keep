@@ -15,6 +15,7 @@ func new_game():
 	PlotGen.generate_plot()
 	GameData.set_dungeon_theme()
 	GameData.set_enemy_theme()
+	GameData.keeplvl = 1
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 	# Add starting equipment

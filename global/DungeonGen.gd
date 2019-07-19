@@ -3,11 +3,21 @@ extends Node
 var datamap = []
 var start_pos = Vector2()
 var last_room
+var monster_theme
+var item_theme
+
+# Set dungeon theme
+func set_theme():
+	if GameData.enemyRNG == 0:
+		monster_theme = DungeonThemes.monster_undead
+		item_theme = DungeonThemes.items_undead
+	elif GameData.enemyRNG == 1:
+		monster_theme = DungeonThemes.monster_greenskins
+		item_theme = DungeonThemes.items_greenskins
 
 # Build a new datamap (fill with walls)
 func build_datamap():
 	var size = GameData.MAP_SIZE
-
 	for x in range(size.x):
 		var row = []
 		for y in range(size.y):
@@ -27,8 +37,8 @@ func center(rect):
 	var y = int(rect.size.y / 2)
 	return Vector2(rect.pos.x+x, rect.pos.y+y)
 
-# Fill a rectangle of the map with floor cells
-# leaving a 1-tile border along edges
+ # Fill a rectangle of the map with floor cells
+ # leaving a 1-tile border along edges
 func carve_room(rect):
 	for x in range(rect.size.x-2):
 		for y in range(rect.size.y-2):
@@ -63,7 +73,7 @@ func get_floor_cells():
 
 func generate():
 	build_datamap()
-
+	set_theme()
 	var rooms = []
 	var num_rooms = 0
 	for r in range(GameData.MAX_ROOMS):
@@ -71,20 +81,15 @@ func generate():
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var x = GameData.roll(0, GameData.MAP_SIZE.x - w-1)
 		var y = GameData.roll(0, GameData.MAP_SIZE.y - h-1)
-
 		var new_room = Rect2(x,y,w,h)
 		var fail = false
-
 		for other_room in rooms:
 			if other_room.intersects(new_room):
 				fail = true
 				break
-
 		if !fail:
 			carve_room(new_room)
-
 			var new_center = center(new_room)
-
 			if num_rooms == 0:
 				start_pos = new_center
 			else:
@@ -100,7 +105,6 @@ func generate():
 					# go vertical then horizontal
 					carve_v_hall(prev_center.y, new_center.y, prev_center.x)
 					carve_h_hall(prev_center.x, new_center.x, new_center.y)
-
 			rooms.append(new_room)
 			num_rooms += 1
 			last_room = new_room
@@ -114,14 +118,8 @@ func place_monsters(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-	var theme = DungeonThemes.themes[GameData.enemyRNG]
-	var minion1 = theme.minion1
-	var minion2 = theme.minion2
-	var undead1 = theme.undead1
-	var undead2 = theme.undead2
-	var necromancer = theme.necromancer
-	var monsters = [minion1, minion2, undead1, undead2, necromancer]
-	#var monsters = [minion1, minion2, necromancer] # testing
+	var theme = monster_theme[GameData.keeplvl-1]
+	var monsters = [theme.minion1, theme.minion2, theme.gribbly1, theme.gribbly2, theme.boss1]
 	var choice = monsters[GameData.roll(0, monsters.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 
@@ -131,7 +129,7 @@ func place_corridor_monsters(x, y):
 	if encounter_chance == 1:
 		var monster
 		var pos = Vector2(x,y)
-		var theme = DungeonThemes.themes[GameData.enemyRNG]
+		var theme = monster_theme[GameData.keeplvl-1]
 		# select which low-level monster is encountered
 		var wandering_monster = randi()%2
 		if wandering_monster == 0:
@@ -149,7 +147,8 @@ func place_items(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-	var items = ['items/Rock', 'items/HealthPotion', 'items/Scroll_Fireball', 'items/Scroll_LightningBolt', 'items/Scroll_Confusion', 'weapons/crude_dagger', 'armour/heavy_cloth_armour']
+	var theme = item_theme[GameData.keeplvl-1]
+	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 
