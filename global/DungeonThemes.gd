@@ -1,5 +1,15 @@
 extends Node
 
+# Dungeon tiles
+const WALL_SANDSTONE = [0, 9]
+const WALL_BRICK_DARK = [20, 26]
+const WALL_STONE_GREY = [34, 37]
+
+const FLOOR_SANDSTONE = [10, 19]
+const FLOOR_BRICK_DARK = [27, 33]
+const FLOOR_COBBLE_BLOOD = [38, 49]
+const FLOOR_GREEN_SLABS = [50, 65]
+
 # Darkness families
 var DARKNESS1 = Color( 0.27, 0.27, 0.27, 1 )
 var DARKNESS2 = Color( 0.75, 0.59, 0.46, 1 )
@@ -12,48 +22,95 @@ var FAMILY2 = [FLOOR_BRICK_DARK, WALL_BRICK_DARK]
 var FAMILY3 = [FLOOR_COBBLE_BLOOD, WALL_STONE_GREY]
 var FAMILY4 = [FLOOR_GREEN_SLABS, WALL_STONE_GREY]
 
-# Dungeon tiles
-const WALL_SANDSTONE = [0, 9]
-const WALL_BRICK_DARK = [20, 26]
-const WALL_STONE_GREY = [34, 37]
-
-const FLOOR_SANDSTONE = [10, 19]
-const FLOOR_BRICK_DARK = [27, 33]
-const FLOOR_COBBLE_BLOOD = [38, 49]
-const FLOOR_GREEN_SLABS = [50, 65]
-
-var themes = [
+# Dungeon theme including tileset and darkness settings
+var dung_themes = [
 { # 1 - Sandstone
 tileset = FAMILY1,
-darkness = DARKNESS1,
-minion1 = 'monsters/undead/ghoul_rat',
-minion2 = 'monsters/animals/bat',
-undead1 = 'monsters/undead/zombie',
-undead2 = 'monsters/undead/diseased_zombie',
-necromancer = 'monsters/undead/necromancer'
+darkness = DARKNESS1
 },
 { # 2 - Brick Dark
 tileset = FAMILY2,
-darkness = DARKNESS2,
-minion1 = 'monsters/animals/rat',
-minion2 = 'monsters/animals/bat',
-undead1 = 'monsters/undead/zombie',
-undead2 = 'monsters/undead/diseased_zombie'
+darkness = DARKNESS2
 },
 { # 3 - Bloody Cobbles
 tileset = FAMILY3,
-darkness = DARKNESS3,
-minion1 = 'monsters/animals/rat',
-minion2 = 'monsters/animals/bat',
-undead1 = 'monsters/undead/zombie',
-undead2 = 'monsters/undead/diseased_zombie'
+darkness = DARKNESS3
 },
 { # 4 - Green flagstones
 tileset = FAMILY4,
-darkness = DARKNESS4,
-minion1 = 'monsters/animals/rat',
+darkness = DARKNESS4
+}
+]
+
+
+var monster_undead = [
+{ # 1st level Undead
+minion1 = 'monsters/undead/ghoul_rat',
 minion2 = 'monsters/animals/bat',
-undead1 = 'monsters/undead/zombie',
-undead2 = 'monsters/undead/diseased_zombie'
+gribbly1 = 'monsters/undead/zombie',
+gribbly2 = 'monsters/undead/diseased_zombie',
+boss1 = 'monsters/undead/necromancer'
+},
+{ # 2nd level Undead
+minion1 = 'monsters/undead/ghoul_rat',
+minion2 = 'monsters/animals/bat',
+gribbly1 = 'monsters/undead/zombie',
+gribbly2 = 'monsters/undead/diseased_zombie',
+boss1 = 'monsters/undead/necromancer'
+}
+]
+
+var items_undead = [
+{ # 1st level items
+rubble = 'items/Rock',
+healthpotion = 'items/HealthPotion',
+magicitem1 = 'items/Scroll_Confusion',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/crude_dagger',
+armour = 'armour/heavy_cloth_armour'
+},
+{ # 2nd level items
+rubble = 'items/Rock',
+healthpotion = 'items/HealthPotion',
+magicitem1 = 'items/Scroll_Confusion',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/crude_dagger',
+armour = 'armour/heavy_cloth_armour'
+}
+]
+
+var monster_greenskins = [
+{ # 1st level Greenskins
+minion1 = 'monsters/undead/ghoul_rat',
+minion2 = 'monsters/animals/bat',
+gribbly1 = 'monsters/undead/zombie',
+gribbly2 = 'monsters/undead/diseased_zombie',
+boss1 = 'monsters/undead/necromancer'
+},
+{ # 2nd level Greenskins
+minion1 = 'monsters/undead/ghoul_rat',
+minion2 = 'monsters/animals/bat',
+gribbly1 = 'monsters/undead/zombie',
+gribbly2 = 'monsters/undead/diseased_zombie',
+boss1 = 'monsters/undead/necromancer'
+}
+]
+
+var items_greenskins = [
+{ # 1st level items
+rubble = 'items/Rock',
+healthpotion = 'items/HealthPotion',
+magicitem1 = 'items/Scroll_Fireball',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/crude_dagger',
+armour = 'armour/heavy_cloth_armour'
+},
+{ # 2nd level items
+rubble = 'items/Rock',
+healthpotion = 'items/HealthPotion',
+magicitem1 = 'items/Scroll_Fireball',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/crude_dagger',
+armour = 'armour/heavy_cloth_armour'
 }
 ]

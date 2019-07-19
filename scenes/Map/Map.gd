@@ -70,7 +70,7 @@ func spawn_object(partial_path,cell):
 # Set the Darkness Canvas item
 # colour to complement each dungeon tileset
 func draw_map():
-	var theme = DungeonThemes.themes[GameData.dungeonRNG]
+	var theme = DungeonThemes.dung_themes[GameData.dungeonRNG]
 	var family = theme.tileset
 	get_node("Darkness").set_color(theme.darkness)
 	var datamap = DungeonGen.datamap
