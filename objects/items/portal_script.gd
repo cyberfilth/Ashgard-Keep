@@ -34,12 +34,7 @@ func load_new_level():
 	var keep_level = str(GameData.keeplvl)+suffix
 	# update ui
 	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
-	GameData.player_view = 5
-	GameData.getting_dimmer = 0
-	GameData.torch_timer = 0
-	GameData.colr = 0
-	GameData.colg = 0
-	GameData.colb = 0
+	
 	# reset torch settings
 	
 	# light circle

@@ -46,6 +46,7 @@ func save():
 	data.xp = self.xp
 	data.status_effects = self.status_effects
 	data.weapon_equipped = self.weapon_equipped
+	data.armour_equipped = self.armour_equipped
 	return data
 
 func has_status_effect(name):
