@@ -21,7 +21,6 @@ const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
 var player_moves
-var restore_game = false
 var player_data = {}
 
 # Randomly generated dungeon theme number
@@ -56,7 +55,7 @@ var map
 var inventory
 var inventory_menu
 var levelup_menu
-var load_continue = "load"
+var load_continue_newlvl = "load"
 var keeplvl
 
 # RIP - You were killed by

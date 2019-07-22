@@ -8,7 +8,6 @@ script/script = ExtResource( 1 )
 bleeds = true
 blood_colour = "red"
 race = "Human"
-archetype = "Warrior"
 character_level = 1
 attack = 1
 defence = 1

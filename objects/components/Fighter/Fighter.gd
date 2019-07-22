@@ -6,13 +6,11 @@ signal character_level_changed(what)
 signal attack_changed(what)
 signal defence_changed(what)
 signal race_changed(what)
-signal archetype_changed(what)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
 export(String, "red", "green") var blood_colour
 export(String, "Human", "Dwarf", "Elf", "animal") var race = "animal" setget _set_race
-export(String, "Warrior", "Wizard", "Rogue") var archetype = "Warrior" setget _set_archetype
 export(int) var character_level = 1 setget _set_character_level
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
@@ -40,7 +38,6 @@ func save():
 	data.bleeds = self.bleeds
 	data.blood_colour = self.blood_colour
 	data.race = self.race
-	data.archetype = self.archetype
 	data.character_level = self.character_level
 	data.attack = self.attack
 	data.defence = self.defence
@@ -203,9 +200,7 @@ func bleed(blood_colour):
 func _ready():
 	owner.fighter = self
 	self.race = self.race
-	self.archetype = self.archetype
 	self.xp = self.xp
-	self.character_level = self.character_level
 	owner.add_to_group('actors')
 	if owner != GameData.player:
 		hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
@@ -215,10 +210,6 @@ func _ready():
 func _set_race(what):
 	race = what
 	emit_signal('race_changed', race)
-
-func _set_archetype(what):
-	archetype = what
-	emit_signal('archetype_changed', archetype)
 
 func _set_xp(what):
 	xp = what

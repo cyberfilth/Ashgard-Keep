@@ -8,8 +8,10 @@ func _ready():
 	versionlabel.set_text(GameData.version)
 	var artwork = load('res://graphics/gui/loading'+str(randi()%3)+'.png')
 	loadingimage.set_texture(artwork)
-	if GameData.load_continue == "continue":
+	if GameData.load_continue_newlvl == "continue":
 		messagelabel.set_text("Restoring game...")
+	elif GameData.load_continue_newlvl == "newlvl":
+		messagelabel.set_text("Entering the next level...")
 	else:
 		messagelabel.set_text("Loading...")
 	# Timer added to give time for screen to load
@@ -20,6 +22,4 @@ func _ready():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
-	if GameData.load_continue == "continue":
-			GameData.restore_game = true
 	get_tree().change_scene('res://scenes/Game/Game.tscn')

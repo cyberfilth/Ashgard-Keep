@@ -15,13 +15,25 @@ func take_turn():
 
 # Checks before entering portal
 func enter_portal():
-	pass
+	load_new_level()
 
 # loadup the next floor of the Keep
 func load_new_level():
-	# increment keep level
+	GameData.keeplvl += 1
+	var suffix = ""
+	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
+		suffix = "th"
+	elif (GameData.keeplvl % 10 == 1):
+		suffix = "st"
+	elif (GameData.keeplvl % 10 == 2):
+		suffix = "nd"
+	elif (GameData.keeplvl % 10 == 3):
+		suffix = "rd"
+	else:
+		suffix = "th"
+	var keep_level = str(GameData.keeplvl)+suffix
 	# update ui
-	#get_node('/root/Game/frame/right/StatusMessage').set_text("")
+	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
 	GameData.player_view = 5
 	GameData.getting_dimmer = 0
 	GameData.torch_timer = 0
@@ -30,9 +42,7 @@ func load_new_level():
 	GameData.colb = 0
 	# reset torch settings
 	
-	
 	# light circle
-	
-	
-	GameData.load_continue = "load"
+		
+	GameData.load_continue_newlvl = "newlvl"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')

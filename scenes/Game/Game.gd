@@ -51,6 +51,14 @@ func new_game():
 	GameData.broadcast(date_string)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
 
+# Enter a new level of the Keep
+func load_new_level():
+	GameData.set_dungeon_theme()
+	GameData.set_enemy_theme()
+	GameData.map.new_map()
+	spawn_player(DungeonGen.start_pos)
+	# add inventory and character info here
+	GameData.broadcast("You step through the portal...")
 
 # Save Game Function
 func save_game():
@@ -183,8 +191,6 @@ func spawn_player(cell):
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
 	ob.fighter.emit_signal("race_changed", ob.fighter.race)
-	ob.fighter.connect("archetype_changed", GameData.game.playerinfo, "archetype_changed")
-	ob.fighter.emit_signal("archetype_changed", ob.fighter.archetype)
 	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
 	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
 	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
@@ -205,8 +211,10 @@ func _ready():
 	GameData.game = self
 	messagebox.set_scroll_follow(true)
 	set_process_input(true)
-	if GameData.restore_game:
+	if GameData.load_continue_newlvl == "continue":
 		restore_game()
+	elif GameData.load_continue_newlvl == "newlvl":
+		load_new_level()
 	else:
 		new_game()
 
@@ -215,7 +223,7 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var saved = save_game()
 		if saved != OK:
-			print('SAVE GAME RETURNED ERROR '+str(saved))
+			print('SAVE GAME RETURNED ERROR: '+str(saved))
 		get_tree().quit()
 
 
