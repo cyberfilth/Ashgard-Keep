@@ -33,4 +33,4 @@ func save_player_info_new_level():
 	GameData.colg = 0
 	GameData.colb = 0
 	# Save player info
-	
+	GameData.lvlname = GameData.player.name

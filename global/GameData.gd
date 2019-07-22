@@ -99,3 +99,16 @@ func set_dungeon_theme():
 func set_enemy_theme():
 	#enemyRNG = roll(0,3)
 	enemyRNG = 0 # set number here to test enemies
+
+ #############################################
+ #  Sve player stats when entering new level #
+ #############################################
+var lvlname
+var lvlcharacter_level
+var lvlattack
+var lvldefence
+var lvlmaxhp
+var lvlhp
+var lvlxp
+var lvlweapon_equipped
+var lvlarmour_equipped
