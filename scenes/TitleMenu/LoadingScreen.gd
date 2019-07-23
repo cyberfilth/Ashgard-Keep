@@ -12,7 +12,6 @@ func _ready():
 		messagelabel.set_text("Restoring game...")
 	elif GameData.load_continue_newlvl == "newlvl":
 		messagelabel.set_text("Entering the next level...")
-		save_player_info_new_level()
 	else:
 		messagelabel.set_text("Loading...")
 	# Timer added to give time for screen to load
@@ -24,13 +23,3 @@ func _ready():
 	yield(t, "timeout")
 	t.queue_free()
 	get_tree().change_scene('res://scenes/Game/Game.tscn')
-
-func save_player_info_new_level():
-	GameData.player_view = 5
-	GameData.getting_dimmer = 0
-	GameData.torch_timer = 0
-	GameData.colr = 0
-	GameData.colg = 0
-	GameData.colb = 0
-	# Save player info
-	GameData.lvlname = GameData.player.name

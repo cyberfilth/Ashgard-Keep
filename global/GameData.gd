@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.5.5.6"
+const version = "Version 0.6"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -112,3 +112,4 @@ var lvlhp
 var lvlxp
 var lvlweapon_equipped
 var lvlarmour_equipped
+var player_inventory = []

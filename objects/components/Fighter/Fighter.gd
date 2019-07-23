@@ -84,9 +84,11 @@ func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
 		return
-	if owner.get_display_name() == "A Portal" || who.get_display_name() == "Portal":
+	if owner.get_display_name() == "A Portal" && owner.has_node('AI'):
 		owner.get_node('AI').enter_portal()
 		return
+	if  who.get_display_name() == "A Portal" && who.has_node('AI'):
+		who.get_node('AI').enter_portal()
 	else:
 		if who.get_display_name() == owner.get_display_name():
 			return

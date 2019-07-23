@@ -10,7 +10,7 @@ func _ready():
 func take_turn():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= 1:
+	if distance < 1:
 		owner.fighter.fight(target)
 
 # Checks before entering portal
@@ -20,20 +20,25 @@ func enter_portal():
 # loadup the next floor of the Keep
 func load_new_level():
 	GameData.keeplvl += 1
-	var suffix = ""
-	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
-		suffix = "th"
-	elif (GameData.keeplvl % 10 == 1):
-		suffix = "st"
-	elif (GameData.keeplvl % 10 == 2):
-		suffix = "nd"
-	elif (GameData.keeplvl % 10 == 3):
-		suffix = "rd"
-	else:
-		suffix = "th"
-	var keep_level = str(GameData.keeplvl)+suffix
-	# update ui
-	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
+	# Save player info
+	GameData.player_view = 5
+	GameData.getting_dimmer = 0
+	GameData.torch_timer = 0
+	GameData.colr = 0
+	GameData.colg = 0
+	GameData.colb = 0
+	# Save player info
+	GameData.lvlname = GameData.player.name
+	GameData.lvlcharacter_level = GameData.player.fighter.character_level
+	GameData.lvlattack = GameData.player.fighter.attack
+	GameData.lvldefence = GameData.player.fighter.defence
+	GameData.lvlmaxhp = GameData.player.fighter.max_hp
+	GameData.lvlhp = GameData.player.fighter.hp
+	GameData.lvlxp = GameData.player.fighter.xp
+	GameData.lvlweapon_equipped = GameData.player.fighter.weapon_equipped
+	GameData.lvlarmour_equipped = GameData.player.fighter.armour_equipped
+	for node in get_tree().get_nodes_in_group('inventory'):
+		GameData.player_inventory.append(node.save())
 	
 	# reset torch settings
 	
