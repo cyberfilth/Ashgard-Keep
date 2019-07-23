@@ -29,12 +29,12 @@ func _on_NewGame_pressed():
 	GameData.colr = 0
 	GameData.colg = 0
 	GameData.colb = 0
-	GameData.load_continue = "load"
+	GameData.load_continue_newlvl = "load"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
 
 # continue saved game
 func _on_Continue_pressed():
-	GameData.load_continue = "continue"
+	GameData.load_continue_newlvl = "continue"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
 
 # quit game

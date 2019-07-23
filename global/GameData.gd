@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.5.5.6"
+const version = "Version 0.6"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -21,7 +21,6 @@ const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
 var player_moves
-var restore_game = false
 var player_data = {}
 
 # Randomly generated dungeon theme number
@@ -56,7 +55,7 @@ var map
 var inventory
 var inventory_menu
 var levelup_menu
-var load_continue = "load"
+var load_continue_newlvl = "load"
 var keeplvl
 
 # RIP - You were killed by
@@ -100,3 +99,17 @@ func set_dungeon_theme():
 func set_enemy_theme():
 	#enemyRNG = roll(0,3)
 	enemyRNG = 0 # set number here to test enemies
+
+ #############################################
+ #  Sve player stats when entering new level #
+ #############################################
+var lvlname
+var lvlcharacter_level
+var lvlattack
+var lvldefence
+var lvlmaxhp
+var lvlhp
+var lvlxp
+var lvlweapon_equipped
+var lvlarmour_equipped
+var player_inventory = []

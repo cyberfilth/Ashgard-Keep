@@ -51,6 +51,51 @@ func new_game():
 	GameData.broadcast(date_string)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
 
+# Enter a new level of the Keep
+func load_new_level():
+	GameData.set_dungeon_theme()
+	GameData.set_enemy_theme()
+	GameData.map.new_map()
+	spawn_player(DungeonGen.start_pos)
+	GameData.player.name = GameData.lvlname
+	GameData.player.fighter.character_level = GameData.lvlcharacter_level
+	GameData.player.fighter.attack = GameData.lvlattack
+	GameData.player.fighter.defence = GameData.lvldefence
+	GameData.player.fighter.max_hp = GameData.lvlmaxhp
+	GameData.player.fighter.hp = GameData.lvlhp
+	GameData.player.fighter.xp = GameData.lvlxp
+	GameData.player.fighter.weapon_equipped = GameData.lvlweapon_equipped
+	GameData.player.fighter.armour_equipped = GameData.lvlarmour_equipped
+	for entry in GameData.player_inventory:
+			var ob = restore_object(entry)
+			ob.pickup()
+			# Equip weapon
+			if entry.item.equipped == true:
+				if ob.has_node('Weapon'):
+					var weapon = ob.get_node('Weapon')
+					ob.item.equip_weapon(weapon)
+			# Equip armour
+				else:
+					if ob.has_node('Armour'):
+						var armour = ob.get_node('Armour')
+						ob.item.equip_armour(armour)
+	# Update floor level label
+	var suffix = ""
+	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
+		suffix = "th"
+	elif (GameData.keeplvl % 10 == 1):
+		suffix = "st"
+	elif (GameData.keeplvl % 10 == 2):
+		suffix = "nd"
+	elif (GameData.keeplvl % 10 == 3):
+		suffix = "rd"
+	else:
+		suffix = "th"
+	var keep_level = str(GameData.keeplvl)+suffix
+	# update ui
+	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
+	# add inventory and character info here
+	GameData.broadcast("\n\nYou step out of the portal...")
 
 # Save Game Function
 func save_game():
@@ -183,8 +228,6 @@ func spawn_player(cell):
 	ob.emit_signal("name_changed", ob.name)
 	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
 	ob.fighter.emit_signal("race_changed", ob.fighter.race)
-	ob.fighter.connect("archetype_changed", GameData.game.playerinfo, "archetype_changed")
-	ob.fighter.emit_signal("archetype_changed", ob.fighter.archetype)
 	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
 	ob.fighter.emit_signal("attack_changed",ob.fighter.attack)
 	ob.fighter.connect("defence_changed", GameData.game.playerinfo, "defence_changed")
@@ -205,8 +248,10 @@ func _ready():
 	GameData.game = self
 	messagebox.set_scroll_follow(true)
 	set_process_input(true)
-	if GameData.restore_game:
+	if GameData.load_continue_newlvl == "continue":
 		restore_game()
+	elif GameData.load_continue_newlvl == "newlvl":
+		load_new_level()
 	else:
 		new_game()
 
@@ -215,7 +260,7 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var saved = save_game()
 		if saved != OK:
-			print('SAVE GAME RETURNED ERROR '+str(saved))
+			print('SAVE GAME RETURNED ERROR: '+str(saved))
 		get_tree().quit()
 
 

@@ -7,6 +7,7 @@
 
 [node name="Object" type="Node2D"]
 
+visibility/blend_mode = 1
 script/script = ExtResource( 1 )
 name = "Potion of Stealth"
 proper_name = false
