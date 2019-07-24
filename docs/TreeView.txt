@@ -5,7 +5,8 @@
 │   ├── NewScreenshot.png
 │   ├── README.md
 │   ├── small_animation.gif
-│   └── TreeView.txt
+│   ├── TreeView.txt
+│   └── wasd.png
 ├── engine.cfg
 ├── export.cfg
 ├── fonts
@@ -289,7 +290,9 @@
 │   │   │   └── lore_necro1.gd
 │   │   ├── HealthPotion.tscn
 │   │   ├── misc_stone.png
+│   │   ├── portal_script.gd
 │   │   ├── Portal.tscn
+│   │   ├── purple.png
 │   │   ├── red.png
 │   │   ├── Rock.tscn
 │   │   ├── scroll_1.png
@@ -297,12 +300,14 @@
 │   │   ├── Scroll_Confusion.tscn
 │   │   ├── Scroll_Fireball.tscn
 │   │   ├── Scroll_LightningBolt.tscn
+│   │   ├── StealthPotion.tscn
 │   │   └── torch
 │   │       └── torch.tscn
 │   ├── monsters
 │   │   ├── animals
 │   │   │   ├── bat_AI.gd
 │   │   │   ├── bat.tscn
+│   │   │   ├── lvl2
 │   │   │   ├── rat_AI.gd
 │   │   │   ├── rat.tscn
 │   │   │   ├── scorpion_AI.gd
@@ -311,6 +316,7 @@
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
 │   │       ├── ghoul_rat.tscn
+│   │       ├── lvl2
 │   │       ├── necromancer_AI.gd
 │   │       ├── necromancer_inventory.gd
 │   │       ├── necromancer.tscn
@@ -324,6 +330,8 @@
 │   │   ├── Player.tscn
 │   │   └── Torch.gd
 │   └── weapons
+│       ├── bone_dagger.png
+│       ├── bone_dagger.tscn
 │       ├── crude_dagger.tscn
 │       ├── dagger2.png
 │       ├── dagger.png
@@ -367,4 +375,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-40 directories, 327 files
+42 directories, 333 files
