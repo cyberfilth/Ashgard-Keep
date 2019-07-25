@@ -17,9 +17,9 @@ const TITLE = [' the Ancient',' the Polluted',' the Insane',' the Betrayer',' th
 
 # Name for Dwarven clan
 const CLAN_FIRSTPART = ['Iron','Rock','Dark','War','Grim','Rune','Storm','Frost','Thunder','Bright','Blood','Grey',\
-	'Stone','Bronze','Silver','Bone','Mist','Ice']
+	'Stone','Bronze','Silver','Bone','Ice','Fire']
 const CLAN_SECONDPART = ['Axe','Hammer','Anvil','Smith','Forge','Beard','Shield','Biter','Bane','Weaver','Mage','Spear',\
-	'Seeker','Sword','Crafter']
+	'Seeker','Sword','Crafter','Fist','Smasher','Rage','Tooth']
 
 # Name of religious order
 const PAL_ADJECTIVE = ['The Bright ','The Shining ','The Just ','The Golden ','The Silver ','The Exalted ']
