@@ -43,7 +43,7 @@ var colg
 var colb
 
 # Dungeon map parameters
-var MAP_SIZE = Vector2(70, 70) # Changed from 80, 80
+var MAP_SIZE = Vector2(60, 60) # Changed from 70, 70
 var MAX_ROOMS = 60
 var ROOM_MIN_SIZE = 5
 var ROOM_MAX_SIZE = 13
