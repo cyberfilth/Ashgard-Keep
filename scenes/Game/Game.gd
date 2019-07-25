@@ -51,6 +51,19 @@ func new_game():
 	GameData.broadcast(date_string)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
 
+# Re-equip when restoring game or entering new level
+func re_equip_weapons_armour(entry, ob):
+	# Equip weapon
+	if entry.item.equipped == true:
+		if ob.has_node('Weapon'):
+			var weapon = ob.get_node('Weapon')
+			ob.item.equip_weapon(weapon)
+	# Equip armour
+		else:
+			if ob.has_node('Armour'):
+				var armour = ob.get_node('Armour')
+				ob.item.equip_armour(armour)
+
 # Enter a new level of the Keep
 func load_new_level():
 	GameData.set_dungeon_theme()
@@ -69,16 +82,7 @@ func load_new_level():
 	for entry in GameData.player_inventory:
 			var ob = restore_object(entry)
 			ob.pickup()
-			# Equip weapon
-			if entry.item.equipped == true:
-				if ob.has_node('Weapon'):
-					var weapon = ob.get_node('Weapon')
-					ob.item.equip_weapon(weapon)
-			# Equip armour
-				else:
-					if ob.has_node('Armour'):
-						var armour = ob.get_node('Armour')
-						ob.item.equip_armour(armour)
+			re_equip_weapons_armour(entry, ob)
 	# Update floor level label
 	var suffix = ""
 	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
@@ -195,16 +199,7 @@ func restore_game():
 		for entry in data.inventory:
 			var ob = restore_object(entry)
 			ob.pickup()
-			# Equip weapon
-			if entry.item.equipped == true:
-				if ob.has_node('Weapon'):
-					var weapon = ob.get_node('Weapon')
-					ob.item.equip_weapon(weapon)
-			# Equip armour
-				else:
-					if ob.has_node('Armour'):
-						var armour = ob.get_node('Armour')
-						ob.item.equip_armour(armour)
+			re_equip_weapons_armour(entry, ob)
 			# Clear status messages
 			GameData.clear_messages()
 			# Welcome message
