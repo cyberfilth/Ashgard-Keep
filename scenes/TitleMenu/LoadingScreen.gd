@@ -22,4 +22,4 @@ func _ready():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
-	get_tree().change_scene('res://scenes/Game/Game.tscn')
+	Transition.fade_to('res://scenes/Game/Game.tscn')
