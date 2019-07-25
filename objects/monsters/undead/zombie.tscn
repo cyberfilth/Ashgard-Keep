@@ -36,13 +36,10 @@ blood_colour = "green"
 attack = 10
 defence = 10
 max_hp = 40
+xp_reward = 12
 
 [node name="AI" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
-
-[node name="Brand" type="Sprite" parent="."]
-
-centered = false
 
 

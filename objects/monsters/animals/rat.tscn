@@ -36,13 +36,10 @@ race = "animal"
 attack = 15
 defence = 5
 max_hp = 10
+xp_reward = 12
 
 [node name="AI" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
-
-[node name="Brand" type="Sprite" parent="."]
-
-centered = false
 
 
