@@ -190,7 +190,7 @@ func die():
 func game_over(killer):
 	# Show the death screen
 	GameData.killer = killer
-	get_tree().change_scene('res://scenes/GameOver/RIPScreen.tscn')
+	Transition.fade_to('res://scenes/GameOver/RIPScreen.tscn')
 
 func bleed(blood_colour):
 	var blood = load('res://graphics/fx/blood_'+blood_colour+str(randi()%5)+'.png')

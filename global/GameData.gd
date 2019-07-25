@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.6.2"
+const version = "Version 0.6.3"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
