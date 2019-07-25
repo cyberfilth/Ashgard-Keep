@@ -15,6 +15,7 @@ export(int) var character_level = 1 setget _set_character_level
 export(int) var attack = 1 setget _set_attack
 export(int) var defence = 1 setget _set_defence
 export(int) var max_hp = 5 setget _set_max_hp
+export(int) var xp_reward = 5
 
 var killer = "No Juan" # Name of the enemy that kills the player
 var xp = 0 setget _set_xp
@@ -172,7 +173,7 @@ func die():
 		bleed(blood_colour)
 	# Get XP if you are the killer
 	if killer == (GameData.player.get_display_name()) || killer == "Fire" || killer == "Lightning Strike":
-		var xp_earned = self.attack
+		var xp_earned = self.xp_reward
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
 	# check if enemy drops any items

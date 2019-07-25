@@ -62,6 +62,7 @@ blood_colour = "green"
 attack = 15
 defence = 10
 max_hp = 40
+xp_reward = 25
 
 [node name="AI" type="Node" parent="."]
 

@@ -36,6 +36,7 @@ race = "animal"
 attack = 15
 defence = 5
 max_hp = 15
+xp_reward = 15
 
 [node name="AI" type="Node" parent="."]
 
