@@ -67,10 +67,6 @@ max_hp = 40
 
 script/script = ExtResource( 5 )
 
-[node name="Brand" type="Sprite" parent="."]
-
-centered = false
-
 [node name="Inventory" type="Node2D" parent="."]
 
 script/script = ExtResource( 6 )

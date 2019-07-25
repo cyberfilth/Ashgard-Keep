@@ -41,8 +41,4 @@ max_hp = 10
 
 script/script = ExtResource( 4 )
 
-[node name="Brand" type="Sprite" parent="."]
-
-centered = false
-
 
