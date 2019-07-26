@@ -66,7 +66,7 @@ func re_equip_weapons_armour(entry, ob):
 
 # Enter a new level of the Keep
 func load_new_level():
-	GameData.set_dungeon_theme()
+	#GameData.set_dungeon_theme()
 	GameData.set_enemy_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
@@ -119,7 +119,7 @@ func save_game():
 	}
 	# Game story and characters
 	data.plot = PlotGen.save()
-	# Map data: Datamap, Fogmap and DungeonRNG
+	# Map data: Datamap, Fogmap and DungeonTheme
 	data.map = GameData.map.save()
 	# Player object data
 	data.player = GameData.player.save()
