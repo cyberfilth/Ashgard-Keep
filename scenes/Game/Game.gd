@@ -12,10 +12,10 @@ var is_mouse_in_map = false setget _set_is_mouse_in_map
 var mouse_cell = Vector2() setget _set_mouse_cell
 
 func new_game():
+	GameData.keeplvl = 1
 	PlotGen.generate_plot()
 	GameData.set_dungeon_theme()
 	GameData.set_enemy_theme()
-	GameData.keeplvl = 1
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
 	# Add starting equipment

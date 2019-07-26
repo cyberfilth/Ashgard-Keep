@@ -16,7 +16,8 @@ func new_map():
 func save():
 	var data = {}
 	# Dungeon RNG seed
-	data.dungeon_rng = GameData.dungeonRNG
+	data.dungeon_theme_array = GameData.dungeon_theme_array
+	data.keeplvl = GameData.keeplvl
 	# Enemy RNG seed
 	data.enemy_rng = GameData.enemyRNG
 	# Number of moves
@@ -37,7 +38,8 @@ func save():
 	return data
 
 func restore(data):
-	GameData.dungeonRNG = data.dungeon_rng
+	GameData.keeplvl = data.keeplvl
+	GameData.dungeon_theme_array = data.dungeon_theme_array
 	GameData.enemyRNG = data.enemy_rng
 	GameData.player_moves = data.player_moves
 	GameData.original_player_radius = data.original_player_radius
@@ -70,7 +72,7 @@ func spawn_object(partial_path,cell):
 # Set the Darkness Canvas item
 # colour to complement each dungeon tileset
 func draw_map():
-	var theme = DungeonThemes.dung_themes[GameData.dungeonRNG]
+	var theme = DungeonThemes.dung_themes[GameData.dungeon_theme_array[GameData.keeplvl-1]]
 	var family = theme.tileset
 	get_node("Darkness").set_color(theme.darkness)
 	var datamap = DungeonGen.datamap

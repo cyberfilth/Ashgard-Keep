@@ -1,22 +1,21 @@
 extends Light2D
 
-func _ready():
-	pass
 
 func dim_light():
-	if GameData.dungeonRNG == 0:
+	var darkness_theme = GameData.dungeon_theme_array[GameData.keeplvl-1]
+	if darkness_theme == 0:
 		GameData.colr = 0.27
 		GameData.colg = 0.27
 		GameData.colb = 0.27
-	if GameData.dungeonRNG == 1:
+	if darkness_theme == 1:
 		GameData.colr = 0.75
 		GameData.colg = 0.59
 		GameData.colb = 0.46
-	if GameData.dungeonRNG == 2:
+	if darkness_theme == 2:
 		GameData.colr = 0.25
 		GameData.colg = 0.32
 		GameData.colb = 0.34
-	if GameData.dungeonRNG == 3:
+	if darkness_theme == 3:
 		GameData.colr = 0.25
 		GameData.colg = 0.32
 		GameData.colb = 0.34

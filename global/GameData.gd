@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.6.3"
+const version = "Version 0.6.4"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -23,8 +23,6 @@ const LAYER_FX = 3
 var player_moves
 var player_data = {}
 
-# Randomly generated dungeon theme number
-var dungeonRNG
 # Randomly generated enemy theme number
 var enemyRNG
 
@@ -57,6 +55,7 @@ var inventory_menu
 var levelup_menu
 var load_continue_newlvl = "load"
 var keeplvl
+var dungeon_theme_array = [] # Random string of dungeon themes
 
 # RIP - You were killed by
 var killer = "An unknown enemy"
@@ -92,9 +91,15 @@ func roll(l,h):
 const TROLL_DAY = {1:"Onesday", 2:"Twosday", 3:"Frogday", 4:"Hawksday", 5:"Feastday", 6:"Marketday", 0:"Fastday"}
 const TROLL_MONTH = {1:"Mistmon", 2:"Brittleice", 3:"Windmon", 4:"Gunther", 5:"Sweetbriar", 6:"Greenling", 7:"Frogsong", 8:"Sunmon", 9:"Southflight", 10:"Harvestmoon", 11:"Ghostmoon", 12:"Stormlight"}
 
+# Shuffle the array of dungeon themes
 func set_dungeon_theme():
-	dungeonRNG = roll(0,3)
-	#dungeonRNG = 0 # set number here to test a new dungeon
+	var temp_list = range(DungeonThemes.original_dungeon_themes.size())
+	for i in range(DungeonThemes.original_dungeon_themes.size()):
+		var x = randi()%temp_list.size()
+		dungeon_theme_array.append(DungeonThemes.original_dungeon_themes[x])
+		temp_list.remove(x)
+		DungeonThemes.original_dungeon_themes.remove(x)
+	return
 
 func set_enemy_theme():
 	#enemyRNG = roll(0,3)
