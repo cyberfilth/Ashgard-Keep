@@ -133,7 +133,7 @@ func broadcast_damage_taken(from, amount):
 	var color = GameData.COLOR_TEAL
 	if owner == GameData.player:
 		color = GameData.COLOR_RED
-	if from == "Rat":
+	if from == "Rat" || from == "Hell Puppy":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Diseased Zombie" || from == "Scorpion":
 		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
