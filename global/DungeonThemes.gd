@@ -22,6 +22,9 @@ var FAMILY2 = [FLOOR_BRICK_DARK, WALL_BRICK_DARK]
 var FAMILY3 = [FLOOR_COBBLE_BLOOD, WALL_STONE_GREY]
 var FAMILY4 = [FLOOR_GREEN_SLABS, WALL_STONE_GREY]
 
+# All dungeon theme numbers
+var original_dungeon_themes = [0,1,2,3]
+
 # Dungeon theme including tileset and darkness settings
 var dung_themes = [
 { # 1 - Sandstone
