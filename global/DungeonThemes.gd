@@ -55,8 +55,8 @@ gribbly2 = 'monsters/undead/diseased_zombie',
 boss1 = 'monsters/undead/necromancer'
 },
 { # 2nd level Undead
-minion1 = 'monsters/undead/ghoul_rat',
-minion2 = 'monsters/animals/bat',
+minion1 = 'monsters/undead/lvl2/hell_puppy',
+minion2 = 'monsters/animals/lvl2/blood_bat',
 gribbly1 = 'monsters/undead/zombie',
 gribbly2 = 'monsters/undead/diseased_zombie',
 boss1 = 'monsters/undead/necromancer'

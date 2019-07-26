@@ -1,4 +1,4 @@
-# ghoul_rat_AI
+# blood_bat_AT
 
 extends Node
 
@@ -12,7 +12,7 @@ func take_turn():
 		wander()
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= (GameData.player_radius - 2):
+	if distance <= (GameData.player_radius - 4):
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:
