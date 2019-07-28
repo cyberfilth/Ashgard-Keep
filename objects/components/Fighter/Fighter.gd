@@ -85,10 +85,10 @@ func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
 		return
-	if owner.get_display_name() == "A Portal" && owner.has_node('AI'):
+	if owner.get_display_name() == "A Portal" && who == GameData.player:
 		owner.get_node('AI').enter_portal()
-		return
-	if  who.get_display_name() == "A Portal" && who.has_node('AI'):
+		#return
+	if  who.get_display_name() == "A Portal" && owner == GameData.player:
 		who.get_node('AI').enter_portal()
 	else:
 		if who.get_display_name() == owner.get_display_name():
