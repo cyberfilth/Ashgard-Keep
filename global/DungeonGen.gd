@@ -1,5 +1,49 @@
 extends Node
 
+# square room 13x13
+const PREFAB1 = [
+[1,1,1,1,1,1,1,1,1,1,1,1,1], 
+[1,0,0,0,0,0,0,0,0,0,0,0,1], 
+[1,0,0,0,0,1,0,1,0,0,0,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,1,0,0,1,0,1,0,0,1,0,1], 
+[1,0,0,0,0,1,0,1,0,0,0,0,1], 
+[1,0,0,0,0,0,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1]
+]
+
+# circular room 9x9
+const PREFAB2 = [
+[1,1,1,1,1,1,1,1,1,1],
+[1,1,1,0,0,0,0,1,1,1],
+[1,1,0,0,0,0,0,0,1,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,1,0,0,0,0,0,0,1,1],
+[1,1,1,0,0,0,0,1,1,1],
+[1,1,1,1,1,1,1,1,1,1]
+]
+
+# square room 8x8
+const PREFAB3 = [
+[1,1,1,1,1,1,1,1,1],
+[1,0,0,0,0,0,0,0,1],
+[1,0,1,1,0,1,1,0,1],
+[1,0,1,0,0,0,1,0,1],
+[1,0,0,0,0,0,0,0,1],
+[1,0,1,0,0,0,1,0,1],
+[1,0,1,1,0,1,1,0,1],
+[1,0,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,1,1,1]
+]
+
 var datamap = []
 var start_pos = Vector2()
 var last_room
@@ -37,16 +81,30 @@ func center(rect):
 	var y = int(rect.size.y / 2)
 	return Vector2(rect.pos.x+x, rect.pos.y+y)
 
- # Fill a rectangle of the map with floor cells
+ # Try and fit in prefab rooms or fall back to
+ # filling a rectangle of the map with floor cells
  # leaving a 1-tile border along edges
 func carve_room(rect):
-	for x in range(rect.size.x-2):
-		for y in range(rect.size.y-2):
-			set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
+	if rect.size.x == 13 && rect.size.y == 13:
+		for x in range(PREFAB1.size()):
+			for y in range(PREFAB1.size()):
+				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB1[x][y])
+	elif rect.size.x >= 9 && rect.size.y >= 9:
+		for x in range(PREFAB2.size()):
+			for y in range(PREFAB2.size()):
+				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB2[x][y])
+	elif rect.size.x == 8 && rect.size.y ==8:
+		for x in range(PREFAB3.size()):
+			for y in range(PREFAB3.size()):
+				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB3[x][y])
+	else:
+		for x in range(rect.size.x-2):
+			for y in range(rect.size.y-2):
+				set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
 	# place random pillar
-	var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
-	var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
-	set_cell_data( Vector2(x2, y2), 1 )
+		var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
+		var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
+		set_cell_data( Vector2(x2, y2), 1 )
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
 func carve_h_hall(x1,x2,y):
@@ -148,8 +206,8 @@ func place_items(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
-	#var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	var items = ['items/Portal'] # Used for testing levels
+	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
+	#var items = ['items/Portal'] # Used for testing levels
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 

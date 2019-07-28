@@ -98,7 +98,7 @@ func load_new_level():
 	var keep_level = str(GameData.keeplvl)+suffix
 	# update ui
 	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
-	# add inventory and character info here
+	GameData.clear_messages()
 	GameData.broadcast("\n\nYou step out of the portal...")
 
 # Save Game Function
