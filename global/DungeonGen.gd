@@ -49,6 +49,7 @@ var start_pos = Vector2()
 var last_room
 var monster_theme
 var item_theme
+var prefab_room = []
 
 # Set dungeon theme
 func set_theme():
@@ -86,18 +87,13 @@ func center(rect):
  # leaving a 1-tile border along edges
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
-		for x in range(PREFAB1.size()):
-			for y in range(PREFAB1.size()):
-				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB1[x][y])
+		prefab_room = PREFAB1
 	elif rect.size.x >= 9 && rect.size.y >= 9:
-		for x in range(PREFAB2.size()):
-			for y in range(PREFAB2.size()):
-				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB2[x][y])
+		prefab_room = PREFAB2
 	elif rect.size.x == 8 && rect.size.y ==8:
-		for x in range(PREFAB3.size()):
-			for y in range(PREFAB3.size()):
-				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), PREFAB3[x][y])
-	else:
+		prefab_room = PREFAB3
+	elif prefab_room.empty():
+	# draw regular rectangular room
 		for x in range(rect.size.x-2):
 			for y in range(rect.size.y-2):
 				set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
@@ -105,6 +101,13 @@ func carve_room(rect):
 		var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
 		var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
 		set_cell_data( Vector2(x2, y2), 1 )
+		prefab_room = []
+		return
+	for x in range(prefab_room.size()):
+			for y in range(prefab_room.size()):
+				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
+	prefab_room = []
+
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
 func carve_h_hall(x1,x2,y):
