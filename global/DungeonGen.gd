@@ -170,6 +170,19 @@ func generate():
 			rooms.append(new_room)
 			num_rooms += 1
 			last_room = new_room
+			map_to_text()
+			
+# Saves generated dungeon as a text file
+func map_to_text():
+	var file = File.new()
+	file.open('res://map.txt',File.WRITE)
+	for row in datamap:
+		var t = ''
+		for col in row:
+			t += str([' ','#'][col])
+		file.store_line(t)
+
+	file.close()
 
 func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
