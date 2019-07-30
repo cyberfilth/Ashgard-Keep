@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://graphics/fx/portal.png" type="Texture" id=2]
-[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/items/portal_script.gd" type="Script" id=4]
-[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
+[ext_resource path="res://graphics/fx/portal.png" type="Texture" id=3]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://graphics/particles/portal_spark.png" type="Texture" id=5]
+[ext_resource path="res://objects/items/portal_script.gd" type="Script" id=6]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=7]
 
 [node name="Object" type="Node2D"]
 
@@ -14,16 +16,39 @@ proper_name = false
 blocks_movement = true
 stay_visible = true
 
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 12, 12 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 0.553894, 0.816878, 0.945313, 1 )
+energy = 1.0
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="Brand" type="Sprite" parent="."]
 
 centered = false
 
-[node name="Item" parent="." instance=ExtResource( 3 )]
+[node name="Item" parent="." instance=ExtResource( 4 )]
 
 stackable = true
 throw_range = 8
@@ -35,6 +60,7 @@ transform/pos = Vector2( 11.9707, 11.0001 )
 config/amount = 50
 config/lifetime = 2.0
 config/process_mode = 1
+config/texture = ExtResource( 5 )
 params/direction = 180.0
 params/spread = 180.0
 params/linear_velocity = 20.0
@@ -56,10 +82,11 @@ color/color = Color( 0.185303, 0.456194, 0.71875, 1 )
 
 [node name="AI" type="Node" parent="."]
 
-script/script = ExtResource( 4 )
+script/script = ExtResource( 6 )
 
-[node name="Fighter" parent="." instance=ExtResource( 5 )]
+[node name="Fighter" parent="." instance=ExtResource( 7 )]
 
 defence = 5000
+xp_reward = 5
 
 
