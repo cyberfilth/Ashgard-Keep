@@ -133,6 +133,7 @@ func get_floor_cells():
 	return list
 
 func generate():
+	datamap.clear() # Resets datamap when generating new level
 	build_datamap()
 	set_theme()
 	var rooms = []

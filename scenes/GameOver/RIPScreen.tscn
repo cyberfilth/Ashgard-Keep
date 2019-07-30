@@ -6,6 +6,7 @@
 
 [node name="RIPscreen" type="Control"]
 
+process/pause_mode = 2
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false

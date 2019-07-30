@@ -10,3 +10,5 @@ func _ready():
 	# Print death message
 	RIPmessage.set_text("You were killed by a " + GameData.killer+\
 	"\nOn the first floor of the Keep after "+str(GameData.player_moves)+ " moves.")
+	# Unpause process
+	get_tree().set_pause(false)
