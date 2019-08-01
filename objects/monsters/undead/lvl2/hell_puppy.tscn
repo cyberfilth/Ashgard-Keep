@@ -33,10 +33,10 @@ percent_visible = 1.0
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
 race = "animal"
-attack = 17
+attack = 20
 defence = 6
 max_hp = 17
-xp_reward = 20
+xp_reward = 22
 
 [node name="AI" type="Node" parent="."]
 

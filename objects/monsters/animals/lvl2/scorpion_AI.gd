@@ -10,6 +10,8 @@ func _ready():
 func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		wander()
+	if owner.fighter.has_status_effect('paralysed'):
+		GameData.broadcast("The scorpion is immune to paralysis")
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if owner.fighter.hp <= 9 && distance < 2:

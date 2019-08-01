@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/animals/scorpion_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/animals/lvl2/scorpion_AI.gd" type="Script" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -32,12 +32,12 @@ percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
-blood_colour = "green"
 race = "animal"
-attack = 13
-defence = 7
+character_level = 2
+attack = 20
+defence = 15
 max_hp = 10
-xp_reward = 5
+xp_reward = 35
 
 [node name="AI" type="Node" parent="."]
 

@@ -135,13 +135,20 @@ func broadcast_damage_taken(from, amount):
 		color = GameData.COLOR_RED
 	if from == "Rat" || from == "Hell Puppy":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
-	elif from == "Diseased Zombie" || from == "Scorpion":
+	elif from == "Diseased Zombie":
 		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being poisoned by the zombie
 		if owner == GameData.player:
 			var chance_of_poison = randi()%3
 			if chance_of_poison == 1:
 				poisoned()
+	elif from == "Scorpion":
+		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
+		# random chance of being paralysed by scorpion
+		if owner == GameData.player:
+			var chance_of_paralysis = randi()%3
+			if chance_of_paralysis == 1:
+				paralysed()
 	elif from == "Poison":
 		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOR_POISON_GREEN)
 	elif from == "Fire":
@@ -245,4 +252,8 @@ func poisoned():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
 	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOR_POISON_GREEN)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Poisoned")
-	apply_status_effect('poisoned', 4)
+	apply_status_effect('poisoned', 6)
+
+func paralysed():
+	get_node('/root/Game/frame/right/StatusMessage').set_text("Paralysed")
+	apply_status_effect('paralysed', 5)

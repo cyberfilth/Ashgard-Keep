@@ -2,6 +2,16 @@ extends Node
 
 onready var owner = get_parent()
 
+# Confused
+func random_step():
+	var UP = randi()%2
+	var DOWN = randi()%2
+	var LEFT = randi()%2
+	var RIGHT = randi()%2
+	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
+	owner.step(dir)
+
+
 # GRAB action
 func Grab():
 	var items = []
@@ -62,6 +72,15 @@ func _input(event):
 	var GRAB = event.is_action_pressed('act_GRAB')
 	var DROP = event.is_action_pressed('act_DROP')
 	var THROW = event.is_action_pressed('act_THROW')
+	# Status effects
+	if owner.fighter.has_status_effect('confused'):
+		if N || NE || E || SE || S || SW || W || NW || WAIT:
+			random_step()
+			return
+	if owner.fighter.has_status_effect('paralysed'):
+		if N || NE || E || SE || S || SW || W || NW:
+			Wait()
+			return
 	
 	if N:
 		owner.step(Vector2(0,-1))
