@@ -229,8 +229,8 @@ func _on_player_acted():
 	if GameData.player.fighter.has_status_effect('poisoned'):
 			var damage = GameData.roll(1, 10)
 			GameData.player.fighter.take_damage('Poison', damage)
-	# remove Green poison colour from player if not poisoned
-	if !GameData.player.fighter.has_status_effect('poisoned'):
+	# remove colour from player if no status effect
+	if !GameData.player.fighter.has_status_effect('poisoned') && !GameData.player.fighter.has_status_effect('paralysed'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
 	# remove effects of stealth potion
 	if !GameData.player.fighter.has_status_effect('stealth') && GameData.player_radius == 1:

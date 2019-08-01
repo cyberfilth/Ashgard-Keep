@@ -255,5 +255,7 @@ func poisoned():
 	apply_status_effect('poisoned', 6)
 
 func paralysed():
+	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.44, 0.5, 0.56, 1))
+	GameData.broadcast(owner.get_display_name() + " is paralysed", GameData.COLOUR_SLATE_GREY)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Paralysed")
-	apply_status_effect('paralysed', 5)
+	apply_status_effect('paralysed', 4)
