@@ -95,10 +95,6 @@ func carve_room(rect):
 		for x in range(rect.size.x-2):
 			for y in range(rect.size.y-2):
 				set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
-	# place random pillar
-		var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
-		var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
-		set_cell_data( Vector2(x2, y2), 1 )
 		prefab_room = []
 		return
 	for x in range(prefab_room.size()):

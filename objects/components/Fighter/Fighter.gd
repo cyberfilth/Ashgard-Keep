@@ -43,7 +43,7 @@ func save():
 	data.attack = self.attack
 	data.defence = self.defence
 	data.max_hp = self.max_hp
-	data.hp = self.hp
+	data.hp = hp
 	data.xp = self.xp
 	data.status_effects = self.status_effects
 	data.weapon_equipped = self.weapon_equipped
