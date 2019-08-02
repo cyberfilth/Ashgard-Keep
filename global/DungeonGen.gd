@@ -3,8 +3,8 @@ extends Node
 # square room 13x13
 const PREFAB1 = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1],
-[1,1,1,1,0,0,0,0,0,1,1,1,1],
-[1,1,1,0,0,0,0,0,0,0,1,1,1],
+[1,0,0,1,0,0,0,0,0,1,0,0,1],
+[1,0,1,0,0,0,0,0,0,0,1,0,1],
 [1,1,0,0,1,0,0,0,1,0,0,1,1],
 [1,0,0,0,1,0,0,0,1,0,0,0,1],
 [1,0,1,1,1,1,0,1,1,1,1,0,1],
@@ -17,18 +17,20 @@ const PREFAB1 = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1],
 ]
 
-## circular room 9x9
-#const PREFAB2 = [
-#[1,1,1,1,1,1,1,1,1],
-#[1,1,1,0,0,0,1,1,1],
-#[1,1,0,0,0,0,0,1,1],
-#[1,0,0,0,0,0,0,0,1],
-#[1,0,0,0,0,0,0,0,1],
-#[1,0,0,0,0,0,0,0,1],
-#[1,1,0,0,0,0,0,1,1],
-#[1,1,1,0,0,0,1,1,1],
-#[1,1,1,1,1,1,1,1,1],
-#]
+# square room 10x10
+const PREFAB4 = [
+[1,1,1,1,1,1,1,1,1,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,1,0,0,0,0,1,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,0,1,0,0,1,0,0,1],
+[1,0,0,1,0,0,1,0,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,1,0,0,0,0,1,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,1,1,1,1],
+]
+
 
 # circular room 9x9
 const PREFAB2 = [
@@ -99,6 +101,8 @@ func center(rect):
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
 		prefab_room = PREFAB1
+	if rect.size.x == 10 && rect.size.y == 10:
+		prefab_room = PREFAB4
 	elif rect.size.x >= 9 && rect.size.y >= 9:
 		prefab_room = PREFAB2
 	elif rect.size.x == 8 && rect.size.y ==8:
@@ -229,8 +233,8 @@ func place_items(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
-	#var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	var items = ['items/Portal'] # Used for testing levels
+	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
+	#var items = ['items/Portal'] # Used for testing levels
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 
