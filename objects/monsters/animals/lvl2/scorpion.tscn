@@ -8,7 +8,7 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Scorpion"
+name = "Giant Scorpion"
 proper_name = true
 blocks_movement = true
 stay_visible = false
