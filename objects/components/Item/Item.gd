@@ -128,6 +128,9 @@ func stealth():
 	if GameData.player.fighter.has_status_effect('poisoned'):
 		emit_signal('used', "You cannot drink this potion whilst poisoned!")
 		return
+	if GameData.player.fighter.has_status_effect('paralysed'):
+		emit_signal('used', "You cannot drink this potion whilst paralysed!")
+		return
 	GameData.original_player_radius = GameData.player_radius
 	GameData.player_radius = 1
 	var stealth_time = self.param1

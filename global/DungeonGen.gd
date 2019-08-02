@@ -32,15 +32,14 @@ const PREFAB2 = [
 
 # square room 8x8
 const PREFAB3 = [
-[1,1,1,1,1,1,1,1,1],
-[1,0,0,0,0,0,0,0,1],
-[1,0,1,1,0,1,1,0,1],
-[1,0,1,0,0,0,1,0,1],
-[1,0,0,0,0,0,0,0,1],
-[1,0,1,0,0,0,1,0,1],
-[1,0,1,1,0,1,1,0,1],
-[1,0,0,0,0,0,0,0,1],
-[1,1,1,0,0,0,1,1,1]
+[1,1,1,1,1,1,1,1],
+[1,0,0,0,0,0,0,1],
+[1,0,1,0,0,1,0,1],
+[1,0,0,0,0,0,0,1],
+[1,0,0,0,0,0,0,1],
+[1,0,1,0,0,1,0,1],
+[1,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,1,1],
 ]
 
 var datamap = []
@@ -169,7 +168,7 @@ func generate():
 			rooms.append(new_room)
 			num_rooms += 1
 			last_room = new_room
-			#map_to_text()
+			map_to_text()
 			
 # Saves generated dungeon as a text file
 func map_to_text():
@@ -222,8 +221,8 @@ func place_items(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
-	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	#var items = ['items/Portal'] # Used for testing levels
+	#var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
+	var items = ['items/Portal'] # Used for testing levels
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 

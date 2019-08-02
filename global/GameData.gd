@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.6.5"
+const version = "Version 0.6.6"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -14,6 +14,7 @@ const COLOR_YELLOW = '#dad45e' # Item / object has been found
 const COLOR_POISON_GREEN = '#48a000' # Poisoned
 const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
 const COLOUR_ORANGE = '#e1bb37' # Torch messages
+const COLOUR_SLATE_GREY = '#708090' # Paralysed colour
 
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1

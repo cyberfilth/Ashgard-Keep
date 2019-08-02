@@ -182,6 +182,9 @@ func restore_game():
 	if GameData.player.fighter.has_status_effect('poisoned'):
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
 		st_message.set_text("Poisoned")
+	if GameData.player.fighter.has_status_effect('paralysed'):
+		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.75, 0.75, 0.75, 1))
+		st_message.set_text("Paralysed")
 	if GameData.player.fighter.has_status_effect('stealth'):
 		GameData.original_player_radius = GameData.player_radius
 		GameData.player_radius = 1

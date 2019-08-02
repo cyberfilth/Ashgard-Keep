@@ -34,10 +34,10 @@ percent_visible = 1.0
 
 race = "animal"
 character_level = 2
-attack = 17
+attack = 18
 defence = 7
 max_hp = 10
-xp_reward = 15
+xp_reward = 16
 
 [node name="AI" type="Node" parent="."]
 
