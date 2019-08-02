@@ -6,6 +6,7 @@ const WALL_BRICK_DARK = [20, 26]
 const WALL_STONE_GREY = [34, 37]
 const WALL_ASCII = [66, 66]
 const WALL_SLIME_STONE = [68, 71]
+const WALL_BRICK_BROWN = [76, 83]
 
 const FLOOR_SANDSTONE = [10, 19]
 const FLOOR_BRICK_DARK = [27, 33]
@@ -13,6 +14,7 @@ const FLOOR_COBBLE_BLOOD = [38, 49]
 const FLOOR_GREEN_SLABS = [50, 65]
 const FLOOR_ASCII = [67,67]
 const FLOOR_BOG_GREEN = [72, 75]
+const FLOOR_MARBLE_BROWN = [84, 91]
 
 # Darkness families
 var DARKNESS1 = Color( 0.27, 0.27, 0.27, 1 )
@@ -21,17 +23,19 @@ var DARKNESS3 = Color( 0.25, 0.32, 0.34, 1 )
 var DARKNESS4 = Color( 0.25, 0.32, 0.34, 1 )
 var DARKNESS5 = Color( 0.25, 0.32, 0.34, 1 )
 var DARKNESS6 = Color( 0.25, 0.32, 0.34, 1 )
+var DARKNESS7 = Color( 0.25, 0.32, 0.34, 1 )
 
 # Dungeon tile families
 var FAMILY1 = [FLOOR_SANDSTONE, WALL_SANDSTONE]
 var FAMILY2 = [FLOOR_BRICK_DARK, WALL_BRICK_DARK]
 var FAMILY3 = [FLOOR_COBBLE_BLOOD, WALL_STONE_GREY]
 var FAMILY4 = [FLOOR_GREEN_SLABS, WALL_STONE_GREY]
-var FAMILY6 = [FLOOR_ASCII, WALL_ASCII]
 var FAMILY5 = [FLOOR_BOG_GREEN, WALL_SLIME_STONE]
+var FAMILY6 = [FLOOR_MARBLE_BROWN, WALL_BRICK_BROWN]
+var FAMILY7 = [FLOOR_ASCII, WALL_ASCII]
 
 # All dungeon theme numbers
-var original_dungeon_themes = [0,1,2,3,4,5]
+var original_dungeon_themes = [0,1,2,3,4,5,6]
 
 # Dungeon theme including tileset and darkness settings
 var dung_themes = [
@@ -51,11 +55,15 @@ darkness = DARKNESS3
 tileset = FAMILY4,
 darkness = DARKNESS4
 },
-{ # 6 - Slime Green
+{ # 5 - Slime Green
 tileset = FAMILY5,
 darkness = DARKNESS5
 },
-{ # 5 - ASCII tiles - used for testing only
+{ # 6 - Brown marble
+tileset = FAMILY6,
+darkness = DARKNESS7
+},
+{ # 7 - ASCII tiles - used for testing only
 tileset = FAMILY6,
 darkness = DARKNESS6
 }
