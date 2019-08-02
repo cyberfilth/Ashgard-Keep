@@ -17,16 +17,29 @@ const PREFAB1 = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1],
 ]
 
+## circular room 9x9
+#const PREFAB2 = [
+#[1,1,1,1,1,1,1,1,1],
+#[1,1,1,0,0,0,1,1,1],
+#[1,1,0,0,0,0,0,1,1],
+#[1,0,0,0,0,0,0,0,1],
+#[1,0,0,0,0,0,0,0,1],
+#[1,0,0,0,0,0,0,0,1],
+#[1,1,0,0,0,0,0,1,1],
+#[1,1,1,0,0,0,1,1,1],
+#[1,1,1,1,1,1,1,1,1],
+#]
+
 # circular room 9x9
 const PREFAB2 = [
 [1,1,1,1,1,1,1,1,1],
-[1,1,1,0,0,0,1,1,1],
+[1,0,1,0,0,0,1,0,1],
 [1,1,0,0,0,0,0,1,1],
 [1,0,0,0,0,0,0,0,1],
 [1,0,0,0,0,0,0,0,1],
 [1,0,0,0,0,0,0,0,1],
 [1,1,0,0,0,0,0,1,1],
-[1,1,1,0,0,0,1,1,1],
+[1,0,1,0,0,0,1,0,1],
 [1,1,1,1,1,1,1,1,1],
 ]
 
@@ -102,7 +115,6 @@ func carve_room(rect):
 				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
 	prefab_room = []
 
-
 # Fill a horizontal strip of cells at row Y from X1 to X2
 func carve_h_hall(x1,x2,y):
 	for x in range( min( x1, x2 ),max( x1,x2 ) + 1 ):
@@ -116,7 +128,6 @@ func carve_v_hall( y1, y2, x):
 		set_cell_data( Vector2(x, y), 0 )
 	var mid_y = (y1+y2)/2
 	place_corridor_monsters(x, mid_y)
-
 
 func get_floor_cells():
 	var list = []
@@ -133,8 +144,10 @@ func generate():
 	var rooms = []
 	var num_rooms = 0
 	for r in range(GameData.MAX_ROOMS):
+		# width & height of room
 		var w = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
+		# origin (top-left corner)
 		var x = GameData.roll(0, GameData.MAP_SIZE.x - w-1)
 		var y = GameData.roll(0, GameData.MAP_SIZE.y - h-1)
 		var new_room = Rect2(x,y,w,h)
@@ -175,7 +188,6 @@ func map_to_text():
 		for col in row:
 			t += str([' ','#'][col])
 		file.store_line(t)
-
 	file.close()
 
 func place_monsters(room):

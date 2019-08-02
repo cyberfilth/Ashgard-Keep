@@ -20,10 +20,6 @@ const FLOOR_MARBLE_BROWN = [84, 91]
 var DARKNESS1 = Color( 0.27, 0.27, 0.27, 1 )
 var DARKNESS2 = Color( 0.75, 0.59, 0.46, 1 )
 var DARKNESS3 = Color( 0.25, 0.32, 0.34, 1 )
-var DARKNESS4 = Color( 0.25, 0.32, 0.34, 1 )
-var DARKNESS5 = Color( 0.25, 0.32, 0.34, 1 )
-var DARKNESS6 = Color( 0.25, 0.32, 0.34, 1 )
-var DARKNESS7 = Color( 0.25, 0.32, 0.34, 1 )
 
 # Dungeon tile families
 var FAMILY1 = [FLOOR_SANDSTONE, WALL_SANDSTONE]
@@ -53,19 +49,19 @@ darkness = DARKNESS3
 },
 { # 4 - Green flagstones
 tileset = FAMILY4,
-darkness = DARKNESS4
+darkness = DARKNESS3
 },
 { # 5 - Slime Green
 tileset = FAMILY5,
-darkness = DARKNESS5
+darkness = DARKNESS3
 },
 { # 6 - Brown marble
 tileset = FAMILY6,
-darkness = DARKNESS7
+darkness = DARKNESS3
 },
 { # 7 - ASCII tiles - used for testing only
 tileset = FAMILY6,
-darkness = DARKNESS6
+darkness = DARKNESS3
 }
 ]
 
