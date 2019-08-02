@@ -1461,7 +1461,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=180]
 
-resource/name = "marble_normal0"
 shader/shader = SubResource( 179 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 89 )
@@ -1480,7 +1479,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=182]
 
-resource/name = "marb_normal1"
 shader/shader = SubResource( 181 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 91 )
@@ -1499,7 +1497,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=184]
 
-resource/name = "marb_normal2"
 shader/shader = SubResource( 183 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 93 )
@@ -1518,7 +1515,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=186]
 
-resource/name = "marb_normal3"
 shader/shader = SubResource( 185 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 95 )
@@ -1537,7 +1533,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=188]
 
-resource/name = "marb_normal4"
 shader/shader = SubResource( 187 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 97 )
@@ -1556,7 +1551,6 @@ NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
 
 [sub_resource type="CanvasItemMaterial" id=190]
 
-resource/name = "marb_normal6"
 shader/shader = SubResource( 189 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 99 )
