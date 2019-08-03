@@ -7,11 +7,11 @@ func dim_light():
 		GameData.colr = 0.27
 		GameData.colg = 0.27
 		GameData.colb = 0.27
-	if darkness_theme == 1:
+	elif darkness_theme == 1:
 		GameData.colr = 0.75
 		GameData.colg = 0.59
 		GameData.colb = 0.46
-	if darkness_theme == 2 || darkness_theme == 3 || darkness_theme == 4:
+	else:
 		GameData.colr = 0.25
 		GameData.colg = 0.32
 		GameData.colb = 0.34

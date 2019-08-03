@@ -3,8 +3,8 @@ extends Node
 # square room 13x13
 const PREFAB1 = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1],
-[1,1,1,1,0,0,0,0,0,1,1,1,1],
-[1,1,1,0,0,0,0,0,0,0,1,1,1],
+[1,0,0,1,0,0,0,0,0,1,0,0,1],
+[1,0,1,0,0,0,0,0,0,0,1,0,1],
 [1,1,0,0,1,0,0,0,1,0,0,1,1],
 [1,0,0,0,1,0,0,0,1,0,0,0,1],
 [1,0,1,1,1,1,0,1,1,1,1,0,1],
@@ -17,16 +17,31 @@ const PREFAB1 = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1],
 ]
 
+# square room 10x10
+const PREFAB4 = [
+[1,1,1,1,1,1,1,1,1,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,1,0,0,0,0,1,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,0,1,0,0,1,0,0,1],
+[1,0,0,1,0,0,1,0,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,0,1,0,0,0,0,1,0,1],
+[1,0,0,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,1,1,1,1],
+]
+
+
 # circular room 9x9
 const PREFAB2 = [
 [1,1,1,1,1,1,1,1,1],
-[1,1,1,0,0,0,1,1,1],
+[1,0,1,0,0,0,1,0,1],
 [1,1,0,0,0,0,0,1,1],
 [1,0,0,0,0,0,0,0,1],
 [1,0,0,0,0,0,0,0,1],
 [1,0,0,0,0,0,0,0,1],
 [1,1,0,0,0,0,0,1,1],
-[1,1,1,0,0,0,1,1,1],
+[1,0,1,0,0,0,1,0,1],
 [1,1,1,1,1,1,1,1,1],
 ]
 
@@ -86,6 +101,8 @@ func center(rect):
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
 		prefab_room = PREFAB1
+	if rect.size.x == 10 && rect.size.y == 10:
+		prefab_room = PREFAB4
 	elif rect.size.x >= 9 && rect.size.y >= 9:
 		prefab_room = PREFAB2
 	elif rect.size.x == 8 && rect.size.y ==8:
@@ -95,17 +112,12 @@ func carve_room(rect):
 		for x in range(rect.size.x-2):
 			for y in range(rect.size.y-2):
 				set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
-	# place random pillar
-		var x2 = GameData.roll(rect.pos.x+1, rect.end.x-2)
-		var y2 = GameData.roll(rect.pos.y+1, rect.end.y-2)
-		set_cell_data( Vector2(x2, y2), 1 )
 		prefab_room = []
 		return
 	for x in range(prefab_room.size()):
 			for y in range(prefab_room.size()):
 				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
 	prefab_room = []
-
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
 func carve_h_hall(x1,x2,y):
@@ -120,7 +132,6 @@ func carve_v_hall( y1, y2, x):
 		set_cell_data( Vector2(x, y), 0 )
 	var mid_y = (y1+y2)/2
 	place_corridor_monsters(x, mid_y)
-
 
 func get_floor_cells():
 	var list = []
@@ -137,8 +148,10 @@ func generate():
 	var rooms = []
 	var num_rooms = 0
 	for r in range(GameData.MAX_ROOMS):
+		# width & height of room
 		var w = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
+		# origin (top-left corner)
 		var x = GameData.roll(0, GameData.MAP_SIZE.x - w-1)
 		var y = GameData.roll(0, GameData.MAP_SIZE.y - h-1)
 		var new_room = Rect2(x,y,w,h)
@@ -179,7 +192,6 @@ func map_to_text():
 		for col in row:
 			t += str([' ','#'][col])
 		file.store_line(t)
-
 	file.close()
 
 func place_monsters(room):
@@ -221,8 +233,8 @@ func place_items(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
-	#var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	var items = ['items/Portal'] # Used for testing levels
+	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
+	#var items = ['items/Portal'] # Used for testing levels
 	var choice = items[GameData.roll(0, items.size()-1)]
 	GameData.map.spawn_object(choice, pos)
 

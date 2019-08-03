@@ -43,7 +43,7 @@ func save():
 	data.attack = self.attack
 	data.defence = self.defence
 	data.max_hp = self.max_hp
-	data.hp = self.hp
+	data.hp = hp
 	data.xp = self.xp
 	data.status_effects = self.status_effects
 	data.weapon_equipped = self.weapon_equipped
@@ -142,7 +142,7 @@ func broadcast_damage_taken(from, amount):
 			var chance_of_poison = randi()%3
 			if chance_of_poison == 1:
 				poisoned()
-	elif from == "Scorpion":
+	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion
 		if owner == GameData.player:
