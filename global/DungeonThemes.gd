@@ -93,10 +93,10 @@ armour = 'armour/heavy_cloth_armour'
 },
 { # 2nd level items
 rubble = 'items/Rock',
-healthpotion = 'items/HealthPotion',
+healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
-weapon = 'weapons/crude_dagger',
+weapon = 'weapons/bone_dagger',
 armour = 'armour/heavy_cloth_armour'
 }
 ]

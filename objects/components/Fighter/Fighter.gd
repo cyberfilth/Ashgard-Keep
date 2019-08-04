@@ -108,7 +108,7 @@ func fight(who):
 			return
 
 func heal_damage(from,amount):
-	var heal_amount = GameData.roll(2, amount) # Heals by a random amount
+	var heal_amount = GameData.roll((amount/2), amount) # Heals by a random amount
 	if owner == GameData.player:
 		broadcast_damage_healed(from, heal_amount)
 	self.hp += heal_amount
@@ -159,6 +159,8 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
 
 func broadcast_miss(target, from):
+	if target == "A Portal": # Stops messages about NPC's walking into portals
+		return
 	if self.hp <= 0:
 		return # Stop a 'misses' message appearing after NPC is dead
 	else:
