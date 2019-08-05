@@ -1,6 +1,8 @@
 extends Node2D
 
-var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nVictorius wizards win first, then go to war.\nDefeated wizards go to war first, then try to win.\""]
+var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nA warrior wins when he learns when to fight,\n...and when not to fight.\"",\
+"\"...because I found that although a full frontal attack is often enough,\nusing stealth to avoid fights is sometimes the only way to avoid death.\"\n - Taken from the notes of Davgrim Skaldsonne, Master Necromancer",
+"Excerpt from the Bestiary of "+PlotGen.mage+".\n\"Hell puppies are a combination of cute and annoying... when they are small,\nbut a full-grown Hell Hound is an entirely different beast altogether.\""]
 
 func _ready():
 	pass
