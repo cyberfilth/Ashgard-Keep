@@ -2,7 +2,8 @@ extends Node2D
 
 var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nA warrior wins when he learns when to fight,\n...and when not to fight.\"",\
 "\"...because I found that although a full frontal attack is often enough,\nusing stealth to avoid fights is sometimes the only way to avoid death.\"\n - Taken from the notes of Davgrim Skaldsonne, Master Necromancer",
-"Excerpt from the Bestiary of "+PlotGen.mage+".\n\"Hell puppies are a combination of cute and annoying... when they are small,\nbut a full-grown Hell Hound is an entirely different beast altogether.\""]
+"Excerpt from the Bestiary of "+PlotGen.mage+".\n\"Hell puppies are a combination of cute and annoying... when they are small,\nbut a full-grown Hell Hound is a different beast altogether.\"",
+"\"...the light is hateful to us who live in the total darkness of this Keep.\nIn the darkness we are faster. Stronger. Intruders are only safe whilst they hold a lit torch in their hand...\""]
 
 func _ready():
 	pass
