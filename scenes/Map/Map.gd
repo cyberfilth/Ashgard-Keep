@@ -234,7 +234,7 @@ func _on_player_acted():
 		GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.870588,1,0,1))
 	# remove effects of stealth potion
 	if !GameData.player.fighter.has_status_effect('stealth') && GameData.player_radius == 1:
-		GameData.broadcast("The stealth potion wears off...", GameData.COLOR_GREEN)
+		GameData.broadcast("The stealth potion wears off...", GameData.COLOUR_GREEN)
 		GameData.player_radius = GameData.original_player_radius
 	# process FX objects
 	for node in get_tree().get_nodes_in_group('fx'):

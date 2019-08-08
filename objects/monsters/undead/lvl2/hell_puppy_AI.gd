@@ -31,7 +31,7 @@ func take_turn():
 
 func flavour_text():
 	var message = warning_message[GameData.roll(0, warning_message.size()-1)]
-	GameData.broadcast(message, GameData.COLOR_TEAL)
+	GameData.broadcast(message, GameData.COLOUR_TEAL)
 
 func wander():
 	var UP = randi()%2
