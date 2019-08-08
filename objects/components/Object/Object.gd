@@ -162,7 +162,7 @@ func _set_seen(what):
 		if self.has_node("Item") && self.get_node("Item").equipped == true:
 			pass
 		else:
-			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOR_YELLOW)
+			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOUR_YELLOW)
 		
 
 func _on_hp_changed(current,full):

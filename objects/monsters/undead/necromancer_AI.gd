@@ -76,7 +76,7 @@ func necromancy():
 func glow_with_necromantic_energy():
 	owner.get_node('Light2D').show()
 	var message = warning_message[GameData.roll(0, warning_message.size()-1)]
-	GameData.broadcast(message, GameData.COLOR_NECROTIC_PURPLE)
+	GameData.broadcast(message, GameData.COLOUR_NECROTIC_PURPLE)
 
 func stop_glowing():
 	owner.get_node('Light2D').hide()

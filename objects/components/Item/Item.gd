@@ -48,7 +48,7 @@ func restore(data):
 
 func use():
 	if use_function.empty():
-		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOR_TEAL)
+		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOUR_TEAL)
 		return
 	if has_method(use_function):
 		call(use_function)
@@ -134,7 +134,7 @@ func stealth():
 	GameData.original_player_radius = GameData.player_radius
 	GameData.player_radius = 1
 	var stealth_time = self.param1
-	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOR_GREEN)
+	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOUR_GREEN)
 	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
 	# Timer added to avoid glitch where potions
@@ -185,7 +185,7 @@ func confuse_target():
 		return
 	
 	# found valid target
-	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOR_BLUE)
+	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOUR_BLUE)
 	target.fighter.apply_status_effect('confused',param1)
 	emit_signal('used', "OK")
 

@@ -116,7 +116,7 @@ func _on_slot_button_pressed(slot):
 			obj.kill()
 		GameData.player.emit_signal('object_acted')
 	else:
-		GameData.broadcast(result, GameData.COLOR_BLUE)
+		GameData.broadcast(result, GameData.COLOUR_BLUE)
 
 
 func _on_slot_item_used(slot):
