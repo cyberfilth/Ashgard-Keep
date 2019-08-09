@@ -154,6 +154,8 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOUR_POISON_GREEN)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
+		if owner.get_display_name() == "Patchwork Golem":
+			owner.get_node("AI").run_from_fire()
 	elif from == "Lightning Strike":
 		GameData.broadcast(from+ " zaps " +owner.get_display_name()+ " for " +m+ " damage",color)
 	else:
