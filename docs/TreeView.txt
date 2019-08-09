@@ -1,5 +1,6 @@
 .
 ├── docs
+│   ├── ASCII look.png
 │   ├── _config.yml
 │   ├── credits.txt
 │   ├── NewScreenshot.png
@@ -28,7 +29,9 @@
 │   ├── FOVGen.gd
 │   ├── GameData.gd
 │   ├── PathGen.gd
-│   └── PlotGen.gd
+│   ├── PlotGen.gd
+│   ├── Transition.gd
+│   └── Transition.tscn
 ├── graphics
 │   ├── brands
 │   │   ├── i-confusion.png
@@ -38,6 +41,10 @@
 │   │   └── i-lightning.png
 │   ├── dungeon
 │   │   ├── floorsx24
+│   │   │   ├── bog_green0.png
+│   │   │   ├── bog_green1.png
+│   │   │   ├── bog_green2.png
+│   │   │   ├── bog_green3.png
 │   │   │   ├── cobble_blood10.png
 │   │   │   ├── cobble_blood11.png
 │   │   │   ├── cobble_blood12.png
@@ -50,6 +57,7 @@
 │   │   │   ├── cobble_blood7.png
 │   │   │   ├── cobble_blood8.png
 │   │   │   ├── cobble_blood9.png
+│   │   │   ├── dot.png
 │   │   │   ├── grey_dirt0.png
 │   │   │   ├── grey_dirt0.png.import
 │   │   │   ├── grey_dirt1.png
@@ -64,7 +72,19 @@
 │   │   │   ├── grey_dirt5.png.import
 │   │   │   ├── grey_dirt6.png
 │   │   │   ├── grey_dirt6.png.import
+│   │   │   ├── marble_floor_0_0.png
+│   │   │   ├── marble_floor_0_1.png
+│   │   │   ├── marble_floor_0_2.png
+│   │   │   ├── marble_floor_0_3.png
+│   │   │   ├── marble_floor_0_4.png
+│   │   │   ├── marble_floor_0_6.png
+│   │   │   ├── marble_floor_0_7.png
+│   │   │   ├── marble_floor_1_0.png
 │   │   │   ├── normals
+│   │   │   │   ├── bog_green_normal0.png
+│   │   │   │   ├── bog_green_normal1.png
+│   │   │   │   ├── bog_green_normal2.png
+│   │   │   │   ├── bog_green_normal3.png
 │   │   │   │   ├── cobble_blood10_normal.png
 │   │   │   │   ├── cobble_blood11_normal.png
 │   │   │   │   ├── cobble_blood12_normal.png
@@ -84,6 +104,14 @@
 │   │   │   │   ├── grey_dirt4_normal.png
 │   │   │   │   ├── grey_dirt5_normal.png
 │   │   │   │   ├── grey_dirt6_normal.png
+│   │   │   │   ├── marble_floor_normal_0_0.png
+│   │   │   │   ├── marble_floor_normal_0_1.png
+│   │   │   │   ├── marble_floor_normal_0_2.png
+│   │   │   │   ├── marble_floor_normal_0_3.png
+│   │   │   │   ├── marble_floor_normal_0_4.png
+│   │   │   │   ├── marble_floor_normal_0_6.png
+│   │   │   │   ├── marble_floor_normal_0_7.png
+│   │   │   │   ├── marble_floor_normal_1_0.png
 │   │   │   │   ├── sandstone_floor0_normal.png
 │   │   │   │   ├── sandstone_floor0_normal.png.import
 │   │   │   │   ├── sandstone_floor1_normal.png
@@ -160,6 +188,14 @@
 │   │   │   ├── fog.png.flags
 │   │   │   └── fogx30.png
 │   │   └── wallsx24
+│   │       ├── brick_brown0.png
+│   │       ├── brick_brown1.png
+│   │       ├── brick_brown2.png
+│   │       ├── brick_brown3.png
+│   │       ├── brick_brown4.png
+│   │       ├── brick_brown5.png
+│   │       ├── brick_brown6.png
+│   │       ├── brick_brown7.png
 │   │       ├── brick_dark0.png
 │   │       ├── brick_dark0.png.import
 │   │       ├── brick_dark1.png
@@ -174,6 +210,7 @@
 │   │       ├── brick_dark5.png.import
 │   │       ├── brick_dark6.png
 │   │       ├── brick_dark6.png.import
+│   │       ├── hash.png
 │   │       ├── sandstone_wall0.png
 │   │       ├── sandstone_wall0.png.import
 │   │       ├── sandstone_wall1.png
@@ -194,6 +231,10 @@
 │   │       ├── sandstone_wall8.png.import
 │   │       ├── sandstone_wall9.png
 │   │       ├── sandstone_wall9.png.import
+│   │       ├── slime0.png
+│   │       ├── slime1.png
+│   │       ├── slime2.png
+│   │       ├── slime3.png
 │   │       ├── stone_gray0.png
 │   │       ├── stone_gray1.png
 │   │       ├── stone_gray2.png
@@ -217,6 +258,7 @@
 │   ├── gui
 │   │   ├── ashgard_keep.png
 │   │   ├── AT_teal.png
+│   │   ├── black.png
 │   │   ├── button.png
 │   │   ├── loading0.png
 │   │   ├── loading1.png
@@ -255,10 +297,12 @@
 │       ├── necro_energy.tscn
 │       ├── necrotic_bolt.png
 │       ├── necrotic_spark.png
+│       ├── portal_spark.png
 │       └── skull.png
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
+├── map.txt
 ├── objects
 │   ├── armour
 │   │   ├── chainmail_armour.png
@@ -286,8 +330,11 @@
 │   ├── items
 │   │   ├── books
 │   │   │   ├── Book_necro1.tscn
+│   │   │   ├── Book_necro2.tscn
 │   │   │   ├── book_of_the_dead.png
-│   │   │   └── lore_necro1.gd
+│   │   │   ├── lore_necro1.gd
+│   │   │   └── lore_necro2.gd
+│   │   ├── GreaterHealthPotion.tscn
 │   │   ├── HealthPotion.tscn
 │   │   ├── misc_stone.png
 │   │   ├── portal_script.gd
@@ -308,15 +355,24 @@
 │   │   │   ├── bat_AI.gd
 │   │   │   ├── bat.tscn
 │   │   │   ├── lvl2
+│   │   │   │   ├── blood_bat_AI.gd
+│   │   │   │   ├── blood_bat.tscn
+│   │   │   │   ├── scorpion_AI.gd
+│   │   │   │   └── scorpion.tscn
 │   │   │   ├── rat_AI.gd
-│   │   │   ├── rat.tscn
-│   │   │   ├── scorpion_AI.gd
-│   │   │   └── scorpion.tscn
+│   │   │   └── rat.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
 │   │       ├── ghoul_rat.tscn
 │   │       ├── lvl2
+│   │       │   ├── ghoul_AI.gd
+│   │       │   ├── ghoul_inventory.gd
+│   │       │   ├── ghoul.tscn
+│   │       │   ├── hell_puppy_AI.gd
+│   │       │   ├── hell_puppy.tscn
+│   │       │   ├── necromancer2_inventory.gd
+│   │       │   └── necromancer2.tscn
 │   │       ├── necromancer_AI.gd
 │   │       ├── necromancer_inventory.gd
 │   │       ├── necromancer.tscn
@@ -335,7 +391,10 @@
 │       ├── crude_dagger.tscn
 │       ├── dagger2.png
 │       ├── dagger.png
-│       └── rusty_dagger.tscn
+│       ├── rusty_dagger.tscn
+│       ├── shard_sword.tscn
+│       ├── sword1.png
+│       └── tsurugi.png
 ├── README.md
 ├── resources
 │   ├── black_panel.tres
@@ -375,4 +434,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-42 directories, 333 files
+42 directories, 392 files

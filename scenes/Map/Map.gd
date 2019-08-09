@@ -141,7 +141,6 @@ func get_nearest_visible_actor():
 func is_wall(cell):
 	return DungeonGen.get_cell_data(cell) == 1
 
-
 func spawn_fx(texture, cell):
 	var fx = Sprite.new()
 	fx.set_centered(false)
