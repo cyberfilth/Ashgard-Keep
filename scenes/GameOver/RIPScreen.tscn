@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenes/GameOver/RIPScreen.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
 [ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://resources/Theme.tres" type="Theme" id=4]
+[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=5]
 
 [node name="RIPscreen" type="Control"]
 
@@ -101,5 +103,25 @@ margin/top = 0.0
 margin/right = 700.0
 margin/bottom = 455.0
 use_top_left = false
+
+[node name="Button" type="Button" parent="Menu/CentreRow/CenterContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 4 )
+margin/left = 118.0
+margin/top = 207.0
+margin/right = 340.0
+margin/bottom = 0.0
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Return to menu"
+flat = true
+
+[connection signal="pressed" from="Menu/CentreRow/CenterContainer/Button" to="." method="_on_Button_pressed"]
 
 

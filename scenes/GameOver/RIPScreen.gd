@@ -12,3 +12,6 @@ func _ready():
 	"\nOn the first floor of the Keep after "+str(GameData.player_moves)+ " moves.")
 	# Unpause process
 	get_tree().set_pause(false)
+
+func _on_Button_pressed():
+	get_tree().change_scene('res://scenes/TitleMenu/TitleMenu.tscn')
