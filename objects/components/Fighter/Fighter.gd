@@ -85,14 +85,15 @@ func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
 		return
+	# Step through a port
 	if owner.get_display_name() == "A Portal" && who == GameData.player:
 		owner.get_node('AI').enter_portal()
-		#return
 	if  who.get_display_name() == "A Portal" && owner == GameData.player:
 		who.get_node('AI').enter_portal()
 	else:
 		if who.get_display_name() == owner.get_display_name():
 			return
+	# COMBAT
 	# Weapon Modifier
 		var max_roll = self.weapon_dice * 6
 		var weapon_modifier = GameData.roll(self.weapon_dice, max_roll)
