@@ -5,14 +5,14 @@ const version = "Version 0.6.7"
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
 
-const COLOR_LIGHT_BLUE = '#91B4C1' # Default broadcast message
-const COLOR_RED = '#d04648' # Player damage taken
-const COLOR_BLUE = '#6C73AA' # looks confused || Slot button pressed issue, bluer blue
-const COLOR_TEAL = '#5C899E' # is slain
-const COLOR_GREEN = '#65f23e' # Uses potion
-const COLOR_YELLOW = '#dad45e' # Item / object has been found
-const COLOR_POISON_GREEN = '#48a000' # Poisoned
-const COLOR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
+const COLOUR_LIGHT_BLUE = '#91B4C1' # Default broadcast message
+const COLOUR_RED = '#d04648' # Player damage taken
+const COLOUR_BLUE = '#6C73AA' # looks confused || Slot button pressed issue, bluer blue
+const COLOUR_TEAL = '#5C899E' # is slain
+const COLOUR_GREEN = '#65f23e' # Uses potion
+const COLOUR_YELLOW = '#dad45e' # Item / object has been found
+const COLOUR_POISON_GREEN = '#48a000' # Poisoned
+const COLOUR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
 const COLOUR_ORANGE = '#e1bb37' # Torch messages
 const COLOUR_SLATE_GREY = '#708090' # Paralysed colour
 
@@ -65,7 +65,7 @@ var killer = "An unknown enemy"
 var torch_icon = load('res://graphics/gui/ml_torch.png')
 
 # Broadcast status messages
-func broadcast(message, color=COLOR_LIGHT_BLUE):
+func broadcast(message, color=COLOUR_LIGHT_BLUE):
 	if game:
 		if game.messagebox:
 			game.messagebox.append_bbcode("[color=" +color+ "]" +message+ "[/color]")

@@ -125,14 +125,14 @@ func take_damage(from="An Unknown Force", amount=0):
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
-	var color = GameData.COLOR_GREEN
+	var color = GameData.COLOUR_GREEN
 	GameData.broadcast(from+ " restores " +m+ " HP!", color)
 
 func broadcast_damage_taken(from, amount):
 	var m = str(amount)
-	var color = GameData.COLOR_TEAL
+	var color = GameData.COLOUR_TEAL
 	if owner == GameData.player:
-		color = GameData.COLOR_RED
+		color = GameData.COLOUR_RED
 	if from == "Rat" || from == "Hell Puppy":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Diseased Zombie":
@@ -150,7 +150,7 @@ func broadcast_damage_taken(from, amount):
 			if chance_of_paralysis == 1:
 				paralysed()
 	elif from == "Poison":
-		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOR_POISON_GREEN)
+		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOUR_POISON_GREEN)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Lightning Strike":
@@ -238,7 +238,7 @@ func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
-		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOR_TEAL)
+		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOUR_TEAL)
 		die()
 
 func _set_max_hp(what):
@@ -252,7 +252,7 @@ func _on_hp_changed(current,full):
 
 func poisoned():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
-	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOR_POISON_GREEN)
+	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOUR_POISON_GREEN)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Poisoned")
 	apply_status_effect('poisoned', 6)
 
