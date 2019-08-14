@@ -176,7 +176,6 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.set_z(0)
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
-	print(hell_hound.fighter.hp)
 
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)

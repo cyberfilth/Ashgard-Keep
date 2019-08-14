@@ -67,10 +67,8 @@ darkness = DARKNESS3
 
 var monster_undead = [
 { # 1st level Undead
-#minion1 = 'monsters/undead/ghoul_rat',
-minion1 = 'monsters/undead/lvl3/demonic_puppy',
-minion2 = 'monsters/undead/lvl3/demonic_puppy',
-#minion2 = 'monsters/animals/bat',
+minion1 = 'monsters/undead/ghoul_rat',
+minion2 = 'monsters/animals/bat',
 gribbly1 = 'monsters/undead/zombie',
 gribbly2 = 'monsters/undead/diseased_zombie',
 boss1 = 'monsters/undead/necromancer'
@@ -83,7 +81,7 @@ gribbly2 = 'monsters/undead/lvl2/ghoul',
 boss1 = 'monsters/undead/lvl2/necromancer2'
 },
 { # 3rd level Undead
-minion1 = 'monsters/undead/lvl2/hell_puppy',
+minion2 = 'monsters/undead/lvl3/demonic_puppy',
 minion2 = 'monsters/animals/lvl2/blood_bat',
 gribbly1 = 'monsters/animals/lvl2/scorpion',
 gribbly2 = 'monsters/undead/lvl3/patchwork_golem',

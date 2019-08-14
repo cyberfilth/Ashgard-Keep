@@ -128,21 +128,6 @@ func take_damage(from="An Unknown Force", amount=0):
 		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:
 			owner.get_node("AI").transform_to_hound()
 			GameData.map.spawn_hell_hound(GameData.map.map_to_world(owner.get_map_pos()))
-			#
-			#
-			#
-			#
-			# spawn this on the MAP instead
-			#
-			#
-			#
-#			var hell_hound = load("res://objects/monsters/undead/lvl3/hell_hound.tscn")
-#			var scene_instance = hell_hound.instance()
-#			scene_instance.set_name("hell_hound")
-#			GameData.map.add_child(scene_instance)
-#			scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-#			self.hp +=20
-#			print(self.hp)
 			owner.kill()
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):

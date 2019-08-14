@@ -35,7 +35,7 @@ percent_visible = 1.0
 race = "animal"
 character_level = 3
 attack = 33
-defence = 13
+defence = 17
 max_hp = 25
 xp_reward = 33
 

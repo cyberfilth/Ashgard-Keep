@@ -16,14 +16,12 @@ func take_turn():
 		wander()
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if owner.fighter.hp <= 9 && distance < 2:
-		wander()
+	var random_growling = randi()%3
 	if distance <= (GameData.player_radius - 2):
-		var random_growling = randi()%3
+		if distance <= 1:
+			owner.fighter.fight(target)		
 		if random_growling == 1:
 			flavour_text()
-		if distance <= 1:
-			owner.fighter.fight(target)
 		else:
 			owner.step_to(target.get_map_pos())
 	else:
