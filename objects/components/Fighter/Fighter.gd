@@ -85,12 +85,12 @@ func fight(who):
 	killer = who
 	if owner.fighter.hp < 1:
 		return
-	# Step through a port
+	# Step through a portal
 	if owner.get_display_name() == "A Portal" && who == GameData.player:
 		owner.get_node('AI').enter_portal()
 	if  who.get_display_name() == "A Portal" && owner == GameData.player:
 		who.get_node('AI').enter_portal()
-	else:
+	else: # Stops similar NPC's killing each other
 		if who.get_display_name() == owner.get_display_name():
 			return
 	# COMBAT
@@ -123,6 +123,12 @@ func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
 	killer = from
 	self.hp -= amount
+	# Add damage triggered effects here
+	if owner.get_display_name() == "Demonic Puppy":
+		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:
+			owner.get_node("AI").transform_to_hound()
+			GameData.map.spawn_hell_hound(GameData.map.map_to_world(owner.get_map_pos()))
+			owner.kill()
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
@@ -154,6 +160,8 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOUR_POISON_GREEN)
 	elif from == "Fire":
 		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
+		if owner.get_display_name() == "Patchwork Golem":
+			owner.get_node("AI").run_from_fire()
 	elif from == "Lightning Strike":
 		GameData.broadcast(from+ " zaps " +owner.get_display_name()+ " for " +m+ " damage",color)
 	else:

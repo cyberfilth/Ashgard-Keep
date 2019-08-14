@@ -34,6 +34,10 @@ func grunt():
 		GameData.broadcast(message, GameData.COLOUR_YELLOW)
 	seen = true
 
+func run_from_fire():
+	GameData.broadcast("Aah, Fire!", GameData.COLOUR_YELLOW)
+	wander()
+
 func wander():
 	var UP = randi()%2
 	var DOWN = randi()%2

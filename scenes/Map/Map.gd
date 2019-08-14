@@ -168,6 +168,15 @@ func spawn_necrotic_energy_fx(necromancer):
 	get_parent().add_child(bolt)
 	bolt.add_to_group('fx')
 
+func spawn_hell_hound(hound_pos):
+	var hell_hound = load("res://objects/monsters/undead/lvl3/hell_hound.tscn").instance()
+	hell_hound.set_name("Hell Hound")
+	get_parent().get_node('Map').add_child(hell_hound)
+	hell_hound.set_pos(hound_pos)
+	hell_hound.set_z(0)
+	hell_hound.add_to_group('actors')
+	hell_hound.fighter.hp = GameData.roll(15, 25)
+
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
 
