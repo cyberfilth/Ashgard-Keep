@@ -33,8 +33,9 @@ percent_visible = 1.0
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
 race = "animal"
+character_level = 2
 attack = 20
-defence = 6
+defence = 8
 max_hp = 17
 xp_reward = 22
 
