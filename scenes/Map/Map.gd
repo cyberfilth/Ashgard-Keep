@@ -176,6 +176,7 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.set_z(0)
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
+	GameData.broadcast("The body of the puppy transforms in the flames")
 
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
