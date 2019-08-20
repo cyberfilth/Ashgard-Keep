@@ -11,17 +11,18 @@ func _ready():
 		dir.remove(GameData.SAVEGAME_PATH)
 	# Get floor level
 	var suffix = ""
-	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
+	var keepfloor = int(GameData.keeplvl)
+	if keepfloor == 11 || keepfloor == 12 || keepfloor == 13:
 		suffix = "th"
-	elif (GameData.keeplvl % 10 == 1):
+	elif (keepfloor % 10 == 1):
 		suffix = "st"
-	elif (GameData.keeplvl % 10 == 2):
+	elif (keepfloor % 10 == 2):
 		suffix = "nd"
-	elif (GameData.keeplvl % 10 == 3):
+	elif (keepfloor % 10 == 3):
 		suffix = "rd"
 	else:
 		suffix = "th"
-	var keep_level = str(GameData.keeplvl)+suffix
+	var keep_level = str(keepfloor)+suffix
 	# make the name of the thing that killed you
 	# and your method of death more descriptive
 	killer_description(GameData.killer)
