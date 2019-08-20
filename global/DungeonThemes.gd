@@ -96,7 +96,8 @@ healthpotion = 'items/HealthPotion',
 magicitem1 = 'items/Scroll_Confusion',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/crude_dagger',
-armour = 'armour/heavy_cloth_armour'
+#armour = 'armour/heavy_cloth_armour'
+armour = 'armour/skin_armour'
 },
 { # 2nd level items
 rubble = 'items/Rock',
@@ -104,7 +105,15 @@ healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/bone_dagger',
-armour = 'armour/heavy_cloth_armour'
+armour = 'armour/bone_armour'
+},
+{ # 3rd level items
+rubble = 'items/Rock',
+healthpotion = 'items/GreaterHealthPotion',
+magicitem1 = 'items/Scroll_Fireball',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/bone_dagger',
+armour = 'armour/skin_armour'
 }
 ]
 
