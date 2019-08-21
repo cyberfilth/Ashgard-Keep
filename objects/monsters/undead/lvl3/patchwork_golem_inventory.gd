@@ -1,7 +1,7 @@
 extends Node2D
 
 # list of things the golem may be carrying
-var items = ["res://objects/weapons/shard_sword.tscn",\
+var items = ["res://objects/armour/skin_armour.tscn",\
 			"res://objects/items/StealthPotion.tscn",\
 			"res://objects/items/GreaterHealthPotion.tscn"]
 

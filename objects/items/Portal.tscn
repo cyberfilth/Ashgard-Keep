@@ -27,7 +27,7 @@ scale = 1.0
 color = Color( 0.553894, 0.816878, 0.945313, 1 )
 energy = 1.0
 mode = 0
-range/height = 0.0
+range/height = 30.0
 range/z_min = -1024
 range/z_max = 1024
 range/layer_min = 0
@@ -51,6 +51,7 @@ centered = false
 [node name="Item" parent="." instance=ExtResource( 4 )]
 
 stackable = true
+indestructible = true
 throw_range = 8
 throw_damage = 3
 

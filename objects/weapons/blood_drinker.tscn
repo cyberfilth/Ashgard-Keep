@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
+[ext_resource path="res://objects/weapons/blood_drinker.png" type="Texture" id=3]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/components/Weapon/Weapon.tscn" type="PackedScene" id=5]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Blood drinker"
+proper_name = true
+blocks_movement = false
+stay_visible = true
+
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 12, 12 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 5.0
+color = Color( 0.879169, 0.320435, 0.976563, 1 )
+energy = 1.3
+mode = 0
+range/height = 30.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Brand" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, -1 )
+
+[node name="Item" parent="." instance=ExtResource( 4 )]
+
+use_function = "weapon"
+throw_range = 6
+throw_damage = 5
+
+[node name="Weapon" parent="." instance=ExtResource( 5 )]
+
+dice = 3
+adds = 3
+description = "Adds 3D+3 to ATTACK"
+special_attack = "hp_drain"
+
+

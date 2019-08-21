@@ -26,6 +26,7 @@ var weapon_equipped = false
 var armour_equipped = false
 var weapon_dice = 0
 var weapon_adds = 0
+var weapon_modifier = "attack"
 var armour_protection = 0
 var hpbar
 
@@ -123,6 +124,14 @@ func take_damage(from="An Unknown Force", amount=0):
 	broadcast_damage_taken(from,amount)
 	killer = from
 	self.hp -= amount
+	# Add weapon effects here
+	if from == GameData.player.get_display_name() && amount > 0:
+		if GameData.player.fighter.weapon_modifier == "hp_drain":
+			# random chance of HP drain
+			var chance_of_drain = randi()%3
+			if chance_of_drain == 1:
+				GameData.player.fighter.hp+=amount/2
+				GameData.broadcast("Your weapon drinks your opponents life force, restoring "+str(amount/2)+" HP", GameData.COLOUR_GREEN)
 	# Add damage triggered effects here
 	if owner.get_display_name() == "Demonic Puppy":
 		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:

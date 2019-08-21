@@ -85,7 +85,7 @@ minion1 = 'monsters/undead/lvl3/demonic_puppy',
 minion2 = 'monsters/animals/lvl2/blood_bat',
 gribbly1 = 'monsters/animals/lvl2/scorpion',
 gribbly2 = 'monsters/undead/lvl3/patchwork_golem',
-boss1 = 'monsters/undead/lvl2/necromancer2'
+boss1 = 'monsters/undead/lvl3/zombie_warrior'
 }
 ]
 
@@ -96,8 +96,7 @@ healthpotion = 'items/HealthPotion',
 magicitem1 = 'items/Scroll_Confusion',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/crude_dagger',
-#armour = 'armour/heavy_cloth_armour'
-armour = 'armour/skin_armour'
+armour = 'armour/heavy_cloth_armour'
 },
 { # 2nd level items
 rubble = 'items/Rock',
@@ -113,7 +112,7 @@ healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/bone_dagger',
-armour = 'armour/skin_armour'
+armour = 'armour/bone_armour'
 }
 ]
 

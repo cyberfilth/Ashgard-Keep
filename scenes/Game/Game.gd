@@ -85,17 +85,18 @@ func load_new_level():
 			re_equip_weapons_armour(entry, ob)
 	# Update floor level label
 	var suffix = ""
-	if GameData.keeplvl == 11 || GameData.keeplvl == 12 || GameData.keeplvl == 13:
+	var keepfloor = int(GameData.keeplvl)
+	if keepfloor == 11 || keepfloor == 12 || keepfloor == 13:
 		suffix = "th"
-	elif (GameData.keeplvl % 10 == 1):
+	elif (keepfloor % 10 == 1):
 		suffix = "st"
-	elif (GameData.keeplvl % 10 == 2):
+	elif (keepfloor % 10 == 2):
 		suffix = "nd"
-	elif (GameData.keeplvl % 10 == 3):
+	elif (keepfloor % 10 == 3):
 		suffix = "rd"
 	else:
 		suffix = "th"
-	var keep_level = str(GameData.keeplvl)+suffix
+	var keep_level = str(keepfloor)+suffix
 	# update ui
 	get_node('/root/Game/frame/right/PlayerInfo/frame/stats/right/labels/Location').set_text(keep_level+" floor")
 	GameData.clear_messages()

@@ -3,13 +3,13 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/undead/lvl3/patchwork_golem_AI.gd" type="Script" id=4]
-[ext_resource path="res://objects/monsters/undead/lvl3/patchwork_golem_inventory.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/undead/lvl3/zombie_warrior_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/undead/lvl3/zombie_warrior_inventory.gd" type="Script" id=5]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Patchwork Golem"
+name = "zombie warrior"
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -20,14 +20,14 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 3.0
-margin/top = -4.0
-margin/right = 43.0
-margin/bottom = 36.0
+margin/left = 6.0
+margin/top = -3.0
+margin/right = 46.0
+margin/bottom = 37.0
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.409305, 0.683594, 0.221634, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
-bbcode/bbcode = "Z"
+bbcode/bbcode = "z"
 visible_characters = -1
 percent_visible = 1.0
 
@@ -35,10 +35,10 @@ percent_visible = 1.0
 
 blood_colour = "green"
 character_level = 3
-attack = 17
+attack = 20
 defence = 20
-max_hp = 42
-xp_reward = 45
+max_hp = 40
+xp_reward = 40
 
 [node name="AI" type="Node" parent="."]
 

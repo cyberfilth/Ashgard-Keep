@@ -8,5 +8,6 @@ script/script = ExtResource( 1 )
 dice = 0
 adds = 0
 description = " "
+special_attack = "attack"
 
 
