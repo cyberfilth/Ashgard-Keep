@@ -82,8 +82,8 @@ boss1 = 'monsters/undead/lvl2/necromancer2'
 },
 { # 3rd level Undead
 minion1 = 'monsters/undead/lvl3/demonic_puppy',
-minion2 = 'monsters/animals/lvl2/blood_bat',
-gribbly1 = 'monsters/animals/lvl2/scorpion',
+minion2 = 'monsters/animals/lvl3/vampire_bat',
+gribbly1 = 'monsters/animals/lvl3/vampire',
 gribbly2 = 'monsters/undead/lvl3/patchwork_golem',
 boss1 = 'monsters/undead/lvl3/zombie_warrior'
 }
