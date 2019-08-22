@@ -168,6 +168,14 @@ func spawn_necrotic_energy_fx(necromancer):
 	get_parent().add_child(bolt)
 	bolt.add_to_group('fx')
 
+func spawn_vampiric_drain_fx():
+	var vampiric_drain = load("res://graphics/particles/blood_drain.tscn")
+	var scene_instance = vampiric_drain.instance()
+	scene_instance.set_name("vampiric_drain")
+	GameData.map.add_child(scene_instance)
+	scene_instance.set_pos(GameData.map.map_to_world(GameData.player.get_map_pos()))
+
+
 func spawn_hell_hound(hound_pos):
 	var hell_hound = load("res://objects/monsters/undead/lvl3/hell_hound.tscn").instance()
 	hell_hound.set_name("Hell Hound")

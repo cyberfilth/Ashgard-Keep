@@ -130,8 +130,8 @@ func take_damage(from="An Unknown Force", amount=0):
 			# random chance of HP drain
 			var chance_of_drain = randi()%3
 			if chance_of_drain == 1:
-				GameData.player.fighter.hp+=amount/2
-				GameData.broadcast("Your weapon drinks your opponents life force, restoring "+str(amount/2)+" HP", GameData.COLOUR_GREEN)
+				GameData.player.fighter.hp+=2
+				GameData.broadcast("Your weapon drinks your opponents life force, restoring 2 HP", GameData.COLOUR_GREEN)
 	# Add damage triggered effects here
 	if owner.get_display_name() == "Demonic Puppy":
 		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:
