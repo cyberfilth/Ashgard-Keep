@@ -30,12 +30,12 @@ func take_turn():
 			check_if_at_location() # check if arrived, set new location if needed
 	# If in range of player
 	elif distance <= GameData.player_radius:
-		if distance > (GameData.player_radius / 2): # if player is over half distance of LoS away
-			necromancy()
-		elif distance <= 1:
+		if distance <= 1:
 			owner.fighter.fight(target)
+		elif distance > (GameData.player_radius / 2): # if player is over half distance of LoS away
+			necromancy()
 		else:
-			owner.step_to(target.get_map_pos())
+			confused_wander()
 
 func confused_wander():
 	var UP = randi()%2

@@ -6,7 +6,7 @@ func _ready():
 	cloud.set_emitting(true)
 # Timer
 	var t = Timer.new()
-	t.set_wait_time(1)
+	t.set_wait_time(2)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
