@@ -15,7 +15,10 @@ func take_turn():
 
 # Checks before entering portal
 func enter_portal():
-	load_new_level()
+	if GameData.player.fighter.xp < (GameData.keeplvl * 100):
+		GameData.broadcast("YOU ARE NOT EXPERIENCED ENOUGH TO ENTER THIS PORTAL.\nGain more XP first.", GameData.COLOUR_YELLOW)
+	else:
+		load_new_level()
 
 # loadup the next floor of the Keep
 func load_new_level():
@@ -39,10 +42,5 @@ func load_new_level():
 	GameData.lvlarmour_equipped = GameData.player.fighter.armour_equipped
 	for node in get_tree().get_nodes_in_group('inventory'):
 		GameData.player_inventory.append(node.save())
-	
-	# reset torch settings
-	
-	# light circle
-		
 	GameData.load_continue_newlvl = "newlvl"
 	get_tree().change_scene('res://scenes/TitleMenu/LoadingScreen.tscn')
