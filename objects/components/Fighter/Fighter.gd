@@ -149,7 +149,7 @@ func broadcast_damage_taken(from, amount):
 	var color = GameData.COLOUR_TEAL
 	if owner == GameData.player:
 		color = GameData.COLOUR_RED
-	if from == "Rat" || from == "Ghoul Rat" || from == "Hell Puppy":
+	if from == "Rat" || from == "Ghoul Rat" || from == "Hell Puppy" || from == "Hell Hound":
 		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Diseased Zombie":
 		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
@@ -157,7 +157,11 @@ func broadcast_damage_taken(from, amount):
 		if owner == GameData.player:
 			var chance_of_poison = randi()%3
 			if chance_of_poison == 1:
-				poisoned()
+				poisoned(6)
+	elif from == "Blue Fungus":
+		GameData.broadcast(from+ " confuses " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
+		if owner == GameData.player:
+			confused(5)
 	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion
@@ -195,7 +199,14 @@ func die():
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-	# leave bloodstain
+	if corpse == "Yellow fungus":
+		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
+		var scene_instance = spore_cloud.instance()
+		scene_instance.set_name("spore_cloud")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		GameData.map.release_blue_spores(owner.get_map_pos())
+		# leave bloodstain
 	if !owner.has_node("Inventory") && self.bleeds:
 		bleed(blood_colour)
 	# Get XP if you are the killer
@@ -268,11 +279,15 @@ func _on_hp_changed(current,full):
 	hpbar.set_max(full)
 	hpbar.set_value(current)
 
-func poisoned():
+func confused(num):
+	get_node('/root/Game/frame/right/StatusMessage').set_text("Confused")
+	apply_status_effect('confused', num)
+
+func poisoned(num):
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
 	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOUR_POISON_GREEN)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Poisoned")
-	apply_status_effect('poisoned', 6)
+	apply_status_effect('poisoned', num)
 
 func paralysed():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.44, 0.5, 0.56, 1))

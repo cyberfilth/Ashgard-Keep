@@ -172,9 +172,8 @@ func spawn_vampiric_drain_fx():
 	var vampiric_drain = load("res://graphics/particles/blood_drain.tscn")
 	var scene_instance = vampiric_drain.instance()
 	scene_instance.set_name("vampiric_drain")
-	GameData.map.add_child(scene_instance)
-	scene_instance.set_pos(GameData.map.map_to_world(GameData.player.get_map_pos()))
-
+	add_child(scene_instance)
+	scene_instance.set_pos(map_to_world(GameData.player.get_map_pos()))
 
 func spawn_hell_hound(hound_pos):
 	var hell_hound = load("res://objects/monsters/undead/lvl3/hell_hound.tscn").instance()
@@ -185,6 +184,28 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
 	GameData.broadcast("The body of the puppy transforms in the flames")
+
+func release_blue_spores(target_area):
+	var x
+	var y
+	var fungus_pos
+	for i in range(GameData.roll(1, 2)): # Clamp to keep within the map boundaries
+		x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+		fungus_pos = Vector2(x,y)
+	# stop fungus being placed on top of walls
+		while is_cell_blocked(fungus_pos):
+			x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+			y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+			fungus_pos = Vector2(x,y)
+		var blue_fungus = load("res://objects/monsters/fungus/blue_fungus.tscn").instance()
+		blue_fungus.set_name("Blue fungus")
+		get_parent().get_node('Map').add_child(blue_fungus)
+		blue_fungus.set_pos(map_to_world(fungus_pos))
+		blue_fungus.set_z(0)
+		blue_fungus.add_to_group('actors')
+		blue_fungus.fighter.hp = 10
+	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
 
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)

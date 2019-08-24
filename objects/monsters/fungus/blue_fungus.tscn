@@ -3,12 +3,12 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/animals/rat_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/fungus/blue_fungus_AI.gd" type="Script" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Rat"
+name = "Blue fungus"
 proper_name = true
 blocks_movement = true
 stay_visible = false
@@ -20,23 +20,25 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 6.0
-margin/top = -4.0
+margin/top = -3.0
 margin/right = 46.0
-margin/bottom = 36.0
+margin/bottom = 37.0
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.429688, 0.341411, 0.17, 1 )
+custom_colors/default_color = Color( 0.117485, 0.092041, 0.90625, 1 )
 bbcode/enabled = true
-bbcode/bbcode = "r"
+bbcode/bbcode = "f"
 visible_characters = -1
 percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
+bleeds = false
+blood_colour = "green"
 race = "animal"
-attack = 16
-defence = 10
-max_hp = 10
-xp_reward = 12
+attack = 20
+defence = 20
+max_hp = 1
+xp_reward = 10
 
 [node name="AI" type="Node" parent="."]
 

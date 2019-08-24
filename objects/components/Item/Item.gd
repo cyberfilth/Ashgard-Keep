@@ -186,7 +186,7 @@ func confuse_target():
 	
 	# found valid target
 	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOUR_BLUE)
-	target.fighter.apply_status_effect('confused',param1)
+	target.fighter.apply_status_effect('confused', param1)
 	emit_signal('used', "OK")
 
 func weapon():
