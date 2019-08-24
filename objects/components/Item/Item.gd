@@ -69,14 +69,12 @@ func throw():
 	else:
 		GameData.broadcast("Which direction? Click the map to confirm, RMB to cancel")
 	var cell = yield(GameData.game, 'map_clicked')
-	
 	if cell == null:
 		GameData.broadcast("action cancelled")
 		return
 	else:
 		GameData.broadcast("You throw " + owner.get_display_name())
 		drop()
-		
 		var path = FOVGen.get_line(GameData.player.get_map_pos(), cell)
 		if not path.empty():
 			var tpath = []
@@ -89,12 +87,10 @@ func throw():
 					break
 				else:
 					tpath.append(cell)
-			
 			if tpath.size() > self.throw_range+1:
 				tpath.resize(self.throw_range+1)
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
-			
 			var target_cell = owner.get_map_pos()
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target and target != GameData.player:
@@ -106,14 +102,10 @@ func _ready():
 	owner.item = self
 
 # USE FUNCTIONS
-func heal_player():
-	var amount = self.param1
-	if GameData.player.fighter.is_hp_full():
-		emit_signal('used', "You're already at full health")
-		return
-	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
-# Timer added to avoid glitch where potions
-# were not being remove from inventory
+
+func pause_timer():
+	# Timer added to avoid glitch where items
+	# were not being remove from inventory
 	var t = Timer.new()
 	t.set_wait_time(0.1)
 	t.set_one_shot(true)
@@ -121,7 +113,14 @@ func heal_player():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
-	#####
+
+func heal_player():
+	var amount = self.param1
+	if GameData.player.fighter.is_hp_full():
+		emit_signal('used', "You're already at full health")
+		return
+	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
+	pause_timer()
 	emit_signal('used', "OK")
 
 func stealth():
@@ -137,16 +136,7 @@ func stealth():
 	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOUR_GREEN)
 	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
-	# Timer added to avoid glitch where potions
-	# were not being remove from inventory
-	var t = Timer.new()
-	t.set_wait_time(0.1)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	t.queue_free()
-	#####
+	pause_timer()
 	emit_signal('used', "OK")
 
 func damage_nearest():
@@ -158,6 +148,7 @@ func damage_nearest():
 	target.fighter.take_damage(self.effect_name, amount)
 	GameData.map.spawn_lightningbolt_fx(target.get_pos())
 	GameData.player.get_node("Camera").shake(0.3, 10)
+	pause_timer()
 	emit_signal('used', "OK")
 
 func confuse_target():
@@ -166,7 +157,6 @@ func confuse_target():
 	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
 	# yield for map clicking feedback
 	var callback = yield(GameData.game, 'map_clicked')
-	
 	# callback==null = RMB to cancel
 	if callback==null:
 		emit_signal('used', "action cancelled")
@@ -183,10 +173,10 @@ func confuse_target():
 	elif target == GameData.player:
 		emit_signal('used', "you don't want to confuse yourself!")
 		return
-	
 	# found valid target
 	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOUR_BLUE)
 	target.fighter.apply_status_effect('confused', param1)
+	pause_timer()
 	emit_signal('used', "OK")
 
 func weapon():
@@ -266,7 +256,6 @@ func blast_cell():
 	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
 	# yield for map clicking feedback
 	var callback = yield(GameData.game, 'map_clicked')
-	
 	# callback==null = RMB to cancel
 	if callback == null:
 		emit_signal('used', "action cancelled")
@@ -290,20 +279,12 @@ func blast_cell():
 			actors.append(node)
 	for obj in actors:
 		obj.fighter.take_damage(effect_name, amount)
+	pause_timer()
 	emit_signal('used', "OK")
 
 func read():
 	get_node("../Lore").read_book()
-# Timer added to avoid glitch where books
-# were not being remove from inventory
-	var t = Timer.new()
-	t.set_wait_time(0.1)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	t.queue_free()
-	#####
+	pause_timer()
 	emit_signal('used', "OK")
 
 func _process(delta):

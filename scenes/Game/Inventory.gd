@@ -23,7 +23,6 @@ func get_matching_slot(item):
 # add an item to an inventoryslot
 func add_to_inventory(obj):
 	var slot = null
-
 	if obj.item && obj.item.stackable:
 		# find a matching slot
 		slot = get_matching_slot(obj)
@@ -31,19 +30,16 @@ func add_to_inventory(obj):
 	if !slot: slot = get_free_slot()
 	# break if no slots free
 	if !slot: return
-	
 	# remove from world objects group
 	if obj.is_in_group('world'):
 		obj.remove_from_group('world')
 	# add to inventory group
 	if !obj.is_in_group('inventory'):
 		obj.add_to_group('inventory')
-	
 	# shift item parent from Map to InventoryObjects
 	if obj.get_parent() == GameData.map:
 		obj.get_parent().remove_child(obj)
 	objects.add_child(obj)
-	
 	# assign the obj to the slot
 	slot.add_contents(obj)
 	return OK
@@ -90,10 +86,8 @@ func call_throw_menu():
 	var footer = "ENTER to confirm, ESC or RMB to cancel"
 	GameData.inventory_menu.start(false, header, footer)
 
-
 func _ready():
 	GameData.inventory = self
-
 
 func _on_slot_mouse_enter(slot):
 	var name = '' if slot.contents.empty() else slot.contents[0].get_display_name()
@@ -104,12 +98,11 @@ func _on_slot_mouse_enter(slot):
 func _on_slot_mouse_exit():
 	name_label.set_text('')
 
-
 func _on_slot_button_pressed(slot):
 	assert not slot.contents.empty()
 	var obj = slot.contents[0]
 	var result = yield(obj.item, 'used')
-	
+
 	if result == "OK":
 		if not obj.item.indestructible:
 			slot.remove_contents(obj)
@@ -118,16 +111,13 @@ func _on_slot_button_pressed(slot):
 	else:
 		GameData.broadcast(result, GameData.COLOUR_BLUE)
 
-
 func _on_slot_item_used(slot):
 	assert not slot.contents.empty()
 	slot.contents[0].item.use()
 
-
 func _on_Drop_pressed():
 	var cont = GameData.player.find_node('Controller')
 	cont.Drop()
-
 
 func _on_Throw_pressed():
 	var cont = GameData.player.find_node('Controller')
