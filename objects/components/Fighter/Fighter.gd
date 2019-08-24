@@ -161,7 +161,7 @@ func broadcast_damage_taken(from, amount):
 	elif from == "Blue Fungus":
 		GameData.broadcast(from+ " confuses " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
 		if owner == GameData.player:
-			confused(5)
+			confused(4)
 	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion

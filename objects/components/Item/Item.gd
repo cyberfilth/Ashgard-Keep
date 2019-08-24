@@ -294,6 +294,16 @@ func blast_cell():
 
 func read():
 	get_node("../Lore").read_book()
+# Timer added to avoid glitch where books
+# were not being remove from inventory
+	var t = Timer.new()
+	t.set_wait_time(0.1)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	#####
 	emit_signal('used', "OK")
 
 func _process(delta):
