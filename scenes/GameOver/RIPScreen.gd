@@ -24,7 +24,7 @@ func _ready():
 		suffix = "th"
 	var keep_level = str(keepfloor)+suffix
 	# make the name of the thing that killed you
-	# and your method of death more descriptive
+	# and the method of your death more descriptive
 	killer_description(GameData.killer)
 	type_of_death()
 	# Print death message
@@ -60,6 +60,8 @@ func killer_description(killer):
 		what_killed_you = "a cute Hell Puppy."
 	elif killer == "Patchwork Golem":
 		what_killed_you = "a monstrous Patchwork Golem."
+	elif killer == "Hell Hound":
+		what_killed_you = "a ferocious Hell Hound."
 	else:
 		what_killed_you = "a "+GameData.killer
 
@@ -73,6 +75,8 @@ func type_of_death():
 		death_description = "were burned to death"
 	elif what_killed_you == "Bat":
 		death_description = "were nibbled to death"
+	elif what_killed_you == "Hell Hound":
+		death_description = "were eaten"
 	else:
 		death_description = "were killed"
 

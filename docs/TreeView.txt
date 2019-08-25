@@ -276,37 +276,36 @@
 │   ├── monster
 │   │   └── AT_green.png
 │   └── particles
+│       ├── blood_drain.gd
+│       ├── blood_drain.tscn
 │       ├── bolt.png
 │       ├── bolt.png.flags
 │       ├── electricity.gd
 │       ├── electricity.tscn
 │       ├── fire_particle.png
-│       ├── flame_frames
-│       │   ├── flames1.png
-│       │   ├── flames2.png
-│       │   ├── flames3.png
-│       │   ├── flames4.png
-│       │   ├── flames5.png
-│       │   ├── flames6.png
-│       │   ├── flames7.png
-│       │   └── flames8.png
 │       ├── Flames.gd
-│       ├── Flames_sprite.tscn
 │       ├── Flames.tscn
 │       ├── necro_energy.gd
 │       ├── necro_energy.tscn
 │       ├── necrotic_bolt.png
 │       ├── necrotic_spark.png
 │       ├── portal_spark.png
-│       └── skull.png
+│       ├── skull.png
+│       ├── spore_cloud.gd
+│       └── spore_cloud.tscn
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
-├── map.txt
 ├── objects
 │   ├── armour
+│   │   ├── Bone_armour.png
+│   │   ├── Bone_armour.tex
+│   │   ├── bone_armour.tscn
 │   │   ├── chainmail_armour.png
-│   │   └── heavy_cloth_armour.tscn
+│   │   ├── heavy_cloth_armour.tscn
+│   │   ├── Skin_armour.png
+│   │   ├── Skin_armour.tex
+│   │   └── skin_armour.tscn
 │   ├── components
 │   │   ├── Armour
 │   │   │   ├── Armour.gd
@@ -359,8 +358,15 @@
 │   │   │   │   ├── blood_bat.tscn
 │   │   │   │   ├── scorpion_AI.gd
 │   │   │   │   └── scorpion.tscn
+│   │   │   ├── lvl3
+│   │   │   │   └── vampire_bat.tscn
 │   │   │   ├── rat_AI.gd
 │   │   │   └── rat.tscn
+│   │   ├── fungus
+│   │   │   ├── blue_fungus_AI.gd
+│   │   │   ├── blue_fungus.tscn
+│   │   │   ├── yellow_fungus_AI.gd
+│   │   │   └── yellow_fungus.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
@@ -373,6 +379,20 @@
 │   │       │   ├── hell_puppy.tscn
 │   │       │   ├── necromancer2_inventory.gd
 │   │       │   └── necromancer2.tscn
+│   │       ├── lvl3
+│   │       │   ├── demonic_puppy_AI.gd
+│   │       │   ├── demonic_puppy.tscn
+│   │       │   ├── hell_hound_AI.gd
+│   │       │   ├── hell_hound.tscn
+│   │       │   ├── patchwork_golem_AI.gd
+│   │       │   ├── patchwork_golem_inventory.gd
+│   │       │   ├── patchwork_golem.tscn
+│   │       │   ├── vampire_AI.gd
+│   │       │   ├── vampire_inventory.gd
+│   │       │   ├── vampire.tscn
+│   │       │   ├── zombie_warrior_AI.gd
+│   │       │   ├── zombie_warrior_inventory.gd
+│   │       │   └── zombie_warrior.tscn
 │   │       ├── necromancer_AI.gd
 │   │       ├── necromancer_inventory.gd
 │   │       ├── necromancer.tscn
@@ -386,6 +406,8 @@
 │   │   ├── Player.tscn
 │   │   └── Torch.gd
 │   └── weapons
+│       ├── blood_drinker.png
+│       ├── blood_drinker.tscn
 │       ├── bone_dagger.png
 │       ├── bone_dagger.tscn
 │       ├── crude_dagger.tscn
@@ -434,4 +456,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-42 directories, 392 files
+44 directories, 412 files
