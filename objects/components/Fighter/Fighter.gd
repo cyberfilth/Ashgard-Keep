@@ -223,6 +223,7 @@ func die():
 		GameData.map.add_child(dropped_item)
 		dropped_item.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 		GameData.broadcast("The "+corpse+" drops an item")
+		bleed(blood_colour)
 	# remove the enemy from the screen
 	owner.kill()
 
