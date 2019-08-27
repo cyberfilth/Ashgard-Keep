@@ -120,8 +120,9 @@ var monster_greenskins = [
 { # 1st level Greenskins
 minion1 = 'monsters/animals/rat',
 minion2 = 'monsters/fungus/yellow_fungus',
-gribbly1 = 'monsters/greenskins/goblin',
-gribbly2 = 'monsters/undead/diseased_zombie',
+#gribbly1 = 'monsters/greenskins/goblin',
+gribbly1 = 'monsters/greenskins/rock_thrower_goblin',
+gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/undead/necromancer'
 },
 { # 2nd level Greenskins
