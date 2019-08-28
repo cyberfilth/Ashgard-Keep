@@ -185,13 +185,13 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.fighter.hp = GameData.roll(15, 25)
 	GameData.broadcast("The body of the puppy transforms in the flames")
 
-func spawn_rock(npc_pos):
+func spawn_rock(npc, npc_pos):
 	var rock_scene = preload("res://objects/items/Rock.tscn")
 	var rock = rock_scene.instance()
 	get_parent().get_node('Map').add_child(rock)
 	rock.set_pos(npc_pos)
 	rock.add_to_group('objects')
-	rock.item.npc_throw(npc_pos)
+	rock.item.npc_throw(npc, npc_pos)
 
 func release_blue_spores(target_area):
 	var x
