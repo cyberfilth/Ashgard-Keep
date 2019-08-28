@@ -98,9 +98,9 @@ func throw():
 					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
 		GameData.player.emit_signal('object_acted')
 
-func npc_throw(npc_pos):
-		var cell = npc_pos
-		#GameData.broadcast("You throw " + owner.get_display_name())
+func npc_throw(npc, npc_pos):
+		var cell = GameData.player.get_map_pos()
+		GameData.broadcast(npc+ " throws " + owner.get_display_name())
 		var path = FOVGen.get_line(owner.get_map_pos(), cell)
 		if not path.empty():
 			var tpath = []

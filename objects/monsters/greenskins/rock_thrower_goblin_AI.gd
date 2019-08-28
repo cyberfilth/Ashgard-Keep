@@ -7,7 +7,7 @@ var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
 var zap_timer = 3 # timer before zapping the player
-var throw_range = 4
+var number_of_rocks = 3
 
 func _ready():
 	owner.ai = self
@@ -71,7 +71,7 @@ func zap_player():
 	var cell = target.get_map_pos()
 	var distance = owner.distance_to(cell)
 	# create a rock and throw it
-	GameData.map.spawn_rock(GameData.map.map_to_world(owner.get_map_pos()))
+	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_pos()))
 	stop_glowing()
 
 func confused_wander():
