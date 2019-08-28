@@ -31,7 +31,10 @@ func take_turn():
 		if distance <= 1:
 			owner.fighter.fight(target)
 		elif distance >= 3: # rock throwing distance
-			prepare_to_throw_rock()
+			if number_of_rocks > 0: # check if there are still rocks to throw
+				prepare_to_throw_rock()
+			else: # Attack player if out of rocks
+				owner.step_to(target.get_map_pos())
 		else:
 			confused_wander()
 
@@ -66,12 +69,10 @@ func wind_down():
 	ready_to_throw = false
 	throw_timer = 3
 
+# create a rock and throw it
 func throw_rock_at_player():
-	var target = GameData.player
-	var cell = target.get_map_pos()
-	var distance = owner.distance_to(cell)
-	# create a rock and throw it
 	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_pos()))
+	number_of_rocks -= 1
 	wind_down()
 
 func confused_wander():

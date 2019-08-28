@@ -121,7 +121,12 @@ func npc_throw(npc, npc_pos):
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target:
 				if self.throw_damage > 0:
-					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
+					# chance of a miss
+					var miss_chance = randi()%3
+					if miss_chance == 2:
+						GameData.broadcast(owner.get_display_name()+" misses you")
+					else:
+						target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
 
 func _ready():
 	owner.item = self
