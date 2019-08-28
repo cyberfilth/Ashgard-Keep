@@ -152,6 +152,7 @@ func heal_player():
 	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func stealth():
 	if GameData.player.fighter.has_status_effect('poisoned'):
@@ -168,6 +169,7 @@ func stealth():
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func damage_nearest():
 	var amount = self.param1
@@ -180,6 +182,7 @@ func damage_nearest():
 	GameData.player.get_node("Camera").shake(0.3, 10)
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func confuse_target():
 	var target = null
@@ -208,6 +211,7 @@ func confuse_target():
 	target.fighter.apply_status_effect('confused', param1)
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func weapon():
 	var weapon = get_node('../Weapon')
@@ -311,11 +315,13 @@ func blast_cell():
 		obj.fighter.take_damage(effect_name, amount)
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func read():
 	get_node("../Lore").read_book()
 	pause_timer()
 	emit_signal('used', "OK")
+	return
 
 func _process(delta):
 	if throw_path.empty():

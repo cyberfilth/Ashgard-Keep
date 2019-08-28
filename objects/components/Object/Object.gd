@@ -12,7 +12,7 @@ export(bool) var blocks_movement = false
 export(bool) var stay_visible = false
 
 var seen = false setget _set_seen
-var discovered = false # becomes true the first time seen becomes true
+var discovered = false # becomes true the first time seen
 
 # Components
 var item
@@ -117,7 +117,7 @@ func distance_to(cell):
 
 
 # Set our position in map cell coordinates
-# warp=true: set position regardless of blockers 
+# warp=true: set position regardless of blockers
 # and don't emit moved signal
 func set_map_pos(cell, warp=false):
 	set_pos(GameData.map.map_to_world(cell))
@@ -163,7 +163,6 @@ func _set_seen(what):
 			pass
 		else:
 			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOUR_YELLOW)
-		
 
 func _on_hp_changed(current,full):
 	if not fighter: return

@@ -6,13 +6,11 @@ func add_contents(what):
 	contents.append(what)
 	what.item.inventory_slot = self
 	update_slot()
-	
 
 func remove_contents(what):
 	contents.remove(contents.find(what))
 	what.item.inventory_slot = null
 	update_slot()
-
 
 func update_slot():
 	if !contents.empty():
@@ -23,7 +21,6 @@ func update_slot():
 		get_node('Icon').set_texture(null)
 		get_node('Brand').set_texture(null)
 		set_disabled(true)
-
 	var count = contents.size()
 	var txt = str(count) if count > 1 else ''
 	get_node('Count').set_text(txt)
