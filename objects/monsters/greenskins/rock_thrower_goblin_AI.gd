@@ -71,18 +71,7 @@ func zap_player():
 	var cell = target.get_map_pos()
 	var distance = owner.distance_to(cell)
 	# create a rock and throw it
-	print("Dropping a rock")
 	GameData.map.spawn_rock(GameData.map.map_to_world(owner.get_map_pos()))
-	#obj = obj[0]
-	#obj.item.npc_throw(owner.get_map_pos())
-	
-#	var drain_amount = GameData.roll(2, 10)
-#	if distance <= GameData.player_radius:
-#		GameData.map.spawn_vampiric_drain_fx()
-#		GameData.player.fighter.take_damage('Vampiric drain', drain_amount)
-#		owner.fighter.hp+=drain_amount
-#		stop_glowing()
-#	else:
 	stop_glowing()
 
 func confused_wander():

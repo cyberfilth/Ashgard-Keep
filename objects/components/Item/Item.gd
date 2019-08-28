@@ -99,13 +99,13 @@ func throw():
 		GameData.player.emit_signal('object_acted')
 
 func npc_throw(npc_pos):
-		var cell = GameData.player.get_map_pos()
+		var cell = npc_pos
 		#GameData.broadcast("You throw " + owner.get_display_name())
 		var path = FOVGen.get_line(owner.get_map_pos(), cell)
 		if not path.empty():
 			var tpath = []
 			for cell in path:
-				var actor = GameData.player
+				var actor = GameData.map.get_actor_in_cell(npc_pos)
 				if actor && actor == GameData.player:
 					tpath.append(cell)
 					break
@@ -118,9 +118,10 @@ func npc_throw(npc_pos):
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
 			var target_cell = owner.get_map_pos()
-			var target = GameData.player
-			if self.throw_damage > 0:
-				GameData.player.fighter.take_damage(owner.get_display_name(), self.throw_damage)
+			var target = GameData.map.get_actor_in_cell(target_cell)
+			if target:
+				if self.throw_damage > 0:
+					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
 
 func _ready():
 	owner.item = self
