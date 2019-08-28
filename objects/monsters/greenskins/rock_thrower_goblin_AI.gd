@@ -5,8 +5,8 @@ extends Node
 onready var owner = get_parent()
 var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
-var ready_to_zap = false
-var zap_timer = 3 # timer before zapping the player
+var ready_to_throw = false
+var throw_timer = 3 # timer before throwing the projectile
 var number_of_rocks = 3
 
 func _ready():
@@ -31,7 +31,7 @@ func take_turn():
 		if distance <= 1:
 			owner.fighter.fight(target)
 		elif distance >= 3: # rock throwing distance
-			throw_rock()
+			prepare_to_throw_rock()
 		else:
 			confused_wander()
 
@@ -51,28 +51,28 @@ func check_if_at_location():
 	if owner.get_map_pos() == random_location:
 		has_random_location = false
 
-func throw_rock():
-	if ready_to_zap == false:
-		ready_to_zap = true
+func prepare_to_throw_rock():
+	if ready_to_throw == false:
+		ready_to_throw = true
 		return
 	else:
-		if zap_timer > 1:
-			zap_timer -=1
+		if throw_timer > 1:
+			throw_timer -=1
 			return
 		else:
-			zap_player()
+			throw_rock_at_player()
 
-func stop_glowing():
-	ready_to_zap = false
-	zap_timer = 3
+func wind_down():
+	ready_to_throw = false
+	throw_timer = 3
 
-func zap_player():
+func throw_rock_at_player():
 	var target = GameData.player
 	var cell = target.get_map_pos()
 	var distance = owner.distance_to(cell)
 	# create a rock and throw it
 	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_pos()))
-	stop_glowing()
+	wind_down()
 
 func confused_wander():
 	var UP = randi()%2
