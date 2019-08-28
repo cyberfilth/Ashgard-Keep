@@ -185,6 +185,14 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.fighter.hp = GameData.roll(15, 25)
 	GameData.broadcast("The body of the puppy transforms in the flames")
 
+func spawn_rock(npc_pos):
+	var rock_scene = preload("res://objects/items/Rock.tscn")
+	var rock = rock_scene.instance()
+	get_parent().get_node('Map').add_child(rock)
+	rock.set_pos(npc_pos)
+	rock.add_to_group('objects')
+	rock.item.npc_throw(npc_pos)
+
 func release_blue_spores(target_area):
 	var x
 	var y
@@ -213,13 +221,10 @@ func set_cursor_hidden(is_hidden):
 func set_cursor():
 	var cell = world_to_map(get_local_mouse_pos())
 	get_node('Cursor').set_pos(map_to_world(cell))
-
 	var oob = false # out of bounds
 	if cell.x < 0 or cell.x >= GameData.MAP_SIZE.x: oob = true
 	if cell.y < 0 or cell.y >= GameData.MAP_SIZE.y: oob = true
-
 	var text = 'NO!' #<-- shouldn't see this in game
-
 	if cell in get_node('Fogmap').get_used_cells() or oob:
 		# cursor in fog or out of map
 		text = 'Unseen'
@@ -232,7 +237,6 @@ func set_cursor():
 		else:
 			# cursor over empty wall/floor
 			text = "wall" if is_wall(cell) else "floor"
-
 	set_cursor_label(text)
 
 func _sort_z(a,b):
