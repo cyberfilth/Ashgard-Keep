@@ -10,7 +10,6 @@ func _ready():
 	newgame_icon.hide()
 	continue_icon.hide()
 	quit_icon.hide()
-	randomize()
 	versionlabel.set_text(GameData.version)
 	# check for save file
 	var file = File.new()

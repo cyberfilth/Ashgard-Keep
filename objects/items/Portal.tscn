@@ -88,6 +88,7 @@ script/script = ExtResource( 6 )
 [node name="Fighter" parent="." instance=ExtResource( 7 )]
 
 defence = 5000
+max_hp = 5000
 xp_reward = 5
 
 
