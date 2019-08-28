@@ -39,13 +39,11 @@ func Drop():
 func Throw():
 	GameData.inventory.call_throw_menu()
 	var obj = yield(GameData.inventory_menu, 'items_selected')
-	
 	if obj.empty():
 		GameData.broadcast("action cancelled")
 	else:
 		obj = obj[0]
 		obj.item.throw()
-		
 
 # WAIT action
 func Wait():

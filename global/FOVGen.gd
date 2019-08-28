@@ -41,17 +41,13 @@ func calculate_fov(data, wall_index, origin, radius):
 			if not cell in cells:
 				if int(cell.distance_to(origin)) <= radius:
 					cells.append(cell)
-	
-	
 	for cell in cells:
-
 		if not is_wall(data, wall_index, cell):
 			for x in range(-1,2):
 				for y in range(-1,2):
 					var ncell = cell+Vector2(x,y)
 					if is_wall(data, wall_index, ncell) and int(ncell.distance_to(origin)) <= radius:
 						cells.append(ncell)
-
 	return cells
 
 
@@ -92,7 +88,6 @@ func get_line(from,to):
 	var y2 = to.y
 	var dx = x2 - x1
 	var dy = y2 - y1
-
 	
 	# determine steepness of line
 	var is_steep = abs(dy) > abs(dx)
@@ -106,7 +101,6 @@ func get_line(from,to):
 		ox = x2
 		x2 = y2
 		y2 = ox
-
 	# swap start points if needed
 	var swapped = false
 	if x1 > x2:
@@ -119,15 +113,12 @@ func get_line(from,to):
 		y1 = y2
 		y2 = oy
 		swapped = true
-	
 	# recalculate differentials
 	dx = x2-x1
 	dy = y2-y1
-	
 	# calculate error
 	var error = int(dx / 2.0)
 	var ystep = 1 if y1 < y2 else -1
-	
 	# iterate over bounding box generating points between
 	var y = y1
 	var points = []
@@ -138,9 +129,7 @@ func get_line(from,to):
 		if error < 0:
 			y += ystep
 			error += dx
-	
 	# reverse list if coordinates were swapped
 	if swapped:
 		points.invert()
-
 	return points

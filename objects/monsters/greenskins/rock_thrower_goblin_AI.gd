@@ -1,15 +1,13 @@
-# vampire_AI
+# rock_thrower_goblin_AI
 
 extends Node
 
 onready var owner = get_parent()
 var random_location = Vector2(0,0) # somewhere to wander
 var has_random_location = false # has somewhere to wander
-var ready_to_zap = false
-var zap_timer = 3 # timer before zapping the player
-var warning_message = ['Vampiric magic fills the air',\
-	'The Vampires hunger begins to consume him',\
-	'The Vampire prepares to drain your energy']
+var ready_to_throw = false
+var throw_timer = 3 # timer before throwing the projectile
+var number_of_rocks = 3
 
 func _ready():
 	owner.ai = self
@@ -32,18 +30,13 @@ func take_turn():
 	elif distance <= GameData.player_radius:
 		if distance <= 1:
 			owner.fighter.fight(target)
-		elif distance > (GameData.player_radius / 2): # if player is over half distance of LoS away
-			necromancy()
+		elif distance >= 3: # rock throwing distance
+			if number_of_rocks > 0: # check if there are still rocks to throw
+				prepare_to_throw_rock()
+			else: # Attack player if out of rocks
+				owner.step_to(target.get_map_pos())
 		else:
 			confused_wander()
-
-func confused_wander():
-	var UP = randi()%2
-	var DOWN = randi()%2
-	var LEFT = randi()%2
-	var RIGHT = randi()%2
-	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
-	owner.step(dir)
 
 func choose_random_location():
 	var x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
@@ -61,36 +54,31 @@ func check_if_at_location():
 	if owner.get_map_pos() == random_location:
 		has_random_location = false
 
-func necromancy():
-	if ready_to_zap == false:
-		glow_with_necromantic_energy()
-		ready_to_zap = true
+func prepare_to_throw_rock():
+	if ready_to_throw == false:
+		ready_to_throw = true
 		return
 	else:
-		if zap_timer > 1:
-			zap_timer -=1
+		if throw_timer > 1:
+			throw_timer -=1
 			return
 		else:
-			zap_player()
+			throw_rock_at_player()
 
-func glow_with_necromantic_energy():
-	owner.get_node('Light2D').show()
-	var message = warning_message[GameData.roll(0, warning_message.size()-1)]
-	GameData.broadcast(message, GameData.COLOUR_NECROTIC_PURPLE)
+func wind_down():
+	ready_to_throw = false
+	throw_timer = 3
 
-func stop_glowing():
-	owner.get_node('Light2D').hide()
-	ready_to_zap = false
-	zap_timer = 3
+# create a rock and throw it
+func throw_rock_at_player():
+	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_pos()))
+	number_of_rocks -= 1
+	wind_down()
 
-func zap_player():
-	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
-	var drain_amount = GameData.roll(2, 10)
-	if distance <= GameData.player_radius:
-		GameData.map.spawn_vampiric_drain_fx()
-		GameData.player.fighter.take_damage('Vampiric drain', drain_amount)
-		owner.fighter.hp+=drain_amount
-		stop_glowing()
-	else:
-		stop_glowing()
+func confused_wander():
+	var UP = randi()%2
+	var DOWN = randi()%2
+	var LEFT = randi()%2
+	var RIGHT = randi()%2
+	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
+	owner.step(dir)
