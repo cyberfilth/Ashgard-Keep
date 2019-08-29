@@ -98,7 +98,7 @@ func _on_slot_mouse_enter(slot):
 func _on_slot_mouse_exit():
 	name_label.set_text('')
 
-func _on_slot_button_pressed(slot):
+func _on_InventorySlot_pressed(slot):
 	assert !slot.contents.empty()
 	var obj = slot.contents[0]
 	var result = yield(obj.item, 'used')
