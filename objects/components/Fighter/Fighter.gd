@@ -219,7 +219,6 @@ func die():
 	# check if enemy drops any items
 	if owner.has_node("Inventory"):
 		var item = owner.get_node("Inventory").drop_item()
-		print(item)
 		var dropped = load(item)
 		var dropped_item = dropped.instance()
 		GameData.map.add_child(dropped_item)
