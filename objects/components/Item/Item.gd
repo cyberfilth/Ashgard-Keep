@@ -1,6 +1,5 @@
 extends Node
 
-signal used(result)
 signal landed(pos)
 
 onready var owner = get_parent()
@@ -46,13 +45,12 @@ func restore(data):
 	self.throw_path = []
 
 
-func use():
+func use(slot):
 	if use_function.empty():
 		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOUR_TEAL)
 		return
 	if has_method(use_function):
-		call(use_function)
-
+		call(use_function, slot)
 
 func pickup():
 	var result = GameData.inventory.add_to_inventory(owner)
@@ -132,34 +130,21 @@ func _ready():
 	owner.item = self
 
 # USE FUNCTIONS
-
-func pause_timer():
-	# Timer added to avoid glitch where items
-	# were not being remove from inventory
-	var t = Timer.new()
-	t.set_wait_time(0.1)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	t.queue_free()
-
-func heal_player():
+func heal_player(slot):
 	var amount = self.param1
 	if GameData.player.fighter.is_hp_full():
-		emit_signal('used', "You're already at full health")
+		GameData.use_item = "You're already at full health"
 		return
 	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
-func stealth():
+func stealth(slot):
 	if GameData.player.fighter.has_status_effect('poisoned'):
-		emit_signal('used', "You cannot drink this potion whilst poisoned!")
+		GameData.use_item = "You cannot drink this potion whilst poisoned!"
 		return
 	if GameData.player.fighter.has_status_effect('paralysed'):
-		emit_signal('used', "You cannot drink this potion whilst paralysed!")
+		GameData.use_item = "You cannot drink this potion whilst paralysed!"
 		return
 	GameData.original_player_radius = GameData.player_radius
 	GameData.player_radius = 1
@@ -167,24 +152,23 @@ func stealth():
 	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOUR_GREEN)
 	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
-func damage_nearest():
+func damage_nearest(slot):
 	var amount = self.param1
 	var target = GameData.map.get_nearest_visible_actor()
 	if not target:
-		emit_signal('used', "No targets in sight")
+		GameData.use_item = "No targets in sight"
+		GameData.inventory.after_item_used(slot)
 		return
 	target.fighter.take_damage(self.effect_name, amount)
 	GameData.map.spawn_lightningbolt_fx(target.get_pos())
 	GameData.player.get_node("Camera").shake(0.3, 10)
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
-func confuse_target():
+func confuse_target(slot):
 	var target = null
 	# instruct the player to choose a target or cancel
 	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
@@ -192,7 +176,8 @@ func confuse_target():
 	var callback = yield(GameData.game, 'map_clicked')
 	# callback==null = RMB to cancel
 	if callback==null:
-		emit_signal('used', "action cancelled")
+		GameData.use_item = "action cancelled"
+		GameData.inventory.after_item_used(slot)
 		return
 	# cell clicked
 	else:
@@ -200,20 +185,21 @@ func confuse_target():
 		target = GameData.map.get_actor_in_cell(callback)
 	# if no actor in cell
 	if not target:
-		emit_signal('used', "no target there")
+		GameData.use_item = "no target there"
+		GameData.inventory.after_item_used(slot)
 		return
 	# if clicking yourself
 	elif target == GameData.player:
-		emit_signal('used', "you don't want to confuse yourself!")
+		GameData.use_item = "you don't want to confuse yourself!"
+		GameData.inventory.after_item_used(slot)
 		return
 	# found valid target
 	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOUR_BLUE)
 	target.fighter.apply_status_effect('confused', param1)
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
-func weapon():
+func weapon(slot):
 	var weapon = get_node('../Weapon')
 	if equipped == true:
 		unequip_weapon(weapon)
@@ -248,8 +234,9 @@ func equip_weapon(weapon):
 	var dice = weapon.dice
 	var adds = weapon.adds
 	weapon.equip(weapon_name, dice, adds)
+	GameData.use_item = "Equipped"
 
-func armour():
+func armour(slot):
 	var armour = get_node('../Armour')
 	if equipped == true:
 		unequip_armour(armour)
@@ -258,6 +245,7 @@ func armour():
 		return
 	else:
 		equip_armour(armour)
+		GameData.use_item = "Equipped"
 
 func unequip_armour(armour):
 	var armour_name = owner.get_display_name()
@@ -283,7 +271,7 @@ func equip_armour(armour):
 	var armour_protection = armour.armour_protection
 	armour.equip(armour_name, armour_protection)
 
-func blast_cell():
+func blast_cell(slot):
 	var amount = param1
 	var target_cell = null
 	# instruct the player to choose a target or cancel
@@ -292,10 +280,12 @@ func blast_cell():
 	var callback = yield(GameData.game, 'map_clicked')
 	# callback==null = RMB to cancel
 	if callback == null:
-		emit_signal('used', "action cancelled")
+		GameData.use_item = "action cancelled"
+		GameData.inventory.after_item_used(slot)
 		return
 	if not callback in GameData.map.fov_cells:
-		emit_signal('used', "can't cast there!")
+		GameData.use_item = "can't cast there!"
+		GameData.inventory.after_item_used(slot)
 		return
 	target_cell = callback
 	# list of actors in blast area
@@ -313,15 +303,13 @@ func blast_cell():
 			actors.append(node)
 	for obj in actors:
 		obj.fighter.take_damage(effect_name, amount)
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
-func read():
+func read(slot):
 	get_node("../Lore").read_book()
-	#pause_timer()
-	emit_signal('used', "OK")
-	return
+	GameData.use_item = "OK"
+	GameData.inventory.after_item_used(slot)
 
 func _process(delta):
 	if throw_path.empty():

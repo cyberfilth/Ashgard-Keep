@@ -10,7 +10,6 @@ func add_contents(what):
 func remove_contents(what):
 	contents.remove(contents.find(what))
 	what.item.inventory_slot = null
-	print("Removed item")
 	update_slot()
 
 func update_slot():
@@ -26,14 +25,14 @@ func update_slot():
 	var txt = str(count) if count > 1 else ''
 	get_node('Count').set_text(txt)
 
-func show_equipped_weapon():
-	get_node('EQ_weapon').show()
-
 func extinguish_torch():
 	get_node('Torch_unlit').show()
 
 func light_torch():
 	get_node('Torch_unlit').hide()
+
+func show_equipped_weapon():
+	get_node('EQ_weapon').show()
 
 func show_unequipped_weapon():
 	get_node('EQ_weapon').hide()
@@ -48,4 +47,3 @@ func _ready():
 	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
 	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
 	connect("pressed", get_parent(), "_on_InventorySlot_pressed", [self])
-	connect("pressed", get_parent(), "_on_slot_item_used", [self])
