@@ -150,7 +150,7 @@ func heal_player():
 		emit_signal('used', "You're already at full health")
 		return
 	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 
@@ -167,7 +167,7 @@ func stealth():
 	GameData.broadcast("You are able to creep through the shadows unseen", GameData.COLOUR_GREEN)
 	GameData.player.fighter.apply_status_effect('stealth', stealth_time)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stealthy")
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 
@@ -180,7 +180,7 @@ func damage_nearest():
 	target.fighter.take_damage(self.effect_name, amount)
 	GameData.map.spawn_lightningbolt_fx(target.get_pos())
 	GameData.player.get_node("Camera").shake(0.3, 10)
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 
@@ -209,7 +209,7 @@ func confuse_target():
 	# found valid target
 	GameData.broadcast(target.get_display_name() + " looks very confused!", GameData.COLOUR_BLUE)
 	target.fighter.apply_status_effect('confused', param1)
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 
@@ -313,13 +313,13 @@ func blast_cell():
 			actors.append(node)
 	for obj in actors:
 		obj.fighter.take_damage(effect_name, amount)
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 
 func read():
 	get_node("../Lore").read_book()
-	pause_timer()
+	#pause_timer()
 	emit_signal('used', "OK")
 	return
 

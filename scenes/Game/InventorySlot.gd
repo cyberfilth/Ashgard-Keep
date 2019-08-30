@@ -10,10 +10,11 @@ func add_contents(what):
 func remove_contents(what):
 	contents.remove(contents.find(what))
 	what.item.inventory_slot = null
+	print("Removed item")
 	update_slot()
 
 func update_slot():
-	if !contents.empty():
+	if not contents.empty():
 		get_node('Icon').set_texture(contents[0].get_icon())
 		get_node('Brand').set_texture(contents[0].get_brand())
 		set_disabled(false)

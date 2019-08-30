@@ -99,19 +99,25 @@ func _on_slot_mouse_exit():
 	name_label.set_text('')
 
 func _on_InventorySlot_pressed(slot):
-	assert !slot.contents.empty()
+	assert not slot.contents.empty()
 	var obj = slot.contents[0]
+	print("InventorySlot pressed")
+	print("Wait for USE function")
 	var result = yield(obj.item, 'used')
 	if result == "OK":
-		if !obj.item.indestructible:
+		print("USE = OK")
+		if not obj.item.indestructible:
+			print("Removing item")
 			slot.remove_contents(obj)
 			obj.kill()
+			print("item killed")
 		GameData.player.emit_signal('object_acted')
 	else:
 		GameData.broadcast(result, GameData.COLOUR_BLUE)
 
 func _on_slot_item_used(slot):
-	assert !slot.contents.empty()
+	assert not slot.contents.empty()
+	print("USE function")
 	slot.contents[0].item.use()
 
 func _on_Drop_pressed():
