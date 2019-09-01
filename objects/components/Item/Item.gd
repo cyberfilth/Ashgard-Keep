@@ -121,7 +121,7 @@ func npc_throw(npc, npc_pos):
 				if self.throw_damage > 0:
 					# chance of a miss
 					var miss_chance = randi()%3
-					if miss_chance == 2:
+					if miss_chance == 1:
 						GameData.broadcast(owner.get_display_name()+" misses you")
 					else:
 						target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
