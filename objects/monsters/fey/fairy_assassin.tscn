@@ -16,6 +16,7 @@ stay_visible = false
 
 [node name="Light2D" type="Light2D" parent="."]
 
+visibility/visible = false
 visibility/opacity = 0.5
 transform/pos = Vector2( 0, -1 )
 enabled = true
