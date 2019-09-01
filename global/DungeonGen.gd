@@ -151,8 +151,8 @@ func generate():
 		var w = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		# origin (top-left corner)
-		var x = GameData.roll(1, GameData.MAP_SIZE.x - w-1)
-		var y = GameData.roll(1, GameData.MAP_SIZE.y - h-1)
+		var x = GameData.roll(2, GameData.MAP_SIZE.x-1 - w-1)
+		var y = GameData.roll(2, GameData.MAP_SIZE.y-1 - h-1)
 		var new_room = Rect2(x,y,w,h)
 		var fail = false
 		for other_room in rooms:
