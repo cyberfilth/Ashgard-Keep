@@ -193,14 +193,22 @@ func broadcast_miss(target, from):
 func die():
 	if owner == GameData.player:
 		game_over(killer)
-	# Release cloud of gas if poison zombie killed
 	var corpse = get_parent().name
+	# Release cloud of gas if poison zombie killed
 	if corpse == "Diseased zombie":
 		var gas_cloud = load("res://objects/monsters/undead/poison_cloud.tscn")
 		var scene_instance = gas_cloud.instance()
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+	# Release fairy dust if fairy killed
+	if corpse == "Fairy Assassin":
+		var fairy_dust = load("res://graphics/particles/fairy_dust.tscn")
+		var scene_instance = fairy_dust.instance()
+		scene_instance.set_name("fairy_dust")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+	# Release yellow cloud if fungus killed
 	if corpse == "Yellow fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
