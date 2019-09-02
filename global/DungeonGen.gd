@@ -1,7 +1,7 @@
 extends Node
 
 # square room 13x13
-const PREFAB1 = [
+const PREFAB_13x13 = [
 [0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,1,1,1,1,0,0,0,1,1,1,1,0],
 [0,1,0,0,1,0,0,0,1,0,0,1,0],
@@ -18,7 +18,7 @@ const PREFAB1 = [
 ]
 
 # square room 10x10
-const PREFAB4 = [
+const PREFAB_10x10 = [
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,1,0,0,0,0,1,0,0],
 [0,1,0,0,0,0,0,0,1,0],
@@ -32,7 +32,7 @@ const PREFAB4 = [
 ]
 
 # circular room 9x9
-const PREFAB2 = [
+const PREFAB_9x9 = [
 [0,0,0,0,0,0,0,0,0],
 [0,0,0,1,1,1,0,0,0],
 [0,0,1,0,0,0,1,0,0],
@@ -45,7 +45,7 @@ const PREFAB2 = [
 ]
 
 # square room 8x8
-const PREFAB3 = [
+const PREFAB_8x8 = [
 [0,0,0,0,0,0,0,0],
 [0,1,0,0,0,0,1,0],
 [0,0,0,0,0,0,0,0],
@@ -99,13 +99,13 @@ func center(rect):
  # leaving a 1-tile border along edges
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
-		prefab_room = PREFAB1
+		prefab_room = PREFAB_13x13
 	if rect.size.x == 10 && rect.size.y == 10:
-		prefab_room = PREFAB4
+		prefab_room = PREFAB_10x10
 	elif rect.size.x >= 9 && rect.size.y >= 9:
-		prefab_room = PREFAB2
+		prefab_room = PREFAB_9x9
 	elif rect.size.x == 8 && rect.size.y ==8:
-		prefab_room = PREFAB3
+		prefab_room = PREFAB_8x8
 	elif prefab_room.empty():
 	# draw regular rectangular room
 		for x in range(rect.size.x-2):
@@ -222,6 +222,21 @@ func place_corridor_monsters(x, y):
 			monster = theme.minion2
 		GameData.map.spawn_object(monster, pos)
 
+# Chooses an item based on a score 1 - 100
+func probability(score):
+	if score in range(1, 31):
+		return 0
+	elif score in range(31, 61):
+		return 1
+	elif score in range(61, 76):
+		return 2
+	elif score in range(76, 86):
+		return 3
+	elif score in range(86, 94):
+		return 4
+	else:
+		return 5
+
 func place_items(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
@@ -233,8 +248,8 @@ func place_items(room):
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
 	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	#var items = ['items/Portal'] # Used for testing levels
-	var choice = items[GameData.roll(0, items.size()-1)]
+	var probability_score = GameData.roll(1, 100)
+	var choice = items[probability(probability_score)]
 	GameData.map.spawn_object(choice, pos)
 
 func place_exit_portal(room):
