@@ -6,7 +6,7 @@ var book_contents = ["\"As it is written in the Book of "+PlotGen.mage+".\nVicto
 "\"My brethren and I have been trapped in this damned tower for years now.\nAt least this floor is preferable to the alternatives...\"\nJournal of the Red Brotherhood, disciples of "+PlotGen.mage,
 "\"Graveyard chill and Creeping dark,\nListen to the werewolves bark.\"\n - A short poem by Davgrim the Reluctant, apprentice Necromancer",\
 "\"I found a portal! I entered and was transported to an unfamiliar part of the Keep.\nThe abominations I found there are much more dangerous than here...\"\nJournal of the Red Brotherhood, disciples of "+PlotGen.mage,
-"The runes move and swirl on the page, forming shapes.\nThey create an image, of you. Standing victorius at the top of the Keep.\nThe book disintegrates in your hands..."]
+"The runes move and swirl on the page, forming shapes.\nThey create an image, of you. Standing victorious at the top of the Keep.\nThe book disintegrates in your hands..."]
 
 func _ready():
 	pass
