@@ -113,8 +113,8 @@ func carve_room(rect):
 		prefab_room = []
 		return
 	for x in range(prefab_room.size()):
-			for y in range(prefab_room.size()):
-				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
+		for y in range(prefab_room.size()):
+			set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
 	prefab_room = []
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
