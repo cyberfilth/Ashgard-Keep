@@ -51,8 +51,8 @@ func choose_random_location():
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
-		y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
+		x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
+		y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
 		pos = Vector2(x,y)
 	random_location = pos
 	has_random_location = true
