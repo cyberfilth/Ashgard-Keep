@@ -282,6 +282,8 @@
 │       ├── bolt.png.flags
 │       ├── electricity.gd
 │       ├── electricity.tscn
+│       ├── fairy_dust.gd
+│       ├── fairy_dust.tscn
 │       ├── fire_particle.png
 │       ├── Flames.gd
 │       ├── Flames.tscn
@@ -296,6 +298,7 @@
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
+├── map.txt
 ├── objects
 │   ├── armour
 │   │   ├── Bone_armour.png
@@ -331,6 +334,7 @@
 │   │   │   ├── Book_necro1.tscn
 │   │   │   ├── Book_necro2.tscn
 │   │   │   ├── book_of_the_dead.png
+│   │   │   ├── book_of_the_dead.tex
 │   │   │   ├── lore_necro1.gd
 │   │   │   └── lore_necro2.gd
 │   │   ├── GreaterHealthPotion.tscn
@@ -353,6 +357,7 @@
 │   │   ├── animals
 │   │   │   ├── bat_AI.gd
 │   │   │   ├── bat.tscn
+│   │   │   ├── Fighter_rat.gd
 │   │   │   ├── lvl2
 │   │   │   │   ├── blood_bat_AI.gd
 │   │   │   │   ├── blood_bat.tscn
@@ -362,11 +367,21 @@
 │   │   │   │   └── vampire_bat.tscn
 │   │   │   ├── rat_AI.gd
 │   │   │   └── rat.tscn
+│   │   ├── fey
+│   │   │   ├── fairy_assassin_AI.gd
+│   │   │   └── fairy_assassin.tscn
 │   │   ├── fungus
 │   │   │   ├── blue_fungus_AI.gd
 │   │   │   ├── blue_fungus.tscn
 │   │   │   ├── yellow_fungus_AI.gd
 │   │   │   └── yellow_fungus.tscn
+│   │   ├── greenskins
+│   │   │   ├── goblin_AI.gd
+│   │   │   ├── goblin_inventory.gd
+│   │   │   ├── goblin.tscn
+│   │   │   ├── rock_thrower_goblin_AI.gd
+│   │   │   ├── rock_thrower_goblin_inventory.gd
+│   │   │   └── rock_thrower_goblin.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
@@ -445,6 +460,8 @@
 │   │   ├── Fogmap.gd
 │   │   ├── Map.gd
 │   │   └── Map.tscn
+│   ├── Start.gd
+│   ├── Start.tscn
 │   └── TitleMenu
 │       ├── LoadingScreen.gd
 │       ├── LoadingScreen.tscn
@@ -456,4 +473,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-44 directories, 412 files
+46 directories, 427 files

@@ -6,8 +6,6 @@ func new_map():
 	var portal_room
 	# Generate a dungeon
 	DungeonGen.generate()
-	# Place the exit
-	DungeonGen.place_exit_portal(DungeonGen.last_room)
 	# build a Pathfinding map
 	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map

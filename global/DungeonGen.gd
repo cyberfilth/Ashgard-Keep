@@ -58,7 +58,6 @@ const PREFAB_8x8 = [
 
 var datamap = []
 var start_pos = Vector2()
-var last_room
 var monster_theme
 var item_theme
 var prefab_room = []
@@ -165,8 +164,6 @@ func generate():
 			if num_rooms == 0:
 				start_pos = new_center
 			else:
-				place_monsters(new_room)
-				place_items(new_room)
 				var prev_center = center(rooms[num_rooms-1])
 				# flip a coin
 				if randi()%2 == 0:
@@ -179,8 +176,12 @@ func generate():
 					carve_h_hall(prev_center.x, new_center.x, new_center.y)
 			rooms.append(new_room)
 			num_rooms += 1
-			last_room = new_room
-			#map_to_text()
+	# Place monsters & items in every room except starting room
+	for z in range(1, rooms.size()):
+		place_monsters(rooms[z])
+		place_items(rooms[z])
+	place_exit_portal(rooms[rooms.size()-1])
+	#map_to_text()
 
 # Saves generated dungeon as a text file
 func map_to_text():

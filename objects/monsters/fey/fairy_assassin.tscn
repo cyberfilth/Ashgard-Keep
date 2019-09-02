@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://graphics/lights/spark.png" type="Texture" id=2]
-[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/monsters/fey/fairy_assassin_AI.gd" type="Script" id=5]
+[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/monsters/fey/fairy_assassin_AI.gd" type="Script" id=4]
 
 [node name="Object" type="Node2D"]
 
@@ -13,31 +12,6 @@ name = "Fairy Assassin"
 proper_name = true
 blocks_movement = true
 stay_visible = false
-
-[node name="Light2D" type="Light2D" parent="."]
-
-visibility/visible = false
-visibility/opacity = 0.5
-transform/pos = Vector2( 0, -1 )
-enabled = true
-editor_only = false
-texture = ExtResource( 2 )
-offset = Vector2( 12, 12 )
-scale = 2.0
-color = Color( 0.314484, 0.853747, 0.894531, 1 )
-energy = 1.0
-mode = 0
-range/height = 0.0
-range/z_min = -1024
-range/z_max = 1024
-range/layer_min = 0
-range/layer_max = 0
-range/item_mask = 1
-shadow/enabled = false
-shadow/color = Color( 0, 0, 0, 0 )
-shadow/buffer_size = 2048
-shadow/esm_multiplier = 80.0
-shadow/item_mask = 1
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
@@ -49,14 +23,14 @@ margin/left = 6.0
 margin/top = 0.0
 margin/right = 46.0
 margin/bottom = 40.0
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 2 )
 custom_colors/default_color = Color( 0.0700378, 0.909276, 0.996094, 1 )
 bbcode/enabled = true
 bbcode/bbcode = "*"
 visible_characters = -1
 percent_visible = 1.0
 
-[node name="Fighter" parent="." instance=ExtResource( 4 )]
+[node name="Fighter" parent="." instance=ExtResource( 3 )]
 
 bleeds = false
 race = "animal"
@@ -67,6 +41,6 @@ xp_reward = 15
 
 [node name="AI" type="Node" parent="."]
 
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 
