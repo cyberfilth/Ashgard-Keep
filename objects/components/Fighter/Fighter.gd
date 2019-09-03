@@ -147,6 +147,12 @@ func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	GameData.broadcast(from+ " restores " +m+ " HP!", color)
 
 func broadcast_damage_taken(from, amount):
+	# Suppress messages if combat takes place off screen
+	var target = GameData.player
+	var distance = owner.distance_to(target.get_map_pos())
+	if distance > (GameData.player_radius):
+		return
+	# Broadcast damage in message log
 	var m = str(amount)
 	var color = GameData.COLOUR_TEAL
 	if owner == GameData.player:
