@@ -286,6 +286,8 @@ func _on_player_acted():
 		else:
 			if GameData.torch_timer % 50 == 0:
 				darker()
+	if GameData.torch_timer > 150 && GameData.getting_dimmer == 2:
+		GameData.player.fighter.take_damage("A black shape", 20)
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
