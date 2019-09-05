@@ -8,7 +8,7 @@ export(String,\
 	'heal_player', 'damage_nearest',\
 	'confuse_target', 'blast_cell',\
 	'weapon', 'armour','torch','read',\
-	'stealth') var use_function = ''
+	'stealth', 'throw') var use_function = ''
 
 export(String, MULTILINE) var effect_name
 export(int) var param1 = 0
@@ -60,7 +60,7 @@ func drop():
 	assert inventory_slot != null
 	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,owner)
 
-func throw():
+func throw(slot):
 	if self.throw_range <= 0:
 		GameData.broadcast("You cannot throw that!")
 		return
@@ -272,6 +272,7 @@ func equip_armour(armour):
 	armour.equip(armour_name, armour_protection)
 
 func blast_cell(slot):
+	GameData.in_use = true
 	var amount = param1
 	var target_cell = null
 	# instruct the player to choose a target or cancel
@@ -283,7 +284,7 @@ func blast_cell(slot):
 		GameData.use_item = "action cancelled"
 		GameData.inventory.after_item_used(slot)
 		return
-	if not callback in GameData.map.fov_cells:
+	elif !callback in GameData.map.fov_cells:
 		GameData.use_item = "can't cast there!"
 		GameData.inventory.after_item_used(slot)
 		return
@@ -294,7 +295,7 @@ func blast_cell(slot):
 	for x in range(-1,2):
 		for y in range(-1,2):
 			var cell = Vector2(x,y) + target_cell
-			if not GameData.map.is_wall(cell):
+			if !GameData.map.is_wall(cell):
 				rect.append(cell)
 				GameData.map.spawn_inferno_fx(cell)
 				GameData.player.get_node("Camera").shake(0.4, 16)

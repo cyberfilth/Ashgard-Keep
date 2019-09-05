@@ -23,6 +23,8 @@ centered = false
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
+use_function = "throw"
+effect_name = "Throw"
 stackable = true
 throw_range = 8
 throw_damage = 3
