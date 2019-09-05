@@ -113,6 +113,7 @@ func after_item_used(slot):
 	else:
 		GameData.broadcast(GameData.use_item, GameData.COLOUR_BLUE)
 	GameData.use_item = "cannot be used" # Reset the USE flag
+	GameData.in_use = false
 
 func _on_slot_item_used(slot):
 	assert not slot.contents.empty()
