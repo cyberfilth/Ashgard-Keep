@@ -25,9 +25,11 @@ func Grab():
 
 # DROP action
 func Drop():
+	if GameData.in_use == true:
+		GameData.broadcast("Click the map to confirm, RMB to cancel")
+		return
 	GameData.inventory.call_drop_menu()
 	var items = yield(GameData.inventory_menu, 'items_selected')
-	
 	if items.empty():
 		GameData.broadcast("action cancelled")
 	else:
