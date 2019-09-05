@@ -37,13 +37,16 @@ func Drop():
 
 #THROW action
 func Throw():
+	if GameData.in_use == true:
+		GameData.broadcast("Click the map to confirm, RMB to cancel")
+		return
 	GameData.inventory.call_throw_menu()
 	var obj = yield(GameData.inventory_menu, 'items_selected')
 	if obj.empty():
 		GameData.broadcast("action cancelled")
 	else:
 		obj = obj[0]
-		obj.item.throw()
+		obj.item.throw(1)
 
 # WAIT action
 func Wait():
