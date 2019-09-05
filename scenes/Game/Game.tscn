@@ -929,8 +929,6 @@ shortcut = null
 text = "Increase both Defence and Attack by 1"
 flat = false
 
-[connection signal="mouse_enter" from="frame/left/map" to="." method="_on_map_mouse_enter"]
-
 [connection signal="mouse_exit" from="frame/left/map" to="." method="_on_map_mouse_exit"]
 
 [connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed"]

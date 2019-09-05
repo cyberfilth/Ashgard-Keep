@@ -308,10 +308,9 @@ func _on_IncreaseATTDEF_pressed():
 	get_node('LevelUp').hide()
 	get_tree().set_pause(false)
 
-
-func _on_map_mouse_enter():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+# Keep mouse pointer on map whilst casting spell / throwing item
 func _on_map_mouse_exit():
 	if GameData.in_use == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_viewport().warp_mouse(get_viewport().get_rect().size/2.0)
+	else:
+		pass
