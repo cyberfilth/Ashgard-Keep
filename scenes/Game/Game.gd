@@ -312,5 +312,6 @@ func _on_IncreaseATTDEF_pressed():
 func _on_map_mouse_exit():
 	if GameData.in_use == true:
 		get_viewport().warp_mouse(get_viewport().get_rect().size/2.0)
+		GameData.broadcast("Click the map to confirm, RMB to cancel")
 	else:
 		pass

@@ -66,9 +66,14 @@ func throw(slot):
 		return
 	else:
 		GameData.broadcast("Which direction? Click the map to confirm, RMB to cancel")
+	# Place mouse pointer on game map
+	get_viewport().warp_mouse(get_viewport().get_rect().size/2.0)
+	# Restrict mouse pointer until object has been thrown or cancelled
+	GameData.in_use = true
 	var cell = yield(GameData.game, 'map_clicked')
 	if cell == null:
 		GameData.broadcast("action cancelled")
+		GameData.in_use = false
 		return
 	else:
 		GameData.broadcast("You throw " + owner.get_display_name())
@@ -95,6 +100,7 @@ func throw(slot):
 				if self.throw_damage > 0:
 					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
 		GameData.player.emit_signal('object_acted')
+		GameData.in_use = false
 
 func npc_throw(npc, npc_pos):
 		var cell = GameData.player.get_map_pos()
@@ -279,7 +285,7 @@ func blast_cell(slot):
 	var amount = param1
 	var target_cell = null
 	# instruct the player to choose a target or cancel
-	GameData.broadcast("Select target with the mouse. Left-click to confirm, Right-click to cancel")
+	GameData.broadcast("Select target with the mouse. Click the map to confirm, RMB to cancel")
 	# yield for map clicking feedback
 	var callback = yield(GameData.game, 'map_clicked')
 	# callback==null = RMB to cancel
