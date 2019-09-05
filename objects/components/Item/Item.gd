@@ -272,6 +272,9 @@ func equip_armour(armour):
 	armour.equip(armour_name, armour_protection)
 
 func blast_cell(slot):
+	# Place mouse pointer on game map
+	get_viewport().warp_mouse(get_viewport().get_rect().size/2.0)
+	# Restrict mouse pointer until spell has been cast or cancelled
 	GameData.in_use = true
 	var amount = param1
 	var target_cell = null
