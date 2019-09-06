@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/armour/Skin_armour.tex" type="Texture" id=2]
+[ext_resource path="res://objects/weapons/orcish_dagger.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/components/Weapon/Weapon.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Skin Armour"
+name = "goblin dagger"
 proper_name = true
 blocks_movement = false
 stay_visible = true
@@ -24,13 +24,14 @@ transform/pos = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
-use_function = "armour"
-throw_range = 6
-throw_damage = 3
+use_function = "weapon"
+throw_range = 8
+throw_damage = 4
 
-[node name="Armour" parent="." instance=ExtResource( 4 )]
+[node name="Weapon" parent="." instance=ExtResource( 4 )]
 
-armour_protection = 5
-description = "Skin leather +5 DEFENCE"
+dice = 3
+adds = 1
+description = "Adds 3D+1 to ATTACK"
 
 

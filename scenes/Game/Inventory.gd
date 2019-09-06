@@ -54,7 +54,7 @@ func check_if_can_remove_from_inventory(slot, item):
 		else:
 			GameData.broadcast('Unequip an item before dropping it')
 			return
-	if item.has_node("Torch"):
+	elif item.has_node("Torch"):
 			GameData.broadcast('You cannot unequip your torch, your life depends in it!')
 			return
 	elif item.has_node("Armour"):
