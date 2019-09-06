@@ -61,9 +61,21 @@ func drop():
 	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,owner)
 
 func throw(slot):
+	# CHeck if item can be thrown
 	if self.throw_range <= 0:
 		GameData.broadcast("You cannot throw that!")
 		return
+	elif owner.has_node("Weapon"):
+		if self.equipped == true:
+			GameData.broadcast('Unequip a weapon before throwing it')
+			return
+	elif owner.has_node("Torch"):
+			GameData.broadcast('You cannot throw away your torch, your life depends in it!')
+			return
+	elif owner.has_node("Armour"):
+		if self.equipped == true:
+			GameData.broadcast('Unequip armour before throwing it')
+			return
 	else:
 		GameData.broadcast("Which direction? Click the map to confirm, RMB to cancel")
 	# Place mouse pointer on game map
