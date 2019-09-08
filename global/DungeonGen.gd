@@ -210,7 +210,7 @@ func place_monsters(room):
 
 func place_corridor_monsters(x, y):
 	# chance of encountering a monster
-	var encounter_chance = randi()%3
+	var encounter_chance = randi()%5
 	if encounter_chance == 1:
 		var monster
 		var pos = Vector2(x,y)

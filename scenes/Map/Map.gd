@@ -280,13 +280,13 @@ func _on_player_acted():
 	GameData.player_moves += 1 # increment counter for No of moves made
 	GameData.torch_timer += 1 #  increment counter for burning torch
 	# check state of torch light
-	if GameData.torch_timer > 150 && GameData.getting_dimmer != 2:
+	if GameData.torch_timer > 200 && GameData.getting_dimmer != 2:
 		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
 			if GameData.torch_timer % 50 == 0:
 				darker()
-	if GameData.torch_timer > 150 && GameData.getting_dimmer == 2:
+	if GameData.torch_timer > 200 && GameData.getting_dimmer == 2:
 		GameData.player.fighter.take_damage("A black shape", 20)
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
@@ -312,7 +312,7 @@ func _on_player_acted():
 			node.set_meta('kill',true) #kill me next turn
 	# Check XP for level progression
 	var level = GameData.player.fighter.character_level
-	if GameData.player.fighter.xp > ((level*150)+100):
+	if GameData.player.fighter.xp > ((level*150)+50):
 		level_up(level)
 
 # Increase player level
