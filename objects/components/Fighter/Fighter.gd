@@ -170,6 +170,10 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " confuses " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
 		if owner == GameData.player:
 			confused(3)
+	elif from == "Green Fungus":
+		GameData.broadcast(from+ " poisons " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
+		if owner == GameData.player:
+			poisoned(3)
 	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion
@@ -222,6 +226,13 @@ func die():
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 		GameData.map.release_blue_spores(owner.get_map_pos())
+	if corpse == "Purple fungus":
+		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
+		var scene_instance = spore_cloud.instance()
+		scene_instance.set_name("spore_cloud")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		GameData.map.release_green_spores(owner.get_map_pos())
 		# leave bloodstain
 	if !owner.has_node("Inventory") && self.bleeds:
 		bleed(blood_colour)

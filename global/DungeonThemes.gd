@@ -120,7 +120,8 @@ var monster_greenskins = [
 { # 1st level Greenskins
 #minion1 = 'monsters/fey/fairy_assassin',
 minion1 = 'traps/Web',
-minion2 = 'monsters/fungus/yellow_fungus',
+#minion2 = 'monsters/fungus/yellow_fungus',
+minion2 = 'traps/fungus_trap',
 gribbly1 = 'monsters/greenskins/goblin',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'

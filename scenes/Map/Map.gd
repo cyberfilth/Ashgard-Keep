@@ -200,17 +200,39 @@ func release_blue_spores(target_area):
 		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
 		fungus_pos = Vector2(x,y)
 	# stop fungus being placed on top of walls
-	while is_cell_blocked(fungus_pos):
+		while is_cell_blocked(fungus_pos):
+			x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+			y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+			fungus_pos = Vector2(x,y)
+		var blue_fungus = load("res://objects/monsters/fungus/blue_fungus.tscn").instance()
+		blue_fungus.set_name("Blue fungus")
+		get_parent().get_node('Map').add_child(blue_fungus)
+		blue_fungus.set_pos(map_to_world(fungus_pos))
+		blue_fungus.set_z(0)
+		blue_fungus.add_to_group('actors')
+		blue_fungus.fighter.hp = 10
+	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
+
+func release_green_spores(target_area):
+	var x
+	var y
+	var fungus_pos
+	for i in range(GameData.roll(2, 3)): # Clamp to keep within the map boundaries
 		x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
 		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
 		fungus_pos = Vector2(x,y)
-	var blue_fungus = load("res://objects/monsters/fungus/blue_fungus.tscn").instance()
-	blue_fungus.set_name("Blue fungus")
-	get_parent().get_node('Map').add_child(blue_fungus)
-	blue_fungus.set_pos(map_to_world(fungus_pos))
-	blue_fungus.set_z(0)
-	blue_fungus.add_to_group('actors')
-	blue_fungus.fighter.hp = 10
+	# stop fungus being placed on top of walls
+		while is_cell_blocked(fungus_pos):
+			x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+			y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+			fungus_pos = Vector2(x,y)
+		var green_fungus = load("res://objects/monsters/fungus/green_fungus.tscn").instance()
+		green_fungus.set_name("Green fungus")
+		get_parent().get_node('Map').add_child(green_fungus)
+		green_fungus.set_pos(map_to_world(fungus_pos))
+		green_fungus.set_z(0)
+		green_fungus.add_to_group('actors')
+		green_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
 
 # Shadow demon spawned when the torch goes out
