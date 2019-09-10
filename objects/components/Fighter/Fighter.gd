@@ -310,3 +310,7 @@ func paralysed():
 	GameData.broadcast(owner.get_display_name() + " is paralysed", GameData.COLOUR_SLATE_GREY)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Paralysed")
 	apply_status_effect('paralysed', 5)
+
+func stuck(num):
+	get_node('/root/Game/frame/right/StatusMessage').set_text("Stuck")
+	apply_status_effect('stuck', num)

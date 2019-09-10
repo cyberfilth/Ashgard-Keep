@@ -80,7 +80,7 @@ func _input(event):
 		if N || NE || E || SE || S || SW || W || NW || WAIT:
 			random_step()
 			return
-	if owner.fighter.has_status_effect('paralysed'):
+	if owner.fighter.has_status_effect('paralysed') || owner.fighter.has_status_effect('stuck'):
 		if N || NE || E || SE || S || SW || W || NW:
 			Wait()
 			return

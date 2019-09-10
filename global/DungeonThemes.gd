@@ -118,7 +118,8 @@ armour = 'armour/bone_armour'
 
 var monster_greenskins = [
 { # 1st level Greenskins
-minion1 = 'monsters/fey/fairy_assassin',
+#minion1 = 'monsters/fey/fairy_assassin',
+minion1 = 'traps/Web',
 minion2 = 'monsters/fungus/yellow_fungus',
 gribbly1 = 'monsters/greenskins/goblin',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
