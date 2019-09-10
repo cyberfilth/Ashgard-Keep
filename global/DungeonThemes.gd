@@ -138,8 +138,8 @@ var items_greenskins = [
 { # 1st level items
 rubble = 'items/Rock',
 healthpotion = 'items/HealthPotion',
-magicitem1 = 'items/Scroll_Fireball',
-magicitem2 = 'items/Scroll_LightningBolt',
+magicitem1 = 'items/Scroll_LightningBolt',
+magicitem2 = 'items/Scroll_Fireball',
 weapon = 'weapons/crude_dagger',
 armour = 'armour/heavy_cloth_armour'
 },
