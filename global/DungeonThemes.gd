@@ -118,10 +118,8 @@ armour = 'armour/bone_armour'
 
 var monster_greenskins = [
 { # 1st level Greenskins
-#minion1 = 'monsters/fey/fairy_assassin',
-minion1 = 'traps/Web',
-#minion2 = 'monsters/fungus/yellow_fungus',
-minion2 = 'traps/fungus_trap',
+minion1 = 'monsters/fey/fairy_assassin',
+minion2 = 'monsters/fungus/yellow_fungus',
 gribbly1 = 'monsters/greenskins/goblin',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
@@ -151,5 +149,12 @@ magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/crude_dagger',
 armour = 'armour/heavy_cloth_armour'
+}
+]
+
+var traps_encounters = [
+{ # Level 1
+t_e1 = 'traps/Web',
+t_e2 = 'traps/fungus_trap'
 }
 ]

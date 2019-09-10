@@ -177,10 +177,13 @@ func generate():
 			rooms.append(new_room)
 			num_rooms += 1
 	# Place monsters & items in every room except starting room
+	var encounter = rooms.size()/2
 	for z in range(1, rooms.size()):
-		place_monsters(rooms[z])
-		place_items(rooms[z])
+		if z != encounter: # don't place trap in same room as monster
+			place_monsters(rooms[z])
+			place_items(rooms[z])
 	place_exit_portal(rooms[rooms.size()-1])
+	place_encounter(rooms[encounter])
 	#map_to_text()
 
 # Saves generated dungeon as a text file
@@ -193,6 +196,21 @@ func map_to_text():
 			t += str([' ','#'][col])
 		file.store_line(t)
 	file.close()
+
+# traps and encounters
+func place_encounter(room):
+	var traps_list = DungeonThemes.traps_encounters[GameData.keeplvl-1]
+	var traps_choice = [traps_list.t_e1, traps_list.t_e2]
+	var choice = traps_choice[GameData.roll(0, traps_choice.size()-1)]
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var pos = Vector2(x,y)
+		# stops encounter being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
+	GameData.map.spawn_object(choice, pos)
 
 func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
