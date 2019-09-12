@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://graphics/particles/voodoo_particles.gd" type="Script" id=1]
+[ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
+[ext_resource path="res://graphics/particles/portal_spark.png" type="Texture" id=3]
+
+[sub_resource type="ColorRamp" id=1]
+
+offsets = FloatArray( 0, 0.0233918, 1 )
+colors = ColorArray( 0, 0, 0, 1, 0.0823975, 0.84375, 0.0942936, 1, 0.513794, 0.953125, 0.551549, 1 )
+
+[node name="voodoo_particles" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 12, 12 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 8.0
+color = Color( 0.382111, 0.972656, 0.315353, 1 )
+energy = 2.0
+mode = 0
+range/height = 30.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="green_particles" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 11.9707, 11.0001 )
+z/z = 2
+config/amount = 20
+config/lifetime = 2.0
+config/time_scale = 2.0
+config/emit_timeout = 1.0
+config/emitting = false
+config/process_mode = 1
+config/half_extents = Vector2( 12, 12 )
+config/explosiveness = 0.5
+config/texture = ExtResource( 3 )
+params/direction = 180.0
+params/spread = 20.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 2.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 1.0
+color/color = Color( 0.0192261, 0.984375, 0.102169, 1 )
+color/color_ramp = SubResource( 1 )
+
+
