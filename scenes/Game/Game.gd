@@ -37,6 +37,8 @@ func new_game():
 	var dayofweek = time["weekday"]
 	var month_num = time["month"]
 	var date_num = time["day"]
+	var year = time["year"]
+	var moon_description = moon_phase(month_num, dayofweek, year)
 	if date_num == 11 || date_num == 12 || date_num == 13:
 		suffix = "th"
 	elif (date_num % 10 == 1):
@@ -49,7 +51,36 @@ func new_game():
 		suffix = "th"
 	date_string = str(("\n\nIt is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
 	GameData.broadcast(date_string)
+	GameData.broadcast(moon_description)
 	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
+
+func moon_phase(month, day, year):
+	var ages = [18, 0, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7]
+	var offsets = [-1, 1, 0, 1, 2, 3, 4, 5, 7, 7, 9, 9]
+	var description = ["It is a moonless night, dark and dangerous.",\
+	"A crescent moon waxes overhead.",\
+	"A quarter-moon shines a dim light overhead.",\
+	"A bloated, nearly full moon, hangs in the sky.",\
+	"A full moon hangs in the sky tonight, its Dragon Head clearly visible.",\
+	"A nearly full moon overhead, casts a pale light.",\
+	"A fading, quarter moon shines a dim light.",\
+	"The thin sliver of a crescent moon shines overhead."]
+	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+	if day == 31:
+		day = 1
+	var days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (year < 1900)) % 30)
+	var index = int((days_into_phase + 2) * 16/59.0)
+	if index > 7:
+		index = 7
+	var status = description[index]
+	
+	# light should be 100% 15 days into phase
+	var light = int(2 * days_into_phase * 100/29)
+	if light > 100:
+		light = abs(light - 200);
+	var date = str(day)+" "+str(months[month-1])+" "+str(year)
+	
+	return status
 
 # Re-equip when restoring game or entering new level
 func re_equip_weapons_armour(entry, ob):
