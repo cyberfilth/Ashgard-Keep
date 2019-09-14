@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/armour/Bone_armour.tex" type="Texture" id=2]
+[ext_resource path="res://objects/armour/new_bone_armour.tex" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
 
@@ -12,6 +12,7 @@ name = "Bone Armour"
 proper_name = true
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
