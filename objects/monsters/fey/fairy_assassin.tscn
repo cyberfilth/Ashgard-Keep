@@ -12,6 +12,7 @@ name = "Fairy Assassin"
 proper_name = true
 blocks_movement = true
 stay_visible = false
+trap = false
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
@@ -23,9 +24,7 @@ margin/left = 6.0
 margin/top = 0.0
 margin/right = 46.0
 margin/bottom = 40.0
-
 custom_fonts/normal_font = ExtResource( 2 )
-
 custom_colors/default_color = Color( 0.0700378, 0.909276, 0.996094, 1 )
 bbcode/enabled = true
 bbcode/bbcode = "*"
@@ -44,3 +43,5 @@ xp_reward = 15
 [node name="AI" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
+
+

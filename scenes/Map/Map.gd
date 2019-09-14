@@ -169,7 +169,14 @@ func spawn_necrotic_energy_fx(necromancer):
 func spawn_vampiric_drain_fx():
 	var vampiric_drain = load("res://graphics/particles/blood_drain.tscn")
 	var scene_instance = vampiric_drain.instance()
-	scene_instance.set_name("vampiric_drain")
+	scene_instance.set_name("Vampiric drain")
+	add_child(scene_instance)
+	scene_instance.set_pos(map_to_world(GameData.player.get_map_pos()))
+
+func spawn_voodoo_fx():
+	var voodoo_particles = load("res://graphics/particles/voodoo_particles.tscn")
+	var scene_instance = voodoo_particles.instance()
+	scene_instance.set_name("Voodoo magic")
 	add_child(scene_instance)
 	scene_instance.set_pos(map_to_world(GameData.player.get_map_pos()))
 
