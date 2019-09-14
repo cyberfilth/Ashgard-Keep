@@ -83,7 +83,7 @@ boss1 = 'monsters/undead/lvl2/necromancer2'
 { # 3rd level Undead
 minion1 = 'monsters/undead/lvl3/demonic_puppy',
 minion2 = 'monsters/animals/lvl3/vampire_bat',
-gribbly1 = 'monsters/animals/lvl3/vampire',
+gribbly1 = 'monsters/undead/lvl3/vampire',
 gribbly2 = 'monsters/undead/lvl3/patchwork_golem',
 boss1 = 'monsters/undead/lvl3/zombie_warrior'
 }
@@ -120,7 +120,7 @@ var monster_greenskins = [
 { # 1st level Greenskins
 minion1 = 'monsters/fey/fairy_assassin',
 minion2 = 'monsters/fungus/yellow_fungus',
-gribbly1 = 'monsters/greenskins/goblin',
+gribbly1 = 'monsters/greenskins/witch_doctor',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
 },
@@ -137,8 +137,8 @@ var items_greenskins = [
 { # 1st level items
 rubble = 'items/Rock',
 healthpotion = 'items/HealthPotion',
-magicitem1 = 'items/Scroll_Fireball',
-magicitem2 = 'items/Scroll_LightningBolt',
+magicitem1 = 'items/Scroll_LightningBolt',
+magicitem2 = 'items/Scroll_Fireball',
 weapon = 'weapons/crude_dagger',
 armour = 'armour/heavy_cloth_armour'
 },
@@ -149,5 +149,12 @@ magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/crude_dagger',
 armour = 'armour/heavy_cloth_armour'
+}
+]
+
+var traps_encounters = [
+{ # Level 1
+t_e1 = 'traps/Web',
+t_e2 = 'traps/fungus_trap'
 }
 ]

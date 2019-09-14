@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.7.4"
+const version = "Version 0.7.5"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -54,10 +54,11 @@ var map
 var inventory
 var inventory_menu
 var levelup_menu
-var load_continue_newlvl = "load"
-var keeplvl
-var dungeon_theme_array = [] # Random string of dungeon themes
+var load_continue_newlvl = "load" # Variable passed to TitleMenu
+var keeplvl # current floor of the Keep
+var dungeon_theme_array = [] # Random array of dungeon themes
 var use_item = "cannot be used"
+var in_use = false # Whether an item is currently being used, i.e. A spell waiting for a target to be selected
 
 # RIP - You were killed by
 var killer = "An unknown enemy"

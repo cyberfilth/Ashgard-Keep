@@ -54,7 +54,7 @@ func check_if_can_remove_from_inventory(slot, item):
 		else:
 			GameData.broadcast('Unequip an item before dropping it')
 			return
-	if item.has_node("Torch"):
+	elif item.has_node("Torch"):
 			GameData.broadcast('You cannot unequip your torch, your life depends in it!')
 			return
 	elif item.has_node("Armour"):
@@ -113,6 +113,7 @@ func after_item_used(slot):
 	else:
 		GameData.broadcast(GameData.use_item, GameData.COLOUR_BLUE)
 	GameData.use_item = "cannot be used" # Reset the USE flag
+	GameData.in_use = false
 
 func _on_slot_item_used(slot):
 	assert not slot.contents.empty()

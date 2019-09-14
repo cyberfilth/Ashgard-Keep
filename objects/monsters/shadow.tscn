@@ -3,32 +3,31 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/fey/fairy_assassin_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/shadow_AI.gd" type="Script" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Fairy Assassin"
+name = "Shadow"
 proper_name = true
 blocks_movement = true
 stay_visible = false
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
+visibility/blend_mode = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 6.0
-margin/top = 0.0
+margin/top = -4.0
 margin/right = 46.0
-margin/bottom = 40.0
-
+margin/bottom = 36.0
 custom_fonts/normal_font = ExtResource( 2 )
-
-custom_colors/default_color = Color( 0.0700378, 0.909276, 0.996094, 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = true
-bbcode/bbcode = "*"
+bbcode/bbcode = "?"
 visible_characters = -1
 percent_visible = 1.0
 
@@ -36,11 +35,14 @@ percent_visible = 1.0
 
 bleeds = false
 race = "animal"
-attack = 15
-defence = 8
-max_hp = 8
-xp_reward = 15
+character_level = 5
+attack = 25
+defence = 5000
+max_hp = 5000
+xp_reward = 0
 
 [node name="AI" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
+
+

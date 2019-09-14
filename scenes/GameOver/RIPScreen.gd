@@ -62,6 +62,10 @@ func killer_description(killer):
 		what_killed_you = "a monstrous Patchwork Golem."
 	elif killer == "Hell Hound":
 		what_killed_you = "a ferocious Hell Hound."
+	elif killer == "A black shape":
+		what_killed_you = "an unseen black shape."
+	elif killer == "Goblin Witch doctor":
+		what_killed_you = "a malevolent Goblin Witch doctor."
 	else:
 		what_killed_you = "a "+GameData.killer
 
@@ -77,6 +81,8 @@ func type_of_death():
 		death_description = "were nibbled to death"
 	elif what_killed_you == "Hell Hound":
 		death_description = "were eaten"
+	elif what_killed_you == "Rock":
+		death_description = "were crushed"
 	else:
 		death_description = "were killed"
 

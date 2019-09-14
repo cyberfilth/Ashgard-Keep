@@ -10,6 +10,7 @@ export(String, MULTILINE) var name = "OBJECT" setget _set_name
 export(bool) var proper_name = false
 export(bool) var blocks_movement = false
 export(bool) var stay_visible = false
+export(bool) var trap = false
 
 var seen = false setget _set_seen
 var discovered = false # becomes true the first time seen
@@ -160,6 +161,9 @@ func _set_seen(what):
 		discovered = true
 		# Stops a 'found' message being displayed for starting equipment
 		if self.has_node("Item") && self.get_node("Item").equipped == true:
+			pass
+		# Stop 'found' message being displayed for hidden traps
+		elif self.trap == true:
 			pass
 		else:
 			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOUR_YELLOW)

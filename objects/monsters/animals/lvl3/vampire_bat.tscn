@@ -37,7 +37,7 @@ character_level = 3
 attack = 20
 defence = 15
 max_hp = 20
-xp_reward = -459
+xp_reward = 22
 
 [node name="AI" type="Node" parent="."]
 

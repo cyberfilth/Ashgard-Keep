@@ -13,7 +13,10 @@ func equip(weapon_name, dice, adds):
 	fighter.weapon_adds = adds
 	fighter.weapon_modifier = special_attack
 	get_parent().get_node('Item').equipped = true
-	GameData.broadcast(weapon_name + " has been equipped, +" + str(dice)+"D"+str(adds) + " to Attack")
+	if adds !=0:
+		GameData.broadcast(weapon_name + " has been equipped, adds " + str(dice)+"D+"+str(adds) + " to Attack")
+	else:
+		GameData.broadcast(weapon_name + " has been equipped, adds " + str(dice)+"D to Attack")
 
 func unequip(weapon_name, dice, adds):
 	var fighter = GameData.player.fighter

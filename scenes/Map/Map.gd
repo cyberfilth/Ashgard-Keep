@@ -6,8 +6,6 @@ func new_map():
 	var portal_room
 	# Generate a dungeon
 	DungeonGen.generate()
-	# Place the exit
-	DungeonGen.place_exit_portal(DungeonGen.last_room)
 	# build a Pathfinding map
 	PathGen.build_map(GameData.MAP_SIZE,DungeonGen.get_floor_cells())
 	# paint the visual map
@@ -215,6 +213,54 @@ func release_blue_spores(target_area):
 		blue_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
 
+func release_green_spores(target_area):
+	var x
+	var y
+	var fungus_pos
+	for i in range(GameData.roll(2, 3)): # Clamp to keep within the map boundaries
+		x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+		fungus_pos = Vector2(x,y)
+	# stop fungus being placed on top of walls
+		while is_cell_blocked(fungus_pos):
+			x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+			y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+			fungus_pos = Vector2(x,y)
+		var green_fungus = load("res://objects/monsters/fungus/green_fungus.tscn").instance()
+		green_fungus.set_name("Green fungus")
+		get_parent().get_node('Map').add_child(green_fungus)
+		green_fungus.set_pos(map_to_world(fungus_pos))
+		green_fungus.set_z(0)
+		green_fungus.add_to_group('actors')
+		green_fungus.fighter.hp = 10
+	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
+
+# Shadow demon spawned when the torch goes out
+func spawn_shadow():
+	var target_area = GameData.player.get_map_pos()
+	var x
+	var y
+	var shadow_pos
+	var message = ["Something stirs nearby...", "You hear a scratching in the dark...", "A low growling reaches your ears..."]
+	for i in range(GameData.roll(1, 2)): # Clamp to keep within the map boundaries
+		x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+		shadow_pos = Vector2(x,y)
+		# Stop shadow being placed on walls
+	while is_cell_blocked(shadow_pos):
+		x = clamp(GameData.roll(target_area.x+2, target_area.x-2), 1, GameData.MAP_SIZE.x-1)
+		y = clamp(GameData.roll(target_area.y+2, target_area.y-2), 1, GameData.MAP_SIZE.y-1)
+		shadow_pos = Vector2(x,y)
+	var shadow = load("res://objects/monsters/shadow.tscn").instance()
+	shadow.set_name("Shadow")
+	get_parent().get_node('Map').add_child(shadow)
+	shadow.set_pos(map_to_world(shadow_pos))
+	shadow.set_z(0)
+	shadow.add_to_group('actors')
+	shadow.fighter.hp = 5000
+	var mno = GameData.roll(0,2)
+	GameData.broadcast(message[mno])
+
 func set_cursor_hidden(is_hidden):
 	get_node('Cursor').set_hidden(is_hidden)
 
@@ -256,12 +302,14 @@ func _on_player_acted():
 	GameData.player_moves += 1 # increment counter for No of moves made
 	GameData.torch_timer += 1 #  increment counter for burning torch
 	# check state of torch light
-	if GameData.torch_timer > 150 && GameData.getting_dimmer != 2:
+	if GameData.torch_timer > 200 && GameData.getting_dimmer != 2:
 		if GameData.getting_dimmer == 0:
 			dim_the_lights()
 		else:
 			if GameData.torch_timer % 50 == 0:
 				darker()
+	if GameData.torch_timer > 200 && GameData.getting_dimmer == 2:
+		GameData.player.fighter.take_damage("A black shape", 20)
 	# process active actors
 	for node in get_tree().get_nodes_in_group('actors'):
 		if node != GameData.player and node.ai and node.discovered:
@@ -286,12 +334,11 @@ func _on_player_acted():
 			node.set_meta('kill',true) #kill me next turn
 	# Check XP for level progression
 	var level = GameData.player.fighter.character_level
-	if GameData.player.fighter.xp > ((level*150)+100):
+	if GameData.player.fighter.xp > ((level*150)+50):
 		level_up(level)
 
-
+# Increase player level
 func level_up(level):
-	# Increase level
 	level += 1
 	GameData.player.fighter._set_character_level(level)
 	# Increase max health 20%
@@ -305,17 +352,20 @@ func level_up(level):
 	level_up_screen.show()
 	level_up_screen.start(level)
 
+# Torch starts going out
 func dim_the_lights():
 	GameData.getting_dimmer = 1
 	GameData.player.get_node("Torch").dim_light()
 	GameData.broadcast_torch("Your torch begins to flicker, the flames die down")
 
+# Torchlight gets darker
 func darker():
 	if GameData.player_view > 1:
 		GameData.player_view -=1
 		GameData.player.get_node("Torch").darker()
 		GameData.broadcast_torch("The light grows dimmer")
-	else:
+	else: # Torch goes out and an unseen monster attacks
 		GameData.getting_dimmer = 2
 		GameData.player.get_node("Torch").total_darkness()
 		GameData.broadcast_torch("Your torch is extinguished...")
+		spawn_shadow()

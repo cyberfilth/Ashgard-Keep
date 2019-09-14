@@ -2,7 +2,7 @@ extends Node2D
 
 # list of things the rock thrower goblin may be carrying
 var items = ["res://objects/items/Rock.tscn",\
-			"res://objects/weapons/rusty_dagger.tscn"]
+			"res://objects/weapons/goblin_dagger.tscn"]
 
 func _ready():
 	pass

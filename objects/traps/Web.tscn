@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://graphics/fx/web.png" type="Texture" id=2]
+[ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/traps/web.gd" type="Script" id=4]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "web"
+proper_name = false
+blocks_movement = false
+stay_visible = false
+trap = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Fighter" parent="." instance=ExtResource( 3 )]
+
+bleeds = false
+race = "animal"
+attack = 0
+defence = 10
+max_hp = 10
+xp_reward = 12
+
+[node name="AI" type="Node" parent="."]
+
+script/script = ExtResource( 4 )
+
+

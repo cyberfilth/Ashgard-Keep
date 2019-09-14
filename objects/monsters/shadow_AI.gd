@@ -1,4 +1,4 @@
-# fairy_assassin_AI
+# shadow_AI
 
 extends Node
 
@@ -9,10 +9,10 @@ func _ready():
 
 func take_turn():
 	if owner.fighter.has_status_effect('confused'):
-		wander()
+		pass
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= (GameData.player_radius - 2):
+	if distance <= GameData.player_radius:
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:

@@ -1,7 +1,7 @@
 extends Node
 
 # square room 13x13
-const PREFAB1 = [
+const PREFAB_13x13 = [
 [0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,1,1,1,1,0,0,0,1,1,1,1,0],
 [0,1,0,0,1,0,0,0,1,0,0,1,0],
@@ -18,7 +18,7 @@ const PREFAB1 = [
 ]
 
 # square room 10x10
-const PREFAB4 = [
+const PREFAB_10x10 = [
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,1,0,0,0,0,1,0,0],
 [0,1,0,0,0,0,0,0,1,0],
@@ -32,7 +32,7 @@ const PREFAB4 = [
 ]
 
 # circular room 9x9
-const PREFAB2 = [
+const PREFAB_9x9 = [
 [0,0,0,0,0,0,0,0,0],
 [0,0,0,1,1,1,0,0,0],
 [0,0,1,0,0,0,1,0,0],
@@ -45,7 +45,7 @@ const PREFAB2 = [
 ]
 
 # square room 8x8
-const PREFAB3 = [
+const PREFAB_8x8 = [
 [0,0,0,0,0,0,0,0],
 [0,1,0,0,0,0,1,0],
 [0,0,0,0,0,0,0,0],
@@ -58,7 +58,6 @@ const PREFAB3 = [
 
 var datamap = []
 var start_pos = Vector2()
-var last_room
 var monster_theme
 var item_theme
 var prefab_room = []
@@ -99,13 +98,13 @@ func center(rect):
  # leaving a 1-tile border along edges
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
-		prefab_room = PREFAB1
+		prefab_room = PREFAB_13x13
 	if rect.size.x == 10 && rect.size.y == 10:
-		prefab_room = PREFAB4
+		prefab_room = PREFAB_10x10
 	elif rect.size.x >= 9 && rect.size.y >= 9:
-		prefab_room = PREFAB2
+		prefab_room = PREFAB_9x9
 	elif rect.size.x == 8 && rect.size.y ==8:
-		prefab_room = PREFAB3
+		prefab_room = PREFAB_8x8
 	elif prefab_room.empty():
 	# draw regular rectangular room
 		for x in range(rect.size.x-2):
@@ -114,8 +113,8 @@ func carve_room(rect):
 		prefab_room = []
 		return
 	for x in range(prefab_room.size()):
-			for y in range(prefab_room.size()):
-				set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
+		for y in range(prefab_room.size()):
+			set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
 	prefab_room = []
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
@@ -151,8 +150,8 @@ func generate():
 		var w = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		var h = GameData.roll(GameData.ROOM_MIN_SIZE, GameData.ROOM_MAX_SIZE)
 		# origin (top-left corner)
-		var x = GameData.roll(1, GameData.MAP_SIZE.x - w-1)
-		var y = GameData.roll(1, GameData.MAP_SIZE.y - h-1)
+		var x = GameData.roll(2, GameData.MAP_SIZE.x-1 - w-1)
+		var y = GameData.roll(2, GameData.MAP_SIZE.y-1 - h-1)
 		var new_room = Rect2(x,y,w,h)
 		var fail = false
 		for other_room in rooms:
@@ -165,8 +164,6 @@ func generate():
 			if num_rooms == 0:
 				start_pos = new_center
 			else:
-				place_monsters(new_room)
-				place_items(new_room)
 				var prev_center = center(rooms[num_rooms-1])
 				# flip a coin
 				if randi()%2 == 0:
@@ -179,8 +176,15 @@ func generate():
 					carve_h_hall(prev_center.x, new_center.x, new_center.y)
 			rooms.append(new_room)
 			num_rooms += 1
-			last_room = new_room
-			#map_to_text()
+	# Place monsters & items in every room except starting room
+	var encounter = rooms.size()/2
+	for z in range(1, rooms.size()):
+		if z != encounter: # don't place trap in same room as monster
+			place_monsters(rooms[z])
+			place_items(rooms[z])
+	place_exit_portal(rooms[rooms.size()-1])
+	place_encounter(rooms[encounter])
+	#map_to_text()
 
 # Saves generated dungeon as a text file
 func map_to_text():
@@ -192,6 +196,21 @@ func map_to_text():
 			t += str([' ','#'][col])
 		file.store_line(t)
 	file.close()
+
+# traps and encounters
+func place_encounter(room):
+	var traps_list = DungeonThemes.traps_encounters[GameData.keeplvl-1]
+	var traps_choice = [traps_list.t_e1, traps_list.t_e2]
+	var choice = traps_choice[GameData.roll(0, traps_choice.size()-1)]
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var pos = Vector2(x,y)
+		# stops encounter being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
+	GameData.map.spawn_object(choice, pos)
 
 func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
@@ -209,7 +228,7 @@ func place_monsters(room):
 
 func place_corridor_monsters(x, y):
 	# chance of encountering a monster
-	var encounter_chance = randi()%3
+	var encounter_chance = randi()%5
 	if encounter_chance == 1:
 		var monster
 		var pos = Vector2(x,y)
@@ -222,6 +241,21 @@ func place_corridor_monsters(x, y):
 			monster = theme.minion2
 		GameData.map.spawn_object(monster, pos)
 
+# Chooses an item based on a score 1 - 100
+func probability(score):
+	if score in range(1, 31):
+		return 0
+	elif score in range(31, 61):
+		return 1
+	elif score in range(61, 76):
+		return 2
+	elif score in range(76, 86):
+		return 3
+	elif score in range(86, 94):
+		return 4
+	else:
+		return 5
+
 func place_items(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
@@ -233,8 +267,8 @@ func place_items(room):
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
 	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
-	#var items = ['items/Portal'] # Used for testing levels
-	var choice = items[GameData.roll(0, items.size()-1)]
+	var probability_score = GameData.roll(1, 100)
+	var choice = items[probability(probability_score)]
 	GameData.map.spawn_object(choice, pos)
 
 func place_exit_portal(room):
