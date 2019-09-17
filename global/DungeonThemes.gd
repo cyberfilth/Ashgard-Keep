@@ -65,6 +65,7 @@ darkness = DARKNESS3
 }
 ]
 
+######## Undead
 var monster_undead = [
 { # 1st level Undead
 minion1 = 'monsters/undead/ghoul_rat',
@@ -116,6 +117,14 @@ armour = 'armour/bone_armour'
 }
 ]
 
+var traps_undead = [
+{ # Level 1
+t_e1 = 'traps/Web',
+t_e2 = 'traps/fungus_trap'
+}
+]
+###### Greenskins
+
 var monster_greenskins = [
 { # 1st level Greenskins
 minion1 = 'monsters/fey/fairy_assassin',
@@ -152,7 +161,7 @@ armour = 'armour/heavy_cloth_armour'
 }
 ]
 
-var traps_encounters = [
+var traps_greenskins = [
 { # Level 1
 t_e1 = 'traps/Web',
 t_e2 = 'traps/fungus_trap'
