@@ -119,10 +119,22 @@ armour = 'armour/bone_armour'
 
 var traps_undead = [
 { # Level 1
-t_e1 = 'traps/Web',
+t_e1 = 'traps/web',
+t_e2 = 'traps/fungus_trap'
+},
+{ # Level 2
+t_e1 = 'traps/web',
 t_e2 = 'traps/fungus_trap'
 }
 ]
+
+var npc_undead = [
+{ # Level 1
+t_e1 = 'traps/web',
+t_e2 = 'traps/fungus_trap'
+}
+]
+
 ###### Greenskins
 
 var monster_greenskins = [
@@ -163,7 +175,18 @@ armour = 'armour/heavy_cloth_armour'
 
 var traps_greenskins = [
 { # Level 1
-t_e1 = 'traps/Web',
+t_e1 = 'traps/web',
 t_e2 = 'traps/fungus_trap'
+},
+{ # Level 2
+t_e1 = 'traps/web',
+t_e2 = 'traps/fungus_trap'
+}
+]
+
+var npc_greenskins = [
+{ # Level 1
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/greenskins/goblin'
 }
 ]

@@ -67,6 +67,11 @@ func spawn_object(partial_path,cell):
 	var ob = load(path)
 	if ob: ob.instance().spawn(self,cell)
 
+func spawn_encounter_object(partial_path,cell):
+	var path = 'res://objects/' +partial_path+ '.tscn'
+	var ob = load(path)
+	if ob: ob.instance().spawn(self,cell)
+
 # Set the Darkness Canvas item
 # colour to complement each dungeon tileset
 func draw_map():

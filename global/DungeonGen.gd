@@ -61,6 +61,7 @@ var start_pos = Vector2()
 var monster_theme
 var item_theme
 var trap_theme
+var encounter_theme
 var prefab_room = []
 
 # Set dungeon theme
@@ -69,10 +70,12 @@ func set_theme():
 		monster_theme = DungeonThemes.monster_undead
 		item_theme = DungeonThemes.items_undead
 		trap_theme = DungeonThemes.traps_undead
+		encounter_theme = DungeonThemes.npc_undead
 	elif GameData.enemyRNG == 1:
 		monster_theme = DungeonThemes.monster_greenskins
 		item_theme = DungeonThemes.items_greenskins
 		trap_theme = DungeonThemes.traps_greenskins
+		encounter_theme = DungeonThemes.npc_greenskins
 
 # Build a new datamap (fill with walls)
 func build_datamap():
@@ -181,12 +184,15 @@ func generate():
 			num_rooms += 1
 	# Place monsters & items in every room except starting room
 	var trap = rooms.size()/2
+	var encounter = rooms.size()/3
 	for z in range(1, rooms.size()):
-		if z != trap: # don't place trap in same room as monster
+		# don't place trap / encounter in same room as monster
+		if z != trap && z != encounter:
 			place_monsters(rooms[z])
 			place_items(rooms[z])
 	place_exit_portal(rooms[rooms.size()-1])
 	place_trap(rooms[trap])
+	place_encounter(rooms[encounter])
 	#map_to_text()
 
 # Saves generated dungeon as a text file
@@ -208,12 +214,31 @@ func place_trap(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)
 	var y = GameData.roll(room.pos.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
-		# stops encounter being placed on top of walls
+		# stops trap being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	GameData.map.spawn_object(choice, pos)
+
+func place_encounter(room):
+	var encounter_list = encounter_theme[GameData.keeplvl-1]
+	var encounter_choice = [encounter_list.t_e1, encounter_list.t_e2]
+	var choice = encounter_choice[GameData.roll(0, encounter_choice.size()-1)]
+	var x = GameData.roll(room.pos.x+1, room.end.x-2)
+	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var pos = Vector2(x,y)
+		# stops encounter being placed on top of walls
+	while GameData.map.is_cell_blocked(pos):
+		x = GameData.roll(room.pos.x+1, room.end.x-2)
+		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		pos = Vector2(x,y)
+	if choice == encounter_list.t_e1:
+		GameData.map.spawn_npc_object(choice, pos)
+	else:
+		GameData.map.spawn_object(choice, pos)
+
+
 
 func place_monsters(room):
 	var x = GameData.roll(room.pos.x+1, room.end.x-2)

@@ -47,13 +47,13 @@ const GOBLIN_NAMES_1 = ['Barrg','Bolguh','FishSquish','Gobarrg','Gobbler','Gruns
 const GOBLIN_NAMES_2 = ['Booger','Drooler','PigSpit','Pukey','Ratskinner','Scumrot','Sniffler','Stinker','Stinkrot','Swampy','Tintooth','ToadLicker','Wiggler']
 
 var mage
-var goblin1
-var goblin2
+var greenskin_npc1
+var greenskin_npc2
 
 func generate_plot():
 		mage = MAGE_FIRSTNAME[randi() % MAGE_FIRSTNAME.size()] + MAGE_SECONDNAME[randi() % MAGE_SECONDNAME.size()] + TITLE[randi() % TITLE.size()]
-		goblin1 = GOBLIN_NAMES_1[randi() % GOBLIN_NAMES_1.size()]
-		goblin2 = GOBLIN_NAMES_2[randi() % GOBLIN_NAMES_2.size()]
+		greenskin_npc1 = GOBLIN_NAMES_1[randi() % GOBLIN_NAMES_1.size()]
+		greenskin_npc2 = GOBLIN_NAMES_2[randi() % GOBLIN_NAMES_2.size()]
 #	var dwarf_clan_name = CLAN_FIRSTPART[randi() % CLAN_FIRSTPART.size()] + CLAN_SECONDPART[randi() % CLAN_SECONDPART.size()]
 #	var paladin_order = PAL_ADJECTIVE[randi() % PAL_ADJECTIVE.size()] + PAL_OBJECT[randi() % PAL_OBJECT.size()] + PAL_NAME[randi() % PAL_NAME.size()]
 #	var elven_city = ELF_NAME1[randi() % ELF_NAME1.size()] + ELF_NAME2[randi() % ELF_NAME2.size()]
