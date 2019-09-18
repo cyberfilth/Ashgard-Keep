@@ -67,7 +67,7 @@ func killer_description(killer):
 	elif killer == "Goblin Witch doctor":
 		what_killed_you = "a malevolent Goblin Witch doctor."
 	else:
-		what_killed_you = "a "+GameData.killer
+		what_killed_you = GameData.killer
 
 func type_of_death():
 	if GameData.player_moves <= 150:

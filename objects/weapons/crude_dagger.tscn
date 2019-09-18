@@ -12,6 +12,7 @@ name = "crude dagger"
 proper_name = true
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 

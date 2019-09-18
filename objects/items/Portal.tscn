@@ -12,9 +12,10 @@
 
 script/script = ExtResource( 1 )
 name = "Portal"
-proper_name = false
+proper_name = true
 blocks_movement = true
 stay_visible = true
+trap = false
 
 [node name="Light2D" type="Light2D" parent="."]
 

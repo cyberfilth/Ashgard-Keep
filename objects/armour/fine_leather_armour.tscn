@@ -16,6 +16,7 @@ trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
+visibility/blend_mode = 1
 texture = ExtResource( 2 )
 centered = false
 

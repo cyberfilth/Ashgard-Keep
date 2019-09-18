@@ -7,8 +7,8 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "rock"
-proper_name = false
+name = "Rock"
+proper_name = true
 blocks_movement = false
 stay_visible = true
 trap = false

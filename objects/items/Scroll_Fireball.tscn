@@ -9,9 +9,10 @@
 
 script/script = ExtResource( 1 )
 name = "Scroll of Fireball"
-proper_name = false
+proper_name = true
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
