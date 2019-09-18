@@ -39,8 +39,8 @@ func take_turn():
 			confused_wander()
 
 func choose_random_location():
-	var x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
-	var y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
+	var x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
+	var y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):

@@ -67,10 +67,18 @@ func spawn_object(partial_path,cell):
 	var ob = load(path)
 	if ob: ob.instance().spawn(self,cell)
 
-func spawn_encounter_object(partial_path,cell):
+func spawn_encounter_object(partial_path,cell,npc):
+	var name
 	var path = 'res://objects/' +partial_path+ '.tscn'
-	var ob = load(path)
-	if ob: ob.instance().spawn(self,cell)
+	var encounter = load(path).instance()
+	if npc == 'greenskins' && GameData.keeplvl == 1:
+		name = PlotGen.npc_greenskin1
+	encounter.set_name(str(name))
+	get_parent().get_node('Map').add_child(encounter)
+	encounter.set_pos(cell)
+	encounter.set_z(0)
+	encounter.add_to_group('actors')
+
 
 # Set the Darkness Canvas item
 # colour to complement each dungeon tileset

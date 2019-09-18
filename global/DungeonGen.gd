@@ -62,6 +62,7 @@ var monster_theme
 var item_theme
 var trap_theme
 var encounter_theme
+var npc_theme
 var prefab_room = []
 
 # Set dungeon theme
@@ -71,11 +72,13 @@ func set_theme():
 		item_theme = DungeonThemes.items_undead
 		trap_theme = DungeonThemes.traps_undead
 		encounter_theme = DungeonThemes.npc_undead
+		npc_theme = 'undead'
 	elif GameData.enemyRNG == 1:
 		monster_theme = DungeonThemes.monster_greenskins
 		item_theme = DungeonThemes.items_greenskins
 		trap_theme = DungeonThemes.traps_greenskins
 		encounter_theme = DungeonThemes.npc_greenskins
+		npc_theme = 'greenskins'
 
 # Build a new datamap (fill with walls)
 func build_datamap():
@@ -234,7 +237,9 @@ func place_encounter(room):
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	if choice == encounter_list.t_e1:
-		GameData.map.spawn_npc_object(choice, pos)
+		var npc = npc_theme
+		print(npc)
+		GameData.map.spawn_encounter_object(choice, pos, npc)
 	else:
 		GameData.map.spawn_object(choice, pos)
 
