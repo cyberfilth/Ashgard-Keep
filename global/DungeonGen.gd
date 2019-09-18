@@ -236,13 +236,7 @@ func place_encounter(room):
 		x = GameData.roll(room.pos.x+1, room.end.x-2)
 		y = GameData.roll(room.pos.y+1, room.end.y-2)
 		pos = Vector2(x,y)
-	if choice == encounter_list.t_e1:
-		var npc = npc_theme
-		print(npc)
-		GameData.map.spawn_encounter_object(choice, pos, npc)
-	else:
-		GameData.map.spawn_object(choice, pos)
-
+	GameData.map.spawn_object(choice, pos)
 
 
 func place_monsters(room):

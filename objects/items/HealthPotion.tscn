@@ -12,6 +12,7 @@ name = "Health Potion"
 proper_name = false
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Light2D" type="Light2D" parent="."]
 

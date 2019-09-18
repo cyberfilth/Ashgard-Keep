@@ -7,10 +7,11 @@
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Rock"
+name = "rock"
 proper_name = false
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 

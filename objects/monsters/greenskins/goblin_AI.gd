@@ -3,9 +3,11 @@
 extends Node
 
 onready var owner = get_parent()
+onready var new_name = PlotGen.npc_greenskin1
 
 func _ready():
 	owner.ai = self
+	owner.get_node(".").name = new_name
 
 func take_turn():
 	if owner.fighter.has_status_effect('confused'):
