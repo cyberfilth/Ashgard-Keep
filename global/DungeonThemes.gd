@@ -125,13 +125,25 @@ t_e2 = 'traps/fungus_trap'
 { # Level 2
 t_e1 = 'traps/web',
 t_e2 = 'traps/fungus_trap'
+},
+{ # Level 3
+t_e1 = 'traps/web',
+t_e2 = 'traps/fungus_trap'
 }
 ]
 
 var npc_undead = [
 { # Level 1
-t_e1 = 'traps/web',
-t_e2 = 'traps/fungus_trap'
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/animals/lvl2/scorpion'
+},
+{ # Level 2
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/animals/lvl2/scorpion'
+},
+{ # Level 3
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/animals/lvl2/scorpion'
 }
 ]
 
@@ -146,11 +158,11 @@ gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
 },
 { # 2nd level Greenskins
-minion1 = 'monsters/undead/ghoul_rat',
-minion2 = 'monsters/animals/bat',
-gribbly1 = 'monsters/undead/zombie',
-gribbly2 = 'monsters/undead/diseased_zombie',
-boss1 = 'monsters/undead/necromancer'
+minion1 = 'monsters/fey/fairy_assassin',
+minion2 = 'monsters/fungus/yellow_fungus',
+gribbly1 = 'monsters/greenskins/witch_doctor',
+gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
+boss1 = 'monsters/animals/rat'
 }
 ]
 
@@ -187,6 +199,14 @@ t_e2 = 'traps/fungus_trap'
 var npc_greenskins = [
 { # Level 1
 t_e1 = 'monsters/greenskins/goblin',
-t_e2 = 'monsters/greenskins/goblin'
+t_e2 = 'monsters/animals/lvl2/scorpion'
+},
+{ # Level 2
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/animals/lvl2/scorpion'
+},
+{ # Level 3
+t_e1 = 'monsters/greenskins/goblin',
+t_e2 = 'monsters/animals/lvl2/scorpion'
 }
 ]
