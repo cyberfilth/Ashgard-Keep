@@ -94,6 +94,7 @@ func fight(who):
 	else: # Stops similar NPC's killing each other
 		if who.get_display_name() == owner.get_display_name():
 			return
+	
 	# COMBAT
 	# Weapon Modifier
 		var max_roll = self.weapon_dice * 6
