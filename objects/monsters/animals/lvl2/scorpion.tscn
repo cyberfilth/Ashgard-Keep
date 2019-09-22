@@ -12,6 +12,7 @@ name = "Giant Scorpion"
 proper_name = true
 blocks_movement = true
 stay_visible = false
+trap = false
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 

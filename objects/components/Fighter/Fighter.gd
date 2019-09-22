@@ -9,7 +9,7 @@ signal race_changed(what)
 onready var owner = get_parent()
 
 export(bool) var bleeds = true
-export(String, "red", "green") var blood_colour
+export(String, "red", "green", "scarlet", "jade") var blood_colour
 export(String, "Human", "Dwarf", "Elf", "animal") var race = "animal" setget _set_race
 export(int) var character_level = 1 setget _set_character_level
 export(int) var attack = 1 setget _set_attack

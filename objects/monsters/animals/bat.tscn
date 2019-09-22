@@ -12,6 +12,7 @@ name = "Bat"
 proper_name = true
 blocks_movement = true
 stay_visible = false
+trap = false
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
@@ -32,6 +33,7 @@ percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
+blood_colour = "scarlet"
 race = "animal"
 attack = 15
 defence = 8
