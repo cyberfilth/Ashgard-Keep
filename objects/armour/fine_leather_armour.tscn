@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/armour/leather_armour2.tex" type="Texture" id=2]
+[ext_resource path="res://objects/armour/leather_armour2.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
 

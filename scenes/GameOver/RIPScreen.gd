@@ -66,6 +66,8 @@ func killer_description(killer):
 		what_killed_you = "an unseen black shape."
 	elif killer == "Goblin Witch doctor":
 		what_killed_you = "a malevolent Goblin Witch doctor."
+	elif killer == "Orc Warrior":
+		what_killed_you = "an Orc Warrior."
 	else:
 		what_killed_you = GameData.killer
 

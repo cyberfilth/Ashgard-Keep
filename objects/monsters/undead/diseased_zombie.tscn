@@ -12,17 +12,18 @@ name = "Diseased zombie"
 proper_name = true
 blocks_movement = true
 stay_visible = false
+trap = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Glyph" type="RichTextLabel" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 6.0
-margin/top = -3.0
-margin/right = 46.0
-margin/bottom = 37.0
+margin/left = 4.0
+margin/top = -5.0
+margin/right = 44.0
+margin/bottom = 35.0
 custom_fonts/normal_font = ExtResource( 2 )
 custom_colors/default_color = Color( 0.0732422, 0.75, 0.305878, 1 )
 bbcode/enabled = false

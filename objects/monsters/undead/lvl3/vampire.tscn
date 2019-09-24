@@ -14,11 +14,12 @@ name = "Vampire"
 proper_name = true
 blocks_movement = true
 stay_visible = false
+trap = false
 
 [node name="Light2D" type="Light2D" parent="."]
 
 visibility/visible = false
-transform/pos = Vector2( 14.5757, 15.9268 )
+transform/pos = Vector2( 11.798, 13.0102 )
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
@@ -45,10 +46,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 6.0
-margin/top = -3.0
-margin/right = 46.0
-margin/bottom = 37.0
+margin/left = 4.0
+margin/top = -5.0
+margin/right = 44.0
+margin/bottom = 35.0
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0.734375, 0.111877, 0.155646, 1 )
 bbcode/enabled = false
