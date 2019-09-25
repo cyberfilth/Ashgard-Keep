@@ -203,7 +203,7 @@ t_e1 = 'monsters/greenskins/goblin',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 2
-t_e1 = 'monsters/greenskins/goblin',
+t_e1 = 'monsters/greenskins/lvl2/goblin',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 3
