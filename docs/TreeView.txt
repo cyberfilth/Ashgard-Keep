@@ -245,16 +245,27 @@
 │   │   ├── blood_green2.png
 │   │   ├── blood_green3.png
 │   │   ├── blood_green4.png
+│   │   ├── blood_jade0.png
+│   │   ├── blood_jade1.png
+│   │   ├── blood_jade2.png
+│   │   ├── blood_jade3.png
+│   │   ├── blood_jade4.png
 │   │   ├── blood_red0.png
 │   │   ├── blood_red1.png
 │   │   ├── blood_red2.png
 │   │   ├── blood_red3.png
 │   │   ├── blood_red4.png
+│   │   ├── blood_scarlet0.png
+│   │   ├── blood_scarlet1.png
+│   │   ├── blood_scarlet2.png
+│   │   ├── blood_scarlet3.png
+│   │   ├── blood_scarlet4.png
 │   │   ├── bolt_electricity.png
 │   │   ├── bolt_fire.png
 │   │   ├── cursor.png
 │   │   ├── portal.png
-│   │   └── smoke_particle.png
+│   │   ├── smoke_particle.png
+│   │   └── web.png
 │   ├── gui
 │   │   ├── ashgard_keep.png
 │   │   ├── AT_teal.png
@@ -294,7 +305,9 @@
 │       ├── portal_spark.png
 │       ├── skull.png
 │       ├── spore_cloud.gd
-│       └── spore_cloud.tscn
+│       ├── spore_cloud.tscn
+│       ├── voodoo_particles.gd
+│       └── voodoo_particles.tscn
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
@@ -305,7 +318,14 @@
 │   │   ├── Bone_armour.tex
 │   │   ├── bone_armour.tscn
 │   │   ├── chainmail_armour.png
+│   │   ├── crude_leather_armour.tscn
+│   │   ├── fine_leather_armour.tscn
 │   │   ├── heavy_cloth_armour.tscn
+│   │   ├── leather_armour1.png
+│   │   ├── leather_armour1.tex
+│   │   ├── leather_armour2.png
+│   │   ├── new_bone_armour.png
+│   │   ├── new_bone_armour.tex
 │   │   ├── Skin_armour.png
 │   │   ├── Skin_armour.tex
 │   │   └── skin_armour.tscn
@@ -345,7 +365,6 @@
 │   │   ├── purple.png
 │   │   ├── red.png
 │   │   ├── Rock.tscn
-│   │   ├── scroll_1.png
 │   │   ├── scroll_2.png
 │   │   ├── Scroll_Confusion.tscn
 │   │   ├── Scroll_Fireball.tscn
@@ -373,15 +392,27 @@
 │   │   ├── fungus
 │   │   │   ├── blue_fungus_AI.gd
 │   │   │   ├── blue_fungus.tscn
+│   │   │   ├── green_fungus.tscn
 │   │   │   ├── yellow_fungus_AI.gd
 │   │   │   └── yellow_fungus.tscn
 │   │   ├── greenskins
 │   │   │   ├── goblin_AI.gd
 │   │   │   ├── goblin_inventory.gd
 │   │   │   ├── goblin.tscn
+│   │   │   ├── goblin_witch_dr_AI.gd
+│   │   │   ├── lvl2
+│   │   │   │   ├── goblin_AI.gd
+│   │   │   │   ├── goblin.tscn
+│   │   │   │   ├── orc_warrior_AI.gd
+│   │   │   │   ├── orc_warrior_inventory.gd
+│   │   │   │   └── orc_warrior.tscn
 │   │   │   ├── rock_thrower_goblin_AI.gd
 │   │   │   ├── rock_thrower_goblin_inventory.gd
-│   │   │   └── rock_thrower_goblin.tscn
+│   │   │   ├── rock_thrower_goblin.tscn
+│   │   │   ├── witch_doctor.tscn
+│   │   │   └── witch_dr_inventory.gd
+│   │   ├── shadow_AI.gd
+│   │   ├── shadow.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
@@ -420,6 +451,10 @@
 │   │   ├── Player.png
 │   │   ├── Player.tscn
 │   │   └── Torch.gd
+│   ├── traps
+│   │   ├── fungus_trap.tscn
+│   │   ├── web.gd
+│   │   └── web.tscn
 │   └── weapons
 │       ├── blood_drinker.png
 │       ├── blood_drinker.tscn
@@ -428,6 +463,8 @@
 │       ├── crude_dagger.tscn
 │       ├── dagger2.png
 │       ├── dagger.png
+│       ├── goblin_dagger.tscn
+│       ├── orcish_dagger.png
 │       ├── rusty_dagger.tscn
 │       ├── shard_sword.tscn
 │       ├── sword1.png
@@ -473,4 +510,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-46 directories, 427 files
+48 directories, 462 files
