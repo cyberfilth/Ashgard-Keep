@@ -69,7 +69,7 @@ func killer_description(killer):
 	elif killer == "Orc Warrior":
 		what_killed_you = "an Orc Warrior."
 	elif killer == "Ratling":
-		what_killed_you = "a Ratling."
+		what_killed_you = "a cowardly Ratling."
 	else:
 		what_killed_you = GameData.killer
 
