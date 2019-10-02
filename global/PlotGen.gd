@@ -48,14 +48,19 @@ const GOBLIN_NAMES_2 = ['Booger','Drooler','PigSpit','Pukey','Ratskinner','Scumr
 const GOBLIN_TITLES = [' the goblin janitor', ' the goblin smuggler', ' the rat-catcher',' the goblin sewer-worker',\
 	' the goblin assassin',' the goblin gigalo',' the goblin pirate' ]
 
+# Trolls
+const ROCK_TROLL_NAMES_1 = ['Quartz','Tuff','Shayull','HornFell','Ignatius','Chalky','Skarn','Flint','Kaleesh','RhyoLite','Chert','Soapy','ClayFoot','Grit','IronStone','Shingle']
+
 var mage
 var npc_greenskin1
 var npc_greenskin2
+var npc_rock_troll1
 
 func generate_plot():
 		mage = MAGE_FIRSTNAME[randi() % MAGE_FIRSTNAME.size()] + MAGE_SECONDNAME[randi() % MAGE_SECONDNAME.size()] + TITLE[randi() % TITLE.size()]
 		npc_greenskin1 = GOBLIN_NAMES_1[randi() % GOBLIN_NAMES_1.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
 		npc_greenskin2 = GOBLIN_NAMES_2[randi() % GOBLIN_NAMES_2.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
+		npc_rock_troll1 = ROCK_TROLL_NAMES_1[randi() % ROCK_TROLL_NAMES_1.size()] + " the Rock Troll"
 #	var dwarf_clan_name = CLAN_FIRSTPART[randi() % CLAN_FIRSTPART.size()] + CLAN_SECONDPART[randi() % CLAN_SECONDPART.size()]
 #	var paladin_order = PAL_ADJECTIVE[randi() % PAL_ADJECTIVE.size()] + PAL_OBJECT[randi() % PAL_OBJECT.size()] + PAL_NAME[randi() % PAL_NAME.size()]
 #	var elven_city = ELF_NAME1[randi() % ELF_NAME1.size()] + ELF_NAME2[randi() % ELF_NAME2.size()]
