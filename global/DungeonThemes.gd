@@ -151,20 +151,18 @@ t_e2 = 'monsters/animals/lvl2/scorpion'
 
 var monster_greenskins = [
 { # 1st level Greenskins
-#minion1 = 'monsters/fey/fairy_assassin',
-minion1 = 'monsters/greenskins/lvl2/orc_warrior',
-#minion2 = 'monsters/fungus/yellow_fungus',
-minion2 = 'monsters/animals/lvl2/ratling',
+minion1 = 'monsters/fey/fairy_assassin',
+minion2 = 'monsters/fungus/yellow_fungus',
 gribbly1 = 'monsters/greenskins/witch_doctor',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
 },
 { # 2nd level Greenskins
 minion1 = 'monsters/fey/fairy_assassin',
-minion2 = 'monsters/fungus/yellow_fungus',
+minion2 = 'monsters/animals/lvl2/ratling',
 gribbly1 = 'monsters/greenskins/witch_doctor',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
-boss1 = 'monsters/animals/rat'
+boss1 = 'monsters/greenskins/lvl2/orc_warrior'
 }
 ]
 
