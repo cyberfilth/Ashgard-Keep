@@ -49,7 +49,8 @@ const GOBLIN_TITLES = [' the goblin janitor', ' the goblin smuggler', ' the rat-
 	' the goblin assassin',' the goblin gigalo',' the goblin pirate' ]
 
 # Trolls
-const ROCK_TROLL_NAMES_1 = ['Quartz','Tuff','Shayull','HornFell','Ignatius','Chalky','Skarn','Flint','Kaleesh','RhyoLite','Chert','Soapy','ClayFoot','Grit','IronStone','Shingle']
+const ROCK_TROLL_NAMES_1 = ['Quartz','Tuff','Shayull','HornFell','Ignatius','Chalky','Skarn','Flint','Kaleesh',\
+	'RhyoLite','Chert','Soapy','ClayFoot','Grit','IronStone','Shingle','Chip']
 
 var mage
 var npc_greenskin1

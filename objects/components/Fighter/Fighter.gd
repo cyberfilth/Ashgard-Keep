@@ -233,8 +233,9 @@ func die():
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 		GameData.map.release_green_spores(owner.get_map_pos())
 		# leave bloodstain
-	if !owner.has_node("Inventory") && self.bleeds:
-		bleed(blood_colour)
+	#if !owner.has_node("Inventory") && self.bleeds:
+	if self.bleeds:
+			bleed(blood_colour)
 	# Get XP if you are the killer
 	if killer == (GameData.player.get_display_name()) || killer == "Fire" || killer == "Lightning Strike":
 		var xp_earned = self.xp_reward
@@ -248,7 +249,7 @@ func die():
 		GameData.map.add_child(dropped_item)
 		dropped_item.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 		GameData.broadcast("The "+corpse+" drops an item")
-		bleed(blood_colour)
+		#bleed(blood_colour)
 	# remove the enemy from the screen
 	owner.kill()
 

@@ -134,7 +134,7 @@ t_e2 = 'traps/fungus_trap'
 
 var npc_undead = [
 { # Level 1
-t_e1 = 'monsters/greenskins/goblin',
+t_e1 = 'monsters/trolls/rock_troll',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 2

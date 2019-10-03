@@ -8,6 +8,7 @@ signal object_acted()
 export(String, MULTILINE) var name = "OBJECT" setget _set_name
 
 export(bool) var proper_name = false
+export(bool) var named_name = false # i.e. Kevin the troll, removes the 'A' prefix
 export(bool) var blocks_movement = false
 export(bool) var stay_visible = false
 export(bool) var trap = false
@@ -67,7 +68,6 @@ func get_display_name():
 func kill():
 	if GameData.player != self:
 		queue_free()
-
 
 func spawn(map,cell):
 	if is_in_group('inventory'):
@@ -166,7 +166,10 @@ func _set_seen(what):
 		elif self.trap == true:
 			pass
 		else:
-			GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOUR_YELLOW)
+			if !self.named_name:
+				GameData.broadcast("You find a " + self.get_display_name(), GameData.COLOUR_YELLOW)
+			else:GameData.broadcast("You encounter " + self.get_display_name(), GameData.COLOUR_YELLOW)
+				
 
 func _on_hp_changed(current,full):
 	if not fighter: return
