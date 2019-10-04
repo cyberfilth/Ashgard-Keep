@@ -3,6 +3,7 @@ extends Node
 export(int) var dice = 0
 export(int) var adds = 0
 export(String) var description = " "
+export(String) var type = "sharp"
 # Any special attack modifiers go here
 export(String, "attack", "hp_drain") var special_attack = "attack"
 
