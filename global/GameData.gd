@@ -59,6 +59,10 @@ var keeplvl # current floor of the Keep
 var dungeon_theme_array = [] # Random array of dungeon themes
 var use_item = "cannot be used"
 var in_use = false # Whether an item is currently being used, i.e. A spell waiting for a target to be selected
+# stored in case a weapon breaks
+var weapon_in_use
+var weapon_slot
+var weapon_name
 
 # RIP - You were killed by
 var killer = "An unknown enemy"

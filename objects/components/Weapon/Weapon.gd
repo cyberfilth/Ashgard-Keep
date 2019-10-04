@@ -27,6 +27,16 @@ func unequip(weapon_name, dice, adds):
 	get_parent().get_node('Item').equipped = false
 	GameData.broadcast(weapon_name + " unequipped")
 
-func break_weapon():
+func break_weapon(weapon_name, dice, adds):
 	print("SMASH")
-	unequip(self.name, self.dice, self.adds)
+	var fighter = GameData.player.fighter
+	fighter.weapon_equipped = false
+	fighter.weapon_dice -= dice
+	fighter.weapon_adds -= adds
+		## Update GUI ##
+	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
+	var weapon_description = get_node('/root/Game/frame/right/Activity/box/weaponDescription')
+	equipped_weapon.set_text("No weapon equipped")
+	weapon_description.set_text(" ")
+	GameData.weapon_slot.remove_contents(GameData.weapon_in_use)
+	GameData.weapon_slot.show_unequipped_weapon()

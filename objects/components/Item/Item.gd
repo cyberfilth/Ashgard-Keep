@@ -241,6 +241,9 @@ func unequip_weapon(weapon):
 
 func equip_weapon(weapon):
 	var weapon_name = owner.get_display_name()
+	GameData.weapon_in_use = owner
+	GameData.weapon_slot = inventory_slot
+	GameData.weapon_name = weapon_name
 	## Update GUI ##
 	inventory_slot.show_equipped_weapon()
 	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')

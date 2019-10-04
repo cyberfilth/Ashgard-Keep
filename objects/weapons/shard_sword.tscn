@@ -10,8 +10,10 @@
 script/script = ExtResource( 1 )
 name = "Shard sword"
 proper_name = true
+named_name = false
 blocks_movement = false
 stay_visible = true
+trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
 

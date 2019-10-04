@@ -173,12 +173,11 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " poisons " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
 		if owner == GameData.player:
 			poisoned(3)
-			
 	elif from.ends_with("Rock Troll"):
 		GameData.broadcast(from+ " bashes "+owner.get_display_name()+ " for " +m+ " damage",color)
 		if owner == GameData.player:
-			print(GameData.player.fighter.weapon_equipped)
-		
+			GameData.weapon_in_use.get_node('Weapon').break_weapon(GameData.weapon_name, GameData.player.fighter.weapon_dice, GameData.player.fighter.weapon_adds)
+			#TO DO - get equipped weapon
 	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion
