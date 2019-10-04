@@ -95,12 +95,6 @@ func fight(who):
 		if who.get_display_name() == owner.get_display_name():
 			return
 	
-	# Chance of rock skin breaking a weapon
-	if who.get_display_name().right(10) == "Rock Troll":# && owner == GameData.player:
-		print("You are fighting a Rock Troll")
-	else:
-		print("Not a Rock Troll")
-	
 	# COMBAT
 	# Weapon Modifier
 		var max_roll = self.weapon_dice * 6
@@ -179,6 +173,12 @@ func broadcast_damage_taken(from, amount):
 		GameData.broadcast(from+ " poisons " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
 		if owner == GameData.player:
 			poisoned(3)
+			
+	elif from.ends_with("Rock Troll"):
+		GameData.broadcast(from+ " bashes "+owner.get_display_name()+ " for " +m+ " damage",color)
+		if owner == GameData.player:
+			print(GameData.player.fighter.weapon_equipped)
+		
 	elif from == "Giant Scorpion":
 		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion

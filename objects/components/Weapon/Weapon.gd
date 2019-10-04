@@ -3,7 +3,7 @@ extends Node
 export(int) var dice = 0
 export(int) var adds = 0
 export(String) var description = " "
-export(String) var type = "sharp"
+export(String, "sharp", "blunt") var type = "sharp"
 # Any special attack modifiers go here
 export(String, "attack", "hp_drain") var special_attack = "attack"
 
@@ -26,3 +26,7 @@ func unequip(weapon_name, dice, adds):
 	fighter.weapon_adds -= adds
 	get_parent().get_node('Item').equipped = false
 	GameData.broadcast(weapon_name + " unequipped")
+
+func break_weapon():
+	print("SMASH")
+	unequip(self.name, self.dice, self.adds)

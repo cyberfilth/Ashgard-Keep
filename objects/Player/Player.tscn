@@ -13,8 +13,10 @@
 script/script = ExtResource( 1 )
 name = "Fang the Delectable"
 proper_name = true
+named_name = false
 blocks_movement = true
 stay_visible = false
+trap = false
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
@@ -86,6 +88,7 @@ bleeds = false
 attack = 20
 defence = 5
 max_hp = 100
+xp_reward = 5
 
 [node name="Brand" type="Sprite" parent="."]
 
