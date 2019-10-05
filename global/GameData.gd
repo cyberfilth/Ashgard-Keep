@@ -57,6 +57,7 @@ var levelup_menu
 var load_continue_newlvl = "load" # Variable passed to TitleMenu
 var keeplvl # current floor of the Keep
 var dungeon_theme_array = [] # Random array of dungeon themes
+var temp_array2 = [] # Temp array for dungeon theme sorting
 var use_item = "cannot be used"
 var in_use = false # Whether an item is currently being used, i.e. A spell waiting for a target to be selected
 # stored in case a weapon breaks
@@ -101,12 +102,15 @@ const TROLL_MONTH = {1:"Mistmon", 2:"Brittleice", 3:"Windmon", 4:"Gunther", 5:"S
 
 # Shuffle the array of dungeon themes
 func set_dungeon_theme():
+	temp_array2.clear()
+	dungeon_theme_array.clear()
 	var temp_list = range(DungeonThemes.original_dungeon_themes.size())
-	for i in range(DungeonThemes.original_dungeon_themes.size()):
+	temp_array2 = [] + DungeonThemes.original_dungeon_themes
+	for i in range(temp_array2.size()):
 		var x = randi()%temp_list.size()
-		dungeon_theme_array.append(DungeonThemes.original_dungeon_themes[x])
+		dungeon_theme_array.append(temp_array2[x])
 		temp_list.remove(x)
-		DungeonThemes.original_dungeon_themes.remove(x)
+		temp_array2.remove(x)
 	return
 
 func set_enemy_theme():
