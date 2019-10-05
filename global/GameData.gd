@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.8"
+const version = "Version 0.8.2"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -63,6 +63,7 @@ var in_use = false # Whether an item is currently being used, i.e. A spell waiti
 var weapon_in_use
 var weapon_slot
 var weapon_name
+var weapon_type
 
 # RIP - You were killed by
 var killer = "An unknown enemy"

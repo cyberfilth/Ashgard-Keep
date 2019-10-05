@@ -28,7 +28,6 @@ func unequip(weapon_name, dice, adds):
 	GameData.broadcast(weapon_name + " unequipped")
 
 func break_weapon(weapon_name, dice, adds):
-	print("SMASH")
 	var fighter = GameData.player.fighter
 	fighter.weapon_equipped = false
 	fighter.weapon_dice -= dice
@@ -40,3 +39,9 @@ func break_weapon(weapon_name, dice, adds):
 	weapon_description.set_text(" ")
 	GameData.weapon_slot.remove_contents(GameData.weapon_in_use)
 	GameData.weapon_slot.show_unequipped_weapon()
+	GameData.player.get_node("Camera").shake(0.3, 15)
+	GameData.weapon_in_use = false
+	GameData.weapon_type = ""
+	GameData.weapon_slot = null
+	GameData.weapon_name = ""
+	GameData.broadcast("Your weapon shatters!", GameData.COLOUR_YELLOW)

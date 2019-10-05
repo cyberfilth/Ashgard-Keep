@@ -68,8 +68,7 @@ darkness = DARKNESS3
 ######## Undead
 var monster_undead = [
 { # 1st level Undead
-#minion1 = 'monsters/undead/ghoul_rat',
-minion1 = 'monsters/trolls/rock_troll',
+minion1 = 'monsters/undead/ghoul_rat',
 minion2 = 'monsters/animals/bat',
 gribbly1 = 'monsters/undead/zombie',
 gribbly2 = 'monsters/undead/diseased_zombie',
