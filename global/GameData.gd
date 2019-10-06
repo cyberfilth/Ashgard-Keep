@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.8.2"
+const version = "Version 0.8.4"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -114,8 +114,8 @@ func set_dungeon_theme():
 	return
 
 func set_enemy_theme():
-	#enemyRNG = roll(0,1)
-	enemyRNG = 1 # set number here to test enemies
+	enemyRNG = roll(0,1)
+	#enemyRNG = 1 # set number here to test enemies
 
  #############################################
  #  Sve player stats when entering new level #

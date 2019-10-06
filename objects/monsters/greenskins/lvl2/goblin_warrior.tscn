@@ -3,13 +3,13 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/undead/lvl2/ghoul_AI.gd" type="Script" id=4]
-[ext_resource path="res://objects/monsters/undead/lvl2/ghoul_inventory.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/greenskins/rock_thrower_goblin_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/greenskins/lvl2/orc_warrior_Inventory.gd" type="Script" id=5]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Ghoul"
+name = "Goblin warrior"
 proper_name = true
 named_name = false
 blocks_movement = true
@@ -22,24 +22,25 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 3.0
-margin/top = -8.0
-margin/right = 43.0
-margin/bottom = 32.0
+margin/left = 2.0
+margin/top = -6.0
+margin/right = 42.0
+margin/bottom = 34.0
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.648955, 0.660156, 0.301712, 1 )
+custom_colors/default_color = Color( 0.150784, 0.734375, 0.131958, 1 )
 bbcode/enabled = false
-bbcode/bbcode = "g"
+bbcode/bbcode = "o"
 visible_characters = -1
 percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
+blood_colour = "green"
 character_level = 2
-attack = 15
+attack = 13
 defence = 10
-max_hp = 40
-xp_reward = 35
+max_hp = 30
+xp_reward = 16
 
 [node name="AI" type="Node" parent="."]
 

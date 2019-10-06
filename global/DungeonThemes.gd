@@ -158,10 +158,10 @@ gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
 },
 { # 2nd level Greenskins
-minion1 = 'monsters/fey/fairy_assassin',
+minion1 = 'monsters/fey/lvl2/pixie_beserker',
 minion2 = 'monsters/animals/lvl2/ratling',
 gribbly1 = 'monsters/greenskins/witch_doctor',
-gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
+gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
 boss1 = 'monsters/greenskins/lvl2/orc_warrior'
 }
 ]
