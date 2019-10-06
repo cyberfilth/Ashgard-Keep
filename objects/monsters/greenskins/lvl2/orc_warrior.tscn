@@ -11,6 +11,7 @@
 script/script = ExtResource( 1 )
 name = "Orc Warrior"
 proper_name = true
+named_name = false
 blocks_movement = true
 stay_visible = false
 trap = false

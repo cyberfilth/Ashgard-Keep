@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/monsters/trolls/rock_troll_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/trolls/rock_troll_Inventory.gd" type="Script" id=5]
 
 [node name="Object" type="Node2D"]
 
@@ -43,5 +44,9 @@ xp_reward = 25
 [node name="AI" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="Inventory" type="Node2D" parent="."]
+
+script/script = ExtResource( 5 )
 
 

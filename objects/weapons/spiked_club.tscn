@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
+[ext_resource path="res://objects/weapons/spiked_club.png" type="Texture" id=2]
+[ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/components/Weapon/Weapon.tscn" type="PackedScene" id=4]
+
+[node name="Object" type="Node2D"]
+
+script/script = ExtResource( 1 )
+name = "Spiked club"
+proper_name = true
+named_name = false
+blocks_movement = false
+stay_visible = true
+trap = false
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Brand" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, -1 )
+
+[node name="Item" parent="." instance=ExtResource( 3 )]
+
+use_function = "weapon"
+throw_range = 4
+throw_damage = 5
+
+[node name="Weapon" parent="." instance=ExtResource( 4 )]
+
+dice = 3
+adds = 2
+description = "Adds 3D+2 to ATTACK"
+type = "blunt"
+
+
