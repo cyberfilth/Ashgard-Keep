@@ -10,7 +10,7 @@
 
 script/script = ExtResource( 1 )
 name = "Goblin"
-proper_name = false
+proper_name = true
 named_name = true
 blocks_movement = true
 stay_visible = false
