@@ -152,6 +152,8 @@ func save_game():
 	}
 	# Game story and characters
 	data.plot = PlotGen.save()
+	# Enemies killed
+	data.death_list = GameData.death_list
 	# Map data: Datamap, Fogmap and DungeonTheme
 	data.map = GameData.map.save()
 	# Player object data
@@ -193,6 +195,9 @@ func restore_game():
 	# Game story and characters
 	if 'plot' in data:
 		PlotGen.restore(data.plot)
+	
+	# Number of enemies killed
+	 GameData.death_list = data.death_list
 	
 	# Map Data
 	if 'map' in data:
