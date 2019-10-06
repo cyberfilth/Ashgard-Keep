@@ -1,0 +1,7 @@
+func _ready():
+	for i in range(0,array.size()):
+		array.sort()
+		if array.count(array[i]) > 1:
+			print(array[i]+" x "+str(array.count(array[i])))
+		else:
+			print(array[i])

@@ -1,6 +1,6 @@
 extends Node
 
-const version = "Version 0.8.4"
+const version = "Version 0.8.6"
 
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
@@ -68,6 +68,9 @@ var weapon_type
 
 # RIP - You were killed by
 var killer = "An unknown enemy"
+
+# List of enemies killed
+var death_list = []
 
 # message log icons
 var torch_icon = load('res://graphics/gui/ml_torch.png')

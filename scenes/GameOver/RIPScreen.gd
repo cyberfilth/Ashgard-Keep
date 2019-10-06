@@ -9,6 +9,15 @@ func _ready():
 	var dir = Directory.new()
 	if dir.file_exists(GameData.SAVEGAME_PATH):
 		dir.remove(GameData.SAVEGAME_PATH)
+	# Get list if all enemies killed
+	var list_string = ""
+	for i in range(0,GameData.death_list.size()):
+		GameData.death_list.sort()
+		if GameData.death_list.count(GameData.death_list[i]) > 1:
+			if GameData.death_list[i] != GameData.death_list[i-1]:
+				list_string +=GameData.death_list[i]+" x "+str(GameData.death_list.count(GameData.death_list[i]))+"\n"
+		else:
+			list_string+=GameData.death_list[i]+"\n"
 	# Get floor level
 	var suffix = ""
 	var keepfloor = int(GameData.keeplvl)
@@ -29,7 +38,9 @@ func _ready():
 	type_of_death()
 	# Print death message
 	RIPmessage.set_text("You "+death_description+" by " + what_killed_you+\
-	"\nOn the "+keep_level+" floor of the Keep after "+str(GameData.player_moves)+ " moves.")
+	"\nOn the "+keep_level+" floor of the Keep after "+str(GameData.player_moves)+ " moves.\n\n"\
+	+"You defeated; \n"+list_string)
+	
 	# Unpause process
 	get_tree().set_pause(false)
 

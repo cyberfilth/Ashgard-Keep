@@ -244,7 +244,6 @@ func die():
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
 		GameData.map.release_green_spores(owner.get_map_pos())
 		# leave bloodstain
-	#if !owner.has_node("Inventory") && self.bleeds:
 	if self.bleeds:
 			bleed(blood_colour)
 	# Get XP if you are the killer
@@ -252,6 +251,8 @@ func die():
 		var xp_earned = self.xp_reward
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
+		# add to list of enemies killed
+		GameData.death_list.append(owner.get_display_name())
 	# check if enemy drops any items
 	if owner.has_node("Inventory"):
 		var item = owner.get_node("Inventory").drop_item()
