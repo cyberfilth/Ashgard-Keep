@@ -17,6 +17,7 @@ func new_game():
 	GameData.set_dungeon_theme()
 	GameData.set_enemy_theme()
 	GameData.map.new_map()
+	GameData.death_list = []
 	spawn_player(DungeonGen.start_pos)
 	# Add starting equipment
 	#torch
