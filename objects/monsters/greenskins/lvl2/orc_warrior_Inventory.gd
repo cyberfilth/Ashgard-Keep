@@ -1,9 +1,9 @@
 extends Node2D
 
-# list of things the goblin warrior may be carrying
-var items = ["res://objects/armour/crude_leather_armour.tscn",\
-			"res://objects/weapons/goblin_axe.tscn",\
-			"res://objects/weapons/goblin_dagger.tscn"]
+# list of things the orc warrior may be carrying
+var items = ["res://objects/weapons/orc_blade.tscn",\
+			"res://objects/weapons/spiked_club.tscn",\
+			"res://objects/armour/fine_leather_armour.tscn"]
 
 func _ready():
 	pass
