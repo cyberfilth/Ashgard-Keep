@@ -1,9 +1,12 @@
 extends Node
 
-const version = "Version 0.8.6"
+# Game file settings
 
+const version = "Version 0.8.6"
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
+
+# preset colours used in game messages
 
 const COLOUR_LIGHT_BLUE = '#91B4C1' # Default broadcast message
 const COLOUR_RED = '#d04648' # Player damage taken
@@ -16,16 +19,22 @@ const COLOUR_NECROTIC_PURPLE = '#9932cc' # Necromancy magic
 const COLOUR_ORANGE = '#e1bb37' # Torch messages
 const COLOUR_SLATE_GREY = '#708090' # Paralysed colour
 
+# Z order of enemies, items etc
+
 const LAYER_DECAL = 0
 const LAYER_ITEM = 1
 const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
+# Counter for player moves
 var player_moves
+
 var player_data = {}
 
 # Randomly generated enemy theme number
 var enemyRNG
+
+# variables used for game torchlight ####################
 
 # Area around the player
 var player_radius = 5
@@ -40,6 +49,7 @@ var light_circle
 var colr
 var colg
 var colb
+##########################################################
 
 # Dungeon map parameters
 var MAP_SIZE = Vector2(60, 60) # Changed from 70, 70

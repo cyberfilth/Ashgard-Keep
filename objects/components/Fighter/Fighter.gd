@@ -279,6 +279,7 @@ func bleed(blood_colour):
 	sprite.set_texture(blood)
 	GameData.map.add_child(sprite)
 	sprite.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+	sprite.set_z(GameData.LAYER_ITEM)
 
 func _ready():
 	owner.fighter = self

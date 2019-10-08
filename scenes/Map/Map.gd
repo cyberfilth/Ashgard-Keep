@@ -185,7 +185,7 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.set_name("Hell Hound")
 	get_parent().get_node('Map').add_child(hell_hound)
 	hell_hound.set_pos(hound_pos)
-	hell_hound.set_z(0)
+	hell_hound.set_z(GameData.LAYER_ACTOR)
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
 	GameData.broadcast("The body of the puppy transforms in the flames")
@@ -215,7 +215,7 @@ func release_blue_spores(target_area):
 		blue_fungus.set_name("Blue fungus")
 		get_parent().get_node('Map').add_child(blue_fungus)
 		blue_fungus.set_pos(map_to_world(fungus_pos))
-		blue_fungus.set_z(0)
+		blue_fungus.set_z(GameData.LAYER_ACTOR)
 		blue_fungus.add_to_group('actors')
 		blue_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
@@ -237,7 +237,7 @@ func release_green_spores(target_area):
 		green_fungus.set_name("Green fungus")
 		get_parent().get_node('Map').add_child(green_fungus)
 		green_fungus.set_pos(map_to_world(fungus_pos))
-		green_fungus.set_z(0)
+		green_fungus.set_z(GameData.LAYER_ACTOR)
 		green_fungus.add_to_group('actors')
 		green_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
@@ -262,7 +262,7 @@ func spawn_shadow():
 	shadow.set_name("Shadow")
 	get_parent().get_node('Map').add_child(shadow)
 	shadow.set_pos(map_to_world(shadow_pos))
-	shadow.set_z(0)
+	shadow.set_z(GameData.LAYER_ACTOR)
 	shadow.add_to_group('actors')
 	shadow.fighter.hp = 5000
 	var mno = GameData.roll(0,2)
