@@ -121,7 +121,7 @@ func set_enemy_theme():
 	#enemyRNG = 1 # set number here to test enemies
 
  #############################################
- #  Sve player stats when entering new level #
+ # Save player stats when entering new level #
  #############################################
 var lvlname
 var lvlcharacter_level
