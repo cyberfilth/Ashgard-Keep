@@ -52,16 +52,44 @@ const GOBLIN_TITLES = [' the goblin janitor', ' the goblin smuggler', ' the rat-
 const ROCK_TROLL_NAMES_1 = ['Quartz','Tuff','Shayull','HornFell','Ignatius','Chalky','Skarn','Flint','Kaleesh',\
 	'RhyoLite','Chert','Soapy','ClayFoot','Grit','IronStone','Shingle','Chip']
 
+# Player names - pseudo-Markov chain
+var markov_names = ['Adara', 'Adena', 'Adrianne', 'Alarice', 'Alvita', 'Amara', 'Ambika', 'Antonia', 'Araceli', 'Balandria', 'Basha',\
+'Beryl', 'Bryn', 'Callia', 'Caryssa', 'Cassandra', 'Casondrah', 'Chatha', 'Ciara', 'Cynara', 'Cytheria', 'Dabria', 'Darcei',\
+'Deandra', 'Deirdre', 'Delores', 'Desdomna', 'Devi', 'Dominique', 'Drucilla', 'Duvessa', 'Ebony', 'Ezzuh', 'Eohda', 'Fantine',\
+'Fuscienne', 'Farsha', 'Gabi', 'Gallia', 'Grokk', 'Hanna', 'Hades', 'Hecate', 'Hedda', 'Hermes', 'Iona', 'Irrin', 'Idriss',\
+'Jerica', 'Jetta', 'Joby', 'Kacila', 'Kagami', 'Kala', 'Kallie', 'Keelia', 'Kerry', 'Kimberly', 'Killian', 'Kory', 'Lilith',\
+'Lucretia', 'Lysha', 'Mercedes', 'Mia', 'Maura', 'Noah', 'Nikolai', 'Nemura', 'Osiris','Odama', 'Odysseus','Orin', 'Perdita',\
+'Paris', 'Penia', 'Phaeron', 'Poseidon', 'Quella', 'Quistis', 'Quarg', 'Quasimodo', 'Rain', 'Roma', 'Riona', 'Safiya', 'Salina',\
+'Severin', 'Sidonia', 'Sirena', 'Solita', 'Tempest', 'Thea', 'Treva', 'Trista', 'Thrasos', 'Unther', 'Unferth', 'Vala', 'Vailon',\
+'Winta', 'Wiglaf', 'Xarka', 'Xena', 'Yuzz', 'Yara', 'Zakarr','Zarathustra']
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+var markov = {}
+var username
+
 var mage
 var npc_greenskin1
 var npc_greenskin2
 var npc_rock_troll1
 
 func generate_plot():
-		mage = MAGE_FIRSTNAME[randi() % MAGE_FIRSTNAME.size()] + MAGE_SECONDNAME[randi() % MAGE_SECONDNAME.size()] + TITLE[randi() % TITLE.size()]
-		npc_greenskin1 = GOBLIN_NAMES_1[randi() % GOBLIN_NAMES_1.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
-		npc_greenskin2 = GOBLIN_NAMES_2[randi() % GOBLIN_NAMES_2.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
-		npc_rock_troll1 = ROCK_TROLL_NAMES_1[randi() % ROCK_TROLL_NAMES_1.size()] + " the Rock Troll"
+	mage = MAGE_FIRSTNAME[randi() % MAGE_FIRSTNAME.size()] + MAGE_SECONDNAME[randi() % MAGE_SECONDNAME.size()] + TITLE[randi() % TITLE.size()]
+	npc_greenskin1 = GOBLIN_NAMES_1[randi() % GOBLIN_NAMES_1.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
+	npc_greenskin2 = GOBLIN_NAMES_2[randi() % GOBLIN_NAMES_2.size()] + GOBLIN_TITLES[randi() % GOBLIN_TITLES.size()]
+	npc_rock_troll1 = ROCK_TROLL_NAMES_1[randi() % ROCK_TROLL_NAMES_1.size()] + " the Rock Troll"
+		
+	# Player name
+	if OS.has_environment("USERNAME") && OS.get_environment("USERNAME") !='localuser':
+		username = OS.get_environment("USERNAME")+" the Brave"
+	else:
+		randomize()
+		loadNames(markov, markov_names)
+		var new_name = ""
+		for i in range(1):
+			var random_letter = alphabet[GameData.roll(0, alphabet.size()-1)]
+			new_name = getName(random_letter, 4, 7)
+			new_name = new_name.capitalize()
+			username = new_name+" the Brave"
+	print(username)
 #	var dwarf_clan_name = CLAN_FIRSTPART[randi() % CLAN_FIRSTPART.size()] + CLAN_SECONDPART[randi() % CLAN_SECONDPART.size()]
 #	var paladin_order = PAL_ADJECTIVE[randi() % PAL_ADJECTIVE.size()] + PAL_OBJECT[randi() % PAL_OBJECT.size()] + PAL_NAME[randi() % PAL_NAME.size()]
 #	var elven_city = ELF_NAME1[randi() % ELF_NAME1.size()] + ELF_NAME2[randi() % ELF_NAME2.size()]
@@ -82,3 +110,42 @@ func restore(data):
 	mage = data.mage
 	npc_greenskin1 = data.npc_greenskin1
 	npc_greenskin2 = data.npc_greenskin2
+
+func loadNames(markov, markov_names):
+	for name in markov_names:
+		var currName = name
+		for i in range(currName.length()):
+			var currLetter = currName[i].to_lower()
+			var letterToAdd;
+			if i == (currName.length() - 1):
+				letterToAdd = "."
+			else:
+				letterToAdd = currName[i+1]
+			var tempList = []
+			if markov.has(currLetter):
+				tempList = markov[currLetter]
+			tempList.append(letterToAdd)
+			markov[currLetter] = tempList
+
+func getName (firstChar, minLength, maxLength):
+	var count = 1
+	var name = ""
+	if firstChar:
+		name += firstChar
+	else:
+		var random_letter = alphabet[GameData.roll(0, alphabet.size()-1)]
+		name += random_letter
+	while count < maxLength:
+		var new_last = name.length()-1
+		var nextLetter = getNextLetter(name[new_last])
+		if str(nextLetter) == ".":
+			if count > minLength:
+				return name
+		else:
+			name += str(nextLetter)
+			count+=1
+	return name
+
+func getNextLetter(letter):
+	var thisList = markov[letter]
+	return thisList[GameData.roll(0, thisList.size()-1)]
