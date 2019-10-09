@@ -142,7 +142,7 @@ t_e1 = 'monsters/greenskins/goblin',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 3
-t_e1 = 'monsters/greenskins/goblin',
+t_e1 = 'monsters/greenskins/lvl2/goblin',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 }
 ]
@@ -158,7 +158,7 @@ gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
 boss1 = 'monsters/animals/rat'
 },
 { # 2nd level Greenskins
-minion1 = 'monsters/fey/lvl2/pixie_beserker',
+minion1 = 'monsters/fungus/lvl2/mushroom_person',
 minion2 = 'monsters/animals/lvl2/ratling',
 gribbly1 = 'monsters/greenskins/witch_doctor',
 gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
@@ -177,7 +177,7 @@ armour = 'armour/heavy_cloth_armour'
 },
 { # 2nd level items
 rubble = 'items/Rock',
-healthpotion = 'items/HealthPotion',
+healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
 weapon = 'weapons/crude_dagger',
@@ -199,7 +199,7 @@ t_e2 = 'traps/fungus_trap'
 var npc_greenskins = [
 { # Level 1
 t_e1 = 'monsters/greenskins/goblin',
-t_e2 = 'monsters/animals/lvl2/scorpion'
+t_e2 = 'monsters/fey/lvl2/pixie_beserker'
 },
 { # Level 2
 t_e1 = 'monsters/greenskins/lvl2/goblin',
