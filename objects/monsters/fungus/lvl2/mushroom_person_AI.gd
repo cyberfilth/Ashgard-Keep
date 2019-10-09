@@ -15,7 +15,7 @@ func take_turn():
 	
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	if distance <= (GameData.player_radius - 3):
+	if distance <= (GameData.player_radius - 1):
 		if seen == false:
 			grunt()
 		if distance <= 1:
@@ -31,5 +31,5 @@ func grunt():
 	var chance_to_grunt = randi()%4
 	if chance_to_grunt == 1:
 		var message = utterances[GameData.roll(0, utterances.size()-1)]
-		GameData.broadcast(message, GameData.COLOUR_YELLOW)
+		GameData.broadcast("Mushroom person moans \""+message+"\"", GameData.COLOUR_YELLOW)
 	seen = true
