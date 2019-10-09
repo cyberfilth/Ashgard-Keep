@@ -1,0 +1,38 @@
+Notes for testing
+
+Random seed
+
+Ashgard-Keep\scenes\Start.gd
+The seed is printed to the console when the game first opens. You can change the value
+of the game_seed to the one printed to the console if you want to run the same game again.
+
+Maps
+
+Ashgard-Keep\global\DungeonGen.gd
+Uncommenting the line
+#map_to_text()
+will allow the dungeon generator to print the current dungeon to a text file, saved in the root directory.
+The map is rotated 90 degrees anti-clockwise
+
+Save file
+
+Ashgard-Keep\scenes\Game\Game.gd
+The save files are encrypted by default. To turn off encryption during testing, find the following lines in 
+the save function;
+
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.WRITE, GameData.ENCRYPTION_PASSWORD)
+	var opened = file.open(GameData.SAVEGAME_PATH, File.WRITE)# unencrypted for testing
+
+and the restore function;
+
+	var opened = file.open(GameData.SAVEGAME_PATH, File.READ)# unencrypted for testing
+	#var opened = file.open_encrypted_with_pass(GameData.SAVEGAME_PATH, File.READ, GameData.ENCRYPTION_PASSWORD)
+
+and swap the commented / uncommented lines
+
+
+Encryption password
+
+Ashgard-Keep\global\GameData.gd
+The password used for encryption
+const ENCRYPTION_PASSWORD = "password"
