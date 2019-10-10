@@ -31,5 +31,5 @@ func grunt():
 	var chance_to_grunt = randi()%4
 	if chance_to_grunt == 1:
 		var message = utterances[GameData.roll(0, utterances.size()-1)]
-		GameData.broadcast("Mushroom person moans \""+message+"\"", GameData.COLOUR_YELLOW)
+		GameData.broadcast("Mushroom person moans \""+message+"\"")
 	seen = true

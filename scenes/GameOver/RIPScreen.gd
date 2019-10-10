@@ -75,6 +75,8 @@ func killer_description(killer):
 		what_killed_you = "a ferocious Hell Hound."
 	elif killer == "A black shape":
 		what_killed_you = "an unseen black shape."
+	elif killer == "Goblin":
+		what_killed_you = "a Goblin."
 	elif killer == "Goblin Witch doctor":
 		what_killed_you = "a malevolent Goblin Witch doctor."
 	elif killer == "Orc Warrior":

@@ -151,8 +151,7 @@ t_e2 = 'monsters/animals/lvl2/scorpion'
 
 var monster_greenskins = [
 { # 1st level Greenskins
-#minion1 = 'monsters/fey/fairy_assassin',
-minion1 = 'monsters/fungus/lvl2/mushroom_person',
+minion1 = 'monsters/fey/fairy_assassin',
 minion2 = 'monsters/fungus/yellow_fungus',
 gribbly1 = 'monsters/greenskins/witch_doctor',
 gribbly2 = 'monsters/greenskins/rock_thrower_goblin',
@@ -192,7 +191,7 @@ t_e1 = 'traps/web',
 t_e2 = 'traps/fungus_trap'
 },
 { # Level 2
-t_e1 = 'traps/web',
+t_e1 = 'monsters/fungus/lvl2/goblin_mushroom',
 t_e2 = 'traps/fungus_trap'
 }
 ]

@@ -242,6 +242,16 @@ func release_green_spores(target_area):
 		green_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
 
+func spawn_mushroom_goblin(mushroom_pos):
+	var mushroom_person = load("res://objects/monsters/fungus/lvl2/mushroom_person.tscn").instance()
+	mushroom_person.set_name("Mushroom person")
+	get_parent().get_node('Map').add_child(mushroom_person)
+	mushroom_person.set_pos(mushroom_pos)
+	mushroom_person.set_z(GameData.LAYER_ACTOR)
+	mushroom_person.add_to_group('actors')
+	mushroom_person.fighter.hp = GameData.roll(15, 20)
+	GameData.broadcast("The body of the goblin twists and bursts into a walking fungus")
+
 # Shadow demon spawned when the torch goes out
 func spawn_shadow():
 	var target_area = GameData.player.get_map_pos()
