@@ -62,6 +62,8 @@ var markov_names = ['Adara', 'Adena', 'Adrianne', 'Alarice', 'Alvita', 'Amara', 
 'Paris', 'Penia', 'Phaeron', 'Poseidon', 'Quella', 'Quistis', 'Quarg', 'Quasimodo', 'Rain', 'Roma', 'Riona', 'Safiya', 'Salina',\
 'Severin', 'Sidonia', 'Sirena', 'Solita', 'Tempest', 'Thea', 'Treva', 'Trista', 'Thrasos', 'Unther', 'Unferth', 'Vala', 'Vailon',\
 'Winta', 'Wiglaf', 'Xarka', 'Xena', 'Yuzz', 'Yara', 'Zakarr','Zarathustra']
+var player_suffix = [' the Brave', ' FleetFoot', ' the Stoic', ' Orc Bane', ' the Fair', ' Babyface', ' the Just', ' RuneSmith',\
+' the Green', ' AleFiend']
 var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 var markov = {}
 var username
@@ -78,18 +80,14 @@ func generate_plot():
 	npc_rock_troll1 = ROCK_TROLL_NAMES_1[randi() % ROCK_TROLL_NAMES_1.size()] + " the Rock Troll"
 		
 	# Player name
-	if OS.has_environment("USERNAME") && OS.get_environment("USERNAME") !='localuser':
-		username = OS.get_environment("USERNAME")+" the Brave"
-	else:
-		randomize()
-		loadNames(markov, markov_names)
-		var new_name = ""
-		for i in range(1):
-			var random_letter = alphabet[GameData.roll(0, alphabet.size()-1)]
-			new_name = getName(random_letter, 4, 7)
-			new_name = new_name.capitalize()
-			username = new_name+" the Brave"
-	print(username)
+	loadNames(markov, markov_names)
+	var new_name = ""
+	for i in range(1):
+		var random_letter = alphabet[GameData.roll(0, alphabet.size()-1)]
+		new_name = getName(random_letter, 4, 7)
+		new_name = new_name.capitalize()
+		username = new_name+player_suffix[(randi() % player_suffix.size())]
+	GameData.player_name = username
 #	var dwarf_clan_name = CLAN_FIRSTPART[randi() % CLAN_FIRSTPART.size()] + CLAN_SECONDPART[randi() % CLAN_SECONDPART.size()]
 #	var paladin_order = PAL_ADJECTIVE[randi() % PAL_ADJECTIVE.size()] + PAL_OBJECT[randi() % PAL_OBJECT.size()] + PAL_NAME[randi() % PAL_NAME.size()]
 #	var elven_city = ELF_NAME1[randi() % ELF_NAME1.size()] + ELF_NAME2[randi() % ELF_NAME2.size()]

@@ -19,6 +19,7 @@ func new_game():
 	GameData.map.new_map()
 	GameData.death_list = []
 	spawn_player(DungeonGen.start_pos)
+	GameData.player.name = GameData.player_name
 	# Add starting equipment
 	#torch
 	GameData.map.spawn_object('items/torch/torch', DungeonGen.start_pos)

@@ -18,7 +18,6 @@ onready var characterlevellabel = statsleft.get_node('values/Level')
 onready var attacklabel = statsleft.get_node('values/Attack')
 onready var defencelabel = statsleft.get_node('values/Defence')
 
-#onready var locationlabel = statsright.get_node('values/Location')
 
 func name_changed(what):
 	namelabel.set_text(what)
