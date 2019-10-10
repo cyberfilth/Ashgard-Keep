@@ -60,7 +60,6 @@ var ROOM_MAX_SIZE = 13
 # Game variables
 var game
 var player
-var player_name
 var map
 var inventory
 var inventory_menu

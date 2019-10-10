@@ -87,7 +87,6 @@ func generate_plot():
 		new_name = getName(random_letter, 4, 7)
 		new_name = new_name.capitalize()
 		username = new_name+player_suffix[(randi() % player_suffix.size())]
-	GameData.player_name = username
 #	var dwarf_clan_name = CLAN_FIRSTPART[randi() % CLAN_FIRSTPART.size()] + CLAN_SECONDPART[randi() % CLAN_SECONDPART.size()]
 #	var paladin_order = PAL_ADJECTIVE[randi() % PAL_ADJECTIVE.size()] + PAL_OBJECT[randi() % PAL_OBJECT.size()] + PAL_NAME[randi() % PAL_NAME.size()]
 #	var elven_city = ELF_NAME1[randi() % ELF_NAME1.size()] + ELF_NAME2[randi() % ELF_NAME2.size()]
