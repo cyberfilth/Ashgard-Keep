@@ -91,7 +91,7 @@ func type_of_death():
 		if GameData.player_moves < 100:
 			death_description = "died before your quest had even begun, killed"
 		else:
-			death_description = "were killed embarassingly early"
+			death_description = "were killed embarrassingly early"
 	elif what_killed_you == "Fire":
 		death_description = "were burned to death"
 	elif what_killed_you == "Bat":
