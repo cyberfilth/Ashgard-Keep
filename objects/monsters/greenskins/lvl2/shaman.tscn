@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/monsters/greenskins/witch_doctor_Inventory.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/greenskins/lvl2/shaman_AI.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/greenskins/lvl2/shaman_Inventory.gd" type="Script" id=6]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Goblin Witch doctor"
+name = "Goblin Shaman"
 proper_name = true
 named_name = false
 blocks_movement = true
@@ -25,7 +26,7 @@ editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 8.0
-color = Color( 0.206635, 0.714844, 0.226486, 1 )
+color = Color( 0.206635, 0.714844, 0.583821, 1 )
 energy = 1.5
 mode = 0
 range/height = 30.0
@@ -60,13 +61,18 @@ percent_visible = 1.0
 [node name="Fighter" parent="." instance=ExtResource( 4 )]
 
 blood_colour = "jade"
-attack = 15
-defence = 10
-max_hp = 30
-xp_reward = 25
+character_level = 2
+attack = 17
+defence = 15
+max_hp = 32
+xp_reward = 30
+
+[node name="AI" type="Node" parent="."]
+
+script/script = ExtResource( 5 )
 
 [node name="Inventory" type="Node2D" parent="."]
 
-script/script = ExtResource( 5 )
+script/script = ExtResource( 6 )
 
 
