@@ -171,7 +171,7 @@ var items_greenskins = [
 rubble = 'items/Rock',
 healthpotion = 'items/HealthPotion',
 magicitem1 = 'items/Scroll_LightningBolt',
-magicitem2 = 'items/Scroll_Fireball',
+magicitem2 = 'items/Scroll_Confusion',
 weapon = 'weapons/crude_dagger',
 armour = 'armour/heavy_cloth_armour'
 },
@@ -180,8 +180,8 @@ rubble = 'items/Rock',
 healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/Scroll_LightningBolt',
-weapon = 'weapons/crude_dagger',
-armour = 'armour/heavy_cloth_armour'
+weapon = 'weapons/club',
+armour = 'armour/crude_leather_armour'
 }
 ]
 
