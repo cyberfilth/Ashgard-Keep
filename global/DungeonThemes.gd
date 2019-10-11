@@ -123,7 +123,7 @@ t_e1 = 'traps/web',
 t_e2 = 'traps/fungus_trap'
 },
 { # Level 2
-t_e1 = 'traps/web',
+t_e1 = 'monsters/fungus/yellow_fungus',
 t_e2 = 'traps/fungus_trap'
 },
 { # Level 3
