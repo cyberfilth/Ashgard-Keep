@@ -260,6 +260,7 @@ func die():
 		var dropped_item = dropped.instance()
 		GameData.map.add_child(dropped_item)
 		dropped_item.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		dropped_item.set_z(GameData.LAYER_ITEM)
 		GameData.broadcast("The "+corpse+" drops an item")
 		#bleed(blood_colour)
 	# remove the enemy from the screen
@@ -279,7 +280,7 @@ func bleed(blood_colour):
 	sprite.set_texture(blood)
 	GameData.map.add_child(sprite)
 	sprite.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-	sprite.set_z(GameData.LAYER_ITEM)
+	sprite.set_z(GameData.LAYER_DECAL)
 
 func _ready():
 	owner.fighter = self

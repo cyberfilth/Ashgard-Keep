@@ -8,8 +8,8 @@ var has_random_location = false # has somewhere to wander
 var ready_to_zap = false
 var zap_timer = 3 # timer before zapping the player
 var warning_message = ['Voodoo magic fills the air...',\
-	'You hear screeching and chanting...','The witch doctor shakes a bag of rat skulls',\
-	'Green sparks dance in the air', 'The witch doctor prepares to cast a spell']
+	'You hear laughing and chanting...','The shaman shakes a bag of bones',\
+	'Green sparks dance in the air', 'The shaman prepares to cast a spell']
 
 func _ready():
 	owner.ai = self
@@ -70,8 +70,11 @@ func voodoo():
 		if zap_timer > 1:
 			zap_timer -=1
 			return
-		else:
-			zap_player()
+		else: # Zap or drain the player
+			if GameData.roll(0,1) == 1:
+				zap_player()
+			else:
+				drain_player()
 
 func glow_with_voodoo_energy():
 	owner.get_node('Light2D').show()
@@ -86,23 +89,21 @@ func stop_glowing():
 func drain_player():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
-	var damage_amount = GameData.roll(2, 10)
 	if distance <= GameData.player_radius:
 		GameData.map.spawn_voodoo_fx()
-		GameData.player.fighter.take_damage('Voodoo energy blast', damage_amount)
+		GameData.player.fighter.take_damage('a Voodoo energy blast', GameData.roll(8, 13))
 		stop_glowing()
 	else:
 		stop_glowing()
 
 func zap_player():
-	var damage = GameData.roll(10, 15)
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if distance <= GameData.player_radius:
 		var shaman_position = get_parent().get_pos()
 		GameData.map.spawn_voodoo_energy_fx(shaman_position)
 		GameData.player.get_node("Camera").shake(0.3, 10)
-		GameData.player.fighter.take_damage('Voodoo energy blast', damage)
+		GameData.player.fighter.take_damage('a Voodoo lightning bolt', GameData.roll(10, 15))
 		stop_glowing()
 	else:
 		stop_glowing()

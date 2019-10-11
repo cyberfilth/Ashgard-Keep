@@ -160,7 +160,7 @@ boss1 = 'monsters/animals/rat'
 { # 2nd level Greenskins
 minion1 = 'monsters/fungus/lvl2/mushroom_person',
 minion2 = 'monsters/animals/lvl2/ratling',
-gribbly1 = 'monsters/greenskins/witch_doctor',
+gribbly1 = 'monsters/greenskins/lvl2/shaman',
 gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
 boss1 = 'monsters/greenskins/lvl2/orc_warrior'
 }

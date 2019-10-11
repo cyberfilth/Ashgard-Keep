@@ -60,6 +60,7 @@ percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 4 )]
 
+bleeds = false
 blood_colour = "jade"
 character_level = 2
 attack = 17
