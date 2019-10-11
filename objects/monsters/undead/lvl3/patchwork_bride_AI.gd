@@ -1,10 +1,10 @@
-# patchwork_golem_AI
+# patchwork_bride_AI
 
 extends Node
 
 onready var owner = get_parent()
 var seen = false # Changes to true when the golem first sees the player
-var utterances = ['Ugh!', 'F-Friend?', 'Raaaar', 'You.. belong... Dead!', 'Uugh!']
+var utterances = ['W-where is my love?', 'Murderer!', 'Intruder!', 'You don\'t belong here... You belong Dead!']
 
 func _ready():
 	owner.ai = self
@@ -21,7 +21,7 @@ func take_turn():
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:
-			# flip a coin to see if golem gets
+			# flip a coin to see if Bride gets
 			# distracted whilst chasing player
 			var attention = randi()%2
 			if attention == 1:
@@ -31,11 +31,11 @@ func grunt():
 	var chance_to_grunt = randi()%4
 	if chance_to_grunt == 1:
 		var message = utterances[GameData.roll(0, utterances.size()-1)]
-		GameData.broadcast("Patchwork Golem grunts, \""+message+"\"")
+		GameData.broadcast("Patchwork Bride shrieks, \""+message+"\"")
 	seen = true
 
 func run_from_fire():
-	GameData.broadcast("Patchwork Golem screams, \"Aah, Fire!\"")
+	GameData.broadcast("Patchwork Bride screams, \"Aah, Fire!\"")
 	wander()
 
 func wander():

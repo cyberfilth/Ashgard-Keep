@@ -138,12 +138,12 @@ t_e1 = 'monsters/trolls/rock_troll',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 2
-t_e1 = 'monsters/greenskins/goblin',
+t_e1 = 'monsters/fey/lvl2/pixie_beserker',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 3
 t_e1 = 'monsters/greenskins/lvl2/goblin',
-t_e2 = 'monsters/animals/lvl2/scorpion'
+t_e2 = 'monsters/undead/lvl3/patchwork_bride'
 }
 ]
 

@@ -61,7 +61,7 @@ func drop():
 	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,owner)
 
 func throw(slot):
-	# CHeck if item can be thrown
+	# Check if item can be thrown
 	if self.throw_range <= 0:
 		GameData.broadcast("You cannot throw that!")
 		return
