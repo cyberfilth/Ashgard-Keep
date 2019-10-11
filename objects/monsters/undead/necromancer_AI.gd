@@ -84,13 +84,14 @@ func stop_glowing():
 	zap_timer = 3
 
 func zap_player():
+	var damage = GameData.roll(8, 12)
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	if distance <= GameData.player_radius:
 		var necromancer_position = get_parent().get_pos()
 		GameData.map.spawn_necrotic_energy_fx(necromancer_position)
 		GameData.player.get_node("Camera").shake(0.3, 10)
-		GameData.player.fighter.take_damage('Necromantic energy blast', 10)
+		GameData.player.fighter.take_damage('Necromantic energy blast', damage)
 		stop_glowing()
 	else:
 		stop_glowing()

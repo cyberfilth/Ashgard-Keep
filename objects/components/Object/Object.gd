@@ -116,7 +116,6 @@ func distance_to(cell):
 	var line = FOVGen.get_line(get_map_pos(), cell)
 	return line.size() - 1
 
-
 # Set our position in map cell coordinates
 # warp=true: set position regardless of blockers
 # and don't emit moved signal

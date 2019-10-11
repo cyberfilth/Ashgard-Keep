@@ -166,6 +166,12 @@ func spawn_necrotic_energy_fx(necromancer):
 	get_parent().add_child(bolt)
 	bolt.add_to_group('fx')
 
+func spawn_voodoo_energy_fx(shaman):
+	var bolt = load("res://graphics/particles/voodoo_energy.tscn").instance()
+	bolt.init(shaman)
+	get_parent().add_child(bolt)
+	bolt.add_to_group('fx')
+
 func spawn_vampiric_drain_fx():
 	var vampiric_drain = load("res://graphics/particles/blood_drain.tscn")
 	var scene_instance = vampiric_drain.instance()

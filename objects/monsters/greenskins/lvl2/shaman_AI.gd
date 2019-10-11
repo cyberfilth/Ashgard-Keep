@@ -83,13 +83,26 @@ func stop_glowing():
 	ready_to_zap = false
 	zap_timer = 3
 
-func zap_player():
+func drain_player():
 	var target = GameData.player
 	var distance = owner.distance_to(target.get_map_pos())
 	var damage_amount = GameData.roll(2, 10)
 	if distance <= GameData.player_radius:
 		GameData.map.spawn_voodoo_fx()
 		GameData.player.fighter.take_damage('Voodoo energy blast', damage_amount)
+		stop_glowing()
+	else:
+		stop_glowing()
+
+func zap_player():
+	var damage = GameData.roll(10, 15)
+	var target = GameData.player
+	var distance = owner.distance_to(target.get_map_pos())
+	if distance <= GameData.player_radius:
+		var shaman_position = get_parent().get_pos()
+		GameData.map.spawn_voodoo_energy_fx(shaman_position)
+		GameData.player.get_node("Camera").shake(0.3, 10)
+		GameData.player.fighter.take_damage('Voodoo energy blast', damage)
 		stop_glowing()
 	else:
 		stop_glowing()
