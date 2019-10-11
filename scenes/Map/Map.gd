@@ -258,6 +258,16 @@ func spawn_mushroom_goblin(mushroom_pos):
 	mushroom_person.fighter.hp = GameData.roll(15, 20)
 	GameData.broadcast("The body of the goblin twists and bursts into a walking fungus")
 
+func transform_to_mushroom(who, mushroom_pos):
+	var mushroom_person = load("res://objects/monsters/fungus/lvl3/mushroom_person.tscn").instance()
+	mushroom_person.set_name("Mushroom Person")
+	get_parent().get_node('Map').add_child(mushroom_person)
+	mushroom_person.set_pos(mushroom_pos)
+	mushroom_person.set_z(GameData.LAYER_ACTOR)
+	mushroom_person.add_to_group('actors')
+	mushroom_person.fighter.hp = GameData.roll(28, 31)
+	GameData.broadcast("The body of the "+who+" twists and erupts into a Mushroom Person")
+
 # Shadow demon spawned when the torch goes out
 func spawn_shadow():
 	var target_area = GameData.player.get_map_pos()

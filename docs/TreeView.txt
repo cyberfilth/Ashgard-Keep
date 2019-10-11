@@ -3,6 +3,7 @@
 │   ├── ASCII look.png
 │   ├── _config.yml
 │   ├── credits.txt
+│   ├── DebuggingNotes.txt
 │   ├── NewScreenshot.png
 │   ├── README.md
 │   ├── small_animation.gif
@@ -298,16 +299,22 @@
 │       ├── fire_particle.png
 │       ├── Flames.gd
 │       ├── Flames.tscn
+│       ├── green_skull.png
 │       ├── necro_energy.gd
 │       ├── necro_energy.tscn
 │       ├── necrotic_bolt.png
 │       ├── necrotic_spark.png
+│       ├── pixie_dust.gd
+│       ├── pixie_dust.tscn
 │       ├── portal_spark.png
 │       ├── skull.png
 │       ├── spore_cloud.gd
 │       ├── spore_cloud.tscn
+│       ├── voodoo_bolt.png
+│       ├── voodoo_energy.tscn
 │       ├── voodoo_particles.gd
-│       └── voodoo_particles.tscn
+│       ├── voodoo_particles.tscn
+│       └── voodoo_spark.png
 ├── icon.png
 ├── icon.png.flags
 ├── LICENSE
@@ -376,10 +383,12 @@
 │   │   ├── animals
 │   │   │   ├── bat_AI.gd
 │   │   │   ├── bat.tscn
-│   │   │   ├── Fighter_rat.gd
 │   │   │   ├── lvl2
 │   │   │   │   ├── blood_bat_AI.gd
 │   │   │   │   ├── blood_bat.tscn
+│   │   │   │   ├── ratling_AI.gd
+│   │   │   │   ├── ratling_inventory.gd
+│   │   │   │   ├── ratling.tscn
 │   │   │   │   ├── scorpion_AI.gd
 │   │   │   │   └── scorpion.tscn
 │   │   │   ├── lvl3
@@ -388,11 +397,25 @@
 │   │   │   └── rat.tscn
 │   │   ├── fey
 │   │   │   ├── fairy_assassin_AI.gd
-│   │   │   └── fairy_assassin.tscn
+│   │   │   ├── fairy_assassin.tscn
+│   │   │   └── lvl2
+│   │   │       ├── pixie_beserkerl_AI.gd
+│   │   │       ├── pixie_beserkerl_Inventory.gd
+│   │   │       └── pixie_beserker.tscn
 │   │   ├── fungus
 │   │   │   ├── blue_fungus_AI.gd
 │   │   │   ├── blue_fungus.tscn
 │   │   │   ├── green_fungus.tscn
+│   │   │   ├── lvl2
+│   │   │   │   ├── goblin_mushroom_AI.gd
+│   │   │   │   ├── goblin_mushroom.tscn
+│   │   │   │   ├── mushroom_person_AI.gd
+│   │   │   │   └── mushroom_person.tscn
+│   │   │   ├── lvl3
+│   │   │   │   ├── matango_AI.gd
+│   │   │   │   ├── matango.tscn
+│   │   │   │   ├── mushroom_person_AI.gd
+│   │   │   │   └── mushroom_person.tscn
 │   │   │   ├── yellow_fungus_AI.gd
 │   │   │   └── yellow_fungus.tscn
 │   │   ├── greenskins
@@ -403,16 +426,26 @@
 │   │   │   ├── lvl2
 │   │   │   │   ├── goblin_AI.gd
 │   │   │   │   ├── goblin.tscn
+│   │   │   │   ├── goblin_warrior.tscn
 │   │   │   │   ├── orc_warrior_AI.gd
 │   │   │   │   ├── orc_warrior_inventory.gd
-│   │   │   │   └── orc_warrior.tscn
+│   │   │   │   ├── orc_warrior_Inventory.gd
+│   │   │   │   ├── orc_warrior.tscn
+│   │   │   │   ├── shaman_AI.gd
+│   │   │   │   ├── shaman_Inventory.gd
+│   │   │   │   └── shaman.tscn
 │   │   │   ├── rock_thrower_goblin_AI.gd
 │   │   │   ├── rock_thrower_goblin_inventory.gd
 │   │   │   ├── rock_thrower_goblin.tscn
-│   │   │   ├── witch_doctor.tscn
-│   │   │   └── witch_dr_inventory.gd
+│   │   │   ├── witch_doctor_AI.gd
+│   │   │   ├── witch_doctor_Inventory.gd
+│   │   │   └── witch_doctor.tscn
 │   │   ├── shadow_AI.gd
 │   │   ├── shadow.tscn
+│   │   ├── trolls
+│   │   │   ├── rock_troll_AI.gd
+│   │   │   ├── rock_troll_Inventory.gd
+│   │   │   └── rock_troll.tscn
 │   │   └── undead
 │   │       ├── diseased_zombie.tscn
 │   │       ├── ghoul_rat_AI.gd
@@ -430,6 +463,8 @@
 │   │       │   ├── demonic_puppy.tscn
 │   │       │   ├── hell_hound_AI.gd
 │   │       │   ├── hell_hound.tscn
+│   │       │   ├── patchwork_bride_AI.gd
+│   │       │   ├── patchwork_bride.tscn
 │   │       │   ├── patchwork_golem_AI.gd
 │   │       │   ├── patchwork_golem_inventory.gd
 │   │       │   ├── patchwork_golem.tscn
@@ -460,13 +495,21 @@
 │       ├── blood_drinker.tscn
 │       ├── bone_dagger.png
 │       ├── bone_dagger.tscn
+│       ├── club.png
+│       ├── club.tscn
 │       ├── crude_dagger.tscn
 │       ├── dagger2.png
 │       ├── dagger.png
+│       ├── goblin_axe.png
+│       ├── goblin_axe.tscn
 │       ├── goblin_dagger.tscn
+│       ├── orc_blade.png
+│       ├── orc_blade.tscn
 │       ├── orcish_dagger.png
 │       ├── rusty_dagger.tscn
 │       ├── shard_sword.tscn
+│       ├── spiked_club.png
+│       ├── spiked_club.tscn
 │       ├── sword1.png
 │       └── tsurugi.png
 ├── README.md
@@ -510,4 +553,4 @@
     ├── FogSet.tres
     └── FogSet.tscn
 
-48 directories, 462 files
+52 directories, 501 files

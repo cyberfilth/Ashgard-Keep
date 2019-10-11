@@ -91,6 +91,18 @@ func fight(who):
 		owner.get_node('AI').enter_portal()
 	if  who.get_display_name() == "A Portal" && owner == GameData.player:
 		who.get_node('AI').enter_portal()
+	# Matango changes enemies to mushroom people.... no, really.
+	# .... you should totally watch the film Matango!
+	if owner.get_display_name() == "Emperor Fungus"\
+	&& who != GameData.player\
+	&& who.get_display_name() != "Mushroom Person":
+		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
+		var scene_instance = spore_cloud.instance()
+		scene_instance.set_name("spore_cloud")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		GameData.map.transform_to_mushroom(who.get_display_name(), GameData.map.map_to_world(owner.get_map_pos()))
+		who.kill()
 	else: # Stops similar NPC's killing each other
 		if who.get_display_name() == owner.get_display_name():
 			return

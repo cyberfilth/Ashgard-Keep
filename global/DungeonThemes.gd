@@ -163,6 +163,13 @@ minion2 = 'monsters/animals/lvl2/ratling',
 gribbly1 = 'monsters/greenskins/lvl2/shaman',
 gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
 boss1 = 'monsters/greenskins/lvl2/orc_warrior'
+},
+{ # 3rd level Greenskins
+minion1 = 'monsters/fungus/lvl3/mushroom_person',
+minion2 = 'monsters/animals/lvl2/ratling',
+gribbly1 = 'monsters/greenskins/lvl2/shaman',
+gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
+boss1 = 'monsters/greenskins/lvl2/orc_warrior'
 }
 ]
 
@@ -179,7 +186,7 @@ armour = 'armour/heavy_cloth_armour'
 rubble = 'items/Rock',
 healthpotion = 'items/GreaterHealthPotion',
 magicitem1 = 'items/Scroll_Fireball',
-magicitem2 = 'items/Scroll_LightningBolt',
+magicitem2 = 'items/StealthPotion',
 weapon = 'weapons/club',
 armour = 'armour/crude_leather_armour'
 }
@@ -193,7 +200,11 @@ t_e2 = 'traps/fungus_trap'
 { # Level 2
 t_e1 = 'monsters/fungus/lvl2/goblin_mushroom',
 t_e2 = 'traps/fungus_trap'
-}
+},
+{ # Level 3
+t_e1 = 'monsters/fungus/lvl2/goblin_mushroom',
+t_e2 = 'traps/fungus_trap'
+},
 ]
 
 var npc_greenskins = [
@@ -206,7 +217,7 @@ t_e1 = 'monsters/greenskins/lvl2/goblin',
 t_e2 = 'monsters/animals/lvl2/scorpion'
 },
 { # Level 3
-t_e1 = 'monsters/greenskins/goblin',
-t_e2 = 'monsters/animals/lvl2/scorpion'
+t_e1 = 'monsters/fungus/lvl3/matango',
+t_e2 = 'monsters/fungus/lvl3/matango'
 }
 ]

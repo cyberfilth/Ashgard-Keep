@@ -29,6 +29,3 @@ func wander():
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
 	owner.step(dir)
-
-func wait():
-	owner.emit_signal('object_acted')
