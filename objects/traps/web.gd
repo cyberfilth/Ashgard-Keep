@@ -27,7 +27,7 @@ func take_turn():
 				detection_timer -= 1
 		elif (distance < GameData.player_radius) && (detection_timer >= 1):
 				detection_timer -= 1
-		else: # trap become visible
+		else: # trap becomes visible
 			triggered = true
 			get_parent().get_node('Sprite').show()
 			if distance < 1 && reset_timer >= 8:
