@@ -2,7 +2,7 @@ extends Node
 
 # Game file settings
 
-const version = "Version 0.8.6"
+const version = "Version 0.8.7"
 const SAVEGAME_PATH = 'user://game.sav'
 const ENCRYPTION_PASSWORD = "password"
 
@@ -127,8 +127,8 @@ func set_dungeon_theme():
 	return
 
 func set_enemy_theme():
-	#enemyRNG = roll(0,1)
-	enemyRNG = 1 # set number here to test enemies
+	enemyRNG = roll(0,1)
+	#enemyRNG = 1 # set number here to test enemies
 
  #############################################
  # Save player stats when entering new level #

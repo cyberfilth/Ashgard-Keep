@@ -3,13 +3,13 @@
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/monsters/greenskins/rock_thrower_goblin_AI.gd" type="Script" id=4]
-[ext_resource path="res://objects/monsters/greenskins/rock_thrower_goblin_inventory.gd" type="Script" id=5]
+[ext_resource path="res://objects/monsters/greenskins/lvl2/orc_warrior_AI.gd" type="Script" id=4]
+[ext_resource path="res://objects/monsters/greenskins/lvl3/orc_warrior_Inventory.gd" type="Script" id=5]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Goblin"
+name = "Orc Warrior"
 proper_name = true
 named_name = false
 blocks_movement = true
@@ -22,24 +22,25 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 2.0
-margin/top = -6.0
-margin/right = 42.0
-margin/bottom = 34.0
+margin/left = 0.0
+margin/top = -3.0
+margin/right = 40.0
+margin/bottom = 37.0
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.0421033, 0.988281, 0.0115814, 1 )
+custom_colors/default_color = Color( 0.131954, 0.945312, 0.125549, 1 )
 bbcode/enabled = false
-bbcode/bbcode = "o"
+bbcode/bbcode = "O"
 visible_characters = -1
 percent_visible = 1.0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
-blood_colour = "green"
-attack = 15
-defence = 15
-max_hp = 30
-xp_reward = 16
+blood_colour = "jade"
+character_level = 3
+attack = 22
+defence = 23
+max_hp = 37
+xp_reward = 30
 
 [node name="AI" type="Node" parent="."]
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://objects/armour/leather_armour1.tex" type="Texture" id=2]
+[ext_resource path="res://objects/armour/chainmail_armour.png" type="Texture" id=2]
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
 
 script/script = ExtResource( 1 )
-name = "Leather Armour"
+name = "Chainmail"
 proper_name = true
 named_name = false
 blocks_movement = false
@@ -28,11 +28,11 @@ transform/pos = Vector2( 0, -1 )
 
 use_function = "armour"
 throw_range = 5
-throw_damage = 4
+throw_damage = 5
 
 [node name="Armour" parent="." instance=ExtResource( 4 )]
 
-armour_protection = 2
-description = "Crude Leather +2 DEFENCE"
+armour_protection = 5
+description = "Chainmail +2 DEFENCE"
 
 

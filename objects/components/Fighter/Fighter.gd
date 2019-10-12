@@ -240,7 +240,13 @@ func die():
 		scene_instance.set_name("pixie_dust")
 		GameData.map.add_child(scene_instance)
 		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-		# Release yellow cloud if fungus killed
+	if corpse == "Pixie Warrior":
+		var pixie_dust = load("res://graphics/particles/pixie_warrior_dust.tscn")
+		var scene_instance = pixie_dust.instance()
+		scene_instance.set_name("pixie_dust")
+		GameData.map.add_child(scene_instance)
+		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+				# Release yellow cloud if fungus killed
 	if corpse == "Yellow fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()

@@ -166,10 +166,10 @@ boss1 = 'monsters/greenskins/lvl2/orc_warrior'
 },
 { # 3rd level Greenskins
 minion1 = 'monsters/fungus/lvl3/mushroom_person',
-minion2 = 'monsters/animals/lvl2/ratling',
-gribbly1 = 'monsters/greenskins/lvl2/shaman',
-gribbly2 = 'monsters/greenskins/lvl2/goblin_warrior',
-boss1 = 'monsters/greenskins/lvl2/orc_warrior'
+minion2 = 'monsters/fey/lvl3/pixie_warrior',
+gribbly1 = 'monsters/animals/lvl3/rabid_wolf',
+gribbly2 = 'monsters/greenskins/lvl3/goblin_warrior',
+boss1 = 'monsters/greenskins/lvl3/orc_warrior'
 }
 ]
 
@@ -189,6 +189,14 @@ magicitem1 = 'items/Scroll_Fireball',
 magicitem2 = 'items/StealthPotion',
 weapon = 'weapons/club',
 armour = 'armour/crude_leather_armour'
+},
+{ # 3rd level items
+rubble = 'items/Rock',
+healthpotion = 'items/GreaterHealthPotion',
+magicitem1 = 'items/Scroll_Fireball',
+magicitem2 = 'items/Scroll_LightningBolt',
+weapon = 'weapons/club',
+armour = 'armour/fine_leather_armour'
 }
 ]
 

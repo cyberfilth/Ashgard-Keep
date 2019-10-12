@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://graphics/particles/fairy_dust.gd" type="Script" id=1]
+[ext_resource path="res://graphics/particles/pixie_dust.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
 [ext_resource path="res://graphics/particles/portal_spark.png" type="Texture" id=3]
 
 [sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.0233918, 1 )
-colors = ColorArray( 0, 0, 0, 1, 0.00386047, 0.988281, 0.988281, 1, 0.200562, 0.813416, 0.828125, 0 )
+colors = ColorArray( 0, 0, 0, 1, 0.898438, 0.848427, 0.0982666, 1, 0.876158, 0.921875, 0.471741, 0 )
 
-[node name="fairy_dust" type="Node2D"]
+[node name="pixie_dust" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
@@ -21,7 +21,7 @@ editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 8.0
-color = Color( 0.0115356, 0.915972, 0.984375, 1 )
+color = Color( 0.885571, 0.984375, 0.0115356, 1 )
 energy = 2.0
 mode = 0
 range/height = 30.0
@@ -65,7 +65,7 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/spread = 1.0
-color/color = Color( 0.0192261, 0.939134, 0.984375, 1 )
+color/color = Color( 0.984375, 0.946674, 0.0192261, 1 )
 color/color_ramp = SubResource( 1 )
 
 

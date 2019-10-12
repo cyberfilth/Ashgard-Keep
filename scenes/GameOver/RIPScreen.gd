@@ -87,6 +87,8 @@ func killer_description(killer):
 		what_killed_you = "a cowardly Ratling."
 	elif killer == "Mushroom Person":
 		what_killed_you = "a twisted, deformed Mushroom person."
+	elif killer == "Rabid Wolf":
+		what_killed_you = "a slavering, Rabid Wolf."
 	else:
 		what_killed_you = GameData.killer
 
