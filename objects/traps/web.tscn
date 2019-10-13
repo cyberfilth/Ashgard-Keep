@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/fx/web.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "web"
 proper_name = false
 blocks_movement = false
@@ -16,7 +16,7 @@ trap = true
 
 [node name="Sprite" type="Sprite" parent="."]
 
-visibility/visible = false
+visible = false
 texture = ExtResource( 2 )
 centered = false
 
@@ -31,6 +31,4 @@ xp_reward = 12
 
 [node name="AI" type="Node" parent="."]
 
-script/script = ExtResource( 4 )
-
-
+script = ExtResource( 4 )

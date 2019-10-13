@@ -1,0 +1,2700 @@
+[gd_resource type="TileSet" load_steps=195 format=2]
+
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor0_normal.png" type="Texture" id=1]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor0.png" type="Texture" id=2]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor1_normal.png" type="Texture" id=3]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor1.png" type="Texture" id=4]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor2_normal.png" type="Texture" id=5]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor2.png" type="Texture" id=6]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor3_normal.png" type="Texture" id=7]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor3.png" type="Texture" id=8]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor4_normal.png" type="Texture" id=9]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor4.png" type="Texture" id=10]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor5_normal.png" type="Texture" id=11]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor5.png" type="Texture" id=12]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor6_normal.png" type="Texture" id=13]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor6.png" type="Texture" id=14]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor7_normal.png" type="Texture" id=15]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor7.png" type="Texture" id=16]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor8_normal.png" type="Texture" id=17]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor8.png" type="Texture" id=18]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor9_normal.png" type="Texture" id=19]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor9.png" type="Texture" id=20]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt0_normal.png" type="Texture" id=21]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt0.png" type="Texture" id=22]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt1_normal.png" type="Texture" id=23]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt1.png" type="Texture" id=24]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt2_normal.png" type="Texture" id=25]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt2.png" type="Texture" id=26]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt3_normal.png" type="Texture" id=27]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt3.png" type="Texture" id=28]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt4_normal.png" type="Texture" id=29]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt4.png" type="Texture" id=30]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt5_normal.png" type="Texture" id=31]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt5.png" type="Texture" id=32]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt6_normal.png" type="Texture" id=33]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt6.png" type="Texture" id=34]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood1_normal.png" type="Texture" id=35]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood1.png" type="Texture" id=36]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood2.png" type="Texture" id=37]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood3.png" type="Texture" id=38]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood4.png" type="Texture" id=39]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood5.png" type="Texture" id=40]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood6.png" type="Texture" id=41]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood7.png" type="Texture" id=42]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood8.png" type="Texture" id=43]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood9.png" type="Texture" id=44]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood10.png" type="Texture" id=45]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood11.png" type="Texture" id=46]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood12.png" type="Texture" id=47]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab1_normal.png" type="Texture" id=48]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab1.png" type="Texture" id=49]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab2_normal.png" type="Texture" id=50]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab2.png" type="Texture" id=51]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab3_normal.png" type="Texture" id=52]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab3.png" type="Texture" id=53]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab4_normal.png" type="Texture" id=54]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab4.png" type="Texture" id=55]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab5_normal.png" type="Texture" id=56]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab5.png" type="Texture" id=57]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab6_normal.png" type="Texture" id=58]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab6.png" type="Texture" id=59]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab7_normal.png" type="Texture" id=60]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab7.png" type="Texture" id=61]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab8_normal.png" type="Texture" id=62]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab8.png" type="Texture" id=63]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab9_normal.png" type="Texture" id=64]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab9.png" type="Texture" id=65]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab10_normal.png" type="Texture" id=66]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab10.png" type="Texture" id=67]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab11_normal.png" type="Texture" id=68]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab11.png" type="Texture" id=69]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab12_normal.png" type="Texture" id=70]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab12.png" type="Texture" id=71]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab13_normal.png" type="Texture" id=72]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab13.png" type="Texture" id=73]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab14_normal.png" type="Texture" id=74]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab14.png" type="Texture" id=75]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab15_normal.png" type="Texture" id=76]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab15.png" type="Texture" id=77]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab16_normal.png" type="Texture" id=78]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab16.png" type="Texture" id=79]
+[ext_resource path="res://graphics/dungeon/floorsx24/dot.png" type="Texture" id=80]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal0.png" type="Texture" id=81]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green0.png" type="Texture" id=82]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal1.png" type="Texture" id=83]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green1.png" type="Texture" id=84]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal2.png" type="Texture" id=85]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green2.png" type="Texture" id=86]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal3.png" type="Texture" id=87]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green3.png" type="Texture" id=88]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_0.png" type="Texture" id=89]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_0.png" type="Texture" id=90]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_1.png" type="Texture" id=91]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_1.png" type="Texture" id=92]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_2.png" type="Texture" id=93]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_2.png" type="Texture" id=94]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_3.png" type="Texture" id=95]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_3.png" type="Texture" id=96]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_4.png" type="Texture" id=97]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_4.png" type="Texture" id=98]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_6.png" type="Texture" id=99]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_6.png" type="Texture" id=100]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_7.png" type="Texture" id=101]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_7.png" type="Texture" id=102]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_1_0.png" type="Texture" id=103]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_1_0.png" type="Texture" id=104]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=3]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=4]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=6]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=7]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=8]
+
+shader/shader = SubResource( 7 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 1 )
+
+[sub_resource type="Shader" id=9]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=10]
+
+shader/shader = SubResource( 9 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 3 )
+
+[sub_resource type="Shader" id=11]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=12]
+
+shader/shader = SubResource( 11 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 5 )
+
+[sub_resource type="Shader" id=13]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=14]
+
+shader/shader = SubResource( 13 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 7 )
+
+[sub_resource type="Shader" id=15]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=16]
+
+shader/shader = SubResource( 15 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 9 )
+
+[sub_resource type="Shader" id=17]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=18]
+
+shader/shader = SubResource( 17 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 11 )
+
+[sub_resource type="Shader" id=19]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=20]
+
+shader/shader = SubResource( 19 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 13 )
+
+[sub_resource type="Shader" id=21]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=22]
+
+shader/shader = SubResource( 21 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 15 )
+
+[sub_resource type="Shader" id=23]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=24]
+
+shader/shader = SubResource( 23 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 17 )
+
+[sub_resource type="Shader" id=25]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=26]
+
+shader/shader = SubResource( 25 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 19 )
+
+[sub_resource type="OccluderPolygon2D" id=27]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=29]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=30]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=32]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=33]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=35]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=36]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=38]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=39]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=41]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=42]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=44]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=45]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=46]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=47]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=48]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=49]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=50]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=51]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=52]
+
+shader/shader = SubResource( 51 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 21 )
+
+[sub_resource type="Shader" id=53]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=54]
+
+shader/shader = SubResource( 53 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 23 )
+
+[sub_resource type="Shader" id=55]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=56]
+
+shader/shader = SubResource( 55 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 25 )
+
+[sub_resource type="OccluderPolygon2D" id=57]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=58]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=59]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=60]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=61]
+
+shader/shader = SubResource( 60 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 27 )
+
+[sub_resource type="Shader" id=62]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=63]
+
+shader/shader = SubResource( 62 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 29 )
+
+[sub_resource type="Shader" id=64]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=65]
+
+shader/shader = SubResource( 64 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 31 )
+
+[sub_resource type="Shader" id=66]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=67]
+
+shader/shader = SubResource( 66 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 33 )
+
+[sub_resource type="OccluderPolygon2D" id=68]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=69]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=70]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=71]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=72]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=73]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=74]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=75]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=76]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=77]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=78]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=79]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=80]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=81]
+
+shader/shader = SubResource( 80 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 35 )
+
+[sub_resource type="OccluderPolygon2D" id=82]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=83]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=84]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=85]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=86]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=87]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=88]
+
+_code = {
+"fragment": "uniform texture normal;
+//normal maps expect Y-up, but 2D is Y-down, so must mirror this.
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=89]
+
+shader/shader = SubResource( 88 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 48 )
+
+[sub_resource type="Shader" id=90]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=91]
+
+shader/shader = SubResource( 90 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 50 )
+
+[sub_resource type="Shader" id=92]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=93]
+
+shader/shader = SubResource( 92 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 52 )
+
+[sub_resource type="Shader" id=94]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=95]
+
+shader/shader = SubResource( 94 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 54 )
+
+[sub_resource type="Shader" id=96]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=97]
+
+shader/shader = SubResource( 96 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 56 )
+
+[sub_resource type="Shader" id=98]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=99]
+
+shader/shader = SubResource( 98 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 58 )
+
+[sub_resource type="Shader" id=100]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=101]
+
+shader/shader = SubResource( 100 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 60 )
+
+[sub_resource type="Shader" id=102]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=103]
+
+shader/shader = SubResource( 102 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 62 )
+
+[sub_resource type="Shader" id=104]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=105]
+
+shader/shader = SubResource( 104 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 64 )
+
+[sub_resource type="Shader" id=106]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=107]
+
+shader/shader = SubResource( 106 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 66 )
+
+[sub_resource type="OccluderPolygon2D" id=108]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=109]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=110]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=111]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=112]
+
+shader/shader = SubResource( 111 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 68 )
+
+[sub_resource type="Shader" id=113]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=114]
+
+shader/shader = SubResource( 113 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 70 )
+
+[sub_resource type="Shader" id=115]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=116]
+
+shader/shader = SubResource( 115 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 72 )
+
+[sub_resource type="Shader" id=117]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=118]
+
+shader/shader = SubResource( 117 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 74 )
+
+[sub_resource type="Shader" id=119]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=120]
+
+shader/shader = SubResource( 119 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 76 )
+
+[sub_resource type="Shader" id=121]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=122]
+
+shader/shader = SubResource( 121 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 78 )
+
+[sub_resource type="OccluderPolygon2D" id=123]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=124]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=125]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=126]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=127]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=128]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=129]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=130]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=131]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=132]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=133]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=134]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=135]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=136]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=137]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=138]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=139]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=140]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=141]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=142]
+
+shader/shader = SubResource( 141 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 81 )
+
+[sub_resource type="Shader" id=143]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=144]
+
+shader/shader = SubResource( 143 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 83 )
+
+[sub_resource type="Shader" id=145]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=146]
+
+shader/shader = SubResource( 145 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 85 )
+
+[sub_resource type="Shader" id=147]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=148]
+
+shader/shader = SubResource( 147 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 87 )
+
+[sub_resource type="OccluderPolygon2D" id=149]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=150]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=151]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=152]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=153]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=154]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=155]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=156]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=157]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=158]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=159]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=160]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=161]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=162]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=163]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=164]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=165]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=166]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=167]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=168]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=169]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=170]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=171]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=172]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="OccluderPolygon2D" id=173]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=174]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=175]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=176]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=177]
+
+shader/shader = SubResource( 176 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 89 )
+
+[sub_resource type="Shader" id=178]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=179]
+
+shader/shader = SubResource( 178 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 91 )
+
+[sub_resource type="Shader" id=180]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=181]
+
+shader/shader = SubResource( 180 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 93 )
+
+[sub_resource type="Shader" id=182]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=183]
+
+shader/shader = SubResource( 182 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 95 )
+
+[sub_resource type="Shader" id=184]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=185]
+
+shader/shader = SubResource( 184 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 97 )
+
+[sub_resource type="Shader" id=186]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=187]
+
+shader/shader = SubResource( 186 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 99 )
+
+[sub_resource type="OccluderPolygon2D" id=188]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=189]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, -12, 12, -12, 12, 12, -12, 12 )
+
+[sub_resource type="ImageTexture" id=190]
+
+flags = 0
+image = Image()
+)size = Vector2( 24, 24 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="Shader" id=191]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=192]
+
+resource_name = "marb_normal7"
+shader/shader = SubResource( 191 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 101 )
+
+[sub_resource type="Shader" id=193]
+
+_code = {
+"fragment": "uniform texture normal;
+NORMAL = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="ShaderMaterial" id=194]
+
+resource_name = "marb_normal8"
+shader/shader = SubResource( 193 )
+shader/shading_mode = 0
+shader_param/normal = ExtResource( 103 )
+
+[resource]
+
+0/name = "sandstone_wall0"
+0/texture = SubResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 24, 24 )
+0/occluder_offset = Vector2( 12, 12 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 12, 12 )
+0/shape_offset = Vector2( 12, 12 )
+0/shapes = [ SubResource( 2 ) ]
+0/one_way_collision_direction = Vector2( 0, 0 )
+0/one_way_collision_max_depth = 0.0
+1/name = "sandstone_wall1"
+1/texture = SubResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 24, 24 )
+1/occluder_offset = Vector2( 12, 12 )
+1/occluder = SubResource( 4 )
+1/navigation_offset = Vector2( 12, 12 )
+1/shape_offset = Vector2( 12, 12 )
+1/shapes = [ SubResource( 5 ) ]
+1/one_way_collision_direction = Vector2( 0, 0 )
+1/one_way_collision_max_depth = 0.0
+2/name = "sandstone_wall2"
+2/texture = SubResource( 29 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 24, 24 )
+2/occluder_offset = Vector2( 12, 12 )
+2/occluder = SubResource( 27 )
+2/navigation_offset = Vector2( 12, 12 )
+2/shape_offset = Vector2( 12, 12 )
+2/shapes = [ SubResource( 28 ) ]
+2/one_way_collision_direction = Vector2( 0, 0 )
+2/one_way_collision_max_depth = 0.0
+3/name = "sandstone_wall3"
+3/texture = SubResource( 59 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 24, 24 )
+3/occluder_offset = Vector2( 12, 12 )
+3/occluder = SubResource( 57 )
+3/navigation_offset = Vector2( 12, 12 )
+3/shape_offset = Vector2( 12, 12 )
+3/shapes = [ SubResource( 58 ) ]
+3/one_way_collision_direction = Vector2( 0, 0 )
+3/one_way_collision_max_depth = 0.0
+4/name = "sandstone_wall4"
+4/texture = SubResource( 84 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 24, 24 )
+4/occluder_offset = Vector2( 12, 12 )
+4/occluder = SubResource( 82 )
+4/navigation_offset = Vector2( 12, 12 )
+4/shape_offset = Vector2( 12, 12 )
+4/shapes = [ SubResource( 83 ) ]
+4/one_way_collision_direction = Vector2( 0, 0 )
+4/one_way_collision_max_depth = 0.0
+5/name = "sandstone_wall5"
+5/texture = SubResource( 87 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 24, 24 )
+5/occluder_offset = Vector2( 12, 12 )
+5/occluder = SubResource( 85 )
+5/navigation_offset = Vector2( 12, 12 )
+5/shape_offset = Vector2( 12, 12 )
+5/shapes = [ SubResource( 86 ) ]
+5/one_way_collision_direction = Vector2( 0, 0 )
+5/one_way_collision_max_depth = 0.0
+6/name = "sandstone_wall6"
+6/texture = SubResource( 110 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 24, 24 )
+6/occluder_offset = Vector2( 12, 12 )
+6/occluder = SubResource( 108 )
+6/navigation_offset = Vector2( 12, 12 )
+6/shape_offset = Vector2( 12, 12 )
+6/shapes = [ SubResource( 109 ) ]
+6/one_way_collision_direction = Vector2( 0, 0 )
+6/one_way_collision_max_depth = 0.0
+7/name = "sandstone_wall7"
+7/texture = SubResource( 134 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 24, 24 )
+7/occluder_offset = Vector2( 12, 12 )
+7/occluder = SubResource( 132 )
+7/navigation_offset = Vector2( 12, 12 )
+7/shape_offset = Vector2( 12, 12 )
+7/shapes = [ SubResource( 133 ) ]
+7/one_way_collision_direction = Vector2( 0, 0 )
+7/one_way_collision_max_depth = 0.0
+8/name = "sandstone_wall8"
+8/texture = SubResource( 163 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 24, 24 )
+8/occluder_offset = Vector2( 12, 12 )
+8/occluder = SubResource( 161 )
+8/navigation_offset = Vector2( 12, 12 )
+8/shape_offset = Vector2( 12, 12 )
+8/shapes = [ SubResource( 162 ) ]
+8/one_way_collision_direction = Vector2( 0, 0 )
+8/one_way_collision_max_depth = 0.0
+9/name = "sandstone_wall9"
+9/texture = SubResource( 190 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 24, 24 )
+9/occluder_offset = Vector2( 12, 12 )
+9/occluder = SubResource( 188 )
+9/navigation_offset = Vector2( 12, 12 )
+9/shape_offset = Vector2( 12, 12 )
+9/shapes = [ SubResource( 189 ) ]
+9/one_way_collision_direction = Vector2( 0, 0 )
+9/one_way_collision_max_depth = 0.0
+10/name = "sandstone_floor0"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, 0 )
+10/material = SubResource( 8 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 24, 24 )
+10/occluder_offset = Vector2( 12, 12 )
+10/navigation_offset = Vector2( 12, 12 )
+10/shape_offset = Vector2( 0, 0 )
+10/shapes = [  ]
+10/one_way_collision_direction = Vector2( 0, 0 )
+10/one_way_collision_max_depth = 0.0
+11/name = "sandstone_floor1"
+11/texture = ExtResource( 4 )
+11/tex_offset = Vector2( 0, 0 )
+11/material = SubResource( 10 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 24, 24 )
+11/occluder_offset = Vector2( 12, 12 )
+11/navigation_offset = Vector2( 12, 12 )
+11/shape_offset = Vector2( 0, 0 )
+11/shapes = [  ]
+11/one_way_collision_direction = Vector2( 0, 0 )
+11/one_way_collision_max_depth = 0.0
+12/name = "sandstone_floor2"
+12/texture = ExtResource( 6 )
+12/tex_offset = Vector2( 0, 0 )
+12/material = SubResource( 12 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 24, 24 )
+12/occluder_offset = Vector2( 12, 12 )
+12/navigation_offset = Vector2( 12, 12 )
+12/shape_offset = Vector2( 0, 0 )
+12/shapes = [  ]
+12/one_way_collision_direction = Vector2( 0, 0 )
+12/one_way_collision_max_depth = 0.0
+13/name = "sandstone_floor3"
+13/texture = ExtResource( 8 )
+13/tex_offset = Vector2( 0, 0 )
+13/material = SubResource( 14 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 0, 24, 24 )
+13/occluder_offset = Vector2( 12, 12 )
+13/navigation_offset = Vector2( 12, 12 )
+13/shape_offset = Vector2( 0, 0 )
+13/shapes = [  ]
+13/one_way_collision_direction = Vector2( 0, 0 )
+13/one_way_collision_max_depth = 0.0
+14/name = "sandstone_floor4"
+14/texture = ExtResource( 10 )
+14/tex_offset = Vector2( 0, 0 )
+14/material = SubResource( 16 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 24, 24 )
+14/occluder_offset = Vector2( 12, 12 )
+14/navigation_offset = Vector2( 12, 12 )
+14/shape_offset = Vector2( 0, 0 )
+14/shapes = [  ]
+14/one_way_collision_direction = Vector2( 0, 0 )
+14/one_way_collision_max_depth = 0.0
+15/name = "sandstone_floor5"
+15/texture = ExtResource( 12 )
+15/tex_offset = Vector2( 0, 0 )
+15/material = SubResource( 18 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 0, 24, 24 )
+15/occluder_offset = Vector2( 12, 12 )
+15/navigation_offset = Vector2( 12, 12 )
+15/shape_offset = Vector2( 0, 0 )
+15/shapes = [  ]
+15/one_way_collision_direction = Vector2( 0, 0 )
+15/one_way_collision_max_depth = 0.0
+16/name = "sandstone_floor6"
+16/texture = ExtResource( 14 )
+16/tex_offset = Vector2( 0, 0 )
+16/material = SubResource( 20 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 24, 24 )
+16/occluder_offset = Vector2( 12, 12 )
+16/navigation_offset = Vector2( 12, 12 )
+16/shape_offset = Vector2( 0, 0 )
+16/shapes = [  ]
+16/one_way_collision_direction = Vector2( 0, 0 )
+16/one_way_collision_max_depth = 0.0
+17/name = "sandstone_floor7"
+17/texture = ExtResource( 16 )
+17/tex_offset = Vector2( 0, 0 )
+17/material = SubResource( 22 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 24, 24 )
+17/occluder_offset = Vector2( 12, 12 )
+17/navigation_offset = Vector2( 12, 12 )
+17/shape_offset = Vector2( 0, 0 )
+17/shapes = [  ]
+17/one_way_collision_direction = Vector2( 0, 0 )
+17/one_way_collision_max_depth = 0.0
+18/name = "sandstone_floor8"
+18/texture = ExtResource( 18 )
+18/tex_offset = Vector2( 0, 0 )
+18/material = SubResource( 24 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 0, 24, 24 )
+18/occluder_offset = Vector2( 12, 12 )
+18/navigation_offset = Vector2( 12, 12 )
+18/shape_offset = Vector2( 0, 0 )
+18/shapes = [  ]
+18/one_way_collision_direction = Vector2( 0, 0 )
+18/one_way_collision_max_depth = 0.0
+19/name = "sandstone_floor9"
+19/texture = ExtResource( 20 )
+19/tex_offset = Vector2( 0, 0 )
+19/material = SubResource( 26 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 0, 0, 24, 24 )
+19/occluder_offset = Vector2( 12, 12 )
+19/navigation_offset = Vector2( 12, 12 )
+19/shape_offset = Vector2( 0, 0 )
+19/shapes = [  ]
+19/one_way_collision_direction = Vector2( 0, 0 )
+19/one_way_collision_max_depth = 0.0
+20/name = "brick_dark_wall0"
+20/texture = SubResource( 32 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 0, 24, 24 )
+20/occluder_offset = Vector2( 12, 12 )
+20/occluder = SubResource( 30 )
+20/navigation_offset = Vector2( 12, 12 )
+20/shape_offset = Vector2( 12, 12 )
+20/shapes = [ SubResource( 31 ) ]
+20/one_way_collision_direction = Vector2( 0, 0 )
+20/one_way_collision_max_depth = 0.0
+21/name = "brick_dark_wall1"
+21/texture = SubResource( 35 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 0, 0, 24, 24 )
+21/occluder_offset = Vector2( 12, 12 )
+21/occluder = SubResource( 33 )
+21/navigation_offset = Vector2( 12, 12 )
+21/shape_offset = Vector2( 12, 12 )
+21/shapes = [ SubResource( 34 ) ]
+21/one_way_collision_direction = Vector2( 0, 0 )
+21/one_way_collision_max_depth = 0.0
+22/name = "brick_dark_wall2"
+22/texture = SubResource( 38 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 0, 0, 24, 24 )
+22/occluder_offset = Vector2( 12, 12 )
+22/occluder = SubResource( 36 )
+22/navigation_offset = Vector2( 12, 12 )
+22/shape_offset = Vector2( 12, 12 )
+22/shapes = [ SubResource( 37 ) ]
+22/one_way_collision_direction = Vector2( 0, 0 )
+22/one_way_collision_max_depth = 0.0
+23/name = "brick_dark_wall3"
+23/texture = SubResource( 41 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 0, 0, 24, 24 )
+23/occluder_offset = Vector2( 12, 12 )
+23/occluder = SubResource( 39 )
+23/navigation_offset = Vector2( 12, 12 )
+23/shape_offset = Vector2( 12, 12 )
+23/shapes = [ SubResource( 40 ) ]
+23/one_way_collision_direction = Vector2( 0, 0 )
+23/one_way_collision_max_depth = 0.0
+24/name = "brick_dark_wall4"
+24/texture = SubResource( 44 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 0, 0, 24, 24 )
+24/occluder_offset = Vector2( 12, 12 )
+24/occluder = SubResource( 42 )
+24/navigation_offset = Vector2( 12, 12 )
+24/shape_offset = Vector2( 12, 12 )
+24/shapes = [ SubResource( 43 ) ]
+24/one_way_collision_direction = Vector2( 0, 0 )
+24/one_way_collision_max_depth = 0.0
+25/name = "brick_dark_wall5"
+25/texture = SubResource( 47 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 0, 0, 24, 24 )
+25/occluder_offset = Vector2( 12, 12 )
+25/occluder = SubResource( 45 )
+25/navigation_offset = Vector2( 12, 12 )
+25/shape_offset = Vector2( 12, 12 )
+25/shapes = [ SubResource( 46 ) ]
+25/one_way_collision_direction = Vector2( 0, 0 )
+25/one_way_collision_max_depth = 0.0
+26/name = "brick_dark_wall6"
+26/texture = SubResource( 50 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 0, 0, 24, 24 )
+26/occluder_offset = Vector2( 12, 12 )
+26/occluder = SubResource( 48 )
+26/navigation_offset = Vector2( 12, 12 )
+26/shape_offset = Vector2( 12, 12 )
+26/shapes = [ SubResource( 49 ) ]
+26/one_way_collision_direction = Vector2( 0, 0 )
+26/one_way_collision_max_depth = 0.0
+27/name = "brick_dark_floor0"
+27/texture = ExtResource( 22 )
+27/tex_offset = Vector2( 0, 0 )
+27/material = SubResource( 52 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 0, 0, 24, 24 )
+27/occluder_offset = Vector2( 12, 12 )
+27/navigation_offset = Vector2( 12, 12 )
+27/shape_offset = Vector2( 0, 0 )
+27/shapes = [  ]
+27/one_way_collision_direction = Vector2( 0, 0 )
+27/one_way_collision_max_depth = 0.0
+28/name = "brick_dark_floor1"
+28/texture = ExtResource( 24 )
+28/tex_offset = Vector2( 0, 0 )
+28/material = SubResource( 54 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 0, 24, 24 )
+28/occluder_offset = Vector2( 12, 12 )
+28/navigation_offset = Vector2( 12, 12 )
+28/shape_offset = Vector2( 0, 0 )
+28/shapes = [  ]
+28/one_way_collision_direction = Vector2( 0, 0 )
+28/one_way_collision_max_depth = 0.0
+29/name = "brick_dark_floor2"
+29/texture = ExtResource( 26 )
+29/tex_offset = Vector2( 0, 0 )
+29/material = SubResource( 56 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 0, 24, 24 )
+29/occluder_offset = Vector2( 12, 12 )
+29/navigation_offset = Vector2( 12, 12 )
+29/shape_offset = Vector2( 0, 0 )
+29/shapes = [  ]
+29/one_way_collision_direction = Vector2( 0, 0 )
+29/one_way_collision_max_depth = 0.0
+30/name = "brick_dark_floor3"
+30/texture = ExtResource( 28 )
+30/tex_offset = Vector2( 0, 0 )
+30/material = SubResource( 61 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 0, 0, 24, 24 )
+30/occluder_offset = Vector2( 12, 12 )
+30/navigation_offset = Vector2( 12, 12 )
+30/shape_offset = Vector2( 0, 0 )
+30/shapes = [  ]
+30/one_way_collision_direction = Vector2( 0, 0 )
+30/one_way_collision_max_depth = 0.0
+31/name = "brick_dark_floor4"
+31/texture = ExtResource( 30 )
+31/tex_offset = Vector2( 0, 0 )
+31/material = SubResource( 63 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 24, 24 )
+31/occluder_offset = Vector2( 12, 12 )
+31/navigation_offset = Vector2( 12, 12 )
+31/shape_offset = Vector2( 0, 0 )
+31/shapes = [  ]
+31/one_way_collision_direction = Vector2( 0, 0 )
+31/one_way_collision_max_depth = 0.0
+32/name = "brick_dark_floor5"
+32/texture = ExtResource( 32 )
+32/tex_offset = Vector2( 0, 0 )
+32/material = SubResource( 65 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 0, 0, 24, 24 )
+32/occluder_offset = Vector2( 12, 12 )
+32/navigation_offset = Vector2( 12, 12 )
+32/shape_offset = Vector2( 0, 0 )
+32/shapes = [  ]
+32/one_way_collision_direction = Vector2( 0, 0 )
+32/one_way_collision_max_depth = 0.0
+33/name = "brick_dark_floor6"
+33/texture = ExtResource( 34 )
+33/tex_offset = Vector2( 0, 0 )
+33/material = SubResource( 67 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 0, 0, 24, 24 )
+33/occluder_offset = Vector2( 12, 12 )
+33/navigation_offset = Vector2( 12, 12 )
+33/shape_offset = Vector2( 0, 0 )
+33/shapes = [  ]
+33/one_way_collision_direction = Vector2( 0, 0 )
+33/one_way_collision_max_depth = 0.0
+34/name = "stone_gray0"
+34/texture = SubResource( 70 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 0, 0, 24, 24 )
+34/occluder_offset = Vector2( 12, 12 )
+34/occluder = SubResource( 68 )
+34/navigation_offset = Vector2( 12, 12 )
+34/shape_offset = Vector2( 12, 12 )
+34/shapes = [ SubResource( 69 ) ]
+34/one_way_collision_direction = Vector2( 0, 0 )
+34/one_way_collision_max_depth = 0.0
+35/name = "stone_gray1"
+35/texture = SubResource( 73 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 0, 0, 24, 24 )
+35/occluder_offset = Vector2( 12, 12 )
+35/occluder = SubResource( 71 )
+35/navigation_offset = Vector2( 12, 12 )
+35/shape_offset = Vector2( 12, 12 )
+35/shapes = [ SubResource( 72 ) ]
+35/one_way_collision_direction = Vector2( 0, 0 )
+35/one_way_collision_max_depth = 0.0
+36/name = "stone_gray2"
+36/texture = SubResource( 76 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 0, 24, 24 )
+36/occluder_offset = Vector2( 12, 12 )
+36/occluder = SubResource( 74 )
+36/navigation_offset = Vector2( 12, 12 )
+36/shape_offset = Vector2( 12, 12 )
+36/shapes = [ SubResource( 75 ) ]
+36/one_way_collision_direction = Vector2( 0, 0 )
+36/one_way_collision_max_depth = 0.0
+37/name = "stone_gray3"
+37/texture = SubResource( 79 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 0, 0, 24, 24 )
+37/occluder_offset = Vector2( 12, 12 )
+37/occluder = SubResource( 77 )
+37/navigation_offset = Vector2( 12, 12 )
+37/shape_offset = Vector2( 12, 12 )
+37/shapes = [ SubResource( 78 ) ]
+37/one_way_collision_direction = Vector2( 0, 0 )
+37/one_way_collision_max_depth = 0.0
+38/name = "cobble_blood1"
+38/texture = ExtResource( 36 )
+38/tex_offset = Vector2( 0, 0 )
+38/material = SubResource( 81 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 0, 0, 24, 24 )
+38/occluder_offset = Vector2( 12, 12 )
+38/navigation_offset = Vector2( 12, 12 )
+38/shape_offset = Vector2( 0, 0 )
+38/shapes = [  ]
+38/one_way_collision_direction = Vector2( 0, 0 )
+38/one_way_collision_max_depth = 0.0
+39/name = "cobble_blood2"
+39/texture = ExtResource( 37 )
+39/tex_offset = Vector2( 0, 0 )
+39/material = SubResource( 81 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 0, 0, 24, 24 )
+39/occluder_offset = Vector2( 12, 12 )
+39/navigation_offset = Vector2( 12, 12 )
+39/shape_offset = Vector2( 0, 0 )
+39/shapes = [  ]
+39/one_way_collision_direction = Vector2( 0, 0 )
+39/one_way_collision_max_depth = 0.0
+40/name = "cobble_blood3"
+40/texture = ExtResource( 38 )
+40/tex_offset = Vector2( 0, 0 )
+40/material = SubResource( 81 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 0, 0, 24, 24 )
+40/occluder_offset = Vector2( 12, 12 )
+40/navigation_offset = Vector2( 12, 12 )
+40/shape_offset = Vector2( 0, 0 )
+40/shapes = [  ]
+40/one_way_collision_direction = Vector2( 0, 0 )
+40/one_way_collision_max_depth = 0.0
+41/name = "cobble_blood4"
+41/texture = ExtResource( 39 )
+41/tex_offset = Vector2( 0, 0 )
+41/material = SubResource( 81 )
+41/modulate = Color( 1, 1, 1, 1 )
+41/region = Rect2( 0, 0, 24, 24 )
+41/occluder_offset = Vector2( 12, 12 )
+41/navigation_offset = Vector2( 12, 12 )
+41/shape_offset = Vector2( 0, 0 )
+41/shapes = [  ]
+41/one_way_collision_direction = Vector2( 0, 0 )
+41/one_way_collision_max_depth = 0.0
+42/name = "cobble_blood5"
+42/texture = ExtResource( 40 )
+42/tex_offset = Vector2( 0, 0 )
+42/material = SubResource( 81 )
+42/modulate = Color( 1, 1, 1, 1 )
+42/region = Rect2( 0, 0, 24, 24 )
+42/occluder_offset = Vector2( 12, 12 )
+42/navigation_offset = Vector2( 12, 12 )
+42/shape_offset = Vector2( 0, 0 )
+42/shapes = [  ]
+42/one_way_collision_direction = Vector2( 0, 0 )
+42/one_way_collision_max_depth = 0.0
+43/name = "cobble_blood6"
+43/texture = ExtResource( 41 )
+43/tex_offset = Vector2( 0, 0 )
+43/material = SubResource( 81 )
+43/modulate = Color( 1, 1, 1, 1 )
+43/region = Rect2( 0, 0, 24, 24 )
+43/occluder_offset = Vector2( 12, 12 )
+43/navigation_offset = Vector2( 12, 12 )
+43/shape_offset = Vector2( 0, 0 )
+43/shapes = [  ]
+43/one_way_collision_direction = Vector2( 0, 0 )
+43/one_way_collision_max_depth = 0.0
+44/name = "cobble_blood7"
+44/texture = ExtResource( 42 )
+44/tex_offset = Vector2( 0, 0 )
+44/material = SubResource( 81 )
+44/modulate = Color( 1, 1, 1, 1 )
+44/region = Rect2( 0, 0, 24, 24 )
+44/occluder_offset = Vector2( 12, 12 )
+44/navigation_offset = Vector2( 12, 12 )
+44/shape_offset = Vector2( 0, 0 )
+44/shapes = [  ]
+44/one_way_collision_direction = Vector2( 0, 0 )
+44/one_way_collision_max_depth = 0.0
+45/name = "cobble_blood8"
+45/texture = ExtResource( 43 )
+45/tex_offset = Vector2( 0, 0 )
+45/material = SubResource( 81 )
+45/modulate = Color( 1, 1, 1, 1 )
+45/region = Rect2( 0, 0, 24, 24 )
+45/occluder_offset = Vector2( 12, 12 )
+45/navigation_offset = Vector2( 12, 12 )
+45/shape_offset = Vector2( 0, 0 )
+45/shapes = [  ]
+45/one_way_collision_direction = Vector2( 0, 0 )
+45/one_way_collision_max_depth = 0.0
+46/name = "cobble_blood9"
+46/texture = ExtResource( 44 )
+46/tex_offset = Vector2( 0, 0 )
+46/material = SubResource( 81 )
+46/modulate = Color( 1, 1, 1, 1 )
+46/region = Rect2( 0, 0, 24, 24 )
+46/occluder_offset = Vector2( 12, 12 )
+46/navigation_offset = Vector2( 12, 12 )
+46/shape_offset = Vector2( 0, 0 )
+46/shapes = [  ]
+46/one_way_collision_direction = Vector2( 0, 0 )
+46/one_way_collision_max_depth = 0.0
+47/name = "cobble_blood10"
+47/texture = ExtResource( 45 )
+47/tex_offset = Vector2( 0, 0 )
+47/material = SubResource( 81 )
+47/modulate = Color( 1, 1, 1, 1 )
+47/region = Rect2( 0, 0, 24, 24 )
+47/occluder_offset = Vector2( 12, 12 )
+47/navigation_offset = Vector2( 12, 12 )
+47/shape_offset = Vector2( 0, 0 )
+47/shapes = [  ]
+47/one_way_collision_direction = Vector2( 0, 0 )
+47/one_way_collision_max_depth = 0.0
+48/name = "cobble_blood11"
+48/texture = ExtResource( 46 )
+48/tex_offset = Vector2( 0, 0 )
+48/material = SubResource( 81 )
+48/modulate = Color( 1, 1, 1, 1 )
+48/region = Rect2( 0, 0, 24, 24 )
+48/occluder_offset = Vector2( 12, 12 )
+48/navigation_offset = Vector2( 12, 12 )
+48/shape_offset = Vector2( 0, 0 )
+48/shapes = [  ]
+48/one_way_collision_direction = Vector2( 0, 0 )
+48/one_way_collision_max_depth = 0.0
+49/name = "cobble_blood12"
+49/texture = ExtResource( 47 )
+49/tex_offset = Vector2( 0, 0 )
+49/material = SubResource( 81 )
+49/modulate = Color( 1, 1, 1, 1 )
+49/region = Rect2( 0, 0, 24, 24 )
+49/occluder_offset = Vector2( 12, 12 )
+49/navigation_offset = Vector2( 12, 12 )
+49/shape_offset = Vector2( 0, 0 )
+49/shapes = [  ]
+49/one_way_collision_direction = Vector2( 0, 0 )
+49/one_way_collision_max_depth = 0.0
+50/name = "slab1"
+50/texture = ExtResource( 49 )
+50/tex_offset = Vector2( 0, 0 )
+50/material = SubResource( 89 )
+50/modulate = Color( 1, 1, 1, 1 )
+50/region = Rect2( 0, 0, 24, 24 )
+50/occluder_offset = Vector2( 12, 12 )
+50/navigation_offset = Vector2( 12, 12 )
+50/shape_offset = Vector2( 0, 0 )
+50/shapes = [  ]
+50/one_way_collision_direction = Vector2( 0, 0 )
+50/one_way_collision_max_depth = 0.0
+51/name = "slab2"
+51/texture = ExtResource( 51 )
+51/tex_offset = Vector2( 0, 0 )
+51/material = SubResource( 91 )
+51/modulate = Color( 1, 1, 1, 1 )
+51/region = Rect2( 0, 0, 24, 24 )
+51/occluder_offset = Vector2( 12, 12 )
+51/navigation_offset = Vector2( 12, 12 )
+51/shape_offset = Vector2( 0, 0 )
+51/shapes = [  ]
+51/one_way_collision_direction = Vector2( 0, 0 )
+51/one_way_collision_max_depth = 0.0
+52/name = "slab3"
+52/texture = ExtResource( 53 )
+52/tex_offset = Vector2( 0, 0 )
+52/material = SubResource( 93 )
+52/modulate = Color( 1, 1, 1, 1 )
+52/region = Rect2( 0, 0, 24, 24 )
+52/occluder_offset = Vector2( 12, 12 )
+52/navigation_offset = Vector2( 12, 12 )
+52/shape_offset = Vector2( 0, 0 )
+52/shapes = [  ]
+52/one_way_collision_direction = Vector2( 0, 0 )
+52/one_way_collision_max_depth = 0.0
+53/name = "slab4"
+53/texture = ExtResource( 55 )
+53/tex_offset = Vector2( 0, 0 )
+53/material = SubResource( 95 )
+53/modulate = Color( 1, 1, 1, 1 )
+53/region = Rect2( 0, 0, 24, 24 )
+53/occluder_offset = Vector2( 12, 12 )
+53/navigation_offset = Vector2( 12, 12 )
+53/shape_offset = Vector2( 0, 0 )
+53/shapes = [  ]
+53/one_way_collision_direction = Vector2( 0, 0 )
+53/one_way_collision_max_depth = 0.0
+54/name = "slab5"
+54/texture = ExtResource( 57 )
+54/tex_offset = Vector2( 0, 0 )
+54/material = SubResource( 97 )
+54/modulate = Color( 1, 1, 1, 1 )
+54/region = Rect2( 0, 0, 24, 24 )
+54/occluder_offset = Vector2( 12, 12 )
+54/navigation_offset = Vector2( 12, 12 )
+54/shape_offset = Vector2( 0, 0 )
+54/shapes = [  ]
+54/one_way_collision_direction = Vector2( 0, 0 )
+54/one_way_collision_max_depth = 0.0
+55/name = "slab6"
+55/texture = ExtResource( 59 )
+55/tex_offset = Vector2( 0, 0 )
+55/material = SubResource( 99 )
+55/modulate = Color( 1, 1, 1, 1 )
+55/region = Rect2( 0, 0, 24, 24 )
+55/occluder_offset = Vector2( 12, 12 )
+55/navigation_offset = Vector2( 12, 12 )
+55/shape_offset = Vector2( 0, 0 )
+55/shapes = [  ]
+55/one_way_collision_direction = Vector2( 0, 0 )
+55/one_way_collision_max_depth = 0.0
+56/name = "slab7"
+56/texture = ExtResource( 61 )
+56/tex_offset = Vector2( 0, 0 )
+56/material = SubResource( 101 )
+56/modulate = Color( 1, 1, 1, 1 )
+56/region = Rect2( 0, 0, 24, 24 )
+56/occluder_offset = Vector2( 12, 12 )
+56/navigation_offset = Vector2( 12, 12 )
+56/shape_offset = Vector2( 0, 0 )
+56/shapes = [  ]
+56/one_way_collision_direction = Vector2( 0, 0 )
+56/one_way_collision_max_depth = 0.0
+57/name = "slab8"
+57/texture = ExtResource( 63 )
+57/tex_offset = Vector2( 0, 0 )
+57/material = SubResource( 103 )
+57/modulate = Color( 1, 1, 1, 1 )
+57/region = Rect2( 0, 0, 24, 24 )
+57/occluder_offset = Vector2( 12, 12 )
+57/navigation_offset = Vector2( 12, 12 )
+57/shape_offset = Vector2( 0, 0 )
+57/shapes = [  ]
+57/one_way_collision_direction = Vector2( 0, 0 )
+57/one_way_collision_max_depth = 0.0
+58/name = "slab9"
+58/texture = ExtResource( 65 )
+58/tex_offset = Vector2( 0, 0 )
+58/material = SubResource( 105 )
+58/modulate = Color( 1, 1, 1, 1 )
+58/region = Rect2( 0, 0, 24, 24 )
+58/occluder_offset = Vector2( 12, 12 )
+58/navigation_offset = Vector2( 12, 12 )
+58/shape_offset = Vector2( 0, 0 )
+58/shapes = [  ]
+58/one_way_collision_direction = Vector2( 0, 0 )
+58/one_way_collision_max_depth = 0.0
+59/name = "slab10"
+59/texture = ExtResource( 67 )
+59/tex_offset = Vector2( 0, 0 )
+59/material = SubResource( 107 )
+59/modulate = Color( 1, 1, 1, 1 )
+59/region = Rect2( 0, 0, 24, 24 )
+59/occluder_offset = Vector2( 12, 12 )
+59/navigation_offset = Vector2( 12, 12 )
+59/shape_offset = Vector2( 0, 0 )
+59/shapes = [  ]
+59/one_way_collision_direction = Vector2( 0, 0 )
+59/one_way_collision_max_depth = 0.0
+60/name = "slab11"
+60/texture = ExtResource( 69 )
+60/tex_offset = Vector2( 0, 0 )
+60/material = SubResource( 112 )
+60/modulate = Color( 1, 1, 1, 1 )
+60/region = Rect2( 0, 0, 24, 24 )
+60/occluder_offset = Vector2( 12, 12 )
+60/navigation_offset = Vector2( 12, 12 )
+60/shape_offset = Vector2( 0, 0 )
+60/shapes = [  ]
+60/one_way_collision_direction = Vector2( 0, 0 )
+60/one_way_collision_max_depth = 0.0
+61/name = "slab12"
+61/texture = ExtResource( 71 )
+61/tex_offset = Vector2( 0, 0 )
+61/material = SubResource( 114 )
+61/modulate = Color( 1, 1, 1, 1 )
+61/region = Rect2( 0, 0, 24, 24 )
+61/occluder_offset = Vector2( 12, 12 )
+61/navigation_offset = Vector2( 12, 12 )
+61/shape_offset = Vector2( 0, 0 )
+61/shapes = [  ]
+61/one_way_collision_direction = Vector2( 0, 0 )
+61/one_way_collision_max_depth = 0.0
+62/name = "slab13"
+62/texture = ExtResource( 73 )
+62/tex_offset = Vector2( 0, 0 )
+62/material = SubResource( 116 )
+62/modulate = Color( 1, 1, 1, 1 )
+62/region = Rect2( 0, 0, 24, 24 )
+62/occluder_offset = Vector2( 12, 12 )
+62/navigation_offset = Vector2( 12, 12 )
+62/shape_offset = Vector2( 0, 0 )
+62/shapes = [  ]
+62/one_way_collision_direction = Vector2( 0, 0 )
+62/one_way_collision_max_depth = 0.0
+63/name = "slab14"
+63/texture = ExtResource( 75 )
+63/tex_offset = Vector2( 0, 0 )
+63/material = SubResource( 118 )
+63/modulate = Color( 1, 1, 1, 1 )
+63/region = Rect2( 0, 0, 24, 24 )
+63/occluder_offset = Vector2( 12, 12 )
+63/navigation_offset = Vector2( 12, 12 )
+63/shape_offset = Vector2( 0, 0 )
+63/shapes = [  ]
+63/one_way_collision_direction = Vector2( 0, 0 )
+63/one_way_collision_max_depth = 0.0
+64/name = "slab15"
+64/texture = ExtResource( 77 )
+64/tex_offset = Vector2( 0, 0 )
+64/material = SubResource( 120 )
+64/modulate = Color( 1, 1, 1, 1 )
+64/region = Rect2( 0, 0, 24, 24 )
+64/occluder_offset = Vector2( 12, 12 )
+64/navigation_offset = Vector2( 12, 12 )
+64/shape_offset = Vector2( 0, 0 )
+64/shapes = [  ]
+64/one_way_collision_direction = Vector2( 0, 0 )
+64/one_way_collision_max_depth = 0.0
+65/name = "slab16"
+65/texture = ExtResource( 79 )
+65/tex_offset = Vector2( 0, 0 )
+65/material = SubResource( 122 )
+65/modulate = Color( 1, 1, 1, 1 )
+65/region = Rect2( 0, 0, 24, 24 )
+65/occluder_offset = Vector2( 12, 12 )
+65/navigation_offset = Vector2( 12, 12 )
+65/shape_offset = Vector2( 0, 0 )
+65/shapes = [  ]
+65/one_way_collision_direction = Vector2( 0, 0 )
+65/one_way_collision_max_depth = 0.0
+66/name = "hash"
+66/texture = SubResource( 125 )
+66/tex_offset = Vector2( 0, 0 )
+66/modulate = Color( 1, 1, 1, 1 )
+66/region = Rect2( 0, 0, 24, 24 )
+66/occluder_offset = Vector2( 12, 12 )
+66/occluder = SubResource( 123 )
+66/navigation_offset = Vector2( 12, 12 )
+66/shape_offset = Vector2( 12, 12 )
+66/shapes = [ SubResource( 124 ) ]
+66/one_way_collision_direction = Vector2( 0, 0 )
+66/one_way_collision_max_depth = 0.0
+67/name = "dot"
+67/texture = ExtResource( 80 )
+67/tex_offset = Vector2( 0, 0 )
+67/modulate = Color( 1, 1, 1, 1 )
+67/region = Rect2( 0, 0, 24, 24 )
+67/occluder_offset = Vector2( 12, 12 )
+67/navigation_offset = Vector2( 12, 12 )
+67/shape_offset = Vector2( 0, 0 )
+67/shapes = [  ]
+67/one_way_collision_direction = Vector2( 0, 0 )
+67/one_way_collision_max_depth = 0.0
+68/name = "slimestone0"
+68/texture = SubResource( 128 )
+68/tex_offset = Vector2( 0, 0 )
+68/modulate = Color( 1, 1, 1, 1 )
+68/region = Rect2( 0, 0, 24, 24 )
+68/occluder_offset = Vector2( 12, 12 )
+68/occluder = SubResource( 126 )
+68/navigation_offset = Vector2( 12, 12 )
+68/shape_offset = Vector2( 12, 12 )
+68/shapes = [ SubResource( 127 ) ]
+68/one_way_collision_direction = Vector2( 0, 0 )
+68/one_way_collision_max_depth = 0.0
+69/name = "slimestone1"
+69/texture = SubResource( 131 )
+69/tex_offset = Vector2( 0, 0 )
+69/modulate = Color( 1, 1, 1, 1 )
+69/region = Rect2( 0, 0, 24, 24 )
+69/occluder_offset = Vector2( 12, 12 )
+69/occluder = SubResource( 129 )
+69/navigation_offset = Vector2( 12, 12 )
+69/shape_offset = Vector2( 12, 12 )
+69/shapes = [ SubResource( 130 ) ]
+69/one_way_collision_direction = Vector2( 0, 0 )
+69/one_way_collision_max_depth = 0.0
+70/name = "slimestone2"
+70/texture = SubResource( 137 )
+70/tex_offset = Vector2( 0, 0 )
+70/modulate = Color( 1, 1, 1, 1 )
+70/region = Rect2( 0, 0, 24, 24 )
+70/occluder_offset = Vector2( 12, 12 )
+70/occluder = SubResource( 135 )
+70/navigation_offset = Vector2( 12, 12 )
+70/shape_offset = Vector2( 12, 12 )
+70/shapes = [ SubResource( 136 ) ]
+70/one_way_collision_direction = Vector2( 0, 0 )
+70/one_way_collision_max_depth = 0.0
+71/name = "slimestone3"
+71/texture = SubResource( 140 )
+71/tex_offset = Vector2( 0, 0 )
+71/modulate = Color( 1, 1, 1, 1 )
+71/region = Rect2( 0, 0, 24, 24 )
+71/occluder_offset = Vector2( 12, 12 )
+71/occluder = SubResource( 138 )
+71/navigation_offset = Vector2( 12, 12 )
+71/shape_offset = Vector2( 12, 12 )
+71/shapes = [ SubResource( 139 ) ]
+71/one_way_collision_direction = Vector2( 0, 0 )
+71/one_way_collision_max_depth = 0.0
+72/name = "bog_green0"
+72/texture = ExtResource( 82 )
+72/tex_offset = Vector2( 0, 0 )
+72/material = SubResource( 142 )
+72/modulate = Color( 1, 1, 1, 1 )
+72/region = Rect2( 0, 0, 24, 24 )
+72/occluder_offset = Vector2( 12, 12 )
+72/navigation_offset = Vector2( 12, 12 )
+72/shape_offset = Vector2( 0, 0 )
+72/shapes = [  ]
+72/one_way_collision_direction = Vector2( 0, 0 )
+72/one_way_collision_max_depth = 0.0
+73/name = "bog_green1"
+73/texture = ExtResource( 84 )
+73/tex_offset = Vector2( 0, 0 )
+73/material = SubResource( 144 )
+73/modulate = Color( 1, 1, 1, 1 )
+73/region = Rect2( 0, 0, 24, 24 )
+73/occluder_offset = Vector2( 12, 12 )
+73/navigation_offset = Vector2( 12, 12 )
+73/shape_offset = Vector2( 0, 0 )
+73/shapes = [  ]
+73/one_way_collision_direction = Vector2( 0, 0 )
+73/one_way_collision_max_depth = 0.0
+74/name = "bog_green2"
+74/texture = ExtResource( 86 )
+74/tex_offset = Vector2( 0, 0 )
+74/material = SubResource( 146 )
+74/modulate = Color( 1, 1, 1, 1 )
+74/region = Rect2( 0, 0, 24, 24 )
+74/occluder_offset = Vector2( 12, 12 )
+74/navigation_offset = Vector2( 12, 12 )
+74/shape_offset = Vector2( 0, 0 )
+74/shapes = [  ]
+74/one_way_collision_direction = Vector2( 0, 0 )
+74/one_way_collision_max_depth = 0.0
+75/name = "bog_green3"
+75/texture = ExtResource( 88 )
+75/tex_offset = Vector2( 0, 0 )
+75/material = SubResource( 148 )
+75/modulate = Color( 1, 1, 1, 1 )
+75/region = Rect2( 0, 0, 24, 24 )
+75/occluder_offset = Vector2( 12, 12 )
+75/navigation_offset = Vector2( 12, 12 )
+75/shape_offset = Vector2( 0, 0 )
+75/shapes = [  ]
+75/one_way_collision_direction = Vector2( 0, 0 )
+75/one_way_collision_max_depth = 0.0
+76/name = "brick_brown0"
+76/texture = SubResource( 151 )
+76/tex_offset = Vector2( 0, 0 )
+76/modulate = Color( 1, 1, 1, 1 )
+76/region = Rect2( 0, 0, 24, 24 )
+76/occluder_offset = Vector2( 12, 12 )
+76/occluder = SubResource( 149 )
+76/navigation_offset = Vector2( 12, 12 )
+76/shape_offset = Vector2( 12, 12 )
+76/shapes = [ SubResource( 150 ) ]
+76/one_way_collision_direction = Vector2( 0, 0 )
+76/one_way_collision_max_depth = 0.0
+77/name = "brick_brown1"
+77/texture = SubResource( 154 )
+77/tex_offset = Vector2( 0, 0 )
+77/modulate = Color( 1, 1, 1, 1 )
+77/region = Rect2( 0, 0, 24, 24 )
+77/occluder_offset = Vector2( 12, 12 )
+77/occluder = SubResource( 152 )
+77/navigation_offset = Vector2( 12, 12 )
+77/shape_offset = Vector2( 12, 12 )
+77/shapes = [ SubResource( 153 ) ]
+77/one_way_collision_direction = Vector2( 0, 0 )
+77/one_way_collision_max_depth = 0.0
+78/name = "brick_brown2"
+78/texture = SubResource( 157 )
+78/tex_offset = Vector2( 0, 0 )
+78/modulate = Color( 1, 1, 1, 1 )
+78/region = Rect2( 0, 0, 24, 24 )
+78/occluder_offset = Vector2( 12, 12 )
+78/occluder = SubResource( 155 )
+78/navigation_offset = Vector2( 12, 12 )
+78/shape_offset = Vector2( 12, 12 )
+78/shapes = [ SubResource( 156 ) ]
+78/one_way_collision_direction = Vector2( 0, 0 )
+78/one_way_collision_max_depth = 0.0
+79/name = "brick_brown3"
+79/texture = SubResource( 160 )
+79/tex_offset = Vector2( 0, 0 )
+79/modulate = Color( 1, 1, 1, 1 )
+79/region = Rect2( 0, 0, 24, 24 )
+79/occluder_offset = Vector2( 12, 12 )
+79/occluder = SubResource( 158 )
+79/navigation_offset = Vector2( 12, 12 )
+79/shape_offset = Vector2( 12, 12 )
+79/shapes = [ SubResource( 159 ) ]
+79/one_way_collision_direction = Vector2( 0, 0 )
+79/one_way_collision_max_depth = 0.0
+80/name = "brick_brown4"
+80/texture = SubResource( 166 )
+80/tex_offset = Vector2( 0, 0 )
+80/modulate = Color( 1, 1, 1, 1 )
+80/region = Rect2( 0, 0, 24, 24 )
+80/occluder_offset = Vector2( 12, 12 )
+80/occluder = SubResource( 164 )
+80/navigation_offset = Vector2( 12, 12 )
+80/shape_offset = Vector2( 12, 12 )
+80/shapes = [ SubResource( 165 ) ]
+80/one_way_collision_direction = Vector2( 0, 0 )
+80/one_way_collision_max_depth = 0.0
+81/name = "brick_brown5"
+81/texture = SubResource( 169 )
+81/tex_offset = Vector2( 0, 0 )
+81/modulate = Color( 1, 1, 1, 1 )
+81/region = Rect2( 0, 0, 24, 24 )
+81/occluder_offset = Vector2( 12, 12 )
+81/occluder = SubResource( 167 )
+81/navigation_offset = Vector2( 12, 12 )
+81/shape_offset = Vector2( 12, 12 )
+81/shapes = [ SubResource( 168 ) ]
+81/one_way_collision_direction = Vector2( 0, 0 )
+81/one_way_collision_max_depth = 0.0
+82/name = "brick_brown6"
+82/texture = SubResource( 172 )
+82/tex_offset = Vector2( 0, 0 )
+82/modulate = Color( 1, 1, 1, 1 )
+82/region = Rect2( 0, 0, 24, 24 )
+82/occluder_offset = Vector2( 12, 12 )
+82/occluder = SubResource( 170 )
+82/navigation_offset = Vector2( 12, 12 )
+82/shape_offset = Vector2( 12, 12 )
+82/shapes = [ SubResource( 171 ) ]
+82/one_way_collision_direction = Vector2( 0, 0 )
+82/one_way_collision_max_depth = 0.0
+83/name = "brick_brown7"
+83/texture = SubResource( 175 )
+83/tex_offset = Vector2( 0, 0 )
+83/modulate = Color( 1, 1, 1, 1 )
+83/region = Rect2( 0, 0, 24, 24 )
+83/occluder_offset = Vector2( 12, 12 )
+83/occluder = SubResource( 173 )
+83/navigation_offset = Vector2( 12, 12 )
+83/shape_offset = Vector2( 12, 12 )
+83/shapes = [ SubResource( 174 ) ]
+83/one_way_collision_direction = Vector2( 0, 0 )
+83/one_way_collision_max_depth = 0.0
+84/name = "marble_floor0"
+84/texture = ExtResource( 90 )
+84/tex_offset = Vector2( 0, 0 )
+84/material = SubResource( 177 )
+84/modulate = Color( 1, 1, 1, 1 )
+84/region = Rect2( 0, 0, 24, 24 )
+84/occluder_offset = Vector2( 12, 12 )
+84/navigation_offset = Vector2( 12, 12 )
+84/shape_offset = Vector2( 0, 0 )
+84/shapes = [  ]
+84/one_way_collision_direction = Vector2( 0, 0 )
+84/one_way_collision_max_depth = 0.0
+85/name = "marble_floor1"
+85/texture = ExtResource( 92 )
+85/tex_offset = Vector2( 0, 0 )
+85/material = SubResource( 179 )
+85/modulate = Color( 1, 1, 1, 1 )
+85/region = Rect2( 0, 0, 24, 24 )
+85/occluder_offset = Vector2( 12, 12 )
+85/navigation_offset = Vector2( 12, 12 )
+85/shape_offset = Vector2( 0, 0 )
+85/shapes = [  ]
+85/one_way_collision_direction = Vector2( 0, 0 )
+85/one_way_collision_max_depth = 0.0
+86/name = "marble_floor2"
+86/texture = ExtResource( 94 )
+86/tex_offset = Vector2( 0, 0 )
+86/material = SubResource( 181 )
+86/modulate = Color( 1, 1, 1, 1 )
+86/region = Rect2( 0, 0, 24, 24 )
+86/occluder_offset = Vector2( 12, 12 )
+86/navigation_offset = Vector2( 12, 12 )
+86/shape_offset = Vector2( 0, 0 )
+86/shapes = [  ]
+86/one_way_collision_direction = Vector2( 0, 0 )
+86/one_way_collision_max_depth = 0.0
+87/name = "marble_floor3"
+87/texture = ExtResource( 96 )
+87/tex_offset = Vector2( 0, 0 )
+87/material = SubResource( 183 )
+87/modulate = Color( 1, 1, 1, 1 )
+87/region = Rect2( 0, 0, 24, 24 )
+87/occluder_offset = Vector2( 12, 12 )
+87/navigation_offset = Vector2( 12, 12 )
+87/shape_offset = Vector2( 0, 0 )
+87/shapes = [  ]
+87/one_way_collision_direction = Vector2( 0, 0 )
+87/one_way_collision_max_depth = 0.0
+88/name = "marble_floor4"
+88/texture = ExtResource( 98 )
+88/tex_offset = Vector2( 0, 0 )
+88/material = SubResource( 185 )
+88/modulate = Color( 1, 1, 1, 1 )
+88/region = Rect2( 0, 0, 24, 24 )
+88/occluder_offset = Vector2( 12, 12 )
+88/navigation_offset = Vector2( 12, 12 )
+88/shape_offset = Vector2( 0, 0 )
+88/shapes = [  ]
+88/one_way_collision_direction = Vector2( 0, 0 )
+88/one_way_collision_max_depth = 0.0
+89/name = "marble_floor5"
+89/texture = ExtResource( 100 )
+89/tex_offset = Vector2( 0, 0 )
+89/material = SubResource( 187 )
+89/modulate = Color( 1, 1, 1, 1 )
+89/region = Rect2( 0, 0, 24, 24 )
+89/occluder_offset = Vector2( 12, 12 )
+89/navigation_offset = Vector2( 12, 12 )
+89/shape_offset = Vector2( 0, 0 )
+89/shapes = [  ]
+89/one_way_collision_direction = Vector2( 0, 0 )
+89/one_way_collision_max_depth = 0.0
+90/name = "marble_floor6"
+90/texture = ExtResource( 102 )
+90/tex_offset = Vector2( 0, 0 )
+90/material = SubResource( 192 )
+90/modulate = Color( 1, 1, 1, 1 )
+90/region = Rect2( 0, 0, 25, 24 )
+90/occluder_offset = Vector2( 12.5, 12 )
+90/navigation_offset = Vector2( 12.5, 12 )
+90/shape_offset = Vector2( 0, 0 )
+90/shapes = [  ]
+90/one_way_collision_direction = Vector2( 0, 0 )
+90/one_way_collision_max_depth = 0.0
+91/name = "marble_floor7"
+91/texture = ExtResource( 104 )
+91/tex_offset = Vector2( 0, 0 )
+91/material = SubResource( 194 )
+91/modulate = Color( 1, 1, 1, 1 )
+91/region = Rect2( 0, 0, 24, 24 )
+91/occluder_offset = Vector2( 12, 12 )
+91/navigation_offset = Vector2( 12, 12 )
+91/shape_offset = Vector2( 0, 0 )
+91/shapes = [  ]
+91/one_way_collision_direction = Vector2( 0, 0 )
+91/one_way_collision_max_depth = 0.0

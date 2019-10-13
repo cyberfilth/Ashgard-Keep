@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/Game/PlayerInfo.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 bg_color = Color( 0.247059, 0.580392, 0.392157, 1 )
 light_color = Color( 0.8, 0.8, 0.8, 1 )
 dark_color = Color( 0.8, 0.8, 0.8, 1 )
@@ -17,10 +17,10 @@ draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=2]
 
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 bg_color = Color( 0.305882, 0.290196, 0.305882, 1 )
 light_color = Color( 0.8, 0.8, 0.8, 1 )
 dark_color = Color( 0.8, 0.8, 0.8, 1 )
@@ -32,437 +32,465 @@ draw_bg = true
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 1
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 204.0
-margin/bottom = 119.0
-script/script = ExtResource( 1 )
+size_flags_horizontal = 1
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 204.0
+margin_bottom = 119.0
+script = ExtResource( 1 )
+mouse_filter = 0
 
 [node name="frame" type="VBoxContainer" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 197.0
-margin/bottom = 112.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 197.0
+margin_bottom = 112.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Name" type="Label" parent="frame"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 190.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 190.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.854902, 0.831373, 0.368627, 1 )
 text = "[Name]"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="race_class" type="HBoxContainer" parent="frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 190.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 190.0
+margin_bottom = 32.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Race" type="Label" parent="frame/race_class"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 38.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 38.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.854902, 0.831373, 0.368627, 1 )
 text = "[Race]"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Archetype" type="Label" parent="frame/race_class"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 42.0
-margin/top = 0.0
-margin/right = 78.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 42.0
+margin_top = 0.0
+margin_right = 78.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.854902, 0.831373, 0.364706, 1 )
 text = "rogue"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="HP" type="HBoxContainer" parent="frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 36.0
-margin/right = 190.0
-margin/bottom = 50.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 36.0
+margin_right = 190.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="labels" type="HBoxContainer" parent="frame/HP"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-size_flags/stretch_ratio = 2.0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 83.0
-margin/bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 83.0
+margin_bottom = 14.0
 alignment = 0
+mouse_filter = 0
 
 [node name="name" type="Label" parent="frame/HP/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 18.0
-margin/bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 18.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "HP"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="CurrentHP" type="Label" parent="frame/HP/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 22.0
-margin/top = 0.0
-margin/right = 46.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 22.0
+margin_top = 0.0
+margin_right = 46.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "999"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="slash" type="Label" parent="frame/HP/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 50.0
-margin/top = 0.0
-margin/right = 55.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 50.0
+margin_top = 0.0
+margin_right = 55.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "/"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="MaxHP" type="Label" parent="frame/HP/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 59.0
-margin/top = 0.0
-margin/right = 83.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 59.0
+margin_top = 0.0
+margin_right = 83.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "999"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Bar" type="ProgressBar" parent="frame/HP"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-size_flags/stretch_ratio = 3.0
-margin/left = 87.0
-margin/top = 0.0
-margin/right = 190.0
-margin/bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+margin_left = 87.0
+margin_top = 0.0
+margin_right = 190.0
+margin_bottom = 14.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 45.0
-range/exp_edit = false
-range/rounded = false
-percent/visible = false
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 45.0
+exp_edit = false
+rounded = false
+percent_visible = false
+mouse_filter = 0
 
 [node name="stats" type="HBoxContainer" parent="frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 54.0
-margin/right = 190.0
-margin/bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 54.0
+margin_right = 190.0
+margin_bottom = 104.0
 alignment = 0
+mouse_filter = 0
 
 [node name="left" type="HBoxContainer" parent="frame/stats"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 93.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 93.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="labels" type="VBoxContainer" parent="frame/stats/left"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 44.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 44.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Level" type="Label" parent="frame/stats/left/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 44.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 44.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Level"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Attack" type="Label" parent="frame/stats/left/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 44.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 44.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "ATT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Defence" type="Label" parent="frame/stats/left/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 36.0
-margin/right = 44.0
-margin/bottom = 50.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 36.0
+margin_right = 44.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "DEF"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="values" type="VBoxContainer" parent="frame/stats/left"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 0.0
-margin/right = 93.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 48.0
+margin_top = 0.0
+margin_right = 93.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Level" type="Label" parent="frame/stats/left/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 45.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 45.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Attack" type="Label" parent="frame/stats/left/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 45.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 45.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Defence" type="Label" parent="frame/stats/left/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 36.0
-margin/right = 45.0
-margin/bottom = 50.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 36.0
+margin_right = 45.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="right" type="HBoxContainer" parent="frame/stats"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 97.0
-margin/top = 0.0
-margin/right = 190.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 97.0
+margin_top = 0.0
+margin_right = 190.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="labels" type="VBoxContainer" parent="frame/stats/right"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 53.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 53.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Location" type="Label" parent="frame/stats/right/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 53.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 53.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "1st floor"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="XP" type="Label" parent="frame/stats/right/labels"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 53.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 53.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "XP"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="values" type="VBoxContainer" parent="frame/stats/right"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 57.0
-margin/top = 0.0
-margin/right = 93.0
-margin/bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 57.0
+margin_top = 0.0
+margin_right = 93.0
+margin_bottom = 50.0
 alignment = 0
+mouse_filter = 0
 
 [node name="spacer" type="Label" parent="frame/stats/right/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 36.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 36.0
+margin_bottom = 14.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="XP" type="Label" parent="frame/stats/right/values"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 36.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 36.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-
+mouse_filter = 1

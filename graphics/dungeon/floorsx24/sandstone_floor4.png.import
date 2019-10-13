@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sandstone_floor4.png-631f6cf24d22314e5fdfd1a41993d17a.stex"
+path="res://.import/sandstone_floor4.png-9faeb851c9f0dbf8133ddfac914eeda8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/dungeon/floors/sandstone_floor4.png"
-dest_files=[ "res://.import/sandstone_floor4.png-631f6cf24d22314e5fdfd1a41993d17a.stex" ]
+source_file="res://graphics/dungeon/floorsx24/sandstone_floor4.png"
+dest_files=[ "res://.import/sandstone_floor4.png-9faeb851c9f0dbf8133ddfac914eeda8.stex" ]
 
 [params]
 

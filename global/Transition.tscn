@@ -1,31 +1,31 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://global/Transition.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/black.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-
-resource/name = "fade"
-length = 1.0
-loop = false
-step = 0.1
+resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Screen/TextureFrame:modulate")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": FloatArray( 0, 0.5, 1 ),
-"transitions": FloatArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("..")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": FloatArray( 0.5 ),
-"transitions": FloatArray( 1 ),
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "change_scene"
@@ -33,63 +33,27 @@ tracks/1/keys = {
 }
 
 [node name="Transition" type="CanvasLayer"]
-
-process/pause_mode = 2
+pause_mode = 2
 layer = 10
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 
 [node name="Screen" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-
-[node name="TextureFrame" type="TextureFrame" parent="Screen"]
-
-anchor/right = 1
-anchor/bottom = 1
-rect/min_size = Vector2( 800, 600 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-texture = ExtResource( 2 )
+[node name="TextureFrame" type="TextureRect" parent="Screen"]
 modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -40.0
+rect_min_size = Vector2( 800, 600 )
+texture = ExtResource( 2 )
 expand = true
-stretch_mode = 0
 
 [node name="Centered" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Centered"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
 anims/fade = SubResource( 1 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
-

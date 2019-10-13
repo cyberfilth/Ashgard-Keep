@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/weapons/dagger2.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "crude dagger"
 proper_name = true
 blocks_movement = false
@@ -21,7 +21,7 @@ centered = false
 
 [node name="Brand" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -1 )
+position = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
@@ -34,5 +34,3 @@ throw_damage = 4
 dice = 2
 adds = 5
 description = "Adds 2D+5 to ATTACK"
-
-

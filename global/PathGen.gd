@@ -14,7 +14,7 @@ func find_path(from, to):
 	to = xy_to_id(to)
 	var path = map.get_point_path(from, to)
 	if path.size() > 0:
-		var v2path = Vector2Array()
+		var v2path = PoolVector2Array()
 		for point in path:
 			v2path.append(Vector2(point.x,point.y))
 		return v2path

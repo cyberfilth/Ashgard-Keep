@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tilesets/dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Map/Map.gd" type="Script" id=2]
@@ -7,71 +7,32 @@
 [ext_resource path="res://graphics/fx/cursor.png" type="Texture" id=5]
 
 [node name="Map" type="TileMap"]
-
-mode = 0
 tile_set = ExtResource( 1 )
-cell/size = Vector2( 24, 24 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray(  )
-script/script = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+format = 1
+script = ExtResource( 2 )
 
 [node name="Fogmap" type="TileMap" parent="."]
-
-mode = 0
 tile_set = ExtResource( 3 )
-cell/size = Vector2( 24, 24 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray(  )
-script/script = ExtResource( 4 )
+cell_size = Vector2( 24, 24 )
+format = 1
+script = ExtResource( 4 )
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-
-color = Color( 0.18457, 0.373918, 0.4375, 1 )
+color = Color( 0.184314, 0.372549, 0.439216, 1 )
 
 [node name="Cursor" type="Sprite" parent="."]
-
-visibility/blend_mode = 1
-visibility/light_mask = 0
-z/z = 10
+light_mask = 0
+z_index = 10
 texture = ExtResource( 5 )
 centered = false
 
 [node name="Label" type="Label" parent="Cursor"]
-
-visibility/blend_mode = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -84.0
-margin/top = -14.0
-margin/right = 116.0
-margin/bottom = 0.0
+margin_left = -84.0
+margin_top = -14.0
+margin_right = 116.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "thing"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/torch_lit.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "torch"
 proper_name = false
 blocks_movement = false
@@ -30,5 +30,4 @@ equipped = true
 centered = false
 
 [node name="Torch" type="Node2D" parent="."]
-
 

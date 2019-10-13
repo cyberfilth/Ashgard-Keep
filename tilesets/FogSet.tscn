@@ -1,12 +1,9 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://graphics/dungeon/misc/fogx30.png" type="Texture" id=1]
 
 [node name="FogSet" type="Node"]
 
 [node name="Fog" type="Sprite" parent="."]
-
 texture = ExtResource( 1 )
 offset = Vector2( -3, -3 )
-
-

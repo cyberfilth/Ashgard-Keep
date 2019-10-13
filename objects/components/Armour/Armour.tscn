@@ -1,13 +1,9 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://objects/components/Armour/Armour.gd" type="Script" id=1]
 
-
-
 [node name="Armour" type="Node"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 armour_protection = 0
 description = " "
-
-

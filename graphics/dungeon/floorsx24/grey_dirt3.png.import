@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grey_dirt3.png-b384e484abc6e44767db2ee1ab1160ce.stex"
+path="res://.import/grey_dirt3.png-d235f49ff2aec8246b889f0f7952216c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/dungeon/floors/grey_dirt3.png"
-dest_files=[ "res://.import/grey_dirt3.png-b384e484abc6e44767db2ee1ab1160ce.stex" ]
+source_file="res://graphics/dungeon/floorsx24/grey_dirt3.png"
+dest_files=[ "res://.import/grey_dirt3.png-d235f49ff2aec8246b889f0f7952216c.stex" ]
 
 [params]
 

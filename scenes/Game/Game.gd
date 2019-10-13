@@ -70,7 +70,7 @@ func moon_phase(month, day, year):
 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 	if day == 31:
 		day = 1
-	var days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (year < 1900)) % 30)
+	var days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (int(year < 1900))) % 30)
 	var index = int((days_into_phase + 2) * 16/59.0)
 	if index > 7:
 		index = 7
@@ -168,7 +168,7 @@ func save_game():
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
 	# Store data and close file
-	file.store_line(data.to_json())
+	file.store_line(JSON.print(data))
 	file.close()
 	# Return OK if all goes well
 	return opened
@@ -302,12 +302,12 @@ func _notification(what):
 
 
 func _input( ev ):
-	if ev.type == InputEvent.MOUSE_MOTION:
-		self.is_mouse_in_map = pos_in_map(ev.pos)
-		var new_mouse_cell = GameData.map.world_to_map(GameData.map.get_local_mouse_pos())
+	if ev is InputEventMouseMotion:
+		self.is_mouse_in_map = pos_in_map(ev.position)
+		var new_mouse_cell = GameData.map.world_to_map(GameData.map.get_local_mouse_position())
 		if new_mouse_cell != mouse_cell:
 			self.mouse_cell = new_mouse_cell
-	if ev.type == InputEvent.MOUSE_BUTTON and ev.pressed:
+	if ev is InputEventMouseButton and ev.pressed:
 		if self.is_mouse_in_map:
 			if ev.button_index == BUTTON_LEFT:
 				emit_signal('map_clicked', self.mouse_cell)

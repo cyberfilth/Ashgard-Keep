@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brick_dark2.png-83138b8edcacf8a809a67633479136db.stex"
+path="res://.import/brick_dark2.png-a3bcea9b13a778e8c5a72b86ea90a5ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/dungeon/walls/brick_dark2.png"
-dest_files=[ "res://.import/brick_dark2.png-83138b8edcacf8a809a67633479136db.stex" ]
+source_file="res://graphics/dungeon/wallsx24/brick_dark2.png"
+dest_files=[ "res://.import/brick_dark2.png-a3bcea9b13a778e8c5a72b86ea90a5ae.stex" ]
 
 [params]
 

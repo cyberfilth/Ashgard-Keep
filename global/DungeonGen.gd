@@ -100,7 +100,7 @@ func get_cell_data(cell):
 func center(rect):
 	var x = int(rect.size.x / 2)
 	var y = int(rect.size.y / 2)
-	return Vector2(rect.pos.x+x, rect.pos.y+y)
+	return Vector2(rect.position.x+x, rect.position.y+y)
 
  # Try and fit in prefab rooms or fall back to
  # filling a rectangle of the map with floor cells
@@ -118,12 +118,12 @@ func carve_room(rect):
 	# draw regular rectangular room
 		for x in range(rect.size.x-2):
 			for y in range(rect.size.y-2):
-				set_cell_data(Vector2(rect.pos.x+x+1, rect.pos.y+y+1), 0)
+				set_cell_data(Vector2(rect.position.x+x+1, rect.position.y+y+1), 0)
 		prefab_room = []
 		return
 	for x in range(prefab_room.size()):
 		for y in range(prefab_room.size()):
-			set_cell_data(Vector2(rect.pos.x+x, rect.pos.y+y), prefab_room[x][y])
+			set_cell_data(Vector2(rect.position.x+x, rect.position.y+y), prefab_room[x][y])
 	prefab_room = []
 
 # Fill a horizontal strip of cells at row Y from X1 to X2
@@ -214,13 +214,13 @@ func place_trap(room):
 	var traps_list = trap_theme[GameData.keeplvl-1]
 	var traps_choice = [traps_list.t_e1, traps_list.t_e2]
 	var choice = traps_choice[GameData.roll(0, traps_choice.size()-1)]
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.position.x+1, room.end.x-2)
+	var y = GameData.roll(room.position.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 		# stops trap being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(room.pos.x+1, room.end.x-2)
-		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		x = GameData.roll(room.position.x+1, room.end.x-2)
+		y = GameData.roll(room.position.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	GameData.map.spawn_object(choice, pos)
 
@@ -228,25 +228,25 @@ func place_encounter(room):
 	var encounter_list = encounter_theme[GameData.keeplvl-1]
 	var encounter_choice = [encounter_list.t_e1, encounter_list.t_e2]
 	var choice = encounter_choice[GameData.roll(0, encounter_choice.size()-1)]
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.position.x+1, room.end.x-2)
+	var y = GameData.roll(room.position.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 		# stops encounter being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(room.pos.x+1, room.end.x-2)
-		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		x = GameData.roll(room.position.x+1, room.end.x-2)
+		y = GameData.roll(room.position.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	GameData.map.spawn_object(choice, pos)
 
 
 func place_monsters(room):
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.position.x+1, room.end.x-2)
+	var y = GameData.roll(room.position.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 		# stops monsters being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(room.pos.x+1, room.end.x-2)
-		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		x = GameData.roll(room.position.x+1, room.end.x-2)
+		y = GameData.roll(room.position.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = monster_theme[GameData.keeplvl-1]
 	var monsters = [theme.minion1, theme.minion2, theme.gribbly1, theme.gribbly2, theme.boss1]
@@ -284,13 +284,13 @@ func probability(score):
 		return 5
 
 func place_items(room):
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.position.x+1, room.end.x-2)
+	var y = GameData.roll(room.position.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 	# stops items being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(room.pos.x+1, room.end.x-2)
-		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		x = GameData.roll(room.position.x+1, room.end.x-2)
+		y = GameData.roll(room.position.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	var theme = item_theme[GameData.keeplvl-1]
 	var items = [theme.rubble, theme.healthpotion, theme.magicitem1, theme.magicitem2, theme.weapon, theme.armour]
@@ -299,12 +299,12 @@ func place_items(room):
 	GameData.map.spawn_object(choice, pos)
 
 func place_exit_portal(room):
-	var x = GameData.roll(room.pos.x+1, room.end.x-2)
-	var y = GameData.roll(room.pos.y+1, room.end.y-2)
+	var x = GameData.roll(room.position.x+1, room.end.x-2)
+	var y = GameData.roll(room.position.y+1, room.end.y-2)
 	var pos = Vector2(x,y)
 		# stops portal being placed on top of walls
 	while GameData.map.is_cell_blocked(pos):
-		x = GameData.roll(room.pos.x+1, room.end.x-2)
-		y = GameData.roll(room.pos.y+1, room.end.y-2)
+		x = GameData.roll(room.position.x+1, room.end.x-2)
+		y = GameData.roll(room.position.y+1, room.end.y-2)
 		pos = Vector2(x,y)
 	GameData.map.spawn_object('items/Portal', pos)

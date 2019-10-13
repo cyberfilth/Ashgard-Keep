@@ -44,6 +44,6 @@ func show_unequipped_armour():
 	get_node('EQ_armour').hide()
 
 func _ready():
-	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
-	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
+	connect("mouse_entered", get_parent(), "_on_slot_mouse_enter", [self])
+	connect("mouse_exited", get_parent(), "_on_slot_mouse_exit")
 	connect("pressed", get_parent(), "_on_InventorySlot_pressed", [self])

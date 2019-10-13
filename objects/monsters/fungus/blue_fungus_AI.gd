@@ -2,13 +2,13 @@
 
 extends Node
 
-onready var owner = get_parent()
+onready var parent = get_parent()
 
 func _ready():
-	owner.ai = self
+	parent.ai = self
 
 func take_turn():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = parent.distance_to(target.get_map_position())
 	if distance <= 1:
-		owner.fighter.fight(target)
+		parent.fighter.fight(target)
