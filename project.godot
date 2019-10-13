@@ -1,0 +1,75 @@
+[]
+
+anchor = false
+
+[application]
+
+boot_splash/fullsize = false
+boot_splash/image = "res://graphics/gui/ashgard_keep.png"
+config/icon = "res://icon.png"
+config/name = "Ashgard Keep"
+run/disable_stdout = false
+run/main_scene = "res://scenes/Start.tscn"
+
+[autoload]
+
+DungeonGen = "*res://global/DungeonGen.gd"
+DungeonThemes = "*res://global/DungeonThemes.gd"
+FOVGen = "*res://global/FOVGen.gd"
+GameData = "*res://global/GameData.gd"
+PathGen = "*res://global/PathGen.gd"
+PlotGen = "*res://global/PlotGen.gd"
+Transition = "*res://global/Transition.tscn"
+
+[debug]
+
+crash_handler_message = "Please include this when reporting the bug on https://github.com/godotengine/godot/issues"
+settings/stdout/verbose_stdout = false
+
+[display]
+
+window/size/height = 600
+window/size/width = 800
+
+[image_loader]
+
+filter = false
+gen_mipmaps = false
+
+[importer_defaults]
+
+texture = {
+"flags/filter": false,
+"flags/mipmaps": false
+}
+
+[input]
+
+act_CANCEL = [ InputEvent(KEY,16777217), InputEvent(MBUTTON,2) ]
+act_CONFIRM = [ InputEvent(KEY,16777221) ]
+act_DROP = [ InputEvent(KEY,82) ]
+act_GRAB = [ InputEvent(KEY,71) ]
+act_THROW = [ InputEvent(KEY,84) ]
+step_E = [ InputEvent(KEY,16777356), InputEvent(KEY,68) ]
+step_N = [ InputEvent(KEY,16777358), InputEvent(KEY,87) ]
+step_NE = [ InputEvent(KEY,16777359), InputEvent(KEY,69) ]
+step_NW = [ InputEvent(KEY,16777357), InputEvent(KEY,81) ]
+step_S = [ InputEvent(KEY,16777352), InputEvent(KEY,83) ]
+step_SE = [ InputEvent(KEY,16777353), InputEvent(KEY,67) ]
+step_SW = [ InputEvent(KEY,16777351), InputEvent(KEY,90) ]
+step_W = [ InputEvent(KEY,16777354), InputEvent(KEY,65) ]
+step_WAIT = [ InputEvent(KEY,16777355), InputEvent(KEY,88) ]
+ui_down = [ InputEvent(KEY,16777234), InputEvent(JBUTTON,13) ]
+ui_left = [ InputEvent(KEY,16777231), InputEvent(JBUTTON,14) ]
+ui_right = [ InputEvent(KEY,16777233), InputEvent(JBUTTON,15) ]
+ui_up = [ InputEvent(KEY,16777232), InputEvent(JBUTTON,12) ]
+
+[render]
+
+mipmap_policy = 2
+
+[rendering]
+
+environment/default_clear_color = Color( 0, 0, 0, 1 )
+quality/2d/use_pixel_snap = true
+

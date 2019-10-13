@@ -146,3 +146,4 @@ func getName (firstChar, minLength, maxLength):
 func getNextLetter(letter):
 	var thisList = markov[letter]
 	return thisList[GameData.roll(0, thisList.size()-1)]
+

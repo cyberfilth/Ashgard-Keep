@@ -14,7 +14,7 @@ func take_turn():
 		wander()
 	
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 3):
 		if seen == false:
 			grunt()
@@ -25,7 +25,7 @@ func take_turn():
 			# distracted whilst chasing player
 			var attention = randi()%2
 			if attention == 1:
-				owner.step_to(target.get_map_pos())
+				owner.step_to(target.get_map_position())
 
 func grunt():
 	var chance_to_grunt = randi()%4

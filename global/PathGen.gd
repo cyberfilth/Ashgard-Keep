@@ -14,7 +14,7 @@ func find_path(from, to):
 	to = xy_to_id(to)
 	var path = map.get_point_path(from, to)
 	if path.size() > 0:
-		var v2path = Vector2Array()
+		var v2path = PoolVector2Array()
 		for point in path:
 			v2path.append(Vector2(point.x,point.y))
 		return v2path
@@ -47,7 +47,7 @@ func clean_dirty_cells():
 						if map.are_points_connected(id,nid):
 							map.disconnect_points(id,nid)
 		# remove the cell off the list
-		cells.remove(0)
+		cells.remove_and_collide(0)
 		dirty_cells.erase(cell)
 		
 

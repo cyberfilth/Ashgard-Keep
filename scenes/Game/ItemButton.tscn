@@ -1,23 +1,23 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://resources/borderframe_aqua.tres" type="StyleBox" id=1]
 [ext_resource path="res://resources/borderframe_green.tres" type="StyleBox" id=2]
 [ext_resource path="res://resources/borderframe_blank.tres" type="StyleBox" id=3]
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://fonts/font_ui.font" type="BitmapFont" id=4]
 [ext_resource path="res://objects/items/red.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Game/ItemButton.gd" type="Script" id=6]
 
 [node name="ItemButton" type="Button"]
 
-rect/min_size = Vector2( 0, 24 )
+rect_min_size = Vector2( 0, 24 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 79.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 79.0
+margin_bottom = 32.0
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -29,10 +29,9 @@ text = "Potion"
 icon = ExtResource( 5 )
 flat = true
 align = 0
-script/script = ExtResource( 6 )
+script = ExtResource( 6 )
+mouse_filter = 0
 
 [node name="Brand" type="Sprite" parent="."]
 
 centered = false
-
-

@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://objects/components/Fighter/Fighter.gd" type="Script" id=1]
 
 [node name="Fighter" type="Node"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 bleeds = true
 blood_colour = "red"
 race = "Human"
@@ -12,5 +12,3 @@ character_level = 1
 attack = 1
 defence = 1
 max_hp = 5
-
-

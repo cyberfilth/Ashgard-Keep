@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
-[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://fonts/font_characters_32.font" type="BitmapFont" id=3]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/monsters/greenskins/lvl2/shaman_AI.gd" type="Script" id=5]
 [ext_resource path="res://objects/monsters/greenskins/lvl2/shaman_Inventory.gd" type="Script" id=6]
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "Goblin Shaman"
 proper_name = true
 named_name = false
@@ -19,8 +19,8 @@ trap = false
 
 [node name="Light2D" type="Light2D" parent="."]
 
-visibility/visible = false
-transform/pos = Vector2( 12.3063, 11.4895 )
+visible = false
+position = Vector2( 12.3063, 11.4895 )
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
@@ -29,34 +29,35 @@ scale = 8.0
 color = Color( 0.206635, 0.714844, 0.583821, 1 )
 energy = 1.5
 mode = 0
-range/height = 30.0
-range/z_min = -1024
-range/z_max = 1024
-range/layer_min = 0
-range/layer_max = 0
-range/item_mask = 1
-shadow/enabled = true
-shadow/color = Color( 0, 0, 0, 0 )
-shadow/buffer_size = 2048
+range_height = 30.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
 shadow/esm_multiplier = 80.0
-shadow/item_mask = 1
+shadow_item_cull_mask = 1
 
 [node name="Glyph" type="RichTextLabel" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 3.0
-margin/top = -6.0
-margin/right = 43.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 3.0
+margin_top = -6.0
+margin_right = 43.0
+margin_bottom = 34.0
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0.0435076, 0.867188, 0.0169373, 1 )
-bbcode/enabled = false
-bbcode/bbcode = "o"
+bbcode_enabled = false
+bbcode_text = "o"
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 0
 
 [node name="Fighter" parent="." instance=ExtResource( 4 )]
 
@@ -70,10 +71,8 @@ xp_reward = 30
 
 [node name="AI" type="Node" parent="."]
 
-script/script = ExtResource( 5 )
+script = ExtResource( 5 )
 
 [node name="Inventory" type="Node2D" parent="."]
 
-script/script = ExtResource( 6 )
-
-
+script = ExtResource( 6 )

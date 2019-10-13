@@ -1,127 +1,133 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/GameOver/RIPScreen.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://fonts/font_ui.font" type="BitmapFont" id=3]
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=4]
-[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://fonts/font_title.font" type="BitmapFont" id=5]
 
 [node name="RIPscreen" type="Control"]
 
-process/pause_mode = 2
-anchor/right = 1
-anchor/bottom = 1
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-script/script = ExtResource( 1 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+script = ExtResource( 1 )
+mouse_filter = 0
 
 [node name="Menu" type="VBoxContainer" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 50.0
-margin/top = 40.0
-margin/right = 50.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 50.0
+margin_top = 40.0
+margin_right = -50.0
+margin_bottom = -40.0
 alignment = 0
+mouse_filter = 0
 
-[node name="TitleLogo" type="TextureFrame" parent="Menu"]
+[node name="TitleLogo" type="TextureRect" parent="Menu"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 700.0
-margin/bottom = 97.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 700.0
+margin_bottom = 97.0
 texture = ExtResource( 2 )
 stretch_mode = 4
+mouse_filter = 1
 
 [node name="CentreRow" type="HBoxContainer" parent="Menu"]
 
-rect/min_size = Vector2( 700, 419 )
+rect_min_size = Vector2( 700, 419 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 101.0
-margin/right = 700.0
-margin/bottom = 556.0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 101.0
+margin_right = 700.0
+margin_bottom = 556.0
 alignment = 0
+mouse_filter = 0
 
 [node name="message" type="VBoxContainer" parent="Menu/CentreRow"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 348.0
-margin/bottom = 455.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 348.0
+margin_bottom = 455.0
 custom_constants/separation = 20
 alignment = 1
+mouse_filter = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/CentreRow/message"]
 
-rect/min_size = Vector2( 348, 455 )
+rect_min_size = Vector2( 348, 455 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 348.0
-margin/bottom = 455.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 348.0
+margin_bottom = 455.0
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/font_color_selected = Color( 0.259552, 0.597819, 0.632812, 1 )
-bbcode/enabled = false
-bbcode/bbcode = "The text goes here"
+bbcode_enabled = false
+bbcode_text = "The text goes here"
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CentreRow"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 352.0
-margin/top = 0.0
-margin/right = 700.0
-margin/bottom = 455.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 352.0
+margin_top = 0.0
+margin_right = 700.0
+margin_bottom = 455.0
 use_top_left = false
+mouse_filter = 0
 
 [node name="Button" type="Button" parent="Menu/CentreRow/CenterContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 4 )
-margin/left = 118.0
-margin/top = 207.0
-margin/right = 340.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = 118.0
+margin_top = 207.0
+margin_right = 340.0
+margin_bottom = 0.0
 custom_fonts/font = ExtResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Return to menu"
 flat = true
+mouse_filter = 0
 
-[connection signal="pressed" from="Menu/CentreRow/CenterContainer/Button" to="." method="_on_Button_pressed"]
-
-
+[connection signal="pressed" from="Menu/CentreRow/CenterContainer/Button" to="." method="_on_Button_pressed" binds=[  ]]

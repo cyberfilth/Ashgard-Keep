@@ -13,7 +13,7 @@ func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		wander()
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if owner.fighter.hp <= 9 && distance < 2:
 		if has_random_location == false:
 			choose_random_location() # Select location
@@ -26,7 +26,7 @@ func take_turn():
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:
-			owner.step_to(target.get_map_pos())
+			owner.step_to(target.get_map_position())
 
 func wander():
 	var UP = randi()%2
@@ -37,17 +37,17 @@ func wander():
 	owner.step(dir)
 
 func choose_random_location():
-	var x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
-	var y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
+	var x = GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5)
+	var y = GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5)
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):
-		x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
-		y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
+		x = min(GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5), (GameData.MAP_SIZE.x-1))
+		y = min(GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5), (GameData.MAP_SIZE.y-1))
 		pos = Vector2(x,y)
 	random_location = pos
 	has_random_location = true
 
 func check_if_at_location():
-	if owner.get_map_pos() == random_location:
+	if owner.get_map_position() == random_location:
 		has_random_location = false

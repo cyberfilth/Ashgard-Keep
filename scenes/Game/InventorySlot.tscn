@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Game/InventorySlot.gd" type="Script" id=1]
 [ext_resource path="res://graphics/brands/i-equipped1.png" type="Texture" id=2]
@@ -7,21 +7,22 @@
 
 [node name="InventorySlot" type="Button"]
 
-rect/min_size = Vector2( 24, 24 )
+rect_min_size = Vector2( 24, 24 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 24.0
-margin/bottom = 24.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 24.0
+margin_bottom = 24.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
+mouse_filter = 0
 
 [node name="Icon" type="Sprite" parent="."]
 
@@ -33,39 +34,38 @@ centered = false
 
 [node name="Count" type="Label" parent="."]
 
-anchor/left = 1
-anchor/right = 1
+anchor_left = 1.0
+anchor_right = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 24.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 24.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -24.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 24.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="EQ_weapon" type="Sprite" parent="."]
 
-visibility/visible = false
+visible = false
 texture = ExtResource( 2 )
 offset = Vector2( 12, 12 )
 
 [node name="EQ_armour" type="Sprite" parent="."]
 
-visibility/visible = false
+visible = false
 texture = ExtResource( 3 )
 offset = Vector2( 12, 12 )
 
 [node name="Torch_unlit" type="Sprite" parent="."]
 
-visibility/visible = false
+visible = false
 texture = ExtResource( 4 )
 offset = Vector2( 12, 12 )
-
-

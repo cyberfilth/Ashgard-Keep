@@ -11,12 +11,12 @@ func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		pass
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= GameData.player_radius:
 		if distance <= 1:
 			owner.fighter.fight(target)
 		else:
-			owner.step_to(target.get_map_pos())
+			owner.step_to(target.get_map_position())
 	else:
 		wander()
 

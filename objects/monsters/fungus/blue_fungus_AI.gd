@@ -9,6 +9,6 @@ func _ready():
 
 func take_turn():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= 1:
 		owner.fighter.fight(target)

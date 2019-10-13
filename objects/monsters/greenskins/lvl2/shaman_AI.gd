@@ -18,7 +18,7 @@ func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		confused_wander()
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	# If not in range of the player
 	if distance > GameData.player_radius:
 		if has_random_location == false:
@@ -35,7 +35,7 @@ func take_turn():
 		elif distance <= 1:
 			owner.fighter.fight(target)
 		else:
-			owner.step_to(target.get_map_pos())
+			owner.step_to(target.get_map_position())
 
 func confused_wander():
 	var UP = randi()%2
@@ -46,19 +46,19 @@ func confused_wander():
 	owner.step(dir)
 
 func choose_random_location():
-	var x = GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5)
-	var y = GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5)
+	var x = GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5)
+	var y = GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5)
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):
-		x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
-		y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
+		x = min(GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5), (GameData.MAP_SIZE.x-1))
+		y = min(GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5), (GameData.MAP_SIZE.y-1))
 		pos = Vector2(x,y)
 	random_location = pos
 	has_random_location = true
 
 func check_if_at_location():
-	if owner.get_map_pos() == random_location:
+	if owner.get_map_position() == random_location:
 		has_random_location = false
 
 func voodoo():
@@ -88,7 +88,7 @@ func stop_glowing():
 
 func drain_player():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= GameData.player_radius:
 		GameData.map.spawn_voodoo_fx()
 		GameData.player.fighter.take_damage('a Voodoo energy blast', GameData.roll(8, 13))
@@ -98,9 +98,9 @@ func drain_player():
 
 func zap_player():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= GameData.player_radius:
-		var shaman_position = get_parent().get_pos()
+		var shaman_position = get_parent().get_position()
 		GameData.map.spawn_voodoo_energy_fx(shaman_position)
 		GameData.player.get_node("Camera").shake(0.3, 10)
 		GameData.player.fighter.take_damage('a Voodoo lightning bolt', GameData.roll(10, 15))

@@ -1,69 +1,73 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Map/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://graphics/gui/message_shader.png" type="Texture" id=4]
 [ext_resource path="res://scenes/Game/PlayerInfo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://fonts/font_ui.font" type="BitmapFont" id=6]
 [ext_resource path="res://scenes/Game/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Game/InventorySlot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Game/InventoryMenu.gd" type="Script" id=9]
 [ext_resource path="res://scenes/Game/LevelUp.gd" type="Script" id=10]
-[ext_resource path="res://fonts/font_title.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://fonts/font_title.font" type="BitmapFont" id=11]
 [ext_resource path="res://resources/black_panel.tres" type="StyleBox" id=12]
 
 [node name="Game" type="Container"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 8.0
-margin/top = 6.0
-margin/right = 8.0
-margin/bottom = 6.0
-script/script = ExtResource( 2 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 8.0
+margin_top = 6.0
+margin_right = -8.0
+margin_bottom = -6.0
+script = ExtResource( 2 )
+mouse_filter = 0
 
 [node name="frame" type="HBoxContainer" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 alignment = 0
+mouse_filter = 0
 
 [node name="left" type="VBoxContainer" parent="frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 576.0
-margin/bottom = 588.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 576.0
+margin_bottom = 588.0
 alignment = 0
+mouse_filter = 0
 
 [node name="map" type="Control" parent="frame/left"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 576.0
-margin/bottom = 434.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 576.0
+margin_bottom = 434.0
+mouse_filter = 0
 
 [node name="Viewport" type="Viewport" parent="frame/left/map"]
 
@@ -85,160 +89,170 @@ gui/disable_input = false
 
 [node name="Map" parent="frame/left/map/Viewport" instance=ExtResource( 3 )]
 
+
 [node name="MessageBox" type="RichTextLabel" parent="frame/left"]
 
 editor/display_folded = true
-rect/min_size = Vector2( 0, 150 )
+rect_min_size = Vector2( 0, 150 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 438.0
-margin/right = 576.0
-margin/bottom = 588.0
-bbcode/enabled = true
-bbcode/bbcode = ""
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 438.0
+margin_right = 576.0
+margin_bottom = 588.0
+bbcode_enabled = true
+bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 0
 
-[node name="TextureFrame" type="TextureFrame" parent="frame/left/MessageBox"]
+[node name="TextureFrame" type="TextureRect" parent="frame/left/MessageBox"]
 
-anchor/right = 1
-anchor/bottom = 1
-rect/min_size = Vector2( 10, 85 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 10, 85 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 10.0
-margin/bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = -10.0
+margin_bottom = -65.0
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
+mouse_filter = 1
 
 [node name="right" type="VBoxContainer" parent="frame"]
 
-rect/min_size = Vector2( 204, 0 )
+rect_min_size = Vector2( 204, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 3
-margin/left = 580.0
-margin/top = 0.0
-margin/right = 784.0
-margin/bottom = 588.0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+margin_left = 580.0
+margin_top = 0.0
+margin_right = 784.0
+margin_bottom = 588.0
 alignment = 0
+mouse_filter = 0
 
 [node name="PlayerInfo" parent="frame/right" instance=ExtResource( 5 )]
 
-rect/min_size = Vector2( 204, 116 )
-size_flags/vertical = 2
-margin/bottom = 128.0
+rect_min_size = Vector2( 204, 116 )
+size_flags_vertical = 1
+margin_bottom = 128.0
 
 [node name="StatusMessage" type="Label" parent="frame/right"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 132.0
-margin/right = 204.0
-margin/bottom = 148.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 132.0
+margin_right = 204.0
+margin_bottom = 148.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Activity" type="PanelContainer" parent="frame/right"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 152.0
-margin/right = 204.0
-margin/bottom = 588.0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 152.0
+margin_right = 204.0
+margin_bottom = 588.0
+mouse_filter = 0
 
 [node name="box" type="VBoxContainer" parent="frame/right/Activity"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 6.0
-margin/top = 6.0
-margin/right = 198.0
-margin/bottom = 430.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 198.0
+margin_bottom = 430.0
 alignment = 0
+mouse_filter = 0
 
 [node name="EquipmentLabel" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 192.0
-margin/bottom = 16.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 192.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.137255, 0.333333, 0.423529, 1 )
 text = "Equipment"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="weaponName" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 20.0
-margin/right = 192.0
-margin/bottom = 36.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 20.0
+margin_right = 192.0
+margin_bottom = 36.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "No weapon equipped"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="weaponDescription" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 40.0
-margin/right = 192.0
-margin/bottom = 56.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 40.0
+margin_right = 192.0
+margin_bottom = 56.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.372549, 0.533333, 0.619608, 1 )
 text = " "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="divider1" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 60.0
-margin/right = 192.0
-margin/bottom = 76.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 60.0
+margin_right = 192.0
+margin_bottom = 76.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.054902, 0.235294, 0.32549, 1 )
 text = "------------------------------"
@@ -247,51 +261,54 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="armourName" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 80.0
-margin/right = 192.0
-margin/bottom = 96.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 80.0
+margin_right = 192.0
+margin_bottom = 96.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "No armour equipped"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="armourDescription" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 100.0
-margin/right = 192.0
-margin/bottom = 116.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 100.0
+margin_right = 192.0
+margin_bottom = 116.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.372549, 0.533333, 0.619608, 1 )
 text = " "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="divider2" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 120.0
-margin/right = 192.0
-margin/bottom = 136.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 136.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.054902, 0.235294, 0.32549, 1 )
 text = "------------------------------"
@@ -300,348 +317,358 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="ItemName" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 140.0
-margin/right = 192.0
-margin/bottom = 156.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 140.0
+margin_right = 192.0
+margin_bottom = 156.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="InventoryLabel" type="Label" parent="frame/right/Activity/box"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 160.0
-margin/right = 192.0
-margin/bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 160.0
+margin_right = 192.0
+margin_bottom = 176.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Inventory"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Inventory" type="GridContainer" parent="frame/right/Activity/box"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 180.0
-margin/right = 192.0
-margin/bottom = 276.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 180.0
+margin_right = 192.0
+margin_bottom = 276.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 8
-script/script = ExtResource( 7 )
+script = ExtResource( 7 )
+mouse_filter = 0
 
 [node name="InventorySlot" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
+
 [node name="InventorySlot16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 24.0
-margin/right = 48.0
+margin_left = 24.0
+margin_right = 48.0
 
 [node name="InventorySlot1" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 48.0
-margin/right = 72.0
+margin_left = 48.0
+margin_right = 72.0
 
 [node name="InventorySlot16 2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 72.0
-margin/right = 96.0
+margin_left = 72.0
+margin_right = 96.0
 
 [node name="InventorySlot2" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 96.0
-margin/right = 120.0
+margin_left = 96.0
+margin_right = 120.0
 
 [node name="InventorySlot16 3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 120.0
-margin/right = 144.0
+margin_left = 120.0
+margin_right = 144.0
 
 [node name="InventorySlot3" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 144.0
-margin/right = 168.0
+margin_left = 144.0
+margin_right = 168.0
 
 [node name="InventorySlot16 4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 168.0
-margin/right = 192.0
+margin_left = 168.0
+margin_right = 192.0
 
 [node name="InventorySlot4" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/top = 24.0
-margin/bottom = 48.0
+margin_top = 24.0
+margin_bottom = 48.0
 
 [node name="InventorySlot16 5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 24.0
-margin/top = 24.0
-margin/right = 48.0
-margin/bottom = 48.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 48.0
+margin_bottom = 48.0
 
 [node name="InventorySlot5" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 48.0
-margin/top = 24.0
-margin/right = 72.0
-margin/bottom = 48.0
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 48.0
 
 [node name="InventorySlot16 6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 72.0
-margin/top = 24.0
-margin/right = 96.0
-margin/bottom = 48.0
+margin_left = 72.0
+margin_top = 24.0
+margin_right = 96.0
+margin_bottom = 48.0
 
 [node name="InventorySlot6" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 96.0
-margin/top = 24.0
-margin/right = 120.0
-margin/bottom = 48.0
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 48.0
 
 [node name="InventorySlot16 7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 120.0
-margin/top = 24.0
-margin/right = 144.0
-margin/bottom = 48.0
+margin_left = 120.0
+margin_top = 24.0
+margin_right = 144.0
+margin_bottom = 48.0
 
 [node name="InventorySlot7" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 144.0
-margin/top = 24.0
-margin/right = 168.0
-margin/bottom = 48.0
+margin_left = 144.0
+margin_top = 24.0
+margin_right = 168.0
+margin_bottom = 48.0
 
 [node name="InventorySlot16 8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 168.0
-margin/top = 24.0
-margin/right = 192.0
-margin/bottom = 48.0
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 48.0
 
 [node name="InventorySlot8" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/top = 48.0
-margin/bottom = 72.0
+margin_top = 48.0
+margin_bottom = 72.0
 
 [node name="InventorySlot16 9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 24.0
-margin/top = 48.0
-margin/right = 48.0
-margin/bottom = 72.0
+margin_left = 24.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 72.0
 
 [node name="InventorySlot9" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 48.0
-margin/top = 48.0
-margin/right = 72.0
-margin/bottom = 72.0
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 72.0
 
 [node name="InventorySlot16 10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 72.0
-margin/top = 48.0
-margin/right = 96.0
-margin/bottom = 72.0
+margin_left = 72.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 72.0
 
 [node name="InventorySlot10" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 96.0
-margin/top = 48.0
-margin/right = 120.0
-margin/bottom = 72.0
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 120.0
+margin_bottom = 72.0
 
 [node name="InventorySlot16 11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 120.0
-margin/top = 48.0
-margin/right = 144.0
-margin/bottom = 72.0
+margin_left = 120.0
+margin_top = 48.0
+margin_right = 144.0
+margin_bottom = 72.0
 
 [node name="InventorySlot11" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 144.0
-margin/top = 48.0
-margin/right = 168.0
-margin/bottom = 72.0
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 168.0
+margin_bottom = 72.0
 
 [node name="InventorySlot16 12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 168.0
-margin/top = 48.0
-margin/right = 192.0
-margin/bottom = 72.0
+margin_left = 168.0
+margin_top = 48.0
+margin_right = 192.0
+margin_bottom = 72.0
 
 [node name="InventorySlot12" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/top = 72.0
-margin/bottom = 96.0
+margin_top = 72.0
+margin_bottom = 96.0
 
 [node name="InventorySlot16 13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 24.0
-margin/top = 72.0
-margin/right = 48.0
-margin/bottom = 96.0
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 48.0
+margin_bottom = 96.0
 
 [node name="InventorySlot13" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 48.0
-margin/top = 72.0
-margin/right = 72.0
-margin/bottom = 96.0
+margin_left = 48.0
+margin_top = 72.0
+margin_right = 72.0
+margin_bottom = 96.0
 
 [node name="InventorySlot16 14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 72.0
-margin/top = 72.0
-margin/right = 96.0
-margin/bottom = 96.0
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 96.0
+margin_bottom = 96.0
 
 [node name="InventorySlot14" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 96.0
-margin/top = 72.0
-margin/right = 120.0
-margin/bottom = 96.0
+margin_left = 96.0
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 96.0
 
 [node name="InventorySlot16 15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 120.0
-margin/top = 72.0
-margin/right = 144.0
-margin/bottom = 96.0
+margin_left = 120.0
+margin_top = 72.0
+margin_right = 144.0
+margin_bottom = 96.0
 
 [node name="InventorySlot15" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 144.0
-margin/top = 72.0
-margin/right = 168.0
-margin/bottom = 96.0
+margin_left = 144.0
+margin_top = 72.0
+margin_right = 168.0
+margin_bottom = 96.0
 
 [node name="InventorySlot16 16" parent="frame/right/Activity/box/Inventory" instance=ExtResource( 8 )]
 
-margin/left = 168.0
-margin/top = 72.0
-margin/right = 192.0
-margin/bottom = 96.0
+margin_left = 168.0
+margin_top = 72.0
+margin_right = 192.0
+margin_bottom = 96.0
 
 [node name="InventoryAction" type="HBoxContainer" parent="frame/right/Activity/box"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 280.0
-margin/right = 192.0
-margin/bottom = 312.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 280.0
+margin_right = 192.0
+margin_bottom = 312.0
 alignment = 1
+mouse_filter = 0
 
 [node name="Drop" type="Button" parent="frame/right/Activity/box/InventoryAction"]
 
-rect/min_size = Vector2( 64, 32 )
+rect_min_size = Vector2( 64, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 26.0
-margin/top = 0.0
-margin/right = 90.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 26.0
+margin_top = 0.0
+margin_right = 90.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 text = " Drop -R- "
 flat = false
+mouse_filter = 0
 
 [node name="Throw" type="Button" parent="frame/right/Activity/box/InventoryAction"]
 
-rect/min_size = Vector2( 72, 32 )
+rect_min_size = Vector2( 72, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 94.0
-margin/top = 0.0
-margin/right = 166.0
-margin/bottom = 32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 94.0
+margin_top = 0.0
+margin_right = 166.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 text = " Throw -T- "
 flat = false
+mouse_filter = 0
 
 [node name="InventoryObjects" type="Node2D" parent="frame/right/Activity/box"]
 
-visibility/visible = false
-transform/pos = Vector2( -6, -6 )
+visible = false
+position = Vector2( -6, -6 )
 
 [node name="InventoryMenu" type="PopupPanel" parent="."]
 
-process/pause_mode = 2
+pause_mode = 2
 editor/display_folded = true
-visibility/visible = false
-anchor/right = 1
-anchor/bottom = 1
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-popup/exclusive = false
-script/script = ExtResource( 9 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+popup_exclusive = false
+script = ExtResource( 9 )
+mouse_filter = 0
 
 [node name="frame" type="VBoxContainer" parent="InventoryMenu"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Header" type="Label" parent="InventoryMenu/frame"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 784.0
-margin/bottom = 16.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 784.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "Choose Item(s) to drop..."
@@ -649,78 +676,84 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="HSeparator" type="HSeparator" parent="InventoryMenu/frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 20.0
-margin/right = 784.0
-margin/bottom = 23.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 20.0
+margin_right = 784.0
+margin_bottom = 23.0
+mouse_filter = 0
 
 [node name="Contents" type="HBoxContainer" parent="InventoryMenu/frame"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 27.0
-margin/right = 784.0
-margin/bottom = 568.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 27.0
+margin_right = 784.0
+margin_bottom = 568.0
 alignment = 0
+mouse_filter = 0
 
 [node name="scroll" type="ScrollContainer" parent="InventoryMenu/frame/Contents"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 195.0
-margin/bottom = 541.0
-scroll/horizontal = false
-scroll/vertical = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 195.0
+margin_bottom = 541.0
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = true
 scroll/deadzone = 0
+mouse_filter = 0
 
 [node name="Items" type="VBoxContainer" parent="InventoryMenu/frame/Contents/scroll"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 195.0
-margin/bottom = 541.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 195.0
+margin_bottom = 541.0
 alignment = 0
+mouse_filter = 0
 
 [node name="Info" type="PanelContainer" parent="InventoryMenu/frame/Contents"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-size_flags/stretch_ratio = 3.0
-margin/left = 199.0
-margin/top = 0.0
-margin/right = 784.0
-margin/bottom = 541.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+margin_left = 199.0
+margin_top = 0.0
+margin_right = 784.0
+margin_bottom = 541.0
+mouse_filter = 0
 
 [node name="Footer" type="Label" parent="InventoryMenu/frame"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 572.0
-margin/right = 784.0
-margin/bottom = 588.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 572.0
+margin_right = 784.0
+margin_bottom = 588.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 text = "T to confirm, ESC to cancel"
@@ -728,49 +761,52 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="LevelUp" type="PopupPanel" parent="."]
 
-process/pause_mode = 2
+pause_mode = 2
 editor/display_folded = true
-visibility/visible = false
-visibility/opacity = 0.75
-anchor/right = 1
-anchor/bottom = 1
+visible = false
+modulate = Color( 1, 1, 1, 0.75 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-popup/exclusive = false
-script/script = ExtResource( 10 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+popup_exclusive = false
+script = ExtResource( 10 )
+mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelUp"]
 
-anchor/right = 1
+anchor_right = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 4.0
-margin/right = 0.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 4.0
+margin_right = 0.0
+margin_bottom = 40.0
 alignment = 1
+mouse_filter = 0
 
 [node name="Title" type="Label" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 784.0
-margin/bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 784.0
+margin_bottom = 35.0
 custom_fonts/font = ExtResource( 11 )
 text = "Level Up"
 align = 1
@@ -778,17 +814,18 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="LevelUp" type="Label" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 39.0
-margin/right = 784.0
-margin/bottom = 55.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 39.0
+margin_right = 784.0
+margin_bottom = 55.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level up message"
 align = 1
@@ -796,32 +833,34 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="LevelUp/VBoxContainer"]
 
-rect/min_size = Vector2( 0, 15 )
+rect_min_size = Vector2( 0, 15 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 59.0
-margin/right = 784.0
-margin/bottom = 74.0
-split/offset = 0
-split/collapsed = false
-split/dragger_visibility = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 59.0
+margin_right = 784.0
+margin_bottom = 74.0
+split_offset = 0
+collapsed = false
+dragger_visibility = 0
+mouse_filter = 0
 
 [node name="FlavourText" type="Label" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 78.0
-margin/right = 784.0
-margin/bottom = 94.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 78.0
+margin_right = 784.0
+margin_bottom = 94.0
 custom_fonts/font = ExtResource( 6 )
 text = "blurb"
 align = 1
@@ -829,33 +868,35 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="VSplitContainer 2" type="VSplitContainer" parent="LevelUp/VBoxContainer"]
 
-rect/min_size = Vector2( 0, 40 )
+rect_min_size = Vector2( 0, 40 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 98.0
-margin/right = 784.0
-margin/bottom = 138.0
-split/offset = 0
-split/collapsed = false
-split/dragger_visibility = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 98.0
+margin_right = 784.0
+margin_bottom = 138.0
+split_offset = 0
+collapsed = false
+dragger_visibility = 0
+mouse_filter = 0
 
 [node name="IncreaseHP" type="Button" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 142.0
-margin/right = 784.0
-margin/bottom = 170.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 142.0
+margin_right = 784.0
+margin_bottom = 170.0
 custom_styles/hover = ExtResource( 12 )
 custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 6 )
@@ -865,18 +906,19 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Increase total HP"
 flat = false
+mouse_filter = 0
 
 [node name="IncreaseATT" type="Button" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 174.0
-margin/right = 784.0
-margin/bottom = 202.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 174.0
+margin_right = 784.0
+margin_bottom = 202.0
 custom_styles/hover = ExtResource( 12 )
 custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 6 )
@@ -886,18 +928,19 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Increase Attack by 2"
 flat = false
+mouse_filter = 0
 
 [node name="IncreaseDEF" type="Button" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 206.0
-margin/right = 784.0
-margin/bottom = 234.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 206.0
+margin_right = 784.0
+margin_bottom = 234.0
 custom_styles/hover = ExtResource( 12 )
 custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 6 )
@@ -907,18 +950,19 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Increase Defence by 2"
 flat = false
+mouse_filter = 0
 
 [node name="IncreaseATTDEF" type="Button" parent="LevelUp/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 238.0
-margin/right = 784.0
-margin/bottom = 266.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 238.0
+margin_right = 784.0
+margin_bottom = 266.0
 custom_styles/hover = ExtResource( 12 )
 custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 6 )
@@ -928,19 +972,18 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Increase both Defence and Attack by 1"
 flat = false
+mouse_filter = 0
 
-[connection signal="mouse_exit" from="frame/left/map" to="." method="_on_map_mouse_exit"]
+[connection signal="mouse_exited" from="frame/left/map" to="." method="_on_map_mouse_exit" binds=[  ]]
 
-[connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed"]
+[connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Drop" to="frame/right/Activity/box/Inventory" method="_on_Drop_pressed" binds=[  ]]
 
-[connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Throw" to="frame/right/Activity/box/Inventory" method="_on_Throw_pressed"]
+[connection signal="pressed" from="frame/right/Activity/box/InventoryAction/Throw" to="frame/right/Activity/box/Inventory" method="_on_Throw_pressed" binds=[  ]]
 
-[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseHP" to="." method="_on_IncreaseHP_pressed"]
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseHP" to="." method="_on_IncreaseHP_pressed" binds=[  ]]
 
-[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATT" to="." method="_on_IncreaseATT_pressed"]
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATT" to="." method="_on_IncreaseATT_pressed" binds=[  ]]
 
-[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseDEF" to="." method="_on_IncreaseDEF_pressed"]
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseDEF" to="." method="_on_IncreaseDEF_pressed" binds=[  ]]
 
-[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATTDEF" to="." method="_on_IncreaseATTDEF_pressed"]
-
-
+[connection signal="pressed" from="LevelUp/VBoxContainer/IncreaseATTDEF" to="." method="_on_IncreaseATTDEF_pressed" binds=[  ]]

@@ -45,3 +45,4 @@ func character_level_changed(what):
 
 func _ready():
 	pass
+

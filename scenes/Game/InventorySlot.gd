@@ -8,7 +8,7 @@ func add_contents(what):
 	update_slot()
 
 func remove_contents(what):
-	contents.remove(contents.find(what))
+	contents.remove_and_collide(contents.find(what))
 	what.item.inventory_slot = null
 	update_slot()
 

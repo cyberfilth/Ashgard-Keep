@@ -12,8 +12,8 @@ func calculate_fov(data, wall_index, origin, radius):
 	var rect = get_fov_rect(origin, radius)
 	var cells = []
 	# scan top edge
-	for x in range(rect.pos.x, rect.end.x-1):
-		var V = Vector2(x,rect.pos.y)
+	for x in range(rect.position.x, rect.end.x-1):
+		var V = Vector2(x,rect.position.y)
 		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:
@@ -27,8 +27,8 @@ func calculate_fov(data, wall_index, origin, radius):
 				if int(cell.distance_to(origin)) <= radius:
 					cells.append(cell)
 	# scan left edge
-	for y in range(rect.pos.y, rect.end.y):
-		var V = Vector2(rect.pos.x, y)
+	for y in range(rect.position.y, rect.end.y):
+		var V = Vector2(rect.position.x, y)
 		var line = cast_fov_ray(data,wall_index,origin,V)
 		for cell in line:
 			if not cell in cells:

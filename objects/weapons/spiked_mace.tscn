@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/weapons/spiked_mace.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "Spiked mace"
 proper_name = true
 named_name = false
@@ -22,7 +22,7 @@ centered = false
 
 [node name="Brand" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -1 )
+position = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 
@@ -36,5 +36,3 @@ dice = 3
 adds = 4
 description = "Adds 3D+4 to ATTACK"
 type = "blunt"
-
-

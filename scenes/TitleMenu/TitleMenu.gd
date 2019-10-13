@@ -58,3 +58,4 @@ func _on_Quit_mouse_enter():
 
 func _on_Quit_mouse_exit():
 	quit_icon.hide()
+

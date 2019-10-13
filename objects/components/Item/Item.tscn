@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://objects/components/Item/Item.gd" type="Script" id=1]
 
 [node name="Item" type="Node"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 use_function = ""
 effect_name = null
 param1 = 0
@@ -13,5 +13,3 @@ indestructible = false
 throw_range = 0
 throw_damage = 0
 equipped = false
-
-

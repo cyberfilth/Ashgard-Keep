@@ -12,7 +12,7 @@ func take_turn():
 		wander()
 	
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 1):
 		if distance <= 1:
 			owner.fighter.fight(target)
@@ -21,7 +21,7 @@ func take_turn():
 			# distracted whilst chasing player
 			var attention = randi()%2
 			if attention == 1:
-				owner.step_to(target.get_map_pos())
+				owner.step_to(target.get_map_position())
 
 func wander():
 	var UP = randi()%2

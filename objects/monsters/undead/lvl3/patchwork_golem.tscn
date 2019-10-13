@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
-[ext_resource path="res://fonts/font_characters_32.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://fonts/font_characters_32.font" type="BitmapFont" id=2]
 [ext_resource path="res://objects/components/Fighter/Fighter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/monsters/undead/lvl3/patchwork_golem_AI.gd" type="Script" id=4]
 [ext_resource path="res://objects/monsters/undead/lvl3/patchwork_golem_inventory.gd" type="Script" id=5]
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "Patchwork Golem"
 proper_name = true
 blocks_movement = true
@@ -19,18 +19,19 @@ trap = false
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 2.0
-margin/top = -3.0
-margin/right = 42.0
-margin/bottom = 37.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 42.0
+margin_bottom = 37.0
 custom_fonts/normal_font = ExtResource( 2 )
 custom_colors/default_color = Color( 0.409305, 0.683594, 0.221634, 1 )
-bbcode/enabled = false
-bbcode/bbcode = "Z"
+bbcode_enabled = false
+bbcode_text = "Z"
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 0
 
 [node name="Fighter" parent="." instance=ExtResource( 3 )]
 
@@ -43,10 +44,8 @@ xp_reward = 45
 
 [node name="AI" type="Node" parent="."]
 
-script/script = ExtResource( 4 )
+script = ExtResource( 4 )
 
 [node name="Inventory" type="Node2D" parent="."]
 
-script/script = ExtResource( 5 )
-
-
+script = ExtResource( 5 )

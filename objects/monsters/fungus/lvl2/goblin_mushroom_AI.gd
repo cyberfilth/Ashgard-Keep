@@ -12,7 +12,7 @@ func _ready():
 
 func take_turn():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 2):
 		if seen == false:
 			grunt()
@@ -30,5 +30,5 @@ func transform():
 	var scene_instance = spore_cloud.instance()
 	scene_instance.set_name("spore_cloud")
 	GameData.map.add_child(scene_instance)
-	scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-	GameData.map.spawn_mushroom_goblin(GameData.map.map_to_world(owner.get_map_pos()))
+	scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+	GameData.map.spawn_mushroom_goblin(GameData.map.map_to_world(owner.get_map_position()))

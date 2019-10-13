@@ -68,3 +68,4 @@ func _on_ItemButton_toggled( pressed, who ):
 		for node in item_box.get_children():
 			if node != who:
 				node.set_pressed(false)
+

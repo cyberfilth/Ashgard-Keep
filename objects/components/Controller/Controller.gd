@@ -15,7 +15,7 @@ func random_step():
 # GRAB action
 func Grab():
 	var items = []
-	for ob in GameData.map.get_objects_in_cell(owner.get_map_pos()):
+	for ob in GameData.map.get_objects_in_cell(owner.get_map_position()):
 		if ob.item:
 			items.append(ob)
 	if not items.empty():

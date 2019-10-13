@@ -1,16 +1,16 @@
-[gd_resource type="Theme" load_steps=8 format=1]
+[gd_resource type="Theme" load_steps=4 format=2]
 
 [ext_resource path="res://resources/panelframe_stone.tres" type="StyleBox" id=1]
 [ext_resource path="res://resources/borderframe_aqua.tres" type="StyleBox" id=2]
 [ext_resource path="res://resources/black_panel.tres" type="StyleBox" id=3]
-[ext_resource path="res://fonts/font_ui.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://fonts/font_ui.font" type="BitmapFont" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
-content_margin/left = 4.0
-content_margin/right = 4.0
-content_margin/top = 4.0
-content_margin/bottom = 4.0
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
 bg_color = Color( 0.137255, 0.333333, 0.427451, 1 )
 light_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 dark_color = Color( 0.572549, 0.701961, 0.760784, 1 )
@@ -20,10 +20,10 @@ draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=2]
 
-content_margin/left = 4.0
-content_margin/right = 4.0
-content_margin/top = 4.0
-content_margin/bottom = 4.0
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
 bg_color = Color( 0.137255, 0.333333, 0.427451, 1 )
 light_color = Color( 0.572549, 0.701961, 0.760784, 1 )
 dark_color = Color( 0.572549, 0.701961, 0.760784, 1 )
@@ -33,10 +33,10 @@ draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=3]
 
-content_margin/left = 4.0
-content_margin/right = 4.0
-content_margin/top = 0.0
-content_margin/bottom = 0.0
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 bg_color = Color( 0.145142, 0.19603, 0.226562, 1 )
 light_color = Color( 0.8, 0.8, 0.8, 1 )
 dark_color = Color( 0.8, 0.8, 0.8, 1 )
@@ -63,4 +63,3 @@ PopupPanel/styles/panel = ExtResource( 3 )
 VScrollBar/styles/grabber = SubResource( 1 )
 VScrollBar/styles/grabber_hilite = SubResource( 2 )
 VScrollBar/styles/scroll = SubResource( 3 )
-

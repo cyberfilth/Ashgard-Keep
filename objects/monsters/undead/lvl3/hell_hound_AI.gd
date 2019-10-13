@@ -15,7 +15,7 @@ func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		wander()
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	var random_growling = randi()%3
 	if distance <= (GameData.player_radius - 2):
 		if distance <= 1:
@@ -23,7 +23,7 @@ func take_turn():
 		if random_growling == 1:
 			flavour_text()
 		else:
-			owner.step_to(target.get_map_pos())
+			owner.step_to(target.get_map_position())
 	else:
 		wander()
 
@@ -38,3 +38,4 @@ func wander():
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
 	owner.step(dir)
+

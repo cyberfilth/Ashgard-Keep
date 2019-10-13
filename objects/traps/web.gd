@@ -14,7 +14,7 @@ func _ready():
 
 func take_turn():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	# If in range of the player and the trap is not triggered
 	if triggered == false && distance <= GameData.player_radius:
 		if distance == GameData.player_radius:

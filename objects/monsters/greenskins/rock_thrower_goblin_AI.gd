@@ -16,7 +16,7 @@ func take_turn():
 	if owner.fighter.has_status_effect('confused'):
 		confused_wander()
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_pos())
+	var distance = owner.distance_to(target.get_map_position())
 	# If not in range of the player
 	if distance > GameData.player_radius:
 		if has_random_location == false:
@@ -34,24 +34,24 @@ func take_turn():
 			if number_of_rocks > 0: # check if there are still rocks to throw
 				prepare_to_throw_rock()
 			else: # Attack player if out of rocks
-				owner.step_to(target.get_map_pos())
+				owner.step_to(target.get_map_position())
 		else:
 			confused_wander()
 
 func choose_random_location():
-	var x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
-	var y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
+	var x = min(GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5), (GameData.MAP_SIZE.x-1))
+	var y = min(GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5), (GameData.MAP_SIZE.y-1))
 	var pos = Vector2(x,y)
 		# stops location being placed in a wall
 	while GameData.map.is_cell_blocked(pos):
-		x = min(GameData.roll(owner.get_map_pos().x+5, owner.get_map_pos().x-5), (GameData.MAP_SIZE.x-1))
-		y = min(GameData.roll(owner.get_map_pos().y+5, owner.get_map_pos().y-5), (GameData.MAP_SIZE.y-1))
+		x = min(GameData.roll(owner.get_map_position().x+5, owner.get_map_position().x-5), (GameData.MAP_SIZE.x-1))
+		y = min(GameData.roll(owner.get_map_position().y+5, owner.get_map_position().y-5), (GameData.MAP_SIZE.y-1))
 		pos = Vector2(x,y)
 	random_location = pos
 	has_random_location = true
 
 func check_if_at_location():
-	if owner.get_map_pos() == random_location:
+	if owner.get_map_position() == random_location:
 		has_random_location = false
 
 func prepare_to_throw_rock():
@@ -71,7 +71,7 @@ func wind_down():
 
 # create a rock and throw it
 func throw_rock_at_player():
-	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_pos()))
+	GameData.map.spawn_rock("Goblin", GameData.map.map_to_world(owner.get_map_position()))
 	number_of_rocks -= 1
 	wind_down()
 

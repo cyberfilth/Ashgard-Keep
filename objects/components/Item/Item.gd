@@ -89,7 +89,7 @@ func throw(slot):
 	else:
 		GameData.broadcast("You throw " + owner.get_display_name())
 		drop()
-		var path = FOVGen.get_line(GameData.player.get_map_pos(), cell)
+		var path = FOVGen.get_line(GameData.player.get_map_position(), cell)
 		if not path.empty():
 			var tpath = []
 			for cell in path:
@@ -105,7 +105,7 @@ func throw(slot):
 				tpath.resize(self.throw_range+1)
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
-			var target_cell = owner.get_map_pos()
+			var target_cell = owner.get_map_position()
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target and target != GameData.player:
 				if self.throw_damage > 0:
@@ -114,9 +114,9 @@ func throw(slot):
 		GameData.in_use = false
 
 func npc_throw(npc, npc_pos):
-		var cell = GameData.player.get_map_pos()
+		var cell = GameData.player.get_map_position()
 		GameData.broadcast(npc+ " throws " + owner.get_display_name())
-		var path = FOVGen.get_line(owner.get_map_pos(), cell)
+		var path = FOVGen.get_line(owner.get_map_position(), cell)
 		if not path.empty():
 			var tpath = []
 			for cell in path:
@@ -132,7 +132,7 @@ func npc_throw(npc, npc_pos):
 				tpath.resize(self.throw_range+1)
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
-			var target_cell = owner.get_map_pos()
+			var target_cell = owner.get_map_position()
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target:
 				if self.throw_damage > 0:
@@ -180,7 +180,7 @@ func damage_nearest(slot):
 		GameData.inventory.after_item_used(slot)
 		return
 	target.fighter.take_damage(self.effect_name, amount)
-	GameData.map.spawn_lightningbolt_fx(target.get_pos())
+	GameData.map.spawn_lightningbolt_fx(target.get_position())
 	GameData.player.get_node("Camera").shake(0.3, 10)
 	GameData.use_item = "OK"
 	GameData.inventory.after_item_used(slot)
@@ -324,7 +324,7 @@ func blast_cell(slot):
 				GameData.map.spawn_inferno_fx(cell)
 				GameData.player.get_node("Camera").shake(0.4, 16)
 	for node in get_tree().get_nodes_in_group('actors'):
-		if node.get_map_pos() in rect:
+		if node.get_map_position() in rect:
 			actors.append(node)
 	for obj in actors:
 		obj.fighter.take_damage(effect_name, amount)
@@ -338,12 +338,12 @@ func read(slot):
 
 func _process(delta):
 	if throw_path.empty():
-		emit_signal('landed', owner.get_map_pos())
+		emit_signal('landed', owner.get_map_position())
 		set_process(false)
 	else:
 		var i = min(throw_path.size()-1, 1)
-		owner.set_map_pos(throw_path[i], true)
-		throw_path.remove(0)
+		owner.set_map_position(throw_path[i], true)
+		throw_path.remove_and_collide(0)
 
 func _set_throw_path(what):
 	throw_path = what

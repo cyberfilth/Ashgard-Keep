@@ -98,14 +98,14 @@ func is_cell_blocked(cell):
 func get_objects_in_cell(cell):
 	var list = []
 	for obj in get_tree().get_nodes_in_group('objects'):
-		if obj.get_parent() == GameData.map and obj.get_map_pos() == cell:
+		if obj.get_parent() == GameData.map and obj.get_map_position() == cell:
 			list.append(obj)
 	return list
 
 func get_objects_in_fov():
 	var list = []
 	for obj in get_tree().get_nodes_in_group('objects'):
-		if obj.get_map_pos() in fov_cells:
+		if obj.get_map_position() in fov_cells:
 			list.append(obj)
 	return list
 
@@ -126,10 +126,10 @@ func get_nearest_visible_actor():
 		return null
 	# keep track of nearest object and its distance
 	var nearest = actors[0]
-	var distance = nearest.distance_to(GameData.player.get_map_pos())
+	var distance = nearest.distance_to(GameData.player.get_map_position())
 	# compare all actors against nearest, replace if nearer
 	for actor in actors:
-		var D = actor.distance_to(GameData.player.get_map_pos())
+		var D = actor.distance_to(GameData.player.get_map_position())
 		if D < distance:
 			nearest = actor
 			distance = D
@@ -144,7 +144,7 @@ func spawn_fx(texture, cell):
 	fx.set_centered(false)
 	fx.set_texture(texture)
 	add_child(fx)
-	fx.set_pos( map_to_world(cell) )
+	fx.set_position( map_to_world(cell) )
 	fx.add_to_group('fx')
 
 func spawn_inferno_fx(cell):
@@ -152,7 +152,7 @@ func spawn_inferno_fx(cell):
 	var scene_instance = fx.instance()
 	scene_instance.set_name("fx")
 	add_child(scene_instance)
-	scene_instance.set_pos(map_to_world(cell))
+	scene_instance.set_position(map_to_world(cell))
 
 func spawn_lightningbolt_fx(target):
 	var bolt = load("res://graphics/particles/electricity.tscn").instance()
@@ -177,20 +177,20 @@ func spawn_vampiric_drain_fx():
 	var scene_instance = vampiric_drain.instance()
 	scene_instance.set_name("Vampiric drain")
 	add_child(scene_instance)
-	scene_instance.set_pos(map_to_world(GameData.player.get_map_pos()))
+	scene_instance.set_position(map_to_world(GameData.player.get_map_position()))
 
 func spawn_voodoo_fx():
 	var voodoo_particles = load("res://graphics/particles/voodoo_particles.tscn")
 	var scene_instance = voodoo_particles.instance()
 	scene_instance.set_name("Voodoo magic")
 	add_child(scene_instance)
-	scene_instance.set_pos(map_to_world(GameData.player.get_map_pos()))
+	scene_instance.set_position(map_to_world(GameData.player.get_map_position()))
 
 func spawn_hell_hound(hound_pos):
 	var hell_hound = load("res://objects/monsters/undead/lvl3/hell_hound.tscn").instance()
 	hell_hound.set_name("Hell Hound")
 	get_parent().get_node('Map').add_child(hell_hound)
-	hell_hound.set_pos(hound_pos)
+	hell_hound.set_position(hound_pos)
 	hell_hound.set_z(GameData.LAYER_ACTOR)
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
@@ -200,7 +200,7 @@ func spawn_rock(npc, npc_pos):
 	var rock_scene = preload("res://objects/items/Rock.tscn")
 	var rock = rock_scene.instance()
 	get_parent().get_node('Map').add_child(rock)
-	rock.set_pos(npc_pos)
+	rock.set_position(npc_pos)
 	rock.add_to_group('objects')
 	rock.item.npc_throw(npc, npc_pos)
 
@@ -220,7 +220,7 @@ func release_blue_spores(target_area):
 		var blue_fungus = load("res://objects/monsters/fungus/blue_fungus.tscn").instance()
 		blue_fungus.set_name("Blue fungus")
 		get_parent().get_node('Map').add_child(blue_fungus)
-		blue_fungus.set_pos(map_to_world(fungus_pos))
+		blue_fungus.set_position(map_to_world(fungus_pos))
 		blue_fungus.set_z(GameData.LAYER_ACTOR)
 		blue_fungus.add_to_group('actors')
 		blue_fungus.fighter.hp = 10
@@ -242,7 +242,7 @@ func release_green_spores(target_area):
 		var green_fungus = load("res://objects/monsters/fungus/green_fungus.tscn").instance()
 		green_fungus.set_name("Green fungus")
 		get_parent().get_node('Map').add_child(green_fungus)
-		green_fungus.set_pos(map_to_world(fungus_pos))
+		green_fungus.set_position(map_to_world(fungus_pos))
 		green_fungus.set_z(GameData.LAYER_ACTOR)
 		green_fungus.add_to_group('actors')
 		green_fungus.fighter.hp = 10
@@ -252,7 +252,7 @@ func spawn_mushroom_goblin(mushroom_pos):
 	var mushroom_person = load("res://objects/monsters/fungus/lvl2/mushroom_person.tscn").instance()
 	mushroom_person.set_name("Mushroom person")
 	get_parent().get_node('Map').add_child(mushroom_person)
-	mushroom_person.set_pos(mushroom_pos)
+	mushroom_person.set_position(mushroom_pos)
 	mushroom_person.set_z(GameData.LAYER_ACTOR)
 	mushroom_person.add_to_group('actors')
 	mushroom_person.fighter.hp = GameData.roll(15, 20)
@@ -262,7 +262,7 @@ func transform_to_mushroom(who, mushroom_pos):
 	var mushroom_person = load("res://objects/monsters/fungus/lvl3/mushroom_person.tscn").instance()
 	mushroom_person.set_name("Mushroom Person")
 	get_parent().get_node('Map').add_child(mushroom_person)
-	mushroom_person.set_pos(mushroom_pos)
+	mushroom_person.set_position(mushroom_pos)
 	mushroom_person.set_z(GameData.LAYER_ACTOR)
 	mushroom_person.add_to_group('actors')
 	mushroom_person.fighter.hp = GameData.roll(28, 31)
@@ -270,7 +270,7 @@ func transform_to_mushroom(who, mushroom_pos):
 
 # Shadow demon spawned when the torch goes out
 func spawn_shadow():
-	var target_area = GameData.player.get_map_pos()
+	var target_area = GameData.player.get_map_position()
 	var x
 	var y
 	var shadow_pos
@@ -287,7 +287,7 @@ func spawn_shadow():
 	var shadow = load("res://objects/monsters/shadow.tscn").instance()
 	shadow.set_name("Shadow")
 	get_parent().get_node('Map').add_child(shadow)
-	shadow.set_pos(map_to_world(shadow_pos))
+	shadow.set_position(map_to_world(shadow_pos))
 	shadow.set_z(GameData.LAYER_ACTOR)
 	shadow.add_to_group('actors')
 	shadow.fighter.hp = 5000
@@ -295,11 +295,11 @@ func spawn_shadow():
 	GameData.broadcast(message[mno])
 
 func set_cursor_hidden(is_hidden):
-	get_node('Cursor').set_hidden(is_hidden)
+	get_node('Cursor').visible = !(is_hidden)
 
 func set_cursor():
-	var cell = world_to_map(get_local_mouse_pos())
-	get_node('Cursor').set_pos(map_to_world(cell))
+	var cell = world_to_map(get_local_mouse_position())
+	get_node('Cursor').set_position(map_to_world(cell))
 	var oob = false # out of bounds
 	if cell.x < 0 or cell.x >= GameData.MAP_SIZE.x: oob = true
 	if cell.y < 0 or cell.y >= GameData.MAP_SIZE.y: oob = true
@@ -402,3 +402,4 @@ func darker():
 		GameData.player.get_node("Torch").total_darkness()
 		GameData.broadcast_torch("Your torch is extinguished...")
 		spawn_shadow()
+

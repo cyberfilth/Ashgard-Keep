@@ -122,8 +122,8 @@ func set_dungeon_theme():
 	for i in range(temp_array2.size()):
 		var x = randi()%temp_list.size()
 		dungeon_theme_array.append(temp_array2[x])
-		temp_list.remove(x)
-		temp_array2.remove(x)
+		temp_list.remove_and_collide(x)
+		temp_array2.remove_and_collide(x)
 	return
 
 func set_enemy_theme():
@@ -143,3 +143,4 @@ var lvlxp
 var lvlweapon_equipped
 var lvlarmour_equipped
 var player_inventory = []
+

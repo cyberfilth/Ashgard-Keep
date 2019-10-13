@@ -74,7 +74,7 @@ func remove_from_inventory(slot, item):
 	item.add_to_group('world')
 	item.get_parent().remove_child(item)
 	GameData.map.add_child(item)
-	item.set_map_pos(GameData.player.get_map_pos())
+	item.set_map_position(GameData.player.get_map_position())
 
 func call_drop_menu():
 	var header = "Choose item(s) to Drop..."

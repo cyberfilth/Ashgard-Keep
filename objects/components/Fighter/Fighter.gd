@@ -100,8 +100,8 @@ func fight(who):
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-		GameData.map.transform_to_mushroom(who.get_display_name(), GameData.map.map_to_world(owner.get_map_pos()))
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		GameData.map.transform_to_mushroom(who.get_display_name(), GameData.map.map_to_world(owner.get_map_position()))
 		who.kill()
 	else: # Stops similar NPC's killing each other
 		if who.get_display_name() == owner.get_display_name():
@@ -151,7 +151,7 @@ func take_damage(from="An Unknown Force", amount=0):
 	if owner.get_display_name() == "Demonic Puppy":
 		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:
 			owner.get_node("AI").transform_to_hound()
-			GameData.map.spawn_hell_hound(GameData.map.map_to_world(owner.get_map_pos()))
+			GameData.map.spawn_hell_hound(GameData.map.map_to_world(owner.get_map_position()))
 			owner.kill()
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
@@ -225,42 +225,42 @@ func die():
 		var scene_instance = gas_cloud.instance()
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
 	# Release fairy dust if fairy killed
 	if corpse == "Fairy Assassin":
 		var fairy_dust = load("res://graphics/particles/fairy_dust.tscn")
 		var scene_instance = fairy_dust.instance()
 		scene_instance.set_name("fairy_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
 	# Release pixie dust if pixie killed
 	if corpse == "Pixie Beserker":
 		var pixie_dust = load("res://graphics/particles/pixie_dust.tscn")
 		var scene_instance = pixie_dust.instance()
 		scene_instance.set_name("pixie_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
 	if corpse == "Pixie Warrior":
 		var pixie_dust = load("res://graphics/particles/pixie_warrior_dust.tscn")
 		var scene_instance = pixie_dust.instance()
 		scene_instance.set_name("pixie_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
 				# Release yellow cloud if fungus killed
 	if corpse == "Yellow fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-		GameData.map.release_blue_spores(owner.get_map_pos())
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		GameData.map.release_blue_spores(owner.get_map_position())
 	if corpse == "Purple fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
-		GameData.map.release_green_spores(owner.get_map_pos())
+		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		GameData.map.release_green_spores(owner.get_map_position())
 		# leave bloodstain
 	if self.bleeds:
 			bleed(blood_colour)
@@ -277,7 +277,7 @@ func die():
 		var dropped = load(item)
 		var dropped_item = dropped.instance()
 		GameData.map.add_child(dropped_item)
-		dropped_item.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+		dropped_item.set_position(GameData.map.map_to_world(owner.get_map_position()))
 		dropped_item.set_z(GameData.LAYER_ITEM)
 		GameData.broadcast("The "+corpse+" drops an item")
 		#bleed(blood_colour)
@@ -297,7 +297,7 @@ func bleed(blood_colour):
 	sprite.set_centered(false)
 	sprite.set_texture(blood)
 	GameData.map.add_child(sprite)
-	sprite.set_pos(GameData.map.map_to_world(owner.get_map_pos()))
+	sprite.set_position(GameData.map.map_to_world(owner.get_map_position()))
 	sprite.set_z(GameData.LAYER_DECAL)
 
 func _ready():
@@ -334,7 +334,7 @@ func _set_max_hp(what):
 	emit_signal('hp_changed', self.hp, self.max_hp)
 
 func _on_hp_changed(current,full):
-	hpbar.set_hidden(current >= full)
+	hpbar.visible = !(current >= full)
 	hpbar.set_max(full)
 	hpbar.set_value(current)
 
@@ -357,3 +357,4 @@ func paralysed():
 func stuck(num):
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Stuck")
 	apply_status_effect('stuck', num)
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/components/Object/Object.gd" type="Script" id=1]
 [ext_resource path="res://objects/items/scroll_2.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 
 [node name="Object" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 name = "Scroll of Lightning Bolt"
 proper_name = true
 blocks_movement = false
@@ -32,5 +32,3 @@ throw_range = 3
 
 texture = ExtResource( 4 )
 centered = false
-
-

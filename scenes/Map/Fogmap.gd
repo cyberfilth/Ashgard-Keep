@@ -42,14 +42,15 @@ func _on_player_pos_changed(player):
 	var r = GameData.player_view
 	
 	# Get FOV cells
-	var cells = FOVGen.calculate_fov(DungeonGen.datamap, 1, player.get_map_pos(), r)
+	var cells = FOVGen.calculate_fov(DungeonGen.datamap, 1, player.get_map_position(), r)
 	# Reveal cells
 	reveal(cells)
 	
 	# Process Object visibility
 	for node in get_tree().get_nodes_in_group('objects'):
-		node.seen = node.get_map_pos() in cells
+		node.seen = node.get_map_position() in cells
 		# Keep discovered stay_visible objects seen
 		if node.discovered and node.stay_visible:
 			node.seen = true
 	map.set_cursor()
+

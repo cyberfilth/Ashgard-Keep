@@ -25,3 +25,4 @@ func boost_stat():
 	if boost == 2:
 		GameData.broadcast("The power of the written runes changes you. Your Max Health has increased +10", GameData.COLOUR_GREEN)
 		GameData.player.fighter.max_hp += 10
+
