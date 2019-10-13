@@ -41,8 +41,6 @@ func _on_player_pos_changed(player):
 	# Torch (sight) radius
 	var r = GameData.player_view
 	
-	print("recalc fog")
-	
 	# Get FOV cells
 	var cells = FOVGen.calculate_fov(DungeonGen.datamap, 1, player.get_map_position(), r)
 	# Reveal cells
