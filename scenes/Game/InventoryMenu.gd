@@ -35,7 +35,7 @@ func fill_from_inventory():
 		var ob = preload('res://scenes/Game/ItemButton.tscn').instance()
 		item_box.add_child(ob)
 		# assign item to button
-		ob.owner = obj
+		ob.parent = obj
 		# connect button toggle
 		ob.connect("toggled", self, "_on_ItemButton_toggled", [ob])
 
@@ -60,7 +60,7 @@ func _input(event):
 		var items = []
 		for itm in item_box.get_children():
 			if itm.is_pressed():
-				items.append(itm.owner)
+				items.append(itm.parent)
 		emit_signal('items_selected', items)
 
 func _on_ItemButton_toggled( pressed, who ):

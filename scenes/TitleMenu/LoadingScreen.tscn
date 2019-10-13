@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/TitleMenu/LoadingScreen.gd" type="Script" id=1]
 [ext_resource path="res://graphics/gui/ashgard_keep.png" type="Texture" id=2]
@@ -6,151 +6,79 @@
 [ext_resource path="res://graphics/gui/loading0.png" type="Texture" id=4]
 
 [node name="LoadingScreen" type="Control"]
-
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
 script = ExtResource( 1 )
-mouse_filter = 0
 
 [node name="Menu" type="VBoxContainer" parent="."]
-
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags_horizontal = 1
-size_flags_vertical = 1
 margin_left = 50.0
 margin_top = 40.0
 margin_right = -50.0
 margin_bottom = -40.0
-alignment = 0
 mouse_filter = 0
 
 [node name="TitleLogo" type="TextureRect" parent="Menu"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 700.0
 margin_bottom = 97.0
 texture = ExtResource( 2 )
 stretch_mode = 4
-mouse_filter = 1
 
 [node name="CentreRow" type="HBoxContainer" parent="Menu"]
-
-rect_min_size = Vector2( 700, 419 )
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags_horizontal = 1
-size_flags_vertical = 3
-margin_left = 0.0
 margin_top = 101.0
 margin_right = 700.0
 margin_bottom = 520.0
-alignment = 0
+rect_min_size = Vector2( 700, 419 )
 mouse_filter = 0
+size_flags_vertical = 3
 
 [node name="message" type="VBoxContainer" parent="Menu/CentreRow"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags_horizontal = 3
-size_flags_vertical = 3
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 348.0
 margin_bottom = 419.0
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
-mouse_filter = 0
 
 [node name="LoadContinue" type="Label" parent="Menu/CentreRow/message"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
-margin_left = 0.0
 margin_top = 192.0
 margin_right = 348.0
 margin_bottom = 227.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_fonts/font = ExtResource( 3 )
 text = "Loading..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CentreRow"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 3
-size_flags_vertical = 3
 margin_left = 352.0
-margin_top = 0.0
 margin_right = 700.0
 margin_bottom = 419.0
-use_top_left = false
-mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Logo" type="TextureRect" parent="Menu/CentreRow/CenterContainer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
 margin_left = 67.0
 margin_top = 139.0
 margin_right = 281.0
 margin_bottom = 280.0
 texture = ExtResource( 4 )
-stretch_mode = 0
-mouse_filter = 1
 
 [node name="Version" type="Label" parent="Menu"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
-margin_left = 0.0
 margin_top = 524.0
 margin_right = 700.0
 margin_bottom = 538.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0.137255, 0.333333, 0.427451, 1 )
 text = "version"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-mouse_filter = 1
 
 [node name="Author" type="Label" parent="Menu"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
-margin_left = 0.0
 margin_top = 542.0
 margin_right = 700.0
 margin_bottom = 556.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0.137255, 0.333333, 0.427451, 1 )
 text = "Chris Hawkins"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-mouse_filter = 1

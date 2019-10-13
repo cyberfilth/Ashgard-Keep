@@ -72,7 +72,7 @@ func spawn_object(partial_path,cell):
 func draw_map():
 	var theme = DungeonThemes.dung_themes[GameData.dungeon_theme_array[GameData.keeplvl-1]]
 	var family = theme.tileset
-	get_node("Darkness").set_color(theme.darkness)
+	get_node("Darkness").color = theme.darkness
 	var datamap = DungeonGen.datamap
 	for x in range(datamap.size()-1):
 		for y in range(datamap[x].size()-1):
@@ -191,7 +191,7 @@ func spawn_hell_hound(hound_pos):
 	hell_hound.set_name("Hell Hound")
 	get_parent().get_node('Map').add_child(hell_hound)
 	hell_hound.set_position(hound_pos)
-	hell_hound.set_z(GameData.LAYER_ACTOR)
+	hell_hound.z_index = (GameData.LAYER_ACTOR)
 	hell_hound.add_to_group('actors')
 	hell_hound.fighter.hp = GameData.roll(15, 25)
 	GameData.broadcast("The body of the puppy transforms in the flames")
@@ -221,7 +221,7 @@ func release_blue_spores(target_area):
 		blue_fungus.set_name("Blue fungus")
 		get_parent().get_node('Map').add_child(blue_fungus)
 		blue_fungus.set_position(map_to_world(fungus_pos))
-		blue_fungus.set_z(GameData.LAYER_ACTOR)
+		blue_fungus.z_index = (GameData.LAYER_ACTOR)
 		blue_fungus.add_to_group('actors')
 		blue_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
@@ -243,7 +243,7 @@ func release_green_spores(target_area):
 		green_fungus.set_name("Green fungus")
 		get_parent().get_node('Map').add_child(green_fungus)
 		green_fungus.set_position(map_to_world(fungus_pos))
-		green_fungus.set_z(GameData.LAYER_ACTOR)
+		green_fungus.z_index = (GameData.LAYER_ACTOR)
 		green_fungus.add_to_group('actors')
 		green_fungus.fighter.hp = 10
 	GameData.broadcast("The fungus releases spores into the air", GameData.COLOUR_POISON_GREEN)
@@ -253,7 +253,7 @@ func spawn_mushroom_goblin(mushroom_pos):
 	mushroom_person.set_name("Mushroom person")
 	get_parent().get_node('Map').add_child(mushroom_person)
 	mushroom_person.set_position(mushroom_pos)
-	mushroom_person.set_z(GameData.LAYER_ACTOR)
+	mushroom_person.z_index = (GameData.LAYER_ACTOR)
 	mushroom_person.add_to_group('actors')
 	mushroom_person.fighter.hp = GameData.roll(15, 20)
 	GameData.broadcast("The body of the goblin twists and bursts into a walking fungus")
@@ -263,7 +263,7 @@ func transform_to_mushroom(who, mushroom_pos):
 	mushroom_person.set_name("Mushroom Person")
 	get_parent().get_node('Map').add_child(mushroom_person)
 	mushroom_person.set_position(mushroom_pos)
-	mushroom_person.set_z(GameData.LAYER_ACTOR)
+	mushroom_person.z_index = (GameData.LAYER_ACTOR)
 	mushroom_person.add_to_group('actors')
 	mushroom_person.fighter.hp = GameData.roll(28, 31)
 	GameData.broadcast("The body of the "+who+" twists and erupts into a Mushroom Person")
@@ -288,7 +288,7 @@ func spawn_shadow():
 	shadow.set_name("Shadow")
 	get_parent().get_node('Map').add_child(shadow)
 	shadow.set_position(map_to_world(shadow_pos))
-	shadow.set_z(GameData.LAYER_ACTOR)
+	shadow.z_index = (GameData.LAYER_ACTOR)
 	shadow.add_to_group('actors')
 	shadow.fighter.hp = 5000
 	var mno = GameData.roll(0,2)
@@ -319,7 +319,7 @@ func set_cursor():
 	set_cursor_label(text)
 
 func _sort_z(a,b):
-	if a.get_z() > b.get_z():
+	if a.z_index > b.z_index:
 		return true
 	return false
 

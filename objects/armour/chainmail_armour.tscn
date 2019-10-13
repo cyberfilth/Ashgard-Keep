@@ -6,31 +6,23 @@
 [ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
-
 script = ExtResource( 1 )
-name = "Chainmail"
 proper_name = true
-named_name = false
-blocks_movement = false
 stay_visible = true
-trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
-
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Brand" type="Sprite" parent="."]
-
 position = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
-
 use_function = "armour"
+effect_name = ""
 throw_range = 5
 throw_damage = 5
 
 [node name="Armour" parent="." instance=ExtResource( 4 )]
-
 armour_protection = 5
 description = "Chainmail +2 DEFENCE"

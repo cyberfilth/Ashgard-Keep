@@ -5,7 +5,7 @@ signal name_changed(what)
 signal object_moved(me)
 signal object_acted()
 
-export(String, MULTILINE) var name = "OBJECT" setget _set_name
+export(String, MULTILINE) var ob_name = "OBJECT" setget _set_name
 
 export(bool) var proper_name = false
 export(bool) var named_name = false # i.e. Kevin the troll, removes the 'A' prefix
@@ -23,7 +23,7 @@ var ai
 
 func save():
 	var data = {}
-	data.name = self.name
+	data.ob_name = self.ob_name
 	data.proper_name = self.proper_name
 	data.filename = get_filename()
 	var pos = get_map_position()
@@ -37,8 +37,8 @@ func save():
 	return data
 
 func restore(data, on_map=true):
-	if 'name' in data:
-		self.name = data.name
+	if 'ob_name' in data:
+		self.ob_name = data.ob_name
 	if 'proper_name' in data:
 		self.proper_name = data.proper_name
 	if 'discovered' in data:
@@ -57,13 +57,13 @@ func restore(data, on_map=true):
 
 func get_display_name():
 	if self.proper_name:
-		# Return name if proper noun
-		return self.name.capitalize()
+		# Return ob_name if proper noun
+		return self.ob_name.capitalize()
 	var pre = "A "
-	# "An" if first the letter in name is a vowel
-	if self.name[0].to_lower() in ['a','e','i','o','u']:
+	# "An" if first the letter in ob_name is a vowel
+	if self.ob_name[0].to_lower() in ['a','e','i','o','u']:
 		pre = "An "
-	return pre + self.name
+	return pre + self.ob_name
 
 func kill():
 	if GameData.player != self:
@@ -143,13 +143,13 @@ func get_brand():
 func _ready():
 	add_to_group('objects')
 	if fighter:
-		set_z(GameData.LAYER_ACTOR)
+		z_index = GameData.LAYER_ACTOR
 	else:
-		set_z(GameData.LAYER_ITEM)
+		z_index =GameData.LAYER_ITEM
 
 func _set_name(what):
-	name = what
-	emit_signal('name_changed', name)
+	ob_name = what
+	emit_signal('name_changed', ob_name)
 
 
 func _set_seen(what):

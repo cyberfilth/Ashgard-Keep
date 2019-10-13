@@ -2,19 +2,19 @@
 
 extends Node
 
-onready var owner = get_parent()
+onready var parent = get_parent()
 var detection_timer = 5 # time between noticing a web and it appearing
 var warning_issued = false # Show warning message only once
 var triggered = false # trap has been triggered
 var reset_timer = 8 # Resets trap after it's been triggered
 
 func _ready():
-	owner.ai = self
+	parent.ai = self
 	get_parent().get_node('Sprite').hide()
 
 func take_turn():
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_position())
+	var distance = parent.distance_to(target.get_map_position())
 	# If in range of the player and the trap is not triggered
 	if triggered == false && distance <= GameData.player_radius:
 		if distance == GameData.player_radius:

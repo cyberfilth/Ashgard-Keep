@@ -17,8 +17,10 @@ func _ready():
 	var button = get_node("Menu/CentreRow/Buttons/HBoxContainer 2/Continue")
 	button.set_disabled(!save_exists)
 	if !save_exists:
-		get_node('Menu/CentreRow/Buttons/HBoxContainer 2/Continue/Label').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
-
+		get_node('Menu/CentreRow/Buttons/HBoxContainer 2/Continue').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
+	
+	_on_NewGame_pressed()
+	
 # new game
 func _on_NewGame_pressed():
 	GameData.player_moves = 0
@@ -42,12 +44,14 @@ func _on_Quit_pressed():
 
 # menu hover effect
 func _on_NewGame_mouse_enter():
+	print("enter new")
 	newgame_icon.show()
 
 func _on_NewGame_mouse_exit():
 	newgame_icon.hide()
 
 func _on_Continue_mouse_enter():
+	print("enter cont")
 	continue_icon.show()
 
 func _on_Continue_mouse_exit():

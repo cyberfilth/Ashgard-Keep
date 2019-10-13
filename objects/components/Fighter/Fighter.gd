@@ -6,7 +6,7 @@ signal character_level_changed(what)
 signal attack_changed(what)
 signal defence_changed(what)
 signal race_changed(what)
-onready var owner = get_parent()
+onready var parent = get_parent()
 
 export(bool) var bleeds = true
 export(String, "red", "green", "scarlet", "jade") var blood_colour
@@ -84,27 +84,27 @@ func _set_defence(what):
 
 func fight(who):
 	killer = who
-	if owner.fighter.hp < 1:
+	if parent.fighter.hp < 1:
 		return
 	# Step through a portal
-	if owner.get_display_name() == "A Portal" && who == GameData.player:
-		owner.get_node('AI').enter_portal()
-	if  who.get_display_name() == "A Portal" && owner == GameData.player:
+	if parent.get_display_name() == "A Portal" && who == GameData.player:
+		parent.get_node('AI').enter_portal()
+	if  who.get_display_name() == "A Portal" && parent == GameData.player:
 		who.get_node('AI').enter_portal()
 	# Matango changes enemies to mushroom people.... no, really.
 	# .... you should totally watch the film Matango!
-	if owner.get_display_name() == "Emperor Fungus"\
+	if parent.get_display_name() == "Emperor Fungus"\
 	&& who != GameData.player\
 	&& who.get_display_name() != "Mushroom Person":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
-		GameData.map.transform_to_mushroom(who.get_display_name(), GameData.map.map_to_world(owner.get_map_position()))
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
+		GameData.map.transform_to_mushroom(who.get_display_name(), GameData.map.map_to_world(parent.get_map_position()))
 		who.kill()
 	else: # Stops similar NPC's killing each other
-		if who.get_display_name() == owner.get_display_name():
+		if who.get_display_name() == parent.get_display_name():
 			return
 	
 	# COMBAT
@@ -116,25 +116,25 @@ func fight(who):
 		var defence_roll = who.fighter.defence + who.fighter.armour_protection
 		var damage_amount = attack_roll - defence_roll
 		if damage_amount > 0:
-			who.fighter.take_damage(owner.get_display_name(), damage_amount)
+			who.fighter.take_damage(parent.get_display_name(), damage_amount)
 		elif damage_amount <= 0:
-			broadcast_miss(who.get_display_name(), owner.get_display_name())
+			broadcast_miss(who.get_display_name(), parent.get_display_name())
 		else:
 			return
 
 func heal_damage(from,amount):
 	var heal_amount = GameData.roll((amount/2), amount) # Heals by a random amount
-	if owner == GameData.player:
+	if parent == GameData.player:
 		broadcast_damage_healed(from, heal_amount)
 	self.hp += heal_amount
 
 func heal_non_random(from, amount):
-	if owner == GameData.player:
+	if parent == GameData.player:
 		broadcast_damage_healed(from, amount)
 		self.hp += amount
 
 func take_damage(from="An Unknown Force", amount=0):
-	if owner.get_display_name() == "A Portal":
+	if parent.get_display_name() == "A Portal":
 		return
 	broadcast_damage_taken(from,amount)
 	killer = from
@@ -148,11 +148,11 @@ func take_damage(from="An Unknown Force", amount=0):
 				GameData.player.fighter.hp+=2
 				GameData.broadcast("Your weapon drinks your opponents life force, restoring 2 HP", GameData.COLOUR_GREEN)
 	# Add damage triggered effects here
-	if owner.get_display_name() == "Demonic Puppy":
-		if owner.fighter.hp > 1 && owner.fighter.hp <= 9:
-			owner.get_node("AI").transform_to_hound()
-			GameData.map.spawn_hell_hound(GameData.map.map_to_world(owner.get_map_position()))
-			owner.kill()
+	if parent.get_display_name() == "Demonic Puppy":
+		if parent.fighter.hp > 1 && parent.fighter.hp <= 9:
+			parent.get_node("AI").transform_to_hound()
+			GameData.map.spawn_hell_hound(GameData.map.map_to_world(parent.get_map_position()))
+			parent.kill()
 
 func broadcast_damage_healed(from="An Unknown Force", amount=0):
 	var m = str(amount)
@@ -161,51 +161,51 @@ func broadcast_damage_healed(from="An Unknown Force", amount=0):
 
 func broadcast_damage_taken(from, amount):
 	# Suppress messages if combat takes place off screen
-	if !owner.is_visible() && owner.get_display_name() != "Shadow":
+	if !parent.is_visible() && parent.get_display_name() != "Shadow":
 		return
 	# Broadcast damage in message log
 	var m = str(amount)
 	var color = GameData.COLOUR_TEAL
-	if owner == GameData.player:
+	if parent == GameData.player:
 		color = GameData.COLOUR_RED
 	if from == "Rat" || from == "Ghoul Rat" || from == "Hell Puppy" || from == "Hell Hound":
-		GameData.broadcast(from+ " bites " +owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from+ " bites " +parent.get_display_name()+ " for " +m+ " damage",color)
 	elif from == "Diseased Zombie":
-		GameData.broadcast(from+ " claws " +owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from+ " claws " +parent.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being poisoned by the zombie
-		if owner == GameData.player:
+		if parent == GameData.player:
 			var chance_of_poison = randi()%3
 			if chance_of_poison == 1:
 				poisoned(6)
 	elif from == "Blue Fungus":
-		GameData.broadcast(from+ " confuses " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
-		if owner == GameData.player:
+		GameData.broadcast(from+ " confuses " +parent.get_display_name()+ " and inflicts " +m+ " damage",color)
+		if parent == GameData.player:
 			confused(3)
 	elif from == "Green Fungus":
-		GameData.broadcast(from+ " poisons " +owner.get_display_name()+ " and inflicts " +m+ " damage",color)
-		if owner == GameData.player:
+		GameData.broadcast(from+ " poisons " +parent.get_display_name()+ " and inflicts " +m+ " damage",color)
+		if parent == GameData.player:
 			poisoned(3)
 	elif from.ends_with("Rock Troll"):
-		GameData.broadcast(from+ " bashes "+owner.get_display_name()+ " for " +m+ " damage",color)
-		if owner == GameData.player && GameData.weapon_type == "sharp":
+		GameData.broadcast(from+ " bashes "+parent.get_display_name()+ " for " +m+ " damage",color)
+		if parent == GameData.player && GameData.weapon_type == "sharp":
 			GameData.weapon_in_use.get_node('Weapon').break_weapon(GameData.weapon_name, GameData.player.fighter.weapon_dice, GameData.player.fighter.weapon_adds)
 	elif from == "Giant Scorpion":
-		GameData.broadcast(from+ " jabs "+owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from+ " jabs "+parent.get_display_name()+ " for " +m+ " damage",color)
 		# random chance of being paralysed by scorpion
-		if owner == GameData.player:
+		if parent == GameData.player:
 			var chance_of_paralysis = randi()%3
 			if chance_of_paralysis == 1:
 				paralysed()
 	elif from == "Poison":
-		GameData.broadcast(from+ " blights " +owner.get_display_name()+ " and removes " +m+ " HP",GameData.COLOUR_POISON_GREEN)
+		GameData.broadcast(from+ " blights " +parent.get_display_name()+ " and removes " +m+ " HP",GameData.COLOUR_POISON_GREEN)
 	elif from == "Fire":
-		GameData.broadcast(from+ " burns " +owner.get_display_name()+ " for " +m+ " damage",color)
-		if owner.get_display_name() == "Patchwork Golem":
-			owner.get_node("AI").run_from_fire()
+		GameData.broadcast(from+ " burns " +parent.get_display_name()+ " for " +m+ " damage",color)
+		if parent.get_display_name() == "Patchwork Golem":
+			parent.get_node("AI").run_from_fire()
 	elif from == "Lightning Strike":
-		GameData.broadcast(from+ " zaps " +owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from+ " zaps " +parent.get_display_name()+ " for " +m+ " damage",color)
 	else:
-		GameData.broadcast(from+ " attacks " +owner.get_display_name()+ " for " +m+ " damage",color)
+		GameData.broadcast(from+ " attacks " +parent.get_display_name()+ " for " +m+ " damage",color)
 
 func broadcast_miss(target, from):
 	if target == "A Portal": # Stops messages about NPC's walking into portals
@@ -216,7 +216,7 @@ func broadcast_miss(target, from):
 		GameData.broadcast(from + " attacks " + target + " but misses ")
 
 func die():
-	if owner == GameData.player:
+	if parent == GameData.player:
 		game_over(killer)
 	var corpse = get_parent().name
 	# Release cloud of gas if poison zombie killed
@@ -225,42 +225,42 @@ func die():
 		var scene_instance = gas_cloud.instance()
 		scene_instance.set_name("gas_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
 	# Release fairy dust if fairy killed
 	if corpse == "Fairy Assassin":
 		var fairy_dust = load("res://graphics/particles/fairy_dust.tscn")
 		var scene_instance = fairy_dust.instance()
 		scene_instance.set_name("fairy_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
 	# Release pixie dust if pixie killed
 	if corpse == "Pixie Beserker":
 		var pixie_dust = load("res://graphics/particles/pixie_dust.tscn")
 		var scene_instance = pixie_dust.instance()
 		scene_instance.set_name("pixie_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
 	if corpse == "Pixie Warrior":
 		var pixie_dust = load("res://graphics/particles/pixie_warrior_dust.tscn")
 		var scene_instance = pixie_dust.instance()
 		scene_instance.set_name("pixie_dust")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
 				# Release yellow cloud if fungus killed
 	if corpse == "Yellow fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
-		GameData.map.release_blue_spores(owner.get_map_position())
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
+		GameData.map.release_blue_spores(parent.get_map_position())
 	if corpse == "Purple fungus":
 		var spore_cloud = load("res://graphics/particles/spore_cloud.tscn")
 		var scene_instance = spore_cloud.instance()
 		scene_instance.set_name("spore_cloud")
 		GameData.map.add_child(scene_instance)
-		scene_instance.set_position(GameData.map.map_to_world(owner.get_map_position()))
-		GameData.map.release_green_spores(owner.get_map_position())
+		scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
+		GameData.map.release_green_spores(parent.get_map_position())
 		# leave bloodstain
 	if self.bleeds:
 			bleed(blood_colour)
@@ -270,19 +270,19 @@ func die():
 		GameData.player.fighter.xp += xp_earned
 		GameData.broadcast("You gain "+ str(xp_earned) + " XP")
 		# add to list of enemies killed
-		GameData.death_list.append(owner.get_display_name())
+		GameData.death_list.append(parent.get_display_name())
 	# check if enemy drops any items
-	if owner.has_node("Inventory"):
-		var item = owner.get_node("Inventory").drop_item()
+	if parent.has_node("Inventory"):
+		var item = parent.get_node("Inventory").drop_item()
 		var dropped = load(item)
 		var dropped_item = dropped.instance()
 		GameData.map.add_child(dropped_item)
-		dropped_item.set_position(GameData.map.map_to_world(owner.get_map_position()))
-		dropped_item.set_z(GameData.LAYER_ITEM)
+		dropped_item.set_position(GameData.map.map_to_world(parent.get_map_position()))
+		dropped_item.z_index =GameData.LAYER_ITEM
 		GameData.broadcast("The "+corpse+" drops an item")
 		#bleed(blood_colour)
 	# remove the enemy from the screen
-	owner.kill()
+	parent.kill()
 
 func game_over(killer):
 	# Show the death screen
@@ -297,17 +297,17 @@ func bleed(blood_colour):
 	sprite.set_centered(false)
 	sprite.set_texture(blood)
 	GameData.map.add_child(sprite)
-	sprite.set_position(GameData.map.map_to_world(owner.get_map_position()))
-	sprite.set_z(GameData.LAYER_DECAL)
+	sprite.set_position(GameData.map.map_to_world(parent.get_map_position()))
+	sprite.z_index = (GameData.LAYER_DECAL)
 
 func _ready():
-	owner.fighter = self
+	parent.fighter = self
 	self.race = self.race
 	self.xp = self.xp
-	owner.add_to_group('actors')
-	if owner != GameData.player:
+	parent.add_to_group('actors')
+	if parent != GameData.player:
 		hpbar = preload('res://objects/components/Object/HPBar.tscn').instance()
-		owner.call_deferred('add_child', hpbar)
+		parent.call_deferred('add_child', hpbar)
 		connect("hp_changed", self, "_on_hp_changed")
 
 func _set_race(what):
@@ -326,7 +326,7 @@ func _set_hp(what):
 	hp = clamp(what, 0, self.max_hp)
 	emit_signal('hp_changed', hp, self.max_hp)
 	if hp <= 0:
-		GameData.broadcast(owner.get_display_name()+ " is slain!", GameData.COLOUR_TEAL)
+		GameData.broadcast(parent.get_display_name()+ " is slain!", GameData.COLOUR_TEAL)
 		die()
 
 func _set_max_hp(what):
@@ -344,13 +344,13 @@ func confused(num):
 
 func poisoned(num):
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0,1,0,1))
-	GameData.broadcast(owner.get_display_name() + " is poisoned", GameData.COLOUR_POISON_GREEN)
+	GameData.broadcast(parent.get_display_name() + " is poisoned", GameData.COLOUR_POISON_GREEN)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Poisoned")
 	apply_status_effect('poisoned', num)
 
 func paralysed():
 	GameData.player.get_node('Glyph').add_color_override("default_color", Color(0.44, 0.5, 0.56, 1))
-	GameData.broadcast(owner.get_display_name() + " is paralysed", GameData.COLOUR_SLATE_GREY)
+	GameData.broadcast(parent.get_display_name() + " is paralysed", GameData.COLOUR_SLATE_GREY)
 	get_node('/root/Game/frame/right/StatusMessage').set_text("Paralysed")
 	apply_status_effect('paralysed', 5)
 

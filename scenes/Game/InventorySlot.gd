@@ -8,7 +8,7 @@ func add_contents(what):
 	update_slot()
 
 func remove_contents(what):
-	contents.remove_and_collide(contents.find(what))
+	contents.remove(contents.find(what))
 	what.item.inventory_slot = null
 	update_slot()
 
@@ -44,6 +44,6 @@ func show_unequipped_armour():
 	get_node('EQ_armour').hide()
 
 func _ready():
-	connect("mouse_enter", get_parent(), "_on_slot_mouse_enter", [self])
-	connect("mouse_exit", get_parent(), "_on_slot_mouse_exit")
+	connect("mouse_entered", get_parent(), "_on_slot_mouse_enter", [self])
+	connect("mouse_exited", get_parent(), "_on_slot_mouse_exit")
 	connect("pressed", get_parent(), "_on_InventorySlot_pressed", [self])

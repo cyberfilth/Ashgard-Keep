@@ -70,7 +70,7 @@ func moon_phase(month, day, year):
 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 	if day == 31:
 		day = 1
-	var days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (year < 1900)) % 30)
+	var days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (int(year < 1900))) % 30)
 	var index = int((days_into_phase + 2) * 16/59.0)
 	if index > 7:
 		index = 7
@@ -168,7 +168,7 @@ func save_game():
 	for node in get_tree().get_nodes_in_group('inventory'):
 		data.inventory.append(node.save())
 	# Store data and close file
-	file.store_line(data.to_json())
+	file.store_line(JSON.print(data))
 	file.close()
 	# Return OK if all goes well
 	return opened

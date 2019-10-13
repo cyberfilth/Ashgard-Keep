@@ -47,7 +47,7 @@ func clean_dirty_cells():
 						if map.are_points_connected(id,nid):
 							map.disconnect_points(id,nid)
 		# remove the cell off the list
-		cells.remove_and_collide(0)
+		cells.remove(0)
 		dirty_cells.erase(cell)
 		
 

@@ -2,21 +2,21 @@
 
 extends Node
 
-onready var owner = get_parent()
+onready var parent = get_parent()
 
 func _ready():
-	owner.ai = self
+	parent.ai = self
 
 func take_turn():
-	if owner.fighter.has_status_effect('confused'):
+	if parent.fighter.has_status_effect('confused'):
 		wander()
 	var target = GameData.player
-	var distance = owner.distance_to(target.get_map_position())
+	var distance = parent.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 1):
 		if distance <= 1:
-			owner.fighter.fight(target)
+			parent.fighter.fight(target)
 		else:
-			owner.step_to(target.get_map_position())
+			parent.step_to(target.get_map_position())
 	else:
 		wander()
 
@@ -26,4 +26,4 @@ func wander():
 	var LEFT = randi()%2
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
-	owner.step(dir)
+	parent.step(dir)

@@ -89,21 +89,30 @@
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal3.png" type="Texture" id=87]
 [ext_resource path="res://graphics/dungeon/floorsx24/bog_green3.png" type="Texture" id=88]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_0.png" type="Texture" id=89]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_0.png" type="Texture" id=90]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0.png" type="Texture" id=90]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_1.png" type="Texture" id=91]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_1.png" type="Texture" id=92]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_1.png" type="Texture" id=92]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_2.png" type="Texture" id=93]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_2.png" type="Texture" id=94]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_2.png" type="Texture" id=94]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_3.png" type="Texture" id=95]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_3.png" type="Texture" id=96]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_3.png" type="Texture" id=96]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_4.png" type="Texture" id=97]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_4.png" type="Texture" id=98]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_4.png" type="Texture" id=98]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_6.png" type="Texture" id=99]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_6.png" type="Texture" id=100]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_6.png" type="Texture" id=100]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_7.png" type="Texture" id=101]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0_7.png" type="Texture" id=102]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_7.png" type="Texture" id=102]
 [ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_1_0.png" type="Texture" id=103]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_1_0.png" type="Texture" id=104]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_5.png" type="Texture" id=104]
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="ImageTexture" id=1]
 

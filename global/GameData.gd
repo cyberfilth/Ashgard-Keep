@@ -27,7 +27,7 @@ const LAYER_ACTOR = 2
 const LAYER_FX = 3
 
 # Counter for player moves
-var player_moves
+var player_moves = 0
 
 var player_data = {}
 
@@ -41,14 +41,14 @@ var player_radius = 5
 # Keep original value when using stealth potion
 var original_player_radius
 # Distance the player can see
-var player_view
+var player_view = 5
 # 'Hunger clock'
-var getting_dimmer # 0 - off, 1 - dimmer, 2 - dark
-var torch_timer
+var getting_dimmer = 0 # 0 - off, 1 - dimmer, 2 - dark
+var torch_timer = 0
 var light_circle
-var colr
-var colg
-var colb
+var colr = 0 
+var colg = 0
+var colb = 0
 ##########################################################
 
 # Dungeon map parameters
@@ -122,8 +122,8 @@ func set_dungeon_theme():
 	for i in range(temp_array2.size()):
 		var x = randi()%temp_list.size()
 		dungeon_theme_array.append(temp_array2[x])
-		temp_list.remove_and_collide(x)
-		temp_array2.remove_and_collide(x)
+		temp_list.remove(x)
+		temp_array2.remove(x)
 	return
 
 func set_enemy_theme():

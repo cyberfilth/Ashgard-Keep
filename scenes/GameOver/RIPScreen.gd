@@ -8,7 +8,7 @@ func _ready():
 	# Delete saved game
 	var dir = Directory.new()
 	if dir.file_exists(GameData.SAVEGAME_PATH):
-		dir.remove_and_collide(GameData.SAVEGAME_PATH)
+		dir.remove(GameData.SAVEGAME_PATH)
 	# Get list if all enemies killed
 	var list_string = ""
 	for i in range(0,GameData.death_list.size()):

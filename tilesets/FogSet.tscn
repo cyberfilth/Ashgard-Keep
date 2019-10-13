@@ -4,8 +4,6 @@
 
 [node name="FogSet" type="Node"]
 
-
 [node name="Fog" type="Sprite" parent="."]
-
 texture = ExtResource( 1 )
 offset = Vector2( -3, -3 )

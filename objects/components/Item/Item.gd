@@ -2,7 +2,7 @@ extends Node
 
 signal landed(pos)
 
-onready var owner = get_parent()
+onready var parent = get_parent()
 
 export(String,\
 	'heal_player', 'damage_nearest',\
@@ -47,32 +47,32 @@ func restore(data):
 
 func use(slot):
 	if use_function.empty():
-		GameData.broadcast(owner.get_display_name() + " cannot be used", GameData.COLOUR_TEAL)
+		GameData.broadcast(parent.get_display_name() + " cannot be used", GameData.COLOUR_TEAL)
 		return
 	if has_method(use_function):
 		call(use_function, slot)
 
 func pickup():
-	var result = GameData.inventory.add_to_inventory(owner)
+	var result = GameData.inventory.add_to_inventory(parent)
 	return result
 
 func drop():
 	assert inventory_slot != null
-	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,owner)
+	GameData.inventory.check_if_can_remove_from_inventory(inventory_slot,parent)
 
 func throw(slot):
 	# Check if item can be thrown
 	if self.throw_range <= 0:
 		GameData.broadcast("You cannot throw that!")
 		return
-	if owner.has_node("Weapon"):
+	if parent.has_node("Weapon"):
 		if self.equipped == true:
 			GameData.broadcast('Unequip a weapon before throwing it')
 			return
-	if owner.has_node("Torch"):
+	if parent.has_node("Torch"):
 			GameData.broadcast('You cannot throw away your torch, your life depends in it!')
 			return
-	if owner.has_node("Armour"):
+	if parent.has_node("Armour"):
 		if self.equipped == true:
 			GameData.broadcast('Unequip armour before throwing it')
 			return
@@ -87,7 +87,7 @@ func throw(slot):
 		GameData.in_use = false
 		return
 	else:
-		GameData.broadcast("You throw " + owner.get_display_name())
+		GameData.broadcast("You throw " + parent.get_display_name())
 		drop()
 		var path = FOVGen.get_line(GameData.player.get_map_position(), cell)
 		if not path.empty():
@@ -105,18 +105,18 @@ func throw(slot):
 				tpath.resize(self.throw_range+1)
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
-			var target_cell = owner.get_map_position()
+			var target_cell = parent.get_map_position()
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target and target != GameData.player:
 				if self.throw_damage > 0:
-					target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
+					target.fighter.take_damage(parent.get_display_name(), self.throw_damage)
 		GameData.player.emit_signal('object_acted')
 		GameData.in_use = false
 
 func npc_throw(npc, npc_pos):
 		var cell = GameData.player.get_map_position()
-		GameData.broadcast(npc+ " throws " + owner.get_display_name())
-		var path = FOVGen.get_line(owner.get_map_position(), cell)
+		GameData.broadcast(npc+ " throws " + parent.get_display_name())
+		var path = FOVGen.get_line(parent.get_map_position(), cell)
 		if not path.empty():
 			var tpath = []
 			for cell in path:
@@ -132,19 +132,19 @@ func npc_throw(npc, npc_pos):
 				tpath.resize(self.throw_range+1)
 			self.throw_path = tpath
 			var done = yield(self, 'landed')
-			var target_cell = owner.get_map_position()
+			var target_cell = parent.get_map_position()
 			var target = GameData.map.get_actor_in_cell(target_cell)
 			if target:
 				if self.throw_damage > 0:
 					# chance of a miss
 					var miss_chance = randi()%3
 					if miss_chance == 1:
-						GameData.broadcast(owner.get_display_name()+" misses you")
+						GameData.broadcast(parent.get_display_name()+" misses you")
 					else:
-						target.fighter.take_damage(owner.get_display_name(), self.throw_damage)
+						target.fighter.take_damage(parent.get_display_name(), self.throw_damage)
 
 func _ready():
-	owner.item = self
+	parent.item = self
 
 # USE FUNCTIONS
 func heal_player(slot):
@@ -152,7 +152,7 @@ func heal_player(slot):
 	if GameData.player.fighter.is_hp_full():
 		GameData.use_item = "You're already at full health"
 		return
-	GameData.player.fighter.heal_damage(owner.get_display_name(), amount)
+	GameData.player.fighter.heal_damage(parent.get_display_name(), amount)
 	GameData.use_item = "OK"
 	GameData.inventory.after_item_used(slot)
 
@@ -227,7 +227,7 @@ func weapon(slot):
 		equip_weapon(weapon)
 
 func unequip_weapon(weapon):
-	var weapon_name = owner.get_display_name()
+	var weapon_name = parent.get_display_name()
 	inventory_slot.show_unequipped_weapon()
 	## Update GUI ##
 	var equipped_weapon = get_node('/root/Game/frame/right/Activity/box/weaponName')
@@ -240,8 +240,8 @@ func unequip_weapon(weapon):
 	weapon.unequip(weapon_name, dice, adds)
 
 func equip_weapon(weapon):
-	var weapon_name = owner.get_display_name()
-	GameData.weapon_in_use = owner
+	var weapon_name = parent.get_display_name()
+	GameData.weapon_in_use = parent
 	GameData.weapon_slot = inventory_slot
 	GameData.weapon_name = weapon_name
 	GameData.weapon_type = weapon.type
@@ -269,7 +269,7 @@ func armour(slot):
 		GameData.use_item = "Equipped"
 
 func unequip_armour(armour):
-	var armour_name = owner.get_display_name()
+	var armour_name = parent.get_display_name()
 	inventory_slot.show_unequipped_armour()
 	## Update GUI ##
 	var equipped_armour = get_node('/root/Game/frame/right/Activity/box/armourName')
@@ -281,7 +281,7 @@ func unequip_armour(armour):
 	armour.unequip(armour_name, armour_protection)
 
 func equip_armour(armour):
-	var armour_name = owner.get_display_name()
+	var armour_name = parent.get_display_name()
 	## Update GUI ##
 	inventory_slot.show_equipped_armour()
 	var equipped_armour = get_node('/root/Game/frame/right/Activity/box/armourName')
@@ -338,12 +338,12 @@ func read(slot):
 
 func _process(delta):
 	if throw_path.empty():
-		emit_signal('landed', owner.get_map_position())
+		emit_signal('landed', parent.get_map_position())
 		set_process(false)
 	else:
 		var i = min(throw_path.size()-1, 1)
-		owner.set_map_position(throw_path[i], true)
-		throw_path.remove_and_collide(0)
+		parent.set_map_position(throw_path[i], true)
+		throw_path.remove(0)
 
 func _set_throw_path(what):
 	throw_path = what
