@@ -79,9 +79,9 @@ func draw_map():
 			var tile = datamap[x][y]
 			var idx = -1
 			if tile == 0: # Floor
-				idx = GameData.roll(family[0][0],family[0][1])
-			elif tile == 1:
-				idx = GameData.roll(family[1][0],family[1][1])
+				idx = family[0][GameData.roll(0,family[0].size()-1)]
+			elif tile == 1 :# Wall
+				idx = family[1][GameData.roll(0,family[1].size()-1)]
 			set_cell(x,y,idx)
 
 # Return True if cell is a wall
