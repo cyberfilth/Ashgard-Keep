@@ -158,138 +158,105 @@ vertices = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=5]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=6]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=7]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=8]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=9]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=10]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=11]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=12]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=13]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=14]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=15]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=16]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=17]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=18]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=19]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=20]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=21]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=22]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=23]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=24]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=25]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=26]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=27]
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=28]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=29]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=30]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=31]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=32]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=33]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=34]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=35]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [sub_resource type="OccluderPolygon2D" id=36]
-cull_mode = 1
 polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [resource]
