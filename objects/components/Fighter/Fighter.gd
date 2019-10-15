@@ -218,7 +218,7 @@ func broadcast_miss(target, from):
 func die():
 	if object_owner == GameData.player:
 		game_over(killer)
-	var corpse = get_parent().name
+	var corpse = get_parent().object_name
 	# Release cloud of gas if poison zombie killed
 	if corpse == "Diseased zombie":
 		var gas_cloud = load("res://objects/monsters/undead/poison_cloud.tscn")

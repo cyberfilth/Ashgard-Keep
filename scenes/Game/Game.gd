@@ -19,7 +19,7 @@ func new_game():
 	GameData.map.new_map()
 	GameData.death_list = []
 	spawn_player(DungeonGen.start_pos)
-	GameData.player.name = PlotGen.username
+	GameData.player.object_name = PlotGen.username
 	# Add starting equipment
 	#torch
 	GameData.map.spawn_object('items/torch/torch', DungeonGen.start_pos)
@@ -54,7 +54,7 @@ func new_game():
 	date_string = str(("\n\nIt is " + GameData.TROLL_DAY[dayofweek] + ", the " + str(date_num) + suffix + " day of " + GameData.TROLL_MONTH[month_num]))
 	GameData.broadcast(date_string)
 	GameData.broadcast(moon_description)
-	GameData.broadcast("You, "+GameData.player.name+", have entered the Keep.... Good Luck!")
+	GameData.broadcast("You, "+GameData.player.object_name+", have entered the Keep.... Good Luck!")
 
 func moon_phase(month, day, year):
 	var ages = [18, 0, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7]
@@ -103,7 +103,7 @@ func load_new_level():
 	GameData.set_enemy_theme()
 	GameData.map.new_map()
 	spawn_player(DungeonGen.start_pos)
-	GameData.player.name = GameData.lvlname
+	GameData.player.object_name = GameData.lvlname
 	GameData.player.fighter.character_level = GameData.lvlcharacter_level
 	GameData.player.fighter.attack = GameData.lvlattack
 	GameData.player.fighter.defence = GameData.lvldefence
@@ -245,7 +245,7 @@ func restore_game():
 			# Clear status messages
 			GameData.clear_messages()
 			# Welcome message
-			GameData.broadcast("\n\nWelcome back "+GameData.player.name+"...")
+			GameData.broadcast("\n\nWelcome back "+GameData.player.object_name+"...")
 	# close file and return status
 	file.close()
 	# build a Pathfinding map
@@ -262,7 +262,7 @@ func spawn_player(cell):
 	var ob = GameData.player
 
 	ob.connect("name_changed", GameData.game.playerinfo, "name_changed")
-	ob.emit_signal("name_changed", ob.name)
+	ob.emit_signal("name_changed", ob.object_name)
 	ob.fighter.connect("race_changed", GameData.game.playerinfo, "race_changed")
 	ob.fighter.emit_signal("race_changed", ob.fighter.race)
 	ob.fighter.connect("attack_changed", GameData.game.playerinfo, "attack_changed")
