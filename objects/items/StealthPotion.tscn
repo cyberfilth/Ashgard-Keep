@@ -6,51 +6,29 @@
 [ext_resource path="res://objects/components/Item/Item.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
-
-visibility/blend_mode = 1
 script = ExtResource( 1 )
 object_name = "Potion of Stealth"
 proper_name = true
-blocks_movement = false
 stay_visible = true
-trap = false
 
 [node name="Light2D" type="Light2D" parent="."]
-
 position = Vector2( 12, 17 )
-enabled = true
-editor_only = false
 texture = ExtResource( 2 )
-offset = Vector2( 0, 0 )
-scale = 8.0
+texture_scale = 8.0
 color = Color( 0.917969, 0.0215149, 0.882951, 1 )
 energy = 1.5
-mode = 0
 range_height = 30.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow/esm_multiplier = 80.0
-shadow_item_cull_mask = 1
 
 [node name="Sprite" type="Sprite" parent="."]
-
-visibility/blend_mode = 1
 texture = ExtResource( 3 )
 centered = false
 
 [node name="Item" parent="." instance=ExtResource( 4 )]
-
 use_function = "stealth"
 effect_name = "Sneaky juice"
 param1 = 19
 throw_range = 3
 
 [node name="Brand" type="Sprite" parent="."]
-
 centered = false
