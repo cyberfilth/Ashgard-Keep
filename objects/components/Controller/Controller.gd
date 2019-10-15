@@ -67,19 +67,19 @@ func _process(delta):
 	handle_input()
 
 func handle_input():
-	var N = Input.is_action_pressed('step_N')
-	var NE = Input.is_action_pressed('step_NE')
-	var E = Input.is_action_pressed('step_E')
-	var SE = Input.is_action_pressed('step_SE')
-	var S = Input.is_action_pressed('step_S')
-	var SW = Input.is_action_pressed('step_SW')
-	var W = Input.is_action_pressed('step_W')
-	var NW = Input.is_action_pressed('step_NW')
-	var WAIT = Input.is_action_pressed('step_WAIT')
+	var N = Input.is_action_just_pressed('step_N')
+	var NE = Input.is_action_just_pressed('step_NE')
+	var E = Input.is_action_just_pressed('step_E')
+	var SE = Input.is_action_just_pressed('step_SE')
+	var S = Input.is_action_just_pressed('step_S')
+	var SW = Input.is_action_just_pressed('step_SW')
+	var W = Input.is_action_just_pressed('step_W')
+	var NW = Input.is_action_just_pressed('step_NW')
+	var WAIT = Input.is_action_just_pressed('step_WAIT')
 	
-	var GRAB = Input.is_action_pressed('act_GRAB')
-	var DROP = Input.is_action_pressed('act_DROP')
-	var THROW = Input.is_action_pressed('act_THROW')
+	var GRAB = Input.is_action_just_pressed('act_GRAB')
+	var DROP = Input.is_action_just_pressed('act_DROP')
+	var THROW = Input.is_action_just_pressed('act_THROW')
 	# Status effects
 	if object_owner.fighter.has_status_effect('confused'):
 		if N || NE || E || SE || S || SW || W || NW || WAIT:
