@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 12, 12 )
 texture = ExtResource( 2 )
+texture_scale = 8.0
 color = Color( 0.984375, 0.0115356, 0.148341, 1 )
 energy = 2.0
 range_height = 30.0
@@ -18,7 +19,6 @@ shadow_enabled = true
 [node name="blood_particles" type="Particles2D" parent="."]
 position = Vector2( 11.9707, 11.0001 )
 z_index = 2
-emitting = false
 amount = 20
 lifetime = 2.0
 speed_scale = 2.0

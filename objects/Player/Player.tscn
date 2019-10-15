@@ -37,10 +37,9 @@ script = ExtResource( 4 )
 [node name="Torch" type="Light2D" parent="."]
 position = Vector2( 12, 12 )
 texture = ExtResource( 5 )
-energy = 2.0
+texture_scale = 13.5
 range_height = 64.9
 shadow_enabled = true
-shadow_buffer_size = 128
 script = ExtResource( 6 )
 
 [node name="Fighter" parent="." instance=ExtResource( 7 )]

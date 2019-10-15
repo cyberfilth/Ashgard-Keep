@@ -1,20 +1,20 @@
 extends Node
 
 # Dungeon tiles
-const WALL_SANDSTONE = [0, 9]
-const WALL_BRICK_DARK = [20, 26]
-const WALL_STONE_GREY = [34, 37]
-const WALL_ASCII = [66, 66]
-const WALL_SLIME_STONE = [68, 71]
-const WALL_BRICK_BROWN = [76, 83]
+const WALL_SANDSTONE = [73, 74,75,76,77,78,79,80,81,82]
+const WALL_BRICK_DARK = [65, 66,67,68,69,70,71]
+const WALL_STONE_GREY = [87, 88,89, 90]
+const WALL_ASCII = [72, 72]
+const WALL_SLIME_STONE = [83, 84,85,86]
+const WALL_BRICK_BROWN = [57, 58,59,60,61,62,63,64]
 
-const FLOOR_SANDSTONE = [10, 19]
-const FLOOR_BRICK_DARK = [27, 33]
-const FLOOR_COBBLE_BLOOD = [38, 49]
-const FLOOR_GREEN_SLABS = [50, 65]
-const FLOOR_ASCII = [67,67]
-const FLOOR_BOG_GREEN = [72, 75]
-const FLOOR_MARBLE_BROWN = [84, 91]
+const FLOOR_SANDSTONE = [30,31,32,33,34,35,36,37,38, 39]
+const FLOOR_BRICK_DARK = [15, 16,17,18,19,20,21]
+const FLOOR_COBBLE_BLOOD = [4, 5,6,7,8,9,10,11,12,13,14,91]
+const FLOOR_GREEN_SLABS = [40, 41,42,42,44,45,46,47,48,49,50,51,52,53,54,55]
+const FLOOR_ASCII = [56,56]
+const FLOOR_BOG_GREEN = [0,1,2, 3]
+const FLOOR_MARBLE_BROWN = [22, 23,24,25,26,27,28,29]
 
 # Darkness families
 var DARKNESS1 = Color( 0.27, 0.27, 0.27, 1 )
@@ -60,7 +60,7 @@ tileset = FAMILY6,
 darkness = DARKNESS3
 },
 { # 7 - ASCII tiles - used for testing only
-tileset = FAMILY6,
+tileset = FAMILY7,
 darkness = DARKNESS3
 }
 ]

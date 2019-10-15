@@ -29,6 +29,7 @@ centered = false
 position = Vector2( 18.3723, 16.2109 )
 texture = ExtResource( 4 )
 offset = Vector2( 6, -3 )
+texture_scale = 3.0
 color = Color( 0.495178, 0.835061, 0.953125, 1 )
 energy = 5.0
 range_height = 50.0

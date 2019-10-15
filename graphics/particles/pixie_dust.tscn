@@ -4,66 +4,21 @@
 [ext_resource path="res://graphics/lights/torch.png" type="Texture" id=2]
 [ext_resource path="res://graphics/particles/portal_spark.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=1]
-
-offsets = PoolRealArray( 0, 0.0233918, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.892186, 0.0982666, 0.898438, 1, 0.921875, 0.471741, 0.914842, 1 )
-
 [node name="pixie_dust" type="Node2D"]
-
 script = ExtResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-
 position = Vector2( 12, 12 )
-enabled = true
-editor_only = false
 texture = ExtResource( 2 )
-offset = Vector2( 0, 0 )
-scale = 8.0
+texture_scale = 8.0
 color = Color( 0.984375, 0.0115356, 0.946373, 1 )
 energy = 2.0
-mode = 0
 range_height = 30.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow/esm_multiplier = 80.0
-shadow_item_cull_mask = 1
 
 [node name="pixie_sparkles" type="Particles2D" parent="."]
-
 position = Vector2( 11.9707, 11.0001 )
 z_index = 2
 amount = 20
-lifetime = 1.0
-config/emit_timeout = 1.0
-emitting = false
-config/process_mode = 1
-config/half_extents = Vector2( 12, 12 )
 explosiveness = 0.5
 texture = ExtResource( 3 )
-params/direction = 180.0
-params/spread = 180.0
-params/linear_velocity = 20.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 0.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 2.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/spread = 1.0
-color/color = Color( 0.931593, 0.0192261, 0.984375, 1 )
-color/color_ramp = SubResource( 1 )
