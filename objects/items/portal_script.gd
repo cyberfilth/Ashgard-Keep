@@ -31,7 +31,7 @@ func load_new_level():
 	GameData.colg = 0
 	GameData.colb = 0
 	# Save player info
-	GameData.lvlname = GameData.player.name
+	GameData.lvlname = GameData.player.object_name
 	GameData.lvlcharacter_level = GameData.player.fighter.character_level
 	GameData.lvlattack = GameData.player.fighter.attack
 	GameData.lvldefence = GameData.player.fighter.defence

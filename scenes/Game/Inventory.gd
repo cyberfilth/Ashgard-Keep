@@ -17,7 +17,7 @@ func get_free_slot():
 func get_matching_slot(item):
 	for node in get_children():
 		if not node.contents.empty():
-			if node.contents[0].name == item.name:
+			if node.contents[0].object_name == item.object_name:
 				return node
 
 # add an item to an inventoryslot

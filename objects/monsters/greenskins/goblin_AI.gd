@@ -7,7 +7,7 @@ onready var new_name = PlotGen.npc_greenskin1
 
 func _ready():
 	object_owner.ai = self
-	object_owner.get_node(".").name = new_name
+	object_owner.get_node(".").object_name = new_name
 
 func take_turn():
 	if object_owner.fighter.has_status_effect('confused'):
