@@ -102,9 +102,9 @@ func center(rect):
 	var y = int(rect.size.y / 2)
 	return Vector2(rect.position.x+x, rect.position.y+y)
 
- # Try and fit in prefab rooms or fall back to
- # filling a rectangle of the map with floor cells
- # leaving a 1-tile border along edges
+# Try and fit in prefab rooms or fall back to
+# filling a rectangle of the map with floor cells
+# leaving a 1-tile border along edges
 func carve_room(rect):
 	if rect.size.x == 13 && rect.size.y == 13:
 		prefab_room = PREFAB_13x13

@@ -2,15 +2,15 @@ extends Node
 
 # Name for evil mage
 const MAGE_FIRSTNAME = ['A', 'Ag', 'Ar', 'Ara', 'Anu', 'Bal', 'Bil', 'Boro', 'Bern', 'Bra', 'Cas', 'Cere', 'Co', 'Con',
-    'Cor', 'Dag', 'Doo', 'Elen', 'El', 'En', 'Eo', 'Faf', 'Fan', 'Fara', 'Fre', 'Fro', 'Ga', 'Gala', 'Has', 
-    'He', 'Heim', 'Ho', 'Isil', 'In', 'Ini', 'Is', 'Ka', 'Kuo', 'Lance', 'Lo', 'Ma', 'Mag', 'Mi', 'Mo', 
-    'Moon', 'Mor', 'Mora', 'Nin', 'O', 'Obi', 'Og', 'Pelli', 'Por', 'Ran', 'Rud', 'Sam',  'She', 'Sheel', 
-    'Shin', 'Shog', 'Son', 'Sur', 'Theo', 'Tho', 'Tris', 'U', 'Uh', 'Ul', 'Vap', 'Vish', 'Vor', 'Ya', 'Yo', 'Yyr']
+	'Cor', 'Dag', 'Doo', 'Elen', 'El', 'En', 'Eo', 'Faf', 'Fan', 'Fara', 'Fre', 'Fro', 'Ga', 'Gala', 'Has', 
+	'He', 'Heim', 'Ho', 'Isil', 'In', 'Ini', 'Is', 'Ka', 'Kuo', 'Lance', 'Lo', 'Ma', 'Mag', 'Mi', 'Mo', 
+	'Moon', 'Mor', 'Mora', 'Nin', 'O', 'Obi', 'Og', 'Pelli', 'Por', 'Ran', 'Rud', 'Sam',  'She', 'Sheel', 
+	'Shin', 'Shog', 'Son', 'Sur', 'Theo', 'Tho', 'Tris', 'U', 'Uh', 'Ul', 'Vap', 'Vish', 'Vor', 'Ya', 'Yo', 'Yyr']
 const MAGE_SECONDNAME = ['ba', 'bis', 'bo', 'bus', 'da', 'dal', 'dagz', 'den', 'di', 'dil', 'dinn', 'do', 'dor', 'dra', 
-    'dur', 'gi', 'gauble', 'gen', 'glum', 'go', 'gorn', 'goth', 'had', 'hard', 'is', 'karrl', 'ki', 'koon', 'ku', 
-    'lad', 'ler', 'li', 'lot', 'ma', 'man', 'mir', 'mus', 'nan', 'ni', 'nor', 'nu', 'pian', 'ra', 'rakh', 
-    'ric', 'rin', 'rum', 'rus', 'rut', 'sekh', 'sha', 'thos', 'thur', 'toa', 'tu', 'tur', 'tred', 'varl',
-    'wain', 'wan', 'win', 'wise', 'ya']
+	'dur', 'gi', 'gauble', 'gen', 'glum', 'go', 'gorn', 'goth', 'had', 'hard', 'is', 'karrl', 'ki', 'koon', 'ku', 
+	'lad', 'ler', 'li', 'lot', 'ma', 'man', 'mir', 'mus', 'nan', 'ni', 'nor', 'nu', 'pian', 'ra', 'rakh', 
+	'ric', 'rin', 'rum', 'rus', 'rut', 'sekh', 'sha', 'thos', 'thur', 'toa', 'tu', 'tur', 'tred', 'varl',
+	'wain', 'wan', 'win', 'wise', 'ya']
 const TITLE = [' the Ancient',' the Polluted',' the Insane',' the Betrayer',' the Afflicted',' the Slayer',' the Broken',\
 	' the Reviled',' the Conqueror',' the Unwise',' the Malignant',' the Aged',' the Impure',' the Mad',' the Tyrant',\
 	' the Vain',' the Destroyer',' the Hateful',' the Scourge',' the Bloody']
