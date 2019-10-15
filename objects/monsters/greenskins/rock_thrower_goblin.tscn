@@ -9,7 +9,7 @@
 [node name="Object" type="Node2D"]
 
 script = ExtResource( 1 )
-name = "Goblin"
+object_name = "Goblin"
 proper_name = true
 named_name = false
 blocks_movement = true

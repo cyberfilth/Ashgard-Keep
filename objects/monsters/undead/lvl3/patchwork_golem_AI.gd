@@ -2,30 +2,30 @@
 
 extends Node
 
-onready var parent = get_parent()
+onready var object_owner = get_parent()
 var seen = false # Changes to true when the golem first sees the player
 var utterances = ['Ugh!', 'F-Friend?', 'Raaaar', 'You.. belong... Dead!', 'Uugh!']
 
 func _ready():
-	parent.ai = self
+	object_owner.ai = self
 
 func take_turn():
-	if parent.fighter.has_status_effect('confused'):
+	if object_owner.fighter.has_status_effect('confused'):
 		wander()
 	
 	var target = GameData.player
-	var distance = parent.distance_to(target.get_map_position())
+	var distance = object_owner.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 3):
 		if seen == false:
 			grunt()
 		if distance <= 1:
-			parent.fighter.fight(target)
+			object_owner.fighter.fight(target)
 		else:
 			# flip a coin to see if golem gets
 			# distracted whilst chasing player
 			var attention = randi()%2
 			if attention == 1:
-				parent.step_to(target.get_map_position())
+				object_owner.step_to(target.get_map_position())
 
 func grunt():
 	var chance_to_grunt = randi()%4
@@ -44,4 +44,4 @@ func wander():
 	var LEFT = randi()%2
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
-	parent.step(dir)
+	object_owner.step(dir)

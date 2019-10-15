@@ -5,7 +5,7 @@ signal name_changed(what)
 signal object_moved(me)
 signal object_acted()
 
-export(String, MULTILINE) var ob_name = "OBJECT" setget _set_name
+export(String, MULTILINE) var object_name = "OBJECT" setget _set_name #Object name
 
 export(bool) var proper_name = false
 export(bool) var named_name = false # i.e. Kevin the troll, removes the 'A' prefix
@@ -23,7 +23,7 @@ var ai
 
 func save():
 	var data = {}
-	data.ob_name = self.ob_name
+	data.object_name = self.object_name
 	data.proper_name = self.proper_name
 	data.filename = get_filename()
 	var pos = get_map_position()
@@ -37,8 +37,8 @@ func save():
 	return data
 
 func restore(data, on_map=true):
-	if 'ob_name' in data:
-		self.ob_name = data.ob_name
+	if 'object_name' in data:
+		self.object_name = data.object_name
 	if 'proper_name' in data:
 		self.proper_name = data.proper_name
 	if 'discovered' in data:
@@ -57,13 +57,13 @@ func restore(data, on_map=true):
 
 func get_display_name():
 	if self.proper_name:
-		# Return ob_name if proper noun
-		return self.ob_name.capitalize()
+		# Return object_name if proper noun
+		return self.object_name.capitalize()
 	var pre = "A "
-	# "An" if first the letter in ob_name is a vowel
-	if self.ob_name[0].to_lower() in ['a','e','i','o','u']:
+	# "An" if first the letter in object_name is a vowel
+	if self.object_name[0].to_lower() in ['a','e','i','o','u']:
 		pre = "An "
-	return pre + self.ob_name
+	return pre + self.object_name
 
 func kill():
 	if GameData.player != self:
@@ -148,8 +148,8 @@ func _ready():
 		z_index =GameData.LAYER_ITEM
 
 func _set_name(what):
-	ob_name = what
-	emit_signal('name_changed', ob_name)
+	object_name = what
+	emit_signal('name_changed', object_name)
 
 
 func _set_seen(what):

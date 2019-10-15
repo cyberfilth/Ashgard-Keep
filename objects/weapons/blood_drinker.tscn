@@ -9,7 +9,7 @@
 [node name="Object" type="Node2D"]
 
 script = ExtResource( 1 )
-name = "Blood drinker"
+object_name = "Blood drinker"
 proper_name = true
 blocks_movement = false
 stay_visible = true

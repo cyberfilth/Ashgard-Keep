@@ -2,30 +2,30 @@
 
 extends Node
 
-onready var parent = get_parent()
+onready var object_owner = get_parent()
 
 var warning_message = ['The demonic Hell puppy begins to growl',\
 	'Hell puppy bares its teeth then launches itself at you',\
 	'The Hell puppy begins wagging its tail and growling', 'The Hell puppy howls then charges towards you']
 
 func _ready():
-	parent.ai = self
+	object_owner.ai = self
 
 func take_turn():
-	if parent.fighter.has_status_effect('confused'):
+	if object_owner.fighter.has_status_effect('confused'):
 		wander()
 	var target = GameData.player
-	var distance = parent.distance_to(target.get_map_position())
-	if parent.fighter.hp <= 9 && distance < 2:
+	var distance = object_owner.distance_to(target.get_map_position())
+	if object_owner.fighter.hp <= 9 && distance < 2:
 		wander()
 	if distance <= (GameData.player_radius - 2):
 		var random_growling = randi()%3
 		if random_growling == 1:
 			flavour_text()
 		if distance <= 1:
-			parent.fighter.fight(target)
+			object_owner.fighter.fight(target)
 		else:
-			parent.step_to(target.get_map_position())
+			object_owner.step_to(target.get_map_position())
 	else:
 		wander()
 
@@ -39,5 +39,5 @@ func wander():
 	var LEFT = randi()%2
 	var RIGHT = randi()%2
 	var dir = Vector2( RIGHT-LEFT, DOWN-UP )
-	parent.step(dir)
+	object_owner.step(dir)
 

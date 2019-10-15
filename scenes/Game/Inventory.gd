@@ -36,7 +36,7 @@ func add_to_inventory(obj):
 	# add to inventory group
 	if !obj.is_in_group('inventory'):
 		obj.add_to_group('inventory')
-	# shift item parent from Map to InventoryObjects
+	# shift item object_owner from Map to InventoryObjects
 	if obj.get_parent() == GameData.map:
 		obj.get_parent().remove_child(obj)
 	objects.add_child(obj)
