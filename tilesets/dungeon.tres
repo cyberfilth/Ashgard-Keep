@@ -1,97 +1,153 @@
-[gd_resource type="TileSet" load_steps=129 format=2]
+[gd_resource type="TileSet" load_steps=185 format=2]
 
-[ext_resource path="res://graphics/dungeon/floorsx24/bog_green0.png" type="Texture" id=1]
-[ext_resource path="res://graphics/dungeon/floorsx24/bog_green1.png" type="Texture" id=2]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood8.png" type="Texture" id=3]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood9.png" type="Texture" id=4]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood10.png" type="Texture" id=5]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood11.png" type="Texture" id=6]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood12.png" type="Texture" id=7]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt0.png" type="Texture" id=8]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt1.png" type="Texture" id=9]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt2.png" type="Texture" id=10]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt3.png" type="Texture" id=11]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt4.png" type="Texture" id=12]
-[ext_resource path="res://graphics/dungeon/floorsx24/bog_green2.png" type="Texture" id=13]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt5.png" type="Texture" id=14]
-[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt6.png" type="Texture" id=15]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0.png" type="Texture" id=16]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_1.png" type="Texture" id=17]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_2.png" type="Texture" id=18]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_3.png" type="Texture" id=19]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_4.png" type="Texture" id=20]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_5.png" type="Texture" id=21]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_6.png" type="Texture" id=22]
-[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_7.png" type="Texture" id=23]
-[ext_resource path="res://graphics/dungeon/floorsx24/bog_green3.png" type="Texture" id=24]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor0.png" type="Texture" id=25]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor1.png" type="Texture" id=26]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor2.png" type="Texture" id=27]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor3.png" type="Texture" id=28]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor4.png" type="Texture" id=29]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor5.png" type="Texture" id=30]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor6.png" type="Texture" id=31]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor7.png" type="Texture" id=32]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor8.png" type="Texture" id=33]
-[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor9.png" type="Texture" id=34]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood1.png" type="Texture" id=35]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab1.png" type="Texture" id=36]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab2.png" type="Texture" id=37]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab3.png" type="Texture" id=38]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab4.png" type="Texture" id=39]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab5.png" type="Texture" id=40]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab6.png" type="Texture" id=41]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab7.png" type="Texture" id=42]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab8.png" type="Texture" id=43]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab9.png" type="Texture" id=44]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab10.png" type="Texture" id=45]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood2.png" type="Texture" id=46]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab11.png" type="Texture" id=47]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab12.png" type="Texture" id=48]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab13.png" type="Texture" id=49]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab14.png" type="Texture" id=50]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab15.png" type="Texture" id=51]
-[ext_resource path="res://graphics/dungeon/floorsx24/slab16.png" type="Texture" id=52]
-[ext_resource path="res://graphics/dungeon/floorsx24/dot.png" type="Texture" id=53]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown0.png" type="Texture" id=54]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown1.png" type="Texture" id=55]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown2.png" type="Texture" id=56]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood3.png" type="Texture" id=57]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown3.png" type="Texture" id=58]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown4.png" type="Texture" id=59]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown5.png" type="Texture" id=60]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown6.png" type="Texture" id=61]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown7.png" type="Texture" id=62]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark0.png" type="Texture" id=63]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark1.png" type="Texture" id=64]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark2.png" type="Texture" id=65]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark3.png" type="Texture" id=66]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark4.png" type="Texture" id=67]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood4.png" type="Texture" id=68]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark5.png" type="Texture" id=69]
-[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark6.png" type="Texture" id=70]
-[ext_resource path="res://graphics/dungeon/wallsx24/hash.png" type="Texture" id=71]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall0.png" type="Texture" id=72]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall1.png" type="Texture" id=73]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall2.png" type="Texture" id=74]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall3.png" type="Texture" id=75]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall4.png" type="Texture" id=76]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall5.png" type="Texture" id=77]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall6.png" type="Texture" id=78]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood5.png" type="Texture" id=79]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall7.png" type="Texture" id=80]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall8.png" type="Texture" id=81]
-[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall9.png" type="Texture" id=82]
-[ext_resource path="res://graphics/dungeon/wallsx24/slime0.png" type="Texture" id=83]
-[ext_resource path="res://graphics/dungeon/wallsx24/slime1.png" type="Texture" id=84]
-[ext_resource path="res://graphics/dungeon/wallsx24/slime2.png" type="Texture" id=85]
-[ext_resource path="res://graphics/dungeon/wallsx24/slime3.png" type="Texture" id=86]
-[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray0.png" type="Texture" id=87]
-[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray1.png" type="Texture" id=88]
-[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray2.png" type="Texture" id=89]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood7.png" type="Texture" id=90]
-[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray3.png" type="Texture" id=91]
-[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood6.png" type="Texture" id=92]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal0.png" type="Texture" id=1]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green0.png" type="Texture" id=2]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal1.png" type="Texture" id=3]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green1.png" type="Texture" id=4]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood8_normal.png" type="Texture" id=5]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood8.png" type="Texture" id=6]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood9_normal.png" type="Texture" id=7]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood9.png" type="Texture" id=8]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood10_normal.png" type="Texture" id=9]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood10.png" type="Texture" id=10]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood11_normal.png" type="Texture" id=11]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood11.png" type="Texture" id=12]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood12_normal.png" type="Texture" id=13]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood12.png" type="Texture" id=14]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt0_normal.png" type="Texture" id=15]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt0.png" type="Texture" id=16]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt1_normal.png" type="Texture" id=17]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt1.png" type="Texture" id=18]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt2.png" type="Texture" id=19]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt3_normal.png" type="Texture" id=20]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt3.png" type="Texture" id=21]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt4_normal.png" type="Texture" id=22]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt4.png" type="Texture" id=23]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal2.png" type="Texture" id=24]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green2.png" type="Texture" id=25]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt5_normal.png" type="Texture" id=26]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt5.png" type="Texture" id=27]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/grey_dirt6_normal.png" type="Texture" id=28]
+[ext_resource path="res://graphics/dungeon/floorsx24/grey_dirt6.png" type="Texture" id=29]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_0.png" type="Texture" id=30]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_0.png" type="Texture" id=31]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_1.png" type="Texture" id=32]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_1.png" type="Texture" id=33]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_2.png" type="Texture" id=34]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_2.png" type="Texture" id=35]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_3.png" type="Texture" id=36]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_3.png" type="Texture" id=37]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_4.png" type="Texture" id=38]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_4.png" type="Texture" id=39]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_1_0.png" type="Texture" id=40]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_5.png" type="Texture" id=41]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_6.png" type="Texture" id=42]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_6.png" type="Texture" id=43]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/marble_floor_normal_0_7.png" type="Texture" id=44]
+[ext_resource path="res://graphics/dungeon/floorsx24/marble_floor_7.png" type="Texture" id=45]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/bog_green_normal3.png" type="Texture" id=46]
+[ext_resource path="res://graphics/dungeon/floorsx24/bog_green3.png" type="Texture" id=47]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor0_normal.png" type="Texture" id=48]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor0.png" type="Texture" id=49]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor1_normal.png" type="Texture" id=50]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor1.png" type="Texture" id=51]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor2_normal.png" type="Texture" id=52]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor2.png" type="Texture" id=53]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor3_normal.png" type="Texture" id=54]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor3.png" type="Texture" id=55]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor4_normal.png" type="Texture" id=56]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor4.png" type="Texture" id=57]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor5_normal.png" type="Texture" id=58]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor5.png" type="Texture" id=59]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor6_normal.png" type="Texture" id=60]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor6.png" type="Texture" id=61]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor7_normal.png" type="Texture" id=62]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor7.png" type="Texture" id=63]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor8_normal.png" type="Texture" id=64]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor8.png" type="Texture" id=65]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/sandstone_floor9_normal.png" type="Texture" id=66]
+[ext_resource path="res://graphics/dungeon/floorsx24/sandstone_floor9.png" type="Texture" id=67]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood1_normal.png" type="Texture" id=68]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood1.png" type="Texture" id=69]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab1_normal.png" type="Texture" id=70]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab1.png" type="Texture" id=71]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab2_normal.png" type="Texture" id=72]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab2.png" type="Texture" id=73]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab3_normal.png" type="Texture" id=74]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab3.png" type="Texture" id=75]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab4_normal.png" type="Texture" id=76]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab4.png" type="Texture" id=77]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab5_normal.png" type="Texture" id=78]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab5.png" type="Texture" id=79]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab6_normal.png" type="Texture" id=80]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab6.png" type="Texture" id=81]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab7_normal.png" type="Texture" id=82]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab7.png" type="Texture" id=83]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab8_normal.png" type="Texture" id=84]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab8.png" type="Texture" id=85]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab9_normal.png" type="Texture" id=86]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab9.png" type="Texture" id=87]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab10_normal.png" type="Texture" id=88]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab10.png" type="Texture" id=89]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood2_normal.png" type="Texture" id=90]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood2.png" type="Texture" id=91]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab11_normal.png" type="Texture" id=92]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab11.png" type="Texture" id=93]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab12_normal.png" type="Texture" id=94]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab12.png" type="Texture" id=95]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab13_normal.png" type="Texture" id=96]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab13.png" type="Texture" id=97]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab14_normal.png" type="Texture" id=98]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab14.png" type="Texture" id=99]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab15_normal.png" type="Texture" id=100]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab15.png" type="Texture" id=101]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/slab16_normal.png" type="Texture" id=102]
+[ext_resource path="res://graphics/dungeon/floorsx24/slab16.png" type="Texture" id=103]
+[ext_resource path="res://graphics/dungeon/floorsx24/dot.png" type="Texture" id=104]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown0.png" type="Texture" id=105]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown1.png" type="Texture" id=106]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown2.png" type="Texture" id=107]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood3_normal.png" type="Texture" id=108]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood3.png" type="Texture" id=109]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown3.png" type="Texture" id=110]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown4.png" type="Texture" id=111]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown5.png" type="Texture" id=112]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown6.png" type="Texture" id=113]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_brown7.png" type="Texture" id=114]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark0.png" type="Texture" id=115]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark1.png" type="Texture" id=116]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark2.png" type="Texture" id=117]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark3.png" type="Texture" id=118]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark4.png" type="Texture" id=119]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood4_normal.png" type="Texture" id=120]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood4.png" type="Texture" id=121]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark5.png" type="Texture" id=122]
+[ext_resource path="res://graphics/dungeon/wallsx24/brick_dark6.png" type="Texture" id=123]
+[ext_resource path="res://graphics/dungeon/wallsx24/hash.png" type="Texture" id=124]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall0.png" type="Texture" id=125]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall1.png" type="Texture" id=126]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall2.png" type="Texture" id=127]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall3.png" type="Texture" id=128]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall4.png" type="Texture" id=129]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall5.png" type="Texture" id=130]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall6.png" type="Texture" id=131]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood5_normal.png" type="Texture" id=132]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood5.png" type="Texture" id=133]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall7.png" type="Texture" id=134]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall8.png" type="Texture" id=135]
+[ext_resource path="res://graphics/dungeon/wallsx24/sandstone_wall9.png" type="Texture" id=136]
+[ext_resource path="res://graphics/dungeon/wallsx24/slime0.png" type="Texture" id=137]
+[ext_resource path="res://graphics/dungeon/wallsx24/slime1.png" type="Texture" id=138]
+[ext_resource path="res://graphics/dungeon/wallsx24/slime2.png" type="Texture" id=139]
+[ext_resource path="res://graphics/dungeon/wallsx24/slime3.png" type="Texture" id=140]
+[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray0.png" type="Texture" id=141]
+[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray1.png" type="Texture" id=142]
+[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray2.png" type="Texture" id=143]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood7_normal.png" type="Texture" id=144]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood7.png" type="Texture" id=145]
+[ext_resource path="res://graphics/dungeon/wallsx24/stone_gray3.png" type="Texture" id=146]
+[ext_resource path="res://graphics/dungeon/floorsx24/normals/cobble_blood6_normal.png" type="Texture" id=147]
+[ext_resource path="res://graphics/dungeon/floorsx24/cobble_blood6.png" type="Texture" id=148]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
@@ -238,7 +294,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 
 [resource]
 0/name = "bog_green0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
+0/normal_map = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 24, 24 )
@@ -249,7 +306,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = "bog_green1"
-1/texture = ExtResource( 2 )
+1/texture = ExtResource( 4 )
+1/normal_map = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 24, 24 )
@@ -260,7 +318,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = "bog_green2"
-2/texture = ExtResource( 13 )
+2/texture = ExtResource( 25 )
+2/normal_map = ExtResource( 24 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 24, 24 )
@@ -270,7 +329,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = "bog_green3"
-3/texture = ExtResource( 24 )
+3/texture = ExtResource( 47 )
+3/normal_map = ExtResource( 46 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 24, 24 )
@@ -280,7 +340,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = "cobble_blood1"
-4/texture = ExtResource( 35 )
+4/texture = ExtResource( 69 )
+4/normal_map = ExtResource( 68 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 24, 24 )
@@ -290,7 +351,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 4/shapes = [  ]
 4/z_index = 0
 5/name = "cobble_blood2"
-5/texture = ExtResource( 46 )
+5/texture = ExtResource( 91 )
+5/normal_map = ExtResource( 90 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 24, 24 )
@@ -300,7 +362,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 5/shapes = [  ]
 5/z_index = 0
 6/name = "cobble_blood3"
-6/texture = ExtResource( 57 )
+6/texture = ExtResource( 109 )
+6/normal_map = ExtResource( 108 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 24, 24 )
@@ -310,7 +373,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 6/shapes = [  ]
 6/z_index = 0
 7/name = "cobble_blood4"
-7/texture = ExtResource( 68 )
+7/texture = ExtResource( 121 )
+7/normal_map = ExtResource( 120 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 24, 24 )
@@ -320,7 +384,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 7/shapes = [  ]
 7/z_index = 0
 8/name = "cobble_blood5"
-8/texture = ExtResource( 79 )
+8/texture = ExtResource( 133 )
+8/normal_map = ExtResource( 132 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 24, 24 )
@@ -330,7 +395,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 8/shapes = [  ]
 8/z_index = 0
 9/name = "cobble_blood7"
-9/texture = ExtResource( 90 )
+9/texture = ExtResource( 145 )
+9/normal_map = ExtResource( 144 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 24, 24 )
@@ -340,7 +406,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 9/shapes = [  ]
 9/z_index = 0
 10/name = "cobble_blood8"
-10/texture = ExtResource( 3 )
+10/texture = ExtResource( 6 )
+10/normal_map = ExtResource( 5 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 0, 24, 24 )
@@ -350,7 +417,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 10/shapes = [  ]
 10/z_index = 0
 11/name = "cobble_blood9"
-11/texture = ExtResource( 4 )
+11/texture = ExtResource( 8 )
+11/normal_map = ExtResource( 7 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 0, 24, 24 )
@@ -360,7 +428,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 11/shapes = [  ]
 11/z_index = 0
 12/name = "cobble_blood10"
-12/texture = ExtResource( 5 )
+12/texture = ExtResource( 10 )
+12/normal_map = ExtResource( 9 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 0, 24, 24 )
@@ -370,7 +439,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 12/shapes = [  ]
 12/z_index = 0
 13/name = "cobble_blood11"
-13/texture = ExtResource( 6 )
+13/texture = ExtResource( 12 )
+13/normal_map = ExtResource( 11 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 24, 24 )
@@ -380,7 +450,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 13/shapes = [  ]
 13/z_index = 0
 14/name = "cobble_blood0"
-14/texture = ExtResource( 7 )
+14/texture = ExtResource( 14 )
+14/normal_map = ExtResource( 13 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 0, 24, 24 )
@@ -390,7 +461,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 14/shapes = [  ]
 14/z_index = 0
 15/name = "grey_dirt0"
-15/texture = ExtResource( 8 )
+15/texture = ExtResource( 16 )
+15/normal_map = ExtResource( 15 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 0, 24, 24 )
@@ -400,7 +472,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = "grey_dirt1"
-16/texture = ExtResource( 9 )
+16/texture = ExtResource( 18 )
+16/normal_map = ExtResource( 17 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 0, 0, 24, 24 )
@@ -410,7 +483,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 16/shapes = [  ]
 16/z_index = 0
 17/name = "grey_dirt2"
-17/texture = ExtResource( 10 )
+17/texture = ExtResource( 19 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 0, 0, 24, 24 )
@@ -420,7 +493,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 17/shapes = [  ]
 17/z_index = 0
 18/name = "grey_dirt3"
-18/texture = ExtResource( 11 )
+18/texture = ExtResource( 21 )
+18/normal_map = ExtResource( 20 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 0, 0, 24, 24 )
@@ -430,7 +504,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = "grey_dirt4"
-19/texture = ExtResource( 12 )
+19/texture = ExtResource( 23 )
+19/normal_map = ExtResource( 22 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 0, 0, 24, 24 )
@@ -440,7 +515,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 19/shapes = [  ]
 19/z_index = 0
 20/name = "grey_dirt5"
-20/texture = ExtResource( 14 )
+20/texture = ExtResource( 27 )
+20/normal_map = ExtResource( 26 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 0, 0, 24, 24 )
@@ -450,7 +526,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 20/shapes = [  ]
 20/z_index = 0
 21/name = "grey_dirt6"
-21/texture = ExtResource( 15 )
+21/texture = ExtResource( 29 )
+21/normal_map = ExtResource( 28 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 0, 24, 24 )
@@ -460,7 +537,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 21/shapes = [  ]
 21/z_index = 0
 22/name = "marble_floor0"
-22/texture = ExtResource( 16 )
+22/texture = ExtResource( 31 )
+22/normal_map = ExtResource( 30 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 0, 0, 24, 24 )
@@ -470,7 +548,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 22/shapes = [  ]
 22/z_index = 0
 23/name = "marble_floor1"
-23/texture = ExtResource( 17 )
+23/texture = ExtResource( 33 )
+23/normal_map = ExtResource( 32 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 0, 0, 24, 24 )
@@ -480,7 +559,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 23/shapes = [  ]
 23/z_index = 0
 24/name = "marble_floor2"
-24/texture = ExtResource( 18 )
+24/texture = ExtResource( 35 )
+24/normal_map = ExtResource( 34 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 0, 0, 24, 24 )
@@ -490,7 +570,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 24/shapes = [  ]
 24/z_index = 0
 25/name = "marble_floor3"
-25/texture = ExtResource( 19 )
+25/texture = ExtResource( 37 )
+25/normal_map = ExtResource( 36 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 0, 0, 24, 24 )
@@ -500,7 +581,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 25/shapes = [  ]
 25/z_index = 0
 26/name = "marble_floor4"
-26/texture = ExtResource( 20 )
+26/texture = ExtResource( 39 )
+26/normal_map = ExtResource( 38 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 0, 0, 24, 24 )
@@ -510,7 +592,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 26/shapes = [  ]
 26/z_index = 0
 27/name = "marble_floor5"
-27/texture = ExtResource( 21 )
+27/texture = ExtResource( 41 )
+27/normal_map = ExtResource( 40 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 0, 0, 24, 24 )
@@ -520,7 +603,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 27/shapes = [  ]
 27/z_index = 0
 28/name = "marble_floor6"
-28/texture = ExtResource( 22 )
+28/texture = ExtResource( 43 )
+28/normal_map = ExtResource( 42 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 0, 0, 24, 24 )
@@ -530,7 +614,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 28/shapes = [  ]
 28/z_index = 0
 29/name = "marble_floor7"
-29/texture = ExtResource( 23 )
+29/texture = ExtResource( 45 )
+29/normal_map = ExtResource( 44 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 0, 0, 24, 24 )
@@ -540,7 +625,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 29/shapes = [  ]
 29/z_index = 0
 30/name = "sandstone_floor0"
-30/texture = ExtResource( 25 )
+30/texture = ExtResource( 49 )
+30/normal_map = ExtResource( 48 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 0, 24, 24 )
@@ -550,7 +636,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 30/shapes = [  ]
 30/z_index = 0
 31/name = "sandstone_floor1"
-31/texture = ExtResource( 26 )
+31/texture = ExtResource( 51 )
+31/normal_map = ExtResource( 50 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 0, 0, 24, 24 )
@@ -560,7 +647,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 31/shapes = [  ]
 31/z_index = 0
 32/name = "sandstone_floor2"
-32/texture = ExtResource( 27 )
+32/texture = ExtResource( 53 )
+32/normal_map = ExtResource( 52 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 0, 0, 24, 24 )
@@ -570,7 +658,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 32/shapes = [  ]
 32/z_index = 0
 33/name = "sandstone_floor3"
-33/texture = ExtResource( 28 )
+33/texture = ExtResource( 55 )
+33/normal_map = ExtResource( 54 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 0, 0, 24, 24 )
@@ -580,7 +669,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 33/shapes = [  ]
 33/z_index = 0
 34/name = "sandstone_floor4"
-34/texture = ExtResource( 29 )
+34/texture = ExtResource( 57 )
+34/normal_map = ExtResource( 56 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 0, 0, 24, 24 )
@@ -590,7 +680,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 34/shapes = [  ]
 34/z_index = 0
 35/name = "sandstone_floor5"
-35/texture = ExtResource( 30 )
+35/texture = ExtResource( 59 )
+35/normal_map = ExtResource( 58 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 0, 0, 24, 24 )
@@ -600,7 +691,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 35/shapes = [  ]
 35/z_index = 0
 36/name = "sandstone_floor6"
-36/texture = ExtResource( 31 )
+36/texture = ExtResource( 61 )
+36/normal_map = ExtResource( 60 )
 36/tex_offset = Vector2( 0, 0 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 0, 0, 24, 24 )
@@ -610,7 +702,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 36/shapes = [  ]
 36/z_index = 0
 37/name = "sandstone_floor7"
-37/texture = ExtResource( 32 )
+37/texture = ExtResource( 63 )
+37/normal_map = ExtResource( 62 )
 37/tex_offset = Vector2( 0, 0 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 0, 0, 24, 24 )
@@ -620,7 +713,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 37/shapes = [  ]
 37/z_index = 0
 38/name = "sandstone_floor8"
-38/texture = ExtResource( 33 )
+38/texture = ExtResource( 65 )
+38/normal_map = ExtResource( 64 )
 38/tex_offset = Vector2( 0, 0 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 0, 0, 24, 24 )
@@ -630,7 +724,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 38/shapes = [  ]
 38/z_index = 0
 39/name = "sandstone_floor9"
-39/texture = ExtResource( 34 )
+39/texture = ExtResource( 67 )
+39/normal_map = ExtResource( 66 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 0, 0, 24, 24 )
@@ -640,7 +735,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 39/shapes = [  ]
 39/z_index = 0
 40/name = "slab1"
-40/texture = ExtResource( 36 )
+40/texture = ExtResource( 71 )
+40/normal_map = ExtResource( 70 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 0, 0, 24, 24 )
@@ -650,7 +746,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 40/shapes = [  ]
 40/z_index = 0
 41/name = "slab2"
-41/texture = ExtResource( 37 )
+41/texture = ExtResource( 73 )
+41/normal_map = ExtResource( 72 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 0, 0, 24, 24 )
@@ -660,7 +757,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 41/shapes = [  ]
 41/z_index = 0
 42/name = "slab3"
-42/texture = ExtResource( 38 )
+42/texture = ExtResource( 75 )
+42/normal_map = ExtResource( 74 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 0, 24, 24 )
@@ -670,7 +768,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 42/shapes = [  ]
 42/z_index = 0
 43/name = "slab4"
-43/texture = ExtResource( 39 )
+43/texture = ExtResource( 77 )
+43/normal_map = ExtResource( 76 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 0, 0, 24, 24 )
@@ -680,7 +779,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 43/shapes = [  ]
 43/z_index = 0
 44/name = "slab5"
-44/texture = ExtResource( 40 )
+44/texture = ExtResource( 79 )
+44/normal_map = ExtResource( 78 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 0, 0, 24, 24 )
@@ -690,7 +790,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 44/shapes = [  ]
 44/z_index = 0
 45/name = "slab6"
-45/texture = ExtResource( 41 )
+45/texture = ExtResource( 81 )
+45/normal_map = ExtResource( 80 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 0, 24, 24 )
@@ -700,7 +801,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = "slab7"
-46/texture = ExtResource( 42 )
+46/texture = ExtResource( 83 )
+46/normal_map = ExtResource( 82 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 0, 0, 24, 24 )
@@ -710,7 +812,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = "slab8"
-47/texture = ExtResource( 43 )
+47/texture = ExtResource( 85 )
+47/normal_map = ExtResource( 84 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 0, 0, 24, 24 )
@@ -720,7 +823,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 47/shapes = [  ]
 47/z_index = 0
 48/name = "slab9"
-48/texture = ExtResource( 44 )
+48/texture = ExtResource( 87 )
+48/normal_map = ExtResource( 86 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 0, 0, 24, 24 )
@@ -730,7 +834,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 48/shapes = [  ]
 48/z_index = 0
 49/name = "slab10"
-49/texture = ExtResource( 45 )
+49/texture = ExtResource( 89 )
+49/normal_map = ExtResource( 88 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 0, 0, 24, 24 )
@@ -740,7 +845,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 49/shapes = [  ]
 49/z_index = 0
 50/name = "slab11"
-50/texture = ExtResource( 47 )
+50/texture = ExtResource( 93 )
+50/normal_map = ExtResource( 92 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 0, 0, 24, 24 )
@@ -750,7 +856,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 50/shapes = [  ]
 50/z_index = 0
 51/name = "slab12"
-51/texture = ExtResource( 48 )
+51/texture = ExtResource( 95 )
+51/normal_map = ExtResource( 94 )
 51/tex_offset = Vector2( 0, 0 )
 51/modulate = Color( 1, 1, 1, 1 )
 51/region = Rect2( 0, 0, 24, 24 )
@@ -760,7 +867,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 51/shapes = [  ]
 51/z_index = 0
 52/name = "slab13"
-52/texture = ExtResource( 49 )
+52/texture = ExtResource( 97 )
+52/normal_map = ExtResource( 96 )
 52/tex_offset = Vector2( 0, 0 )
 52/modulate = Color( 1, 1, 1, 1 )
 52/region = Rect2( 0, 0, 24, 24 )
@@ -770,7 +878,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 52/shapes = [  ]
 52/z_index = 0
 53/name = "slab14"
-53/texture = ExtResource( 50 )
+53/texture = ExtResource( 99 )
+53/normal_map = ExtResource( 98 )
 53/tex_offset = Vector2( 0, 0 )
 53/modulate = Color( 1, 1, 1, 1 )
 53/region = Rect2( 0, 0, 24, 24 )
@@ -780,7 +889,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 53/shapes = [  ]
 53/z_index = 0
 54/name = "slab15"
-54/texture = ExtResource( 51 )
+54/texture = ExtResource( 101 )
+54/normal_map = ExtResource( 100 )
 54/tex_offset = Vector2( 0, 0 )
 54/modulate = Color( 1, 1, 1, 1 )
 54/region = Rect2( 0, 0, 24, 24 )
@@ -790,7 +900,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 54/shapes = [  ]
 54/z_index = 0
 55/name = "slab0"
-55/texture = ExtResource( 52 )
+55/texture = ExtResource( 103 )
+55/normal_map = ExtResource( 102 )
 55/tex_offset = Vector2( 0, 0 )
 55/modulate = Color( 1, 1, 1, 1 )
 55/region = Rect2( 0, 0, 24, 24 )
@@ -800,7 +911,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 55/shapes = [  ]
 55/z_index = 0
 56/name = "dot"
-56/texture = ExtResource( 53 )
+56/texture = ExtResource( 104 )
 56/tex_offset = Vector2( 0, 0 )
 56/modulate = Color( 1, 1, 1, 1 )
 56/region = Rect2( 0, 0, 24, 24 )
@@ -810,7 +921,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 56/shapes = [  ]
 56/z_index = 0
 57/name = "brick_brown0"
-57/texture = ExtResource( 54 )
+57/texture = ExtResource( 105 )
 57/tex_offset = Vector2( 0, 0 )
 57/modulate = Color( 1, 1, 1, 1 )
 57/region = Rect2( 0, 0, 24, 24 )
@@ -821,7 +932,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 57/shapes = [  ]
 57/z_index = 0
 58/name = "brick_brown1"
-58/texture = ExtResource( 55 )
+58/texture = ExtResource( 106 )
 58/tex_offset = Vector2( 0, 0 )
 58/modulate = Color( 1, 1, 1, 1 )
 58/region = Rect2( 0, 0, 24, 24 )
@@ -832,7 +943,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 58/shapes = [  ]
 58/z_index = 0
 59/name = "brick_brown2"
-59/texture = ExtResource( 56 )
+59/texture = ExtResource( 107 )
 59/tex_offset = Vector2( 0, 0 )
 59/modulate = Color( 1, 1, 1, 1 )
 59/region = Rect2( 0, 0, 24, 24 )
@@ -843,7 +954,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 59/shapes = [  ]
 59/z_index = 0
 60/name = "brick_brown3"
-60/texture = ExtResource( 58 )
+60/texture = ExtResource( 110 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 0, 0, 24, 24 )
@@ -854,7 +965,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 60/shapes = [  ]
 60/z_index = 0
 61/name = "brick_brown4"
-61/texture = ExtResource( 59 )
+61/texture = ExtResource( 111 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 0, 0, 24, 24 )
@@ -865,7 +976,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 61/shapes = [  ]
 61/z_index = 0
 62/name = "brick_brown5"
-62/texture = ExtResource( 60 )
+62/texture = ExtResource( 112 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 0, 0, 24, 24 )
@@ -876,7 +987,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 62/shapes = [  ]
 62/z_index = 0
 63/name = "brick_brown6"
-63/texture = ExtResource( 61 )
+63/texture = ExtResource( 113 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 0, 0, 24, 24 )
@@ -887,7 +998,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 63/shapes = [  ]
 63/z_index = 0
 64/name = "brick_brown7"
-64/texture = ExtResource( 62 )
+64/texture = ExtResource( 114 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 0, 0, 24, 24 )
@@ -898,7 +1009,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 64/shapes = [  ]
 64/z_index = 0
 65/name = "brick_dark0"
-65/texture = ExtResource( 63 )
+65/texture = ExtResource( 115 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 0, 0, 24, 24 )
@@ -909,7 +1020,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 65/shapes = [  ]
 65/z_index = 0
 66/name = "brick_dark1"
-66/texture = ExtResource( 64 )
+66/texture = ExtResource( 116 )
 66/tex_offset = Vector2( 0, 0 )
 66/modulate = Color( 1, 1, 1, 1 )
 66/region = Rect2( 0, 0, 24, 24 )
@@ -920,7 +1031,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 66/shapes = [  ]
 66/z_index = 0
 67/name = "brick_dark2"
-67/texture = ExtResource( 65 )
+67/texture = ExtResource( 117 )
 67/tex_offset = Vector2( 0, 0 )
 67/modulate = Color( 1, 1, 1, 1 )
 67/region = Rect2( 0, 0, 24, 24 )
@@ -931,7 +1042,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 67/shapes = [  ]
 67/z_index = 0
 68/name = "brick_dark3"
-68/texture = ExtResource( 66 )
+68/texture = ExtResource( 118 )
 68/tex_offset = Vector2( 0, 0 )
 68/modulate = Color( 1, 1, 1, 1 )
 68/region = Rect2( 0, 0, 24, 24 )
@@ -942,7 +1053,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 68/shapes = [  ]
 68/z_index = 0
 69/name = "brick_dark4"
-69/texture = ExtResource( 67 )
+69/texture = ExtResource( 119 )
 69/tex_offset = Vector2( 0, 0 )
 69/modulate = Color( 1, 1, 1, 1 )
 69/region = Rect2( 0, 0, 24, 24 )
@@ -953,7 +1064,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 69/shapes = [  ]
 69/z_index = 0
 70/name = "brick_dark5"
-70/texture = ExtResource( 69 )
+70/texture = ExtResource( 122 )
 70/tex_offset = Vector2( 0, 0 )
 70/modulate = Color( 1, 1, 1, 1 )
 70/region = Rect2( 0, 0, 24, 24 )
@@ -964,7 +1075,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 70/shapes = [  ]
 70/z_index = 0
 71/name = "brick_dark6"
-71/texture = ExtResource( 70 )
+71/texture = ExtResource( 123 )
 71/tex_offset = Vector2( 0, 0 )
 71/modulate = Color( 1, 1, 1, 1 )
 71/region = Rect2( 0, 0, 24, 24 )
@@ -975,7 +1086,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 71/shapes = [  ]
 71/z_index = 0
 72/name = "hash"
-72/texture = ExtResource( 71 )
+72/texture = ExtResource( 124 )
 72/tex_offset = Vector2( 0, 0 )
 72/modulate = Color( 1, 1, 1, 1 )
 72/region = Rect2( 0, 0, 24, 24 )
@@ -986,7 +1097,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 72/shapes = [  ]
 72/z_index = 0
 73/name = "sandstone_wall0"
-73/texture = ExtResource( 72 )
+73/texture = ExtResource( 125 )
 73/tex_offset = Vector2( 0, 0 )
 73/modulate = Color( 1, 1, 1, 1 )
 73/region = Rect2( 0, 0, 24, 24 )
@@ -997,7 +1108,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 73/shapes = [  ]
 73/z_index = 0
 74/name = "sandstone_wall1"
-74/texture = ExtResource( 73 )
+74/texture = ExtResource( 126 )
 74/tex_offset = Vector2( 0, 0 )
 74/modulate = Color( 1, 1, 1, 1 )
 74/region = Rect2( 0, 0, 24, 24 )
@@ -1008,7 +1119,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 74/shapes = [  ]
 74/z_index = 0
 75/name = "sandstone_wall2"
-75/texture = ExtResource( 74 )
+75/texture = ExtResource( 127 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 0, 0, 24, 24 )
@@ -1019,7 +1130,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 75/shapes = [  ]
 75/z_index = 0
 76/name = "sandstone_wall3"
-76/texture = ExtResource( 75 )
+76/texture = ExtResource( 128 )
 76/tex_offset = Vector2( 0, 0 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 0, 0, 24, 24 )
@@ -1030,7 +1141,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 76/shapes = [  ]
 76/z_index = 0
 77/name = "sandstone_wall4"
-77/texture = ExtResource( 76 )
+77/texture = ExtResource( 129 )
 77/tex_offset = Vector2( 0, 0 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 0, 0, 24, 24 )
@@ -1041,7 +1152,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 77/shapes = [  ]
 77/z_index = 0
 78/name = "sandstone_wall5"
-78/texture = ExtResource( 77 )
+78/texture = ExtResource( 130 )
 78/tex_offset = Vector2( 0, 0 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 0, 0, 24, 24 )
@@ -1052,7 +1163,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 78/shapes = [  ]
 78/z_index = 0
 79/name = "sandstone_wall6"
-79/texture = ExtResource( 78 )
+79/texture = ExtResource( 131 )
 79/tex_offset = Vector2( 0, 0 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 0, 0, 24, 24 )
@@ -1063,7 +1174,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 79/shapes = [  ]
 79/z_index = 0
 80/name = "sandstone_wall7"
-80/texture = ExtResource( 80 )
+80/texture = ExtResource( 134 )
 80/tex_offset = Vector2( 0, 0 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 0, 0, 24, 24 )
@@ -1074,7 +1185,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 80/shapes = [  ]
 80/z_index = 0
 81/name = "sandstone_wall8"
-81/texture = ExtResource( 81 )
+81/texture = ExtResource( 135 )
 81/tex_offset = Vector2( 0, 0 )
 81/modulate = Color( 1, 1, 1, 1 )
 81/region = Rect2( 0, 0, 24, 24 )
@@ -1085,7 +1196,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 81/shapes = [  ]
 81/z_index = 0
 82/name = "sandstone_wall9"
-82/texture = ExtResource( 82 )
+82/texture = ExtResource( 136 )
 82/tex_offset = Vector2( 0, 0 )
 82/modulate = Color( 1, 1, 1, 1 )
 82/region = Rect2( 0, 0, 24, 24 )
@@ -1096,7 +1207,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 82/shapes = [  ]
 82/z_index = 0
 83/name = "slime0"
-83/texture = ExtResource( 83 )
+83/texture = ExtResource( 137 )
 83/tex_offset = Vector2( 0, 0 )
 83/modulate = Color( 1, 1, 1, 1 )
 83/region = Rect2( 0, 0, 24, 24 )
@@ -1107,7 +1218,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 83/shapes = [  ]
 83/z_index = 0
 84/name = "slime1"
-84/texture = ExtResource( 84 )
+84/texture = ExtResource( 138 )
 84/tex_offset = Vector2( 0, 0 )
 84/modulate = Color( 1, 1, 1, 1 )
 84/region = Rect2( 0, 0, 24, 24 )
@@ -1118,7 +1229,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 84/shapes = [  ]
 84/z_index = 0
 85/name = "slime2"
-85/texture = ExtResource( 85 )
+85/texture = ExtResource( 139 )
 85/tex_offset = Vector2( 0, 0 )
 85/modulate = Color( 1, 1, 1, 1 )
 85/region = Rect2( 0, 0, 24, 24 )
@@ -1129,7 +1240,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 85/shapes = [  ]
 85/z_index = 0
 86/name = "slime3"
-86/texture = ExtResource( 86 )
+86/texture = ExtResource( 140 )
 86/tex_offset = Vector2( 0, 0 )
 86/modulate = Color( 1, 1, 1, 1 )
 86/region = Rect2( 0, 0, 24, 24 )
@@ -1140,7 +1251,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 86/shapes = [  ]
 86/z_index = 0
 87/name = "stone_gray0"
-87/texture = ExtResource( 87 )
+87/texture = ExtResource( 141 )
 87/tex_offset = Vector2( 0, 0 )
 87/modulate = Color( 1, 1, 1, 1 )
 87/region = Rect2( 0, 0, 24, 24 )
@@ -1151,7 +1262,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 87/shapes = [  ]
 87/z_index = 0
 88/name = "stone_gray1"
-88/texture = ExtResource( 88 )
+88/texture = ExtResource( 142 )
 88/tex_offset = Vector2( 0, 0 )
 88/modulate = Color( 1, 1, 1, 1 )
 88/region = Rect2( 0, 0, 24, 24 )
@@ -1162,7 +1273,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 88/shapes = [  ]
 88/z_index = 0
 89/name = "stone_gray2"
-89/texture = ExtResource( 89 )
+89/texture = ExtResource( 143 )
 89/tex_offset = Vector2( 0, 0 )
 89/modulate = Color( 1, 1, 1, 1 )
 89/region = Rect2( 0, 0, 24, 24 )
@@ -1173,7 +1284,7 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 89/shapes = [  ]
 89/z_index = 0
 90/name = "stone_gray3"
-90/texture = ExtResource( 91 )
+90/texture = ExtResource( 146 )
 90/tex_offset = Vector2( 0, 0 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 0, 0, 24, 24 )
@@ -1184,7 +1295,8 @@ polygon = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 90/shapes = [  ]
 90/z_index = 0
 91/name = "cobble_blood6.png 91"
-91/texture = ExtResource( 92 )
+91/texture = ExtResource( 148 )
+91/normal_map = ExtResource( 147 )
 91/tex_offset = Vector2( 0, 0 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 0, 0, 24, 24 )
