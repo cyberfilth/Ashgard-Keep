@@ -6,31 +6,24 @@
 [ext_resource path="res://objects/components/Armour/Armour.tscn" type="PackedScene" id=4]
 
 [node name="Object" type="Node2D"]
-
 script = ExtResource( 1 )
-name = "Leather Armour"
+object_name = "Leather Armour"
 proper_name = true
-blocks_movement = false
 stay_visible = true
-trap = false
 
 [node name="Sprite" type="Sprite" parent="."]
-
-visibility/blend_mode = 1
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Brand" type="Sprite" parent="."]
-
 position = Vector2( 0, -1 )
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
-
 use_function = "armour"
+effect_name = ""
 throw_range = 5
 throw_damage = 4
 
 [node name="Armour" parent="." instance=ExtResource( 4 )]
-
 armour_protection = 3
 description = "Fine Leather +3 DEFENCE"

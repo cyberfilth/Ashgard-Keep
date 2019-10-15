@@ -2,17 +2,17 @@
 
 extends Node
 
-onready var parent = get_parent()
+onready var object_owner = get_parent()
 var seen = false # Changes to true when the Goblin first sees the player
 var utterances = ['Help me! It\'s growing inside meeee!', 'Aaah, it\'s taking over my mind!',\
 'NOOooooooo! I\'m changing....', 'The mushrooms! Don\'t let them touch yoooooo!']
 
 func _ready():
-	parent.ai = self
+	object_owner.ai = self
 
 func take_turn():
 	var target = GameData.player
-	var distance = parent.distance_to(target.get_map_position())
+	var distance = object_owner.distance_to(target.get_map_position())
 	if distance <= (GameData.player_radius - 2):
 		if seen == false:
 			grunt()
@@ -30,5 +30,5 @@ func transform():
 	var scene_instance = spore_cloud.instance()
 	scene_instance.set_name("spore_cloud")
 	GameData.map.add_child(scene_instance)
-	scene_instance.set_position(GameData.map.map_to_world(parent.get_map_position()))
-	GameData.map.spawn_mushroom_goblin(GameData.map.map_to_world(parent.get_map_position()))
+	scene_instance.set_position(GameData.map.map_to_world(object_owner.get_map_position()))
+	GameData.map.spawn_mushroom_goblin(GameData.map.map_to_world(object_owner.get_map_position()))

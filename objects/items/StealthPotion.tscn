@@ -9,7 +9,7 @@
 
 visibility/blend_mode = 1
 script = ExtResource( 1 )
-name = "Potion of Stealth"
+object_name = "Potion of Stealth"
 proper_name = true
 blocks_movement = false
 stay_visible = true

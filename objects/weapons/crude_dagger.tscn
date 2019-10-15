@@ -8,7 +8,7 @@
 [node name="Object" type="Node2D"]
 
 script = ExtResource( 1 )
-name = "crude dagger"
+object_name = "crude dagger"
 proper_name = true
 blocks_movement = false
 stay_visible = true

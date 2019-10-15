@@ -9,7 +9,7 @@
 [node name="Object" type="Node2D"]
 
 script = ExtResource( 1 )
-name = "Patchwork Bride"
+object_name = "Patchwork Bride"
 proper_name = true
 named_name = false
 blocks_movement = true
