@@ -40,6 +40,7 @@ script = ExtResource( 1 )
 [node name="Screen" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 1
 
 [node name="TextureFrame" type="TextureRect" parent="Screen"]
 modulate = Color( 0, 0, 0, 0 )
@@ -48,6 +49,7 @@ anchor_bottom = 1.0
 margin_right = -40.0
 margin_bottom = -40.0
 rect_min_size = Vector2( 800, 600 )
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 
