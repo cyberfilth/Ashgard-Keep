@@ -19,7 +19,6 @@ func _ready():
 	if !save_exists:
 		get_node('Menu/CentreRow/Buttons/HBoxContainer 2/Continue').add_color_override("font_color", Color(0, 0.55, 0.55, 1))
 	
-	_on_NewGame_pressed()
 	
 # new game
 func _on_NewGame_pressed():
