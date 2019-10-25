@@ -43,14 +43,12 @@ func _on_Quit_pressed():
 
 # menu hover effect
 func _on_NewGame_mouse_enter():
-	print("enter new")
 	newgame_icon.show()
 
 func _on_NewGame_mouse_exit():
 	newgame_icon.hide()
 
 func _on_Continue_mouse_enter():
-	print("enter cont")
 	continue_icon.show()
 
 func _on_Continue_mouse_exit():

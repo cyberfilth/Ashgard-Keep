@@ -187,11 +187,18 @@ func restore_game():
 	if !opened == OK:
 		OS.alert("Unable to access file " + GameData.SAVEGAME_PATH)
 		return opened
+		
 	# Dictionary to store file data
-	var data = {}
+	var data :Dictionary= {}
 	# Parse data from json file
-	while not file.eof_reached():
-		data.parse_json(file.get_line())
+	var json_result := JSON.parse(file.get_as_text())
+	if json_result.error == OK:
+		# File contains valid JSON
+		data = json_result.result
+	else:
+		OS.alert("Unable to parse json file " + GameData.SAVEGAME_PATH)
+		return json_result.error
+	
 	# Restore game from data
 	# Game story and characters
 	if 'plot' in data:
